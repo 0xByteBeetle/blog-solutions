@@ -1,0 +1,23 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Foundry
+evm/foundry/cache/
+evm/foundry/out/
+evm/foundry/broadcast/
+
+# Go
+coverage.out
+
+# Node and Anchor
+node_modules/
+**/node_modules/
+**/target/
+**/.anchor/
+**/test-ledger/
+
+# Local validator material
+**/.local/
+**/*.log

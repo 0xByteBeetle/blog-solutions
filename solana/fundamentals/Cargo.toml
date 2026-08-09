@@ -1,0 +1,9 @@
+[package]
+name = "solana-blog-fundamentals"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+borsh = { version = "1.5.7", features = ["derive"] }
+solana-sdk = "3.0.0"

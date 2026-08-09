@@ -1,0 +1,1305 @@
+[
+  {
+    "sequence": 1,
+    "title": "Architecting High-Performance Solana Programs: The Zero-Copy Deep Dive",
+    "slug": "architecting-high-performance-solana",
+    "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+    "publishedAt": "2026-08-04T23:16:15.245Z",
+    "chain": "solana",
+    "wordCount": 2591,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 2,
+    "title": "Solana Deep Dive: Unpacking Borsh Serialization Under the Hood",
+    "slug": "solana-deep-dive-unpacking-borsh",
+    "url": "https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh",
+    "publishedAt": "2026-07-22T17:33:12.903Z",
+    "chain": "solana",
+    "wordCount": 2755,
+    "displayedBlockCount": 13,
+    "coverage": [
+      {
+        "path": "solana/anchor/programs/borsh_lab",
+        "command": "cd solana/anchor && ./scripts/test.sh",
+        "description": "Fixed and dynamic Borsh layouts inspected from raw account buffers"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 3,
+    "title": "The Utility Extensions: Completing the Token-2022 Architecture",
+    "slug": "the-utility-extensions-completing",
+    "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+    "publishedAt": "2026-07-14T12:14:21.966Z",
+    "chain": "solana",
+    "wordCount": 1909,
+    "displayedBlockCount": 13,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 4,
+    "title": "Native ZK on Solana: The Architecture of Confidential Transfers",
+    "slug": "native-zk-on-solana-the-architecture",
+    "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+    "publishedAt": "2026-04-15T15:28:34.076Z",
+    "chain": "solana",
+    "wordCount": 2659,
+    "displayedBlockCount": 12,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-confidential-devnet.sh",
+        "command": "./solana/token-2022/run-confidential-devnet.sh",
+        "description": "The complete confidential deposit, apply, transfer, apply, and withdraw sequence using disposable devnet keys"
+      }
+    ],
+    "verification": {
+      "status": "cluster-limited",
+      "note": "The full flow is implemented. On 9 August 2026, the current local runtime reached the Zk ElGamal proof program, which returned that it was temporarily disabled. No successful output is claimed."
+    }
+  },
+  {
+    "sequence": 5,
+    "title": "Engineering Native Yield: A Deep Dive into Solana's Interest-Bearing Mint Extension",
+    "slug": "engineering-native-yield-a-deep-dive",
+    "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+    "publishedAt": "2026-03-30T19:20:21.700Z",
+    "chain": "solana",
+    "wordCount": 2640,
+    "displayedBlockCount": 10,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 6,
+    "title": "Transfer Hooks on Solana: Anchor 0.31 & Token-2022",
+    "slug": "transfer-hooks-on-solana-anchor-031",
+    "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+    "publishedAt": "2026-03-18T20:19:09.057Z",
+    "chain": "solana",
+    "wordCount": 2879,
+    "displayedBlockCount": 15,
+    "coverage": [
+      {
+        "path": "solana/anchor/programs/transfer_hook",
+        "command": "cd solana/anchor && ./scripts/test.sh",
+        "description": "A deployed Token-2022 transfer hook with ExtraAccountMetaList and accepted and rejected transfers"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 7,
+    "title": "Solana Token-2022 Transfer Hooks and the Fee-on-Transfer Extension",
+    "slug": "solana-token-2022-transfer-hooks",
+    "url": "https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks",
+    "publishedAt": "2026-03-12T15:49:52.940Z",
+    "chain": "solana",
+    "wordCount": 1975,
+    "displayedBlockCount": 9,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      },
+      {
+        "path": "solana/anchor/programs/transfer_hook",
+        "command": "cd solana/anchor && ./scripts/test.sh",
+        "description": "A deployed Token-2022 transfer hook with ExtraAccountMetaList and accepted and rejected transfers"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 8,
+    "title": "From Convention to Explicit State: Token-2022 and Metadata Pointers on Solana",
+    "slug": "from-convention-to-explicit-state",
+    "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+    "publishedAt": "2026-03-05T17:55:39.267Z",
+    "chain": "solana",
+    "wordCount": 2296,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 9,
+    "title": "Where Token Metadata Lives on Solana: From Convention to Explicit Data",
+    "slug": "where-token-metadata-lives-on-solana",
+    "url": "https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana",
+    "publishedAt": "2026-01-19T23:40:11.485Z",
+    "chain": "solana",
+    "wordCount": 1596,
+    "displayedBlockCount": 5,
+    "coverage": [
+      {
+        "path": "solana/metadata",
+        "command": "cd solana/metadata && npm test && npm run check",
+        "description": "Canonical Metaplex metadata PDA derivation and CreateMetadataAccountV3 instruction construction"
+      },
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      }
+    ],
+    "verification": {
+      "status": "offline-verified",
+      "note": "PDA derivation and instruction construction execute in tests. The network scripts are type-checked and require a funded devnet-only mint authority to submit."
+    }
+  },
+  {
+    "sequence": 10,
+    "title": "SPL Token Program Architecture: A Technical Overview",
+    "slug": "spl-token-program-architecture-a",
+    "url": "https://andreyobruchkov1996.substack.com/p/spl-token-program-architecture-a",
+    "publishedAt": "2026-01-13T12:22:10.496Z",
+    "chain": "solana",
+    "wordCount": 1041,
+    "displayedBlockCount": 13,
+    "coverage": [
+      {
+        "path": "solana/token-2022/run-local.sh",
+        "command": "./solana/token-2022/run-local.sh",
+        "description": "Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions"
+      },
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 11,
+    "title": "Understanding Solana – Part 6: Transactions, Messages, and Address Lookup Tables in Practice",
+    "slug": "understanding-solana-part-6-transactions",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+    "publishedAt": "2025-12-24T19:10:30.551Z",
+    "chain": "solana",
+    "wordCount": 2727,
+    "displayedBlockCount": 13,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 12,
+    "title": "Understanding Solana - Part 5: Transaction, Serialization, Signatures, Fees, and Runtime Execution",
+    "slug": "understanding-solana-part-5-transaction",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-5-transaction",
+    "publishedAt": "2025-12-17T17:08:03.619Z",
+    "chain": "solana",
+    "wordCount": 1896,
+    "displayedBlockCount": 9,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 13,
+    "title": "Understanding Solana - Part4: Instructions and Messages",
+    "slug": "understanding-solana-part4-instructions",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part4-instructions",
+    "publishedAt": "2025-12-06T18:10:11.731Z",
+    "chain": "solana",
+    "wordCount": 2056,
+    "displayedBlockCount": 10,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 14,
+    "title": "Understanding Solana - Part 3: Anchor Accounts, Seeds, Bumps, PDAs, and How the Client Really Works",
+    "slug": "understanding-solana-part-3-anchor",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-3-anchor",
+    "publishedAt": "2025-11-18T14:59:48.326Z",
+    "chain": "solana",
+    "wordCount": 2196,
+    "displayedBlockCount": 15,
+    "coverage": [
+      {
+        "path": "solana/anchor/programs/accounts",
+        "command": "cd solana/anchor && ./scripts/test.sh",
+        "description": "PDA creation, byte-bounded names, ownership constraints, updates, and account closure"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 15,
+    "title": "Understanding Solana: Account Model - part 2",
+    "slug": "understanding-solana-account-model",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-account-model",
+    "publishedAt": "2025-11-12T15:27:12.151Z",
+    "chain": "solana",
+    "wordCount": 1654,
+    "displayedBlockCount": 7,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 16,
+    "title": "Proxies and Upgradability - Minimal Proxy (EIP-1167)",
+    "slug": "proxies-and-upgradability-minimal",
+    "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-minimal",
+    "publishedAt": "2025-11-08T18:58:29.763Z",
+    "chain": "evm",
+    "wordCount": 1146,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 17,
+    "title": "Factories - How Smart Contracts Deploy Other Contracts",
+    "slug": "factories-how-smart-contracts-deploy",
+    "url": "https://andreyobruchkov1996.substack.com/p/factories-how-smart-contracts-deploy",
+    "publishedAt": "2025-11-08T18:56:20.953Z",
+    "chain": "evm",
+    "wordCount": 651,
+    "displayedBlockCount": 3,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 18,
+    "title": "Proxies and Upgradability - UUPS proxy (EIP-1822)",
+    "slug": "proxies-and-upgradability-uups-proxy",
+    "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-uups-proxy",
+    "publishedAt": "2025-11-08T18:52:30.929Z",
+    "chain": "evm",
+    "wordCount": 914,
+    "displayedBlockCount": 5,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 19,
+    "title": "Proxies and Upgradability - Transparent Proxy (EIP-1967)",
+    "slug": "proxies-and-upgradability",
+    "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability",
+    "publishedAt": "2025-11-08T18:51:01.914Z",
+    "chain": "evm",
+    "wordCount": 1808,
+    "displayedBlockCount": 11,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 20,
+    "title": "Deployments & Deterministic Addresses (CREATE vs CREATE2)",
+    "slug": "deployments-and-deterministic-addresses",
+    "url": "https://andreyobruchkov1996.substack.com/p/deployments-and-deterministic-addresses",
+    "publishedAt": "2025-11-08T18:48:45.432Z",
+    "chain": "evm",
+    "wordCount": 944,
+    "displayedBlockCount": 11,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 21,
+    "title": "Batching Calls Efficiently with Multicall and RPC batch",
+    "slug": "batching-calls-efficiently-with-multicall",
+    "url": "https://andreyobruchkov1996.substack.com/p/batching-calls-efficiently-with-multicall",
+    "publishedAt": "2025-11-08T18:46:50.969Z",
+    "chain": "evm",
+    "wordCount": 878,
+    "displayedBlockCount": 2,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Observability.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract ObservabilityTest",
+        "description": "Events, native-value accounting, metadata calls, and multicall behavior"
+      },
+      {
+        "path": "evm/go/observability",
+        "command": "cd evm/go && go test ./observability",
+        "description": "Log topics, event decoding, and native-transfer trace interpretation"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 22,
+    "title": "Catching ETH (Native) Transfers Without Events",
+    "slug": "catching-eth-native-transfers-without",
+    "url": "https://andreyobruchkov1996.substack.com/p/catching-eth-native-transfers-without",
+    "publishedAt": "2025-11-08T18:45:22.220Z",
+    "chain": "evm",
+    "wordCount": 491,
+    "displayedBlockCount": 3,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Observability.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract ObservabilityTest",
+        "description": "Events, native-value accounting, metadata calls, and multicall behavior"
+      },
+      {
+        "path": "evm/go/observability",
+        "command": "cd evm/go && go test ./observability",
+        "description": "Log topics, event decoding, and native-transfer trace interpretation"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 23,
+    "title": "Streaming On-Chain Activity in Real Time",
+    "slug": "streaming-on-chain-activity-in-real",
+    "url": "https://andreyobruchkov1996.substack.com/p/streaming-on-chain-activity-in-real",
+    "publishedAt": "2025-11-08T18:43:38.142Z",
+    "chain": "evm",
+    "wordCount": 428,
+    "displayedBlockCount": 1,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Observability.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract ObservabilityTest",
+        "description": "Events, native-value accounting, metadata calls, and multicall behavior"
+      },
+      {
+        "path": "evm/go/observability",
+        "command": "cd evm/go && go test ./observability",
+        "description": "Log topics, event decoding, and native-transfer trace interpretation"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 24,
+    "title": "Understanding Events - The EVM's Built-In Log System",
+    "slug": "understanding-events-the-evms-built",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-events-the-evms-built",
+    "publishedAt": "2025-11-08T18:41:51.932Z",
+    "chain": "evm",
+    "wordCount": 529,
+    "displayedBlockCount": 3,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Observability.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract ObservabilityTest",
+        "description": "Events, native-value accounting, metadata calls, and multicall behavior"
+      },
+      {
+        "path": "evm/go/observability",
+        "command": "cd evm/go && go test ./observability",
+        "description": "Log topics, event decoding, and native-transfer trace interpretation"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 25,
+    "title": "eth_call vs debug_traceCall: How to Simulate, Trace, and Debug Ethereum Transactions",
+    "slug": "eth_call-vs-debug_tracecall-how-to",
+    "url": "https://andreyobruchkov1996.substack.com/p/eth_call-vs-debug_tracecall-how-to",
+    "publishedAt": "2025-11-08T18:40:24.368Z",
+    "chain": "evm",
+    "wordCount": 1214,
+    "displayedBlockCount": 7,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      },
+      {
+        "path": "evm/rpc/run-local.sh",
+        "command": "./evm/rpc/run-local.sh",
+        "description": "Real eth_call and debug_traceCall responses from a disposable Anvil node"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 26,
+    "title": "What's Behind Your RPC: Node Types, Clients, and Why It Matters",
+    "slug": "whats-behind-your-rpc-node-types",
+    "url": "https://andreyobruchkov1996.substack.com/p/whats-behind-your-rpc-node-types",
+    "publishedAt": "2025-11-08T18:38:16.832Z",
+    "chain": "evm",
+    "wordCount": 1184,
+    "displayedBlockCount": 0,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      },
+      {
+        "path": "evm/rpc/run-local.sh",
+        "command": "./evm/rpc/run-local.sh",
+        "description": "Real eth_call and debug_traceCall responses from a disposable Anvil node"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 27,
+    "title": "EVM Message — SignTypedData EIP-712 Secure Off-Chain Signatures for Real-World Ethereum Apps Explained",
+    "slug": "evm-message-signtypeddata-eip-712",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-message-signtypeddata-eip-712",
+    "publishedAt": "2025-11-08T18:36:10.110Z",
+    "chain": "evm",
+    "wordCount": 1166,
+    "displayedBlockCount": 5,
+    "coverage": [
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 28,
+    "title": "EVM Message — Signed Data EIP-191 and the Ethereum Message Prefix",
+    "slug": "evm-message-signed-data-eip-191-and",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-message-signed-data-eip-191-and",
+    "publishedAt": "2025-11-08T18:33:03.834Z",
+    "chain": "evm",
+    "wordCount": 524,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 29,
+    "title": "EVM Tx — SetCode Transactions EIP-7702 Temporary Smart-Account Power for EOAs Explained",
+    "slug": "evm-tx-setcode-transactions-eip-7702",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702",
+    "publishedAt": "2025-11-08T18:30:20.828Z",
+    "chain": "evm",
+    "wordCount": 1743,
+    "displayedBlockCount": 12,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 30,
+    "title": "EVM Tx — Blob Transactions EIP-4844 (Type 0x03) and the First Step Toward Data Sharding",
+    "slug": "evm-tx-blob-transactions-eip-4844",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-blob-transactions-eip-4844",
+    "publishedAt": "2025-11-08T18:27:40.065Z",
+    "chain": "evm",
+    "wordCount": 1947,
+    "displayedBlockCount": 2,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 31,
+    "title": "EVM Tx — Dynamic Fee Transactions EIP-1559 (Type 0x02) Explained",
+    "slug": "evm-tx-dynamic-fee-transactions-eip",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-dynamic-fee-transactions-eip",
+    "publishedAt": "2025-11-08T18:21:27.928Z",
+    "chain": "evm",
+    "wordCount": 1200,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 32,
+    "title": "EVM Tx — Access List Transactions EIP-2930 (Type 0x01) Explained",
+    "slug": "evm-tx-access-list-transactions-eip",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-access-list-transactions-eip",
+    "publishedAt": "2025-11-08T18:18:16.238Z",
+    "chain": "evm",
+    "wordCount": 1238,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 33,
+    "title": "EVM Tx — Understanding Legacy Ethereum Transactions (Type 0x0)",
+    "slug": "evm-tx-understanding-legacy-ethereum",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-understanding-legacy-ethereum",
+    "publishedAt": "2025-11-08T18:11:02.029Z",
+    "chain": "evm",
+    "wordCount": 1077,
+    "displayedBlockCount": 4,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 34,
+    "title": "What is Recursive-length prefix (RLP) serialization",
+    "slug": "what-is-recursive-length-prefix-rlp",
+    "url": "https://andreyobruchkov1996.substack.com/p/what-is-recursive-length-prefix-rlp",
+    "publishedAt": "2025-11-08T18:07:42.615Z",
+    "chain": "evm",
+    "wordCount": 1672,
+    "displayedBlockCount": 4,
+    "coverage": [
+      {
+        "path": "evm/go/rlpmanual",
+        "command": "cd evm/go && go test ./rlpmanual",
+        "description": "Canonical RLP strings, lists, integers, malformed inputs, and trailing-data checks"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 35,
+    "title": "Tracing Ethereum Transactions: How to Read and Understand EVM Execution Step-by-Step",
+    "slug": "tracing-ethereum-transactions-how",
+    "url": "https://andreyobruchkov1996.substack.com/p/tracing-ethereum-transactions-how",
+    "publishedAt": "2025-11-08T18:05:11.426Z",
+    "chain": "evm",
+    "wordCount": 1404,
+    "displayedBlockCount": 11,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      },
+      {
+        "path": "evm/rpc/run-local.sh",
+        "command": "./evm/rpc/run-local.sh",
+        "description": "Real eth_call and debug_traceCall responses from a disposable Anvil node"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 36,
+    "title": "EVM Developer Tools Explained + Foundry Setup",
+    "slug": "evm-developer-tools-explained-foundry",
+    "url": "https://andreyobruchkov1996.substack.com/p/evm-developer-tools-explained-foundry",
+    "publishedAt": "2025-11-08T18:00:54.190Z",
+    "chain": "evm",
+    "wordCount": 1100,
+    "displayedBlockCount": 7,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      },
+      {
+        "path": "evm/rpc/run-local.sh",
+        "command": "./evm/rpc/run-local.sh",
+        "description": "Real eth_call and debug_traceCall responses from a disposable Anvil node"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 37,
+    "title": "Solidity Execution Overview: Payable, Fallback, Calls Types, and Reverts Explained",
+    "slug": "solidity-execution-overview-payable",
+    "url": "https://andreyobruchkov1996.substack.com/p/solidity-execution-overview-payable",
+    "publishedAt": "2025-11-08T17:55:26.768Z",
+    "chain": "evm",
+    "wordCount": 1348,
+    "displayedBlockCount": 10,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 38,
+    "title": "ABI Encoding Deep Dive: How Solidity Turns Your Data into Bytes",
+    "slug": "abi-encoding-deep-dive-how-solidity",
+    "url": "https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity",
+    "publishedAt": "2025-11-08T16:41:09.917Z",
+    "chain": "evm",
+    "wordCount": 642,
+    "displayedBlockCount": 5,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 39,
+    "title": "What Actually Happens When Calldata Hits the EVM",
+    "slug": "what-actually-happens-when-calldata",
+    "url": "https://andreyobruchkov1996.substack.com/p/what-actually-happens-when-calldata",
+    "publishedAt": "2025-11-08T15:45:16.121Z",
+    "chain": "evm",
+    "wordCount": 1050,
+    "displayedBlockCount": 6,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 40,
+    "title": "Ethereum Calldata and Bytecode: How the EVM Knows Which Function to Call",
+    "slug": "ethereum-calldata-and-bytecode-how",
+    "url": "https://andreyobruchkov1996.substack.com/p/ethereum-calldata-and-bytecode-how",
+    "publishedAt": "2025-11-08T15:40:56.200Z",
+    "chain": "evm",
+    "wordCount": 988,
+    "displayedBlockCount": 10,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 41,
+    "title": "Introduction to the Ethereum Virtual Machine (EVM)",
+    "slug": "introduction-to-the-ethereum-virtual",
+    "url": "https://andreyobruchkov1996.substack.com/p/introduction-to-the-ethereum-virtual",
+    "publishedAt": "2025-11-08T15:29:35.063Z",
+    "chain": "evm",
+    "wordCount": 1514,
+    "displayedBlockCount": 1,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 42,
+    "title": "Understanding Solana: Architecture, Account Model and Transactions — part 1",
+    "slug": "understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650",
+    "publishedAt": "2025-10-28T20:26:55.157Z",
+    "chain": "solana",
+    "wordCount": 1244,
+    "displayedBlockCount": 0,
+    "coverage": [
+      {
+        "path": "solana/fundamentals",
+        "command": "cargo test --manifest-path solana/fundamentals/Cargo.toml",
+        "description": "Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 43,
+    "title": "Diamonds in EVM: The Proxy That Scales Beyond Limits",
+    "slug": "diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+    "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+    "publishedAt": "2025-09-16T11:19:35.422Z",
+    "chain": "evm",
+    "wordCount": 2997,
+    "displayedBlockCount": 25,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Diamond.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DiamondTest",
+        "description": "Diamond cuts, loupe inspection, selector routing, shared storage, and facet replacement"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 44,
+    "title": "Understanding Contract Deployments, Proxies, and CREATE2 — Part 2",
+    "slug": "understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e",
+    "publishedAt": "2025-09-04T07:07:56.272Z",
+    "chain": "evm",
+    "wordCount": 2175,
+    "displayedBlockCount": 14,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 45,
+    "title": "Understanding Contract Deployments, Proxies, and CREATE2 — Part 1",
+    "slug": "understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5",
+    "publishedAt": "2025-08-27T03:41:17.161Z",
+    "chain": "evm",
+    "wordCount": 2587,
+    "displayedBlockCount": 22,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Deployments.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract DeploymentsTest",
+        "description": "CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 46,
+    "title": "Ethereum Dev Hacks: Catching Hidden Transfers, Real-Time Events, and Multicalls",
+    "slug": "ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397",
+    "url": "https://andreyobruchkov1996.substack.com/p/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397",
+    "publishedAt": "2025-08-20T05:43:08.844Z",
+    "chain": "evm",
+    "wordCount": 1800,
+    "displayedBlockCount": 9,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Observability.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract ObservabilityTest",
+        "description": "Events, native-value accounting, metadata calls, and multicall behavior"
+      },
+      {
+        "path": "evm/go/observability",
+        "command": "cd evm/go && go test ./observability",
+        "description": "Log topics, event decoding, and native-transfer trace interpretation"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 47,
+    "title": "Ethereum Node Types Explained (And Why They Can Make or Break Your Debugging)",
+    "slug": "ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc",
+    "url": "https://andreyobruchkov1996.substack.com/p/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc",
+    "publishedAt": "2025-08-12T06:06:49.494Z",
+    "chain": "evm",
+    "wordCount": 2371,
+    "displayedBlockCount": 7,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      },
+      {
+        "path": "evm/rpc/run-local.sh",
+        "command": "./evm/rpc/run-local.sh",
+        "description": "Real eth_call and debug_traceCall responses from a disposable Anvil node"
+      },
+      {
+        "path": "evm/go/rpcbatch",
+        "command": "cd evm/go && go test ./rpcbatch",
+        "description": "JSON-RPC request validation, batch correlation, and partial-error handling"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 48,
+    "title": "Gas Matters: How to Reduce Transaction Costs in Your Solidity Code",
+    "slug": "gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+    "url": "https://andreyobruchkov1996.substack.com/p/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+    "publishedAt": "2025-08-05T08:40:51.081Z",
+    "chain": "evm",
+    "wordCount": 2282,
+    "displayedBlockCount": 22,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/GasPatterns.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract GasPatternsTest",
+        "description": "Storage packing, cached reads, unchecked increments, and batch writes"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 49,
+    "title": "Understanding Ethereum Transactions and Messages: From State Changes to Off-Chain Messages — Part 2",
+    "slug": "understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768",
+    "publishedAt": "2025-07-30T09:46:39.570Z",
+    "chain": "evm",
+    "wordCount": 4499,
+    "displayedBlockCount": 19,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 50,
+    "title": "Understanding Ethereum Transactions and Messages: From State Changes to Off-Chain Messages — Part 1",
+    "slug": "understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e",
+    "url": "https://andreyobruchkov1996.substack.com/p/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e",
+    "publishedAt": "2025-07-22T16:22:44.149Z",
+    "chain": "evm",
+    "wordCount": 4696,
+    "displayedBlockCount": 24,
+    "coverage": [
+      {
+        "path": "evm/go/transactions",
+        "command": "cd evm/go && go test ./transactions",
+        "description": "Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes"
+      },
+      {
+        "path": "evm/go/signing",
+        "command": "cd evm/go && go test ./signing",
+        "description": "EIP-191 personal messages and EIP-712 typed-data hashing and recovery"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 51,
+    "title": "What Every Blockchain Developer Should Know About EVM Internals — Part 3",
+    "slug": "what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592",
+    "url": "https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592",
+    "publishedAt": "2025-07-15T06:23:53.380Z",
+    "chain": "evm",
+    "wordCount": 2432,
+    "displayedBlockCount": 18,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 52,
+    "title": "What Every Blockchain Developer Should Know About EVM Internals – Part 2",
+    "slug": "what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de",
+    "url": "https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de",
+    "publishedAt": "2025-07-08T06:07:30.998Z",
+    "chain": "evm",
+    "wordCount": 2492,
+    "displayedBlockCount": 20,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  },
+  {
+    "sequence": 53,
+    "title": "What Every Blockchain Developer Should Know About EVM Internals— Part 1.",
+    "slug": "what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
+    "url": "https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
+    "publishedAt": "2025-07-01T07:29:23.265Z",
+    "chain": "evm",
+    "wordCount": 2057,
+    "displayedBlockCount": 11,
+    "coverage": [
+      {
+        "path": "evm/foundry/src/Internals.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract InternalsTest",
+        "description": "Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation"
+      },
+      {
+        "path": "evm/foundry/src/Tracing.sol",
+        "command": "cd evm/foundry && forge test --offline --match-contract TracingTest",
+        "description": "Successful and reverting call paths designed for opcode-level tracing"
+      }
+    ],
+    "verification": {
+      "status": "verified",
+      "note": "The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026."
+    }
+  }
+]

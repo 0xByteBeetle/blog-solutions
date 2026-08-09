@@ -1,0 +1,22 @@
+{
+  "name": "@0xbytebeetle/solana-metadata-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "create": "tsx src/create.ts",
+    "read": "tsx src/read.ts"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "3.4.0",
+    "@metaplex-foundation/umi": "1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "1.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "tsx": "4.23.11",
+    "typescript": "5.9.3"
+  }
+}
