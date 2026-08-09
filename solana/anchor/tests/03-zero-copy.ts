@@ -1,7 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { expect } from "chai";
-import { ZeroCopy } from "../target/types/zero_copy";
+import { ZeroCopy } from "../types/zero_copy";
 
 describe("zero-copy layouts", () => {
   const provider = anchor.AnchorProvider.env();

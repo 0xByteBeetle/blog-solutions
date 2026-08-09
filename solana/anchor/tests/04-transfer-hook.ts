@@ -12,7 +12,7 @@ import {
   mintTo,
   transferCheckedWithTransferHook,
 } from "@solana/spl-token";
-import { TransferHook } from "../target/types/transfer_hook";
+import { TransferHook } from "../types/transfer_hook";
 
 describe("Token-2022 transfer hook", () => {
   const provider = anchor.AnchorProvider.env();

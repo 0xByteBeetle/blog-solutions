@@ -20,3 +20,11 @@ Run the local-validator integration suite:
 ```
 
 The wrappers generate disposable program keypairs under the ignored `target` directory, synchronize the four program IDs for that run, and restore the tracked source files afterward. The generated keys are local-only and must never be funded or used for a public deployment.
+
+The canonical TypeScript interfaces are tracked in `types/`, so a fresh clone can
+type-check the tests without relying on an uncommitted Anchor build directory. After
+changing an instruction or account schema, refresh them with:
+
+```bash
+./scripts/sync-types.sh
+```

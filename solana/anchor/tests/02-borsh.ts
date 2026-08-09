@@ -2,7 +2,7 @@ import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { expect } from "chai";
 import { createHash } from "node:crypto";
-import { BorshLab } from "../target/types/borsh_lab";
+import { BorshLab } from "../types/borsh_lab";
 
 const discriminator = (accountName: string): Buffer =>
   createHash("sha256").update(`account:${accountName}`).digest().subarray(0, 8);

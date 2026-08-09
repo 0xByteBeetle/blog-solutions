@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "check": "tsc --noEmit",
-    "test": "tsx --test test/*.test.ts",
-    "create": "tsx src/create.ts",
-    "read": "tsx src/read.ts"
+    "test": "node --import tsx --test test/*.test.ts",
+    "create": "node --import tsx src/create.ts",
+    "read": "node --import tsx src/read.ts"
   },
   "dependencies": {
     "@metaplex-foundation/mpl-token-metadata": "3.4.0",

@@ -1,7 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { expect } from "chai";
-import { AccountsLab } from "../target/types/accounts_lab";
+import { AccountsLab } from "../types/accounts_lab";
 
 describe("accounts and PDAs", () => {
   const provider = anchor.AnchorProvider.env();
