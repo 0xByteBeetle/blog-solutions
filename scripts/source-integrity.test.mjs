@@ -9,7 +9,7 @@ function fixture(){
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'blog-source-integrity-'));
  const catalog=JSON.parse(fs.readFileSync(root+'/catalog/articles.json'));
  const sources=JSON.parse(fs.readFileSync(root+'/catalog/source-files.json'));
- const files=['catalog/articles.json','catalog/source-files.json','scripts/check-catalog.mjs',...sources.map(s=>s.path),...catalog.flatMap(a=>['articles/'+a.chain+'/'+a.slug+'/README.md','articles/'+a.chain+'/'+a.slug+'/published.md'])];
+ const files=['catalog/articles.json','catalog/source-files.json','scripts/check-catalog.mjs',...sources.map(s=>s.path),...catalog.flatMap(a=>(a.corrections||[]).map(c=>c.path)),...catalog.flatMap(a=>['articles/'+a.chain+'/'+a.slug+'/README.md','articles/'+a.chain+'/'+a.slug+'/published.md'])];
  for(const p of files){fs.mkdirSync(path.dirname(dir+'/'+p),{recursive:true});fs.copyFileSync(root+'/'+p,dir+'/'+p);}
  for(const a of catalog)for(const c of a.coverage)if(!fs.existsSync(dir+'/'+c.path))fs.mkdirSync(dir+'/'+c.path,{recursive:true});
  return {dir,catalog,sources,check:(...args)=>spawnSync(process.execPath,[dir+'/scripts/check-catalog.mjs',...args],{encoding:'utf8'})};

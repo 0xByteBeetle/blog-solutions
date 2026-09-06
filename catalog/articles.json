@@ -1188,6 +1188,13 @@
     "sequence": 11,
     "title": "Understanding Solana – Part 6: Transactions, Messages, and Address Lookup Tables in Practice",
     "slug": "understanding-solana-part-6-transactions",
+    "corrections": [
+      {
+        "path": "examples/solana/wallet-token-balances-original/scripts/client-alt-ready.ts",
+        "description": "Authorized ALT-readiness variant. Waits for usable entries and consistent confirmed RPC context; original client and Rust program remain unchanged.",
+        "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready"
+      }
+    ],
     "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
     "publishedAt": "2025-12-24T19:10:30.551Z",
     "chain": "solana",

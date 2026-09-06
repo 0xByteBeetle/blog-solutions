@@ -5,7 +5,8 @@ const fs = require('node:fs');
 const {execFileSync} = require('node:child_process');
 const anchor = require('@coral-xyz/anchor');
 const spl = require('@solana/spl-token');
-const {getBalancesClient} = require('../scripts/client-for-regression.ts');
+const {getBalancesClient,waitForAltReadiness} = require('../scripts/client-for-regression.ts');
+const altReady=process.env.BLOG_ALT_READY==='1';
 
 describe('Original wallet balances: reproducible local setup', function () {
   this.timeout(120000);
@@ -68,5 +69,41 @@ describe('Original wallet balances: reproducible local setup', function () {
     assert.deepEqual(result.balances.map(b=>b.amount),[123000000n,456000000n,0n]);
     assert.deepEqual((await connection.getAddressLookupTable(alt)).value.state.addresses.map(p=>p.toBase58()),before);
     console.log('Verified missing ATA=0; existing ALT entries were reused.');
+  });
+
+  if(altReady)it('extends the used ALT again when a previously absent ATA is created',async function () {
+    const before=(await connection.getAddressLookupTable(alt,{commitment:'confirmed'})).value.state.addresses.length;
+    const ata=await spl.getOrCreateAssociatedTokenAccount(connection,payer,absentMint,payer.publicKey);
+    await spl.mintTo(connection,payer,absentMint,ata.address,payer,789000000n);
+    const result=await getBalancesClient(program,[{wallet:payer.publicKey,mints:[legacyMint,token22Mint,absentMint]}],alt);
+    assert.deepEqual(result.balances.map(b=>b.amount),[123000000n,456000000n,789000000n]);
+    assert.equal((await connection.getAddressLookupTable(alt,{commitment:'confirmed'})).value.state.addresses.length,before+1);
+    console.log('Verified a second ALT extension with a newly created token account.');
+  });
+});
+
+if(altReady)describe('ALT readiness guard',function(){
+  const address=anchor.web3.Keypair.generate().publicKey;
+  const table={state:{addresses:[address],lastExtendedSlot:10}};
+  it('waits for visibility, required entries, and a slot after extension',async function(){
+    const responses=[
+      {context:{slot:11},value:null},
+      {context:{slot:11},value:{state:{addresses:[],lastExtendedSlot:10}}},
+      {context:{slot:10},value:table},
+      {context:{slot:11},value:table},
+    ];
+    let calls=0;
+    const connection={getAddressLookupTable:async(pk,config)=>{
+      assert.ok(pk.equals(address));assert.equal(config.commitment,'confirmed');
+      return responses[calls++];
+    }};
+    assert.equal(await waitForAltReadiness(connection,address,[address]),table);
+    assert.equal(calls,4);
+  });
+  it('times out instead of consuming an unready table',async function(){
+    await assert.rejects(waitForAltReadiness({getAddressLookupTable:async()=>({context:{slot:10},value:table})},address,[address],10),/did not become ready/);
+  });
+  it('does not hide RPC errors',async function(){
+    await assert.rejects(waitForAltReadiness({getAddressLookupTable:async()=>{throw new Error('RPC unavailable');}},address,[address]),/RPC unavailable/);
   });
 });

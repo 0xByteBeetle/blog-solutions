@@ -31,6 +31,7 @@ for(const article of articles){
   '[Read the article]('+article.url+') · [Published examples](published.md)',
   article.verification.note,
   'Article status: **'+article.verification.status+'**.',
+  ...(article.corrections?.length?['## Authorized corrections',article.corrections.map(c=>'- '+link(c.path,c.path)+'\n\n  '+c.description+'\n\n  Run: `'+c.command+'`').join('\n\n')]:[]),
   ...(links?['## Recovered source',links]:[]),
   ...(results?['## Recorded checks',results,'These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.']:[]),
   '## Example map',

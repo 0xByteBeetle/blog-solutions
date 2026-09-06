@@ -27,6 +27,10 @@ for(const article of catalog){
   for(const file of record.originalRepositoryFiles||[])assert.ok(sources.some(s=>s.path===file),`Untracked original repository variant ${file}`);
  }
  for(const item of article.coverage)assert.ok(fs.existsSync(local(item.path)),item.path);
+ for(const item of article.corrections||[]){
+  assert.ok(fs.existsSync(local(item.path)),item.path);
+  assert.ok(item.description&&item.command,'Corrections must have an explicit description and run command');
+ }
  // Recovery is not execution. Completion requires explicit coverage and evidence.
  if(article.verification.status==='verified'){
   assert.ok(article.sourceBlocks.every(b=>b.kind!=='unclassified'&&b.kind!=='needs-review'));

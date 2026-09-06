@@ -15,7 +15,7 @@ Article status: **source-restored**.
 
 ## Recorded checks
 
-- [examples/solana/transfer-hook-original: runtime-verified](../../../verification/transfer-hook-original-regression.json) (2026-09-06)
+- [examples/solana/transfer-hook-original: stale result, rerun required](../../../verification/transfer-hook-original-regression.json) (2026-09-06)
 
   Checked with: `node scripts/run-original-anchor.mjs transfer-hook-original --regression`
 

@@ -12,7 +12,8 @@ All 494 blocks now have explicit classifications. This is not a completion perce
 - Three published Foundry storage tests, including the intended revert.
 - Build-only checks for transaction scripts, WebSocket streaming, multicall, signature verifier, delegation contracts, calldata, bytecode, and the diamond deployment script.
 - Source-integrity checks plus regression tests that deliberately mutate a source or published snapshot.
-- Original wallet-balance client with a separately prepared local ALT: two tests verify classic/Token-2022 balances, actual v0 ALT use, and zero for a missing ATA. The empty-ALT extension path failed and remains unresolved.
+- Original wallet-balance client with a separately prepared local ALT: two tests verify classic/Token-2022 balances, actual v0 ALT use, and zero for a missing ATA. Its original empty-ALT failure is preserved.
+- Authorized `client-alt-ready.ts` correction: type-checking and six tests pass, including empty-ALT and repeated extension, exact balances, reuse/missing ATA, warm-up polling, timeout and RPC-error handling.
 - Original transfer-hook program with separate strengthened assertions: oversized transfer rejection with unchanged balances, then an exact successful transfer.
 
 The JSON files here bind results to source hashes. The two Solidity reproduction configurations that disable Solar linting document the external-library resolution problem; successful compilation is not represented as lint success.
@@ -21,7 +22,7 @@ The JSON files here bind results to source hashes. The two Solidity reproduction
 
 ### Solana Part 6: wallet_token_balances
 
-Resolved the missing source location after Andrey requested a broader home-folder search: `~/solana/wallet_tokens_balance`. Twelve original source/configuration files are preserved; wallets and deployment artifacts were excluded. Fixture creation, address wiring and meaningful separate tests are implemented. The original client passes with a pre-populated finalized ALT. Its cold-extension path failed with an invalid ALT index; a readiness change needs Andrey's approval. See `REVIEW-FINDINGS.md` and the two separate wallet regression reports.
+Resolved the missing source location after Andrey requested a broader home-folder search: `~/solana/wallet_tokens_balance`. Twelve original source/configuration files are preserved; wallets and deployment artifacts were excluded. Fixture creation, address wiring and meaningful separate tests are implemented. Andrey authorized the readiness fix after the original cold-extension failure. The clearly labelled corrected variant now passes from an empty ALT and after a further extension; the original client and its prior results remain unchanged. See `REVIEW-FINDINGS.md` and the correction-specific runtime report. This specific timing issue is resolved in the variant; the broader article audit remains incomplete.
 
 ### Transfer-hook negative test
 

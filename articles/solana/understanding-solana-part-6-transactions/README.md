@@ -6,6 +6,14 @@ Published blocks preserved. Execution coverage is incomplete; supplementary lab 
 
 Article status: **source-restored**.
 
+## Authorized corrections
+
+- [examples/solana/wallet-token-balances-original/scripts/client-alt-ready.ts](../../../examples/solana/wallet-token-balances-original/scripts/client-alt-ready.ts)
+
+  Authorized ALT-readiness variant. Waits for usable entries and consistent confirmed RPC context; original client and Rust program remain unchanged.
+
+  Run: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready`
+
 ## Recovered source
 
 - [examples/solana/wallet-token-balances](../../../examples/solana/wallet-token-balances)
@@ -15,7 +23,10 @@ Article status: **source-restored**.
 
 ## Recorded checks
 
-- [examples/solana/wallet-token-balances-original: runtime-verified](../../../verification/wallet-token-balances-original-regression-prepared-alt.json) (2026-09-06)
+- [examples/solana/wallet-token-balances-original: runtime-verified](../../../verification/wallet-token-balances-original-regression-alt-ready.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready`
+- [examples/solana/wallet-token-balances-original: stale result, rerun required](../../../verification/wallet-token-balances-original-regression-prepared-alt.json) (2026-09-06)
 
   Checked with: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --prepared-alt`
 - [examples/solana/wallet-token-balances-original: failed](../../../verification/wallet-token-balances-original-regression.json) (2026-09-06)

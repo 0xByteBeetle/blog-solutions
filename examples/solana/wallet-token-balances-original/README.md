@@ -4,6 +4,20 @@ Recovered from Andrey's `~/solana/wallet_tokens_balance` folder. The source file
 
 The Rust program matches [published block 1](../../../articles/solana/understanding-solana-part-6-transactions/published.md#block-1) after replacing the deployment ID and ignoring whitespace. `scripts/create_alts.ts` matches published block 4 after whitespace normalization. Both `ensureAltHasAddresses` and `decodeBalances` are present in the original client: they do not need invented replacements.
 
+## Corrected ALT-readiness variant
+
+[client-alt-ready.ts](scripts/client-alt-ready.ts) is the explicitly authorized timing correction derived from [client.ts](scripts/client.ts). The original file, Rust program, and balance-decoding implementation remain unchanged. This variant is not presented as a verbatim published snippet.
+
+From the repository root, after installing the shared dependencies:
+
+```sh
+node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready
+```
+
+This starts with an empty ALT, not a pre-populated one. The client waits until the confirmed table contains every required address and the RPC response slot is later than `lastExtendedSlot`. It uses confirmed preflight and a minimum context slot when requesting the blockhash and sending the consuming transaction. The readiness poll reports an error if it does not become ready; preflight remains enabled.
+
+The separate regression covers the first extension, reuse with a missing ATA, a second extension after creating that ATA, and helper tests for visibility/warm-up, timeout and RPC errors. The runner also type-checks this variant. Its [verification report](../../../verification/wallet-token-balances-original-regression-alt-ready.json) is separate from the original-client failure and prepared-table results.
+
 ## Check the existing code
 
 From the repository root:
@@ -31,7 +45,7 @@ The empty-ALT path is a separate check:
 node scripts/run-original-anchor.mjs wallet-token-balances-original --regression
 ```
 
-That run failed after the client extended the ALT and immediately used it: `Transaction address table lookup uses an invalid index`. The passing prepared-table tests do not verify this timing-sensitive path. See [findings](../../../verification/REVIEW-FINDINGS.md); a client readiness change requires the author's decision.
+That original-client run failed after the client extended the ALT and immediately used it: `Transaction address table lookup uses an invalid index`. The passing prepared-table tests do not verify this timing-sensitive path. Use the authorized `--alt-ready` variant above to exercise the correction; the original failure remains in the [findings](../../../verification/REVIEW-FINDINGS.md).
 
 ## Setup details and original project limitations
 
@@ -44,4 +58,4 @@ That run failed after the client extended the ALT and immediately used it: `Tran
 
 The original folder's `MINTING_GUIDE.md` also refers to `scripts/mint-token.ts`, but that file was not present. That guide was not copied as an executable setup recipe.
 
-No missing core Rust/helper implementation has been identified. Prepared-ALT transaction execution and returned balances are now runtime-tested. Cold ALT extension remains a recorded failure, not a completed check.
+No missing core Rust/helper implementation has been identified. The original cold-ALT path remains preserved with its recorded failure. The explicitly selected corrected variant has its own execution report; it does not overwrite the author's original or change other article-verification claims.

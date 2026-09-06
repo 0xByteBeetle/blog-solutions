@@ -16,7 +16,9 @@ The separate local fixture recovered the following execution failures on 6 Septe
 
 The first prepared-ALT attempt passed both balance assertions but Anchor still exited with `No such file or directory`. Its [0.31.1 log-stream setup](https://github.com/coral-xyz/anchor/blob/v0.31.1/cli/src/lib.rs#L3423) opens the crate-named IDL, while this project generates the module-named IDL. The runner now builds first and copies the generated IDL under a crate-name alias in the temporary directory before running tests. No original crate, module, or client implementation is renamed. A passing assertion log alone is not treated as a successful overall command.
 
-A client change for lookup-table readiness needs Andrey's approval. Do not turn the failing path into an alleged success by skipping preflight, suppressing the error, or marking the whole article verified.
+Andrey subsequently authorized the fix. The separate `client-alt-ready.ts` variant now polls confirmed table contents until all required addresses exist and the response slot is later than `lastExtendedSlot`. It requests a confirmed blockhash and sends with confirmed preflight plus `minContextSlot`, keeping preflight enabled. The original client and Rust program are unchanged.
+
+The corrected variant passed type-checking and six regression checks: empty-table extension and exact balances, reuse/missing ATA, a second extension after creating another ATA, readiness visibility/warm-up, timeout, and RPC-error propagation. See `wallet-token-balances-original-regression-alt-ready.json`. This is a correction-specific result, not a claim that the original failure disappeared or every article is verified.
 
 ## Transfer-hook negative assertion
 
