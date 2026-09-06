@@ -24,6 +24,7 @@ for(const article of catalog){
   assert.equal(hash(text),expected,`${article.slug} block ${index} changed`);
   assert.equal(record.sha256,expected);
   for(const file of record.implementations)assert.ok(sources.some(s=>s.path===file),`Untracked source ${file}`);
+  for(const file of record.originalRepositoryFiles||[])assert.ok(sources.some(s=>s.path===file),`Untracked original repository variant ${file}`);
  }
  for(const item of article.coverage)assert.ok(fs.existsSync(local(item.path)),item.path);
  // Recovery is not execution. Completion requires explicit coverage and evidence.
@@ -39,6 +40,13 @@ for(const source of sources){
  assert.ok(!paths.has(source.path),`Duplicate source ${source.path}`);paths.add(source.path);
  assert.equal(hash(fs.readFileSync(local(source.path))),source.sha256,`Recovered author source drift: ${source.path}`);
  assert.ok(source.source.url||source.source.repository||source.source.localProject);
+ if(source.source.url){
+  const article=catalog.find(a=>a.url===source.source.url);
+  assert.ok(article,`Unknown published source for ${source.path}`);
+  const block=article.sourceBlocks.find(b=>b.index===source.source.block);
+  assert.ok(block,`Unknown published block for ${source.path}`);
+  assert.equal(block.sha256,source.source.sha256,`Published origin hash mismatch for ${source.path}`);
+ }
 }
 console.log(`Source integrity passed: ${catalog.length} articles, ${blocks} published blocks, ${sources.length} restored files. This is not runtime verification.`);
 if(process.argv.includes('--complete')){
