@@ -9,16 +9,25 @@ Article status: **source-restored**.
 ## Recovered source
 
 - [examples/solana/wallet-token-balances](../../../examples/solana/wallet-token-balances)
+- [examples/solana/wallet-token-balances-original](../../../examples/solana/wallet-token-balances-original)
+
+  Run: `node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only`
+
+## Recorded checks
+
+- [examples/solana/wallet-token-balances-original: build-checked](../../../verification/wallet-token-balances-original.json) (2026-09-06)
+
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | program | [published source](../../../examples/solana/wallet-token-balances/lib.rs) |
+| [1](published.md#block-1) | program | [published source](../../../examples/solana/wallet-token-balances/lib.rs); [original repo variant](../../../examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs) |
 | [2](published.md#block-2) | command | Preserved in the published block; runnable mapping pending |
 | [3](published.md#block-3) | command | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | client-setup | [published source](../../../examples/solana/wallet-token-balances/setup.ts) |
-| [5](published.md#block-5) | client-program | [published source](../../../examples/solana/wallet-token-balances/client.ts) |
+| [4](published.md#block-4) | client-setup | [published source](../../../examples/solana/wallet-token-balances/setup.ts); [original repo variant](../../../examples/solana/wallet-token-balances-original/scripts/create_alts.ts) |
+| [5](published.md#block-5) | client-program | [published source](../../../examples/solana/wallet-token-balances/client.ts); [original repo variant](../../../examples/solana/wallet-token-balances-original/scripts/client.ts) |
 | [6](published.md#block-6) | command | Preserved in the published block; runnable mapping pending |
 | [7](published.md#block-7) | client-fragment | Preserved in the published block; runnable mapping pending |
 | [8](published.md#block-8) | client-fragment | Preserved in the published block; runnable mapping pending |

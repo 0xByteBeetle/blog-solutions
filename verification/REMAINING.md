@@ -1,6 +1,6 @@
 # Source audit checkpoint: 6 September 2026
 
-This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 86 recovered source/configuration/data files.
+This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 98 recovered source/configuration/data files.
 
 75 blocks currently have direct recovered-source links. This is not a completion percentage: many of the 494 blocks are historical output, commands, data, explanatory fragments, or deliberate failures. 364 blocks still need explicit classification and review. Two captured posts have no displayed blocks.
 
@@ -19,7 +19,7 @@ The JSON files here bind results to source hashes. The two Solidity reproduction
 
 ### Solana Part 6: wallet_token_balances
 
-The published program, ALT setup, and client are preserved in `examples/solana/wallet-token-balances`. The program ID is a placeholder, and the client relies on its deployment/mint/ALT setup. The local clone search and GitHub code searches for `wallet_token_balances` and `ensureAltHasAddresses` did not identify the original project outside the recovered snippets. Ask Andrey for that original project or its location before inventing fixtures or changing the client.
+Resolved the missing source location after Andrey requested a broader home-folder search: `~/solana/wallet_tokens_balance`. Twelve original source/configuration files are now preserved in `examples/solana/wallet-token-balances-original`; wallets and deployment artifacts were excluded. The core program matches the publication apart from ID/whitespace, and the ALT creator matches apart from whitespace. A dedicated README lists the remaining fixture, address wiring, and stale scaffold-test gaps. Keep the original program/client unchanged; the next step is an explicitly separated reproducible test setup.
 
 ### Transfer-hook negative test
 

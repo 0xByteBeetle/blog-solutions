@@ -876,5 +876,113 @@
       "path": "eip4844/trusted_setup.txt"
     },
     "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/Cargo.lock",
+    "sha256": "76e90c54fe9f6549806d5900b63b460a374775e1a2467aebd06c4288806d521c",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/Anchor.toml",
+    "sha256": "1d4cc5025f78e164f5bb2043ea68fc2f6d3e21bb119cf853f68ff295b027375b",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/package.json",
+    "sha256": "ae3068cf724a8aa1ecb843cde5f0357842925e11df715e60a35e30ee796c8281",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/pnpm-lock.yaml",
+    "sha256": "b3017f5d950a00fd31e24ada5fe33c826d77e3bf42d3a9fec1c76245e1470918",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "pnpm-lock.yaml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/tsconfig.json",
+    "sha256": "8d3bf6b9a51ee1c0a14f8ce88a8f447d14ee14f9ace9a826332dce95edbdc34a",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/Cargo.toml",
+    "sha256": "b8be881334d719dedbe44eb378bd39d1ad294cb422af7ab267ea76ed8a7b7b86",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "programs/wallet_tokens_balance/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/Xargo.toml",
+    "sha256": "815f2dfb6197712a703a8e1f75b03c6991721e9eb7c40dfaec8b0b49da4aa629",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "programs/wallet_tokens_balance/Xargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs",
+    "sha256": "4d59805f3d11dfe231c097d70d0ef690c01ea2f1b7241a8d11dbe7513ea24826",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "programs/wallet_tokens_balance/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/tests/wallet_tokens_balance.ts",
+    "sha256": "64d3a6e94b97d7cd4a994817499e9d8e7512546856bd9c732fb19c264cc587c9",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "tests/wallet_tokens_balance.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/scripts/client.ts",
+    "sha256": "9d895096d1617a1e93ac3c5e683b4777d7220cc3a2e918820a670fe5080ce492",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "scripts/client.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances-original/scripts/create_alts.ts",
+    "sha256": "ea39f37f4c36f805c0d04e17bc83d5e8344749a7760cccaf1e972c957e68d2d9",
+    "source": {
+      "localProject": "~/solana/wallet_tokens_balance",
+      "path": "scripts/create_alts.ts"
+    },
+    "changes": []
   }
 ]

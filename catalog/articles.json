@@ -1193,6 +1193,11 @@
       {
         "path": "examples/solana/wallet-token-balances",
         "description": "Recovered author source. Check the source manifest and runtime results before running."
+      },
+      {
+        "path": "examples/solana/wallet-token-balances-original",
+        "description": "Original local project found outside clones. Program matches published code except program ID and whitespace; original test is stale.",
+        "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only"
       }
     ],
     "verification": {
@@ -1216,7 +1221,11 @@
         "implementations": [
           "examples/solana/wallet-token-balances/lib.rs"
         ],
-        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization."
+        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization.",
+        "originalRepositoryFiles": [
+          "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs"
+        ],
+        "originalRepositoryNote": "Exact original local file. Published snapshot remains authoritative for the printed version."
       },
       {
         "index": 2,
@@ -1243,7 +1252,11 @@
         "implementations": [
           "examples/solana/wallet-token-balances/setup.ts"
         ],
-        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization."
+        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization.",
+        "originalRepositoryFiles": [
+          "examples/solana/wallet-token-balances-original/scripts/create_alts.ts"
+        ],
+        "originalRepositoryNote": "Exact original local file. Published snapshot remains authoritative for the printed version."
       },
       {
         "index": 5,
@@ -1254,7 +1267,11 @@
         "implementations": [
           "examples/solana/wallet-token-balances/client.ts"
         ],
-        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization."
+        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization.",
+        "originalRepositoryFiles": [
+          "examples/solana/wallet-token-balances-original/scripts/client.ts"
+        ],
+        "originalRepositoryNote": "Exact original local file. Published snapshot remains authoritative for the printed version."
       },
       {
         "index": 6,

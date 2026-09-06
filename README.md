@@ -6,7 +6,7 @@ Start with the [article index](ARTICLES.md). Each article has its published code
 
 The repository is undergoing a source-preserving repair. All 53 cataloged posts and 494 displayed code/output blocks are preserved. This does **not** mean all 53 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
-See [remaining review and source gaps](verification/REMAINING.md) for the current boundary, including the missing original Solana Part 6 project and the transfer-hook test issue.
+See [remaining review and source gaps](verification/REMAINING.md) for the current boundary, including the recovered Solana Part 6 project's setup gaps and the transfer-hook test issue.
 
 - `articles/`: source snapshots and per-article maps.
 - `examples/`: recovered author programs and projects. Their origins and any formatting/setup changes are recorded in `catalog/source-files.json`.
