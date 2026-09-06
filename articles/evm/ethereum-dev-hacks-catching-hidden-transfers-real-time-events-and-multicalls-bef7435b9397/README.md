@@ -1,43 +1,31 @@
 # Ethereum Dev Hacks: Catching Hidden Transfers, Real-Time Events, and Multicalls
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397)
+[Read the article](https://andreyobruchkov1996.substack.com/p/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397) · [Published examples](published.md)
 
-Published: 2025-08-20
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 9 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Events, native-value accounting, metadata calls, and multicall behavior
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | source-excerpt | [published source](../../../examples/evm/streaming/main.go) |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | source-excerpt | [published source](../../../examples/evm/multicall/main.go) |
+| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `evm/foundry/src/Observability.sol`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd evm/foundry && forge test --offline --match-contract ObservabilityTest
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Log topics, event decoding, and native-transfer trace interpretation
-
-Code: `evm/go/observability`
-
-Run:
-
-```bash
-cd evm/go && go test ./observability
-```
-
-### JSON-RPC request validation, batch correlation, and partial-error handling
-
-Code: `evm/go/rpcbatch`
-
-Run:
-
-```bash
-cd evm/go && go test ./rpcbatch
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Observability.sol](../../../evm/foundry/src/Observability.sol)
+- [evm/go/observability](../../../evm/go/observability)
+- [evm/go/rpcbatch](../../../evm/go/rpcbatch)

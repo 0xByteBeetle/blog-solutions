@@ -1,0 +1,7 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+libs = []
+allow_paths = ["../../../.local/forge-std", "../../../node_modules/@openzeppelin/contracts"]
+remappings = ["forge-std/=../../../.local/forge-std/src/", "@openzeppelin/contracts/=../../../node_modules/@openzeppelin/contracts/"]

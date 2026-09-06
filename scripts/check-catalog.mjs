@@ -1,39 +1,47 @@
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const catalogPath = path.join(root, "catalog", "articles.json");
-const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
-
-if (catalog.length !== 53) {
-  throw new Error(`Expected 53 Substack articles, found ${catalog.length}`);
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'..');
+const catalog=JSON.parse(fs.readFileSync(`${root}/catalog/articles.json`));
+const sources=JSON.parse(fs.readFileSync(`${root}/catalog/source-files.json`));
+const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
+function local(relative){assert.equal(typeof relative,'string');const p=path.resolve(root,relative);assert.ok(p.startsWith(root+path.sep),'Path must stay in repository');return p;}
+assert.ok(catalog.length>0);
+const urls=new Set(), slugs=new Set();let blocks=0;
+for(const article of catalog){
+ assert.ok(!urls.has(article.url)&&!slugs.has(`${article.chain}/${article.slug}`));
+ urls.add(article.url);slugs.add(`${article.chain}/${article.slug}`);
+ const directory=`articles/${article.chain}/${article.slug}`;
+ assert.ok(fs.existsSync(local(`${directory}/README.md`)));
+ const snapshot=fs.readFileSync(local(`${directory}/published.md`),'utf8');
+ const captured=[...snapshot.matchAll(/## Block (\d+)\n\nSHA-256: `([a-f0-9]{64})`\n\n````text\n([\s\S]*?)\n````/g)];
+ assert.equal(captured.length,article.displayedBlockCount,article.slug);
+ assert.equal(article.sourceBlocks.length,captured.length);
+ for(let i=0;i<captured.length;i++){
+  const [,index,expected,text]=captured[i], record=article.sourceBlocks[i];
+  assert.equal(Number(index),i+1);assert.equal(record.index,i+1);
+  assert.equal(hash(text),expected,`${article.slug} block ${index} changed`);
+  assert.equal(record.sha256,expected);
+  for(const file of record.implementations)assert.ok(sources.some(s=>s.path===file),`Untracked source ${file}`);
+ }
+ for(const item of article.coverage)assert.ok(fs.existsSync(local(item.path)),item.path);
+ // Recovery is not execution. Completion requires explicit coverage and evidence.
+ if(article.verification.status==='verified'){
+  assert.ok(article.sourceBlocks.every(b=>b.kind!=='unclassified'&&b.kind!=='needs-review'));
+  assert.ok(article.verification.evidence?.length,'Verified articles require explicit evidence');
+  for(const p of article.verification.evidence)assert.ok(fs.existsSync(local(p)));
+ }
+ blocks+=captured.length;
 }
-
-const slugs = new Set();
-const urls = new Set();
-for (const article of catalog) {
-  if (!article.slug || slugs.has(article.slug)) throw new Error(`Duplicate or missing slug: ${article.slug}`);
-  if (!article.url || urls.has(article.url)) throw new Error(`Duplicate or missing URL: ${article.url}`);
-  if (!["evm", "solana"].includes(article.chain)) throw new Error(`Invalid chain for ${article.slug}`);
-  if (!Array.isArray(article.coverage) || article.coverage.length === 0) throw new Error(`No coverage for ${article.slug}`);
-
-  slugs.add(article.slug);
-  urls.add(article.url);
-
-  const page = path.join(root, "articles", article.chain, article.slug, "README.md");
-  if (!fs.existsSync(page)) throw new Error(`Missing article map: ${path.relative(root, page)}`);
-
-  for (const item of article.coverage) {
-    const target = path.join(root, item.path);
-    if (!fs.existsSync(target)) throw new Error(`Missing coverage path for ${article.slug}: ${item.path}`);
-  }
+const paths=new Set();
+for(const source of sources){
+ assert.ok(!paths.has(source.path),`Duplicate source ${source.path}`);paths.add(source.path);
+ assert.equal(hash(fs.readFileSync(local(source.path))),source.sha256,`Recovered author source drift: ${source.path}`);
+ assert.ok(source.source.url||source.source.repository||source.source.localProject);
 }
-
-const evm = catalog.filter((article) => article.chain === "evm").length;
-const solana = catalog.filter((article) => article.chain === "solana").length;
-if (evm !== 37 || solana !== 16) {
-  throw new Error(`Expected 37 EVM and 16 Solana articles, found ${evm} EVM and ${solana} Solana`);
+console.log(`Source integrity passed: ${catalog.length} articles, ${blocks} published blocks, ${sources.length} restored files. This is not runtime verification.`);
+if(process.argv.includes('--complete')){
+ const unfinished=catalog.filter(a=>!['verified','no-displayed-code'].includes(a.verification.status));
+ assert.equal(unfinished.length,0,`${unfinished.length} articles still need example-level verification`);
 }
-
-console.log(`Catalog verified: ${catalog.length} articles (${evm} EVM, ${solana} Solana).`);

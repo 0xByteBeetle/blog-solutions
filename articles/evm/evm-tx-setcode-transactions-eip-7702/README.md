@@ -1,33 +1,45 @@
 # EVM Tx — SetCode Transactions EIP-7702 Temporary Smart-Account Power for EOAs Explained
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702)
+[Read the article](https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 12 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes
+- [examples/evm/transaction-types](../../../examples/evm/transaction-types)
+- [examples/evm/delegation](../../../examples/evm/delegation)
 
-Code: `evm/go/transactions`
+## Recorded checks
 
-Run:
+- [examples/evm/delegation: build-checked](../../../verification/restored-builds.json) (2026-09-06)
+- [examples/evm/transaction-types: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
-```bash
-cd evm/go && go test ./transactions
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-### EIP-191 personal messages and EIP-712 typed-data hashing and recovery
+## Example map
 
-Code: `evm/go/signing`
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | solidity-source | [published source](../../../examples/evm/delegation/src/Invoked.sol), [published source](../../../examples/evm/transaction-types/eip7702/invoked.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/invoked.sol) |
+| [5](published.md#block-5) | solidity-source | [published source](../../../examples/evm/delegation/src/MultiDelegationInvoker.sol), [published source](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol) |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | source-excerpt | [published source](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go); [original repo variant](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go) |
+| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Run:
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-```bash
-cd evm/go && go test ./signing
-```
+## Supplementary labs
 
-## Verification boundary
+These older topic-level labs are not substitutes for the published code.
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/go/transactions](../../../evm/go/transactions)
+- [evm/go/signing](../../../evm/go/signing)

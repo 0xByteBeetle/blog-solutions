@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-06T12:36:59.465Z",
+  "environment": "Disposable loopback-only Anvil; unlocked generated local accounts; no public-network transactions",
+  "command": "node scripts/verify-restored-evm.mjs",
+  "versions": {
+    "forge": "forge Version: 1.4.4-stable\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-11-03T23:46:57.847015000Z (1762213617)\nBuild Profile: maxperf",
+    "anvil": "anvil Version: 1.4.4-stable\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-11-03T23:46:57.847015000Z (1762213617)\nBuild Profile: maxperf"
+  },
+  "results": [
+    {
+      "project": "examples/evm/factory",
+      "status": "runtime-verified",
+      "checks": [
+        "five Counter deployments",
+        "initial value 42",
+        "owner increment to 43"
+      ],
+      "sourceHashes": {
+        "examples/evm/factory/src/basicfactory.sol": "fdc8e6d56b611d2e8288324a6787f656dbadb87208fb4fab929d4f070e893cb9"
+      }
+    },
+    {
+      "project": "examples/evm/minimal-proxy",
+      "status": "runtime-verified",
+      "checks": [
+        "CREATE clone",
+        "CREATE2 clone",
+        "independent storage"
+      ],
+      "sourceHashes": {
+        "examples/evm/minimal-proxy/src/minimalProxy.sol": "588d7b16f6bf34c5f536c8698311299752b7778bca22bfd40be559a00c20fd4f"
+      }
+    },
+    {
+      "project": "examples/evm/uups",
+      "status": "runtime-verified",
+      "checks": [
+        "original PROXIABLE slot",
+        "token initialization and transfer",
+        "upgrade preserves balances"
+      ],
+      "sourceHashes": {
+        "examples/evm/uups/src/UUPSLogicContract.sol": "956e627e9c2488d070bae16d8826f6f146290d05b0b62a7807972322fa8ef879",
+        "examples/evm/uups/src/UUPSProxy.sol": "8193952de55114b2cc4ac40feb30b6b9d7ea60dbbbbeb5ba355a543cc55d8796"
+      }
+    },
+    {
+      "project": "examples/evm/transparent-proxy",
+      "status": "runtime-verified",
+      "checks": [
+        "user state updates",
+        "admin fallback rejection",
+        "upgrade preserves state"
+      ],
+      "sourceHashes": {
+        "examples/evm/transparent-proxy/src/StorageV1.sol": "0196a6e0a0a2a1ce6da925a751013d6ec62cc99715ad284d00e341789d4ccd1e",
+        "examples/evm/transparent-proxy/src/StorageV2.sol": "0f59d43bad10a28082b957451b50f3791d7fd3dcc98b343c0ecd310192b0d544",
+        "examples/evm/transparent-proxy/src/TransparentProxy1967.sol": "ebf9172cdf2688a26e18f3834fa57a497e2390b703aebc4f5bd5aaf0f71ac5d7"
+      }
+    },
+    {
+      "project": "examples/evm/storage",
+      "status": "runtime-verified",
+      "checks": [
+        "original dynamic struct encoding and retrieval"
+      ],
+      "sourceHashes": {
+        "examples/evm/storage/src/Storage.sol": "3d490b02e30b32581994c75da540cb212dfd321eb65596a50a9f4fbbc9021cd7"
+      }
+    },
+    {
+      "project": "examples/evm/diamond",
+      "status": "runtime-verified",
+      "checks": [
+        "published selector routing",
+        "counter increment",
+        "new decrement facet uses shared state"
+      ],
+      "sourceHashes": {
+        "examples/evm/diamond/src/LibDiamond.sol": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
+        "examples/evm/diamond/src/interfaces/IDiamondCut.sol": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
+        "examples/evm/diamond/src/interfaces/IDiamondLoupe.sol": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
+        "examples/evm/diamond/src/Diamond.sol": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
+        "examples/evm/diamond/src/facets/DiamondCutFacet.sol": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
+        "examples/evm/diamond/src/facets/DiamondLoupeFacet.sol": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
+        "examples/evm/diamond/src/facets/OwnershipFacet.sol": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
+        "examples/evm/diamond/src/facets/ExampleFacet.sol": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
+        "examples/evm/diamond/src/facets/newFacet.sol": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
+        "examples/evm/diamond/script/DeployDiamond.sol": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e"
+      }
+    }
+  ]
+}

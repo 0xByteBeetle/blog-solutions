@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-06T12:30:37.965Z",
+  "project": "examples/solana/borsh-profile",
+  "status": "runtime-verified",
+  "sourceHashes": {
+    "examples/solana/borsh-profile/programs/borsh_deep_dive/src/lib.rs": "8d48e0b4c7680497afaef23440516c7067830078bb6dcf4244211e5512c2fc4c",
+    "examples/solana/borsh-profile/tests/published.ts": "74571c9167298272720f1252a7877d285b88d0045bcc8847845d99ef27aba2fd"
+  },
+  "command": "node scripts/run-original-anchor.mjs borsh-profile",
+  "changes": "Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

@@ -1,33 +1,26 @@
 # Where Token Metadata Lives on Solana: From Convention to Explicit Data
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana)
+[Read the article](https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana) · [Published examples](published.md)
 
-Published: 2026-01-19
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 5 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Canonical Metaplex metadata PDA derivation and CreateMetadataAccountV3 instruction construction
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `solana/metadata`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd solana/metadata && npm test && npm run check
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions
-
-Code: `solana/token-2022/run-local.sh`
-
-Run:
-
-```bash
-./solana/token-2022/run-local.sh
-```
-
-## Verification boundary
-
-PDA derivation and instruction construction execute in tests. The network scripts are type-checked and require a funded devnet-only mint authority to submit.
+- [solana/metadata](../../../solana/metadata)
+- [solana/token-2022/run-local.sh](../../../solana/token-2022/run-local.sh)

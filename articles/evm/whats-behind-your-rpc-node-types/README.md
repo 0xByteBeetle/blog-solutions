@@ -1,43 +1,21 @@
 # What's Behind Your RPC: Node Types, Clients, and Why It Matters
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/whats-behind-your-rpc-node-types)
+[Read the article](https://andreyobruchkov1996.substack.com/p/whats-behind-your-rpc-node-types) · [Published examples](published.md)
 
-Published: 2025-11-08
+No displayed code blocks in the captured article. No runtime verification claimed.
 
-The article contains 0 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **no-displayed-code**.
 
-## Companion implementation
+## Example map
 
-### Successful and reverting call paths designed for opcode-level tracing
+No displayed code blocks in the captured post.
 
-Code: `evm/foundry/src/Tracing.sol`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd evm/foundry && forge test --offline --match-contract TracingTest
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Real eth_call and debug_traceCall responses from a disposable Anvil node
-
-Code: `evm/rpc/run-local.sh`
-
-Run:
-
-```bash
-./evm/rpc/run-local.sh
-```
-
-### JSON-RPC request validation, batch correlation, and partial-error handling
-
-Code: `evm/go/rpcbatch`
-
-Run:
-
-```bash
-cd evm/go && go test ./rpcbatch
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Tracing.sol](../../../evm/foundry/src/Tracing.sol)
+- [evm/rpc/run-local.sh](../../../evm/rpc/run-local.sh)
+- [evm/go/rpcbatch](../../../evm/go/rpcbatch)

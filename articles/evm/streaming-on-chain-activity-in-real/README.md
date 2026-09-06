@@ -1,43 +1,33 @@
 # Streaming On-Chain Activity in Real Time
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/streaming-on-chain-activity-in-real)
+[Read the article](https://andreyobruchkov1996.substack.com/p/streaming-on-chain-activity-in-real) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 1 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### Events, native-value accounting, metadata calls, and multicall behavior
+- [examples/evm/streaming](../../../examples/evm/streaming)
 
-Code: `evm/foundry/src/Observability.sol`
+## Recorded checks
 
-Run:
+- [examples/evm/streaming: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
-```bash
-cd evm/foundry && forge test --offline --match-contract ObservabilityTest
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-### Log topics, event decoding, and native-transfer trace interpretation
+## Example map
 
-Code: `evm/go/observability`
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | program | [published source](../../../examples/evm/streaming/main.go) |
 
-Run:
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-```bash
-cd evm/go && go test ./observability
-```
+## Supplementary labs
 
-### JSON-RPC request validation, batch correlation, and partial-error handling
+These older topic-level labs are not substitutes for the published code.
 
-Code: `evm/go/rpcbatch`
-
-Run:
-
-```bash
-cd evm/go && go test ./rpcbatch
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Observability.sol](../../../evm/foundry/src/Observability.sol)
+- [evm/go/observability](../../../evm/go/observability)
+- [evm/go/rpcbatch](../../../evm/go/rpcbatch)

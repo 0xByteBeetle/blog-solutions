@@ -1,33 +1,33 @@
 # EVM Tx — Blob Transactions EIP-4844 (Type 0x03) and the First Step Toward Data Sharding
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/evm-tx-blob-transactions-eip-4844)
+[Read the article](https://andreyobruchkov1996.substack.com/p/evm-tx-blob-transactions-eip-4844) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 2 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### Legacy, EIP-2930, EIP-1559, EIP-4844, and EIP-7702 transaction envelopes
+- [examples/evm/transaction-types](../../../examples/evm/transaction-types)
 
-Code: `evm/go/transactions`
+## Recorded checks
 
-Run:
+- [examples/evm/transaction-types: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
-```bash
-cd evm/go && go test ./transactions
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-### EIP-191 personal messages and EIP-712 typed-data hashing and recovery
+## Example map
 
-Code: `evm/go/signing`
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending; [original repo variant](../../../examples/evm/transaction-types/eip4844/eip4844.go) |
 
-Run:
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-```bash
-cd evm/go && go test ./signing
-```
+## Supplementary labs
 
-## Verification boundary
+These older topic-level labs are not substitutes for the published code.
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/go/transactions](../../../evm/go/transactions)
+- [evm/go/signing](../../../evm/go/signing)

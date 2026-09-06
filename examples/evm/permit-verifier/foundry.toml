@@ -1,0 +1,12 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+libs = []
+allow_paths = ["../../../.local/forge-std", "../../../node_modules/@openzeppelin/contracts"]
+remappings = ["forge-std/=../../../.local/forge-std/src/", "@openzeppelin/contracts/=../../../node_modules/@openzeppelin/contracts/"]
+
+# Solc resolves these imports; the current Solar linter fails on external relative paths.
+# Compilation is checked, but linting is not claimed by this reproduction configuration.
+[lint]
+lint_on_build = false

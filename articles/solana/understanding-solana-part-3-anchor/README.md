@@ -1,23 +1,45 @@
 # Understanding Solana - Part 3: Anchor Accounts, Seeds, Bumps, PDAs, and How the Client Really Works
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/understanding-solana-part-3-anchor)
+[Read the article](https://andreyobruchkov1996.substack.com/p/understanding-solana-part-3-anchor) · [Published examples](published.md)
 
-Published: 2025-11-18
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 15 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### PDA creation, byte-bounded names, ownership constraints, updates, and account closure
+- [examples/solana/anchor-accounts](../../../examples/solana/anchor-accounts)
 
-Code: `solana/anchor/programs/accounts`
+## Recorded checks
 
-Run:
+- [examples/solana/anchor-accounts: runtime-verified](../../../verification/anchor-accounts.json) (2026-09-06)
 
-```bash
-cd solana/anchor && ./scripts/test.sh
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-## Verification boundary
+## Example map
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | source-excerpt | [published source](../../../examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs) |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | source-excerpt | [published source](../../../examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs) |
+| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
+| [13](published.md#block-13) | source-excerpt | [published source](../../../examples/solana/anchor-accounts/scripts/solana_accounts.ts) |
+| [14](published.md#block-14) | unclassified | Preserved in the published block; runnable mapping pending |
+| [15](published.md#block-15) | unclassified | Preserved in the published block; runnable mapping pending |
+
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+
+## Supplementary labs
+
+These older topic-level labs are not substitutes for the published code.
+
+- [solana/anchor/programs/accounts](../../../solana/anchor/programs/accounts)

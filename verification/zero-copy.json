@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-06T12:31:46.088Z",
+  "project": "examples/solana/zero-copy",
+  "status": "runtime-verified",
+  "sourceHashes": {
+    "examples/solana/zero-copy/programs/zero_copy_deep_dive/src/lib.rs": "55557ca2c89e40c1a3a4aa66402d3769f9b0d3091b5e5974e1b47c93cc4eba7a",
+    "examples/solana/zero-copy/tests/published.ts": "1ce25fa6b172dbf3fd74a6444da1f1d2286ea730a7364959488c057357700858"
+  },
+  "command": "node scripts/run-original-anchor.mjs zero-copy",
+  "changes": "Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

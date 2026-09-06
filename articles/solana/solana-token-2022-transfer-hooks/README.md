@@ -1,33 +1,30 @@
 # Solana Token-2022 Transfer Hooks and the Fee-on-Transfer Extension
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks)
+[Read the article](https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks) · [Published examples](published.md)
 
-Published: 2026-03-12
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 9 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Classic Token plus metadata, fees, permanent delegate, non-transferable, frozen, memo, and interest extensions
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `solana/token-2022/run-local.sh`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-./solana/token-2022/run-local.sh
-```
+These older topic-level labs are not substitutes for the published code.
 
-### A deployed Token-2022 transfer hook with ExtraAccountMetaList and accepted and rejected transfers
-
-Code: `solana/anchor/programs/transfer_hook`
-
-Run:
-
-```bash
-cd solana/anchor && ./scripts/test.sh
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [solana/token-2022/run-local.sh](../../../solana/token-2022/run-local.sh)
+- [solana/anchor/programs/transfer_hook](../../../solana/anchor/programs/transfer_hook)

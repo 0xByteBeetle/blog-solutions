@@ -1,4 +1,4 @@
-name: Verify examples
+name: Verify source integrity and examples
 
 on:
   push:
@@ -9,7 +9,26 @@ permissions:
   contents: read
 
 jobs:
+  restored-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24.x"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: foundry-rs/foundry-toolchain@v1
+      - run: node scripts/setup-restored.mjs
+      - run: node scripts/check-catalog.mjs
+      - run: node --test scripts/source-integrity.test.mjs
+      - run: node scripts/verify-restored-builds.mjs
+      - run: node scripts/verify-restored-evm.mjs
+
   evm:
+    name: Supplementary EVM labs (not article coverage)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,6 +42,7 @@ jobs:
         working-directory: evm/go
 
   solana-and-catalog:
+    name: Supplementary Solana labs (not article coverage)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

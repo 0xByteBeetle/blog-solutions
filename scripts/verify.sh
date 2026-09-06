@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 node "$ROOT/scripts/check-catalog.mjs"
-"$ROOT/scripts/verify-evm.sh"
-"$ROOT/scripts/verify-solana.sh"
+node --test "$ROOT/scripts/source-integrity.test.mjs"
+node "$ROOT/scripts/verify-restored-builds.mjs"
 
-echo "All deterministic blog example checks passed."
+echo "Recovered-source integrity and build/unit checks passed. See article statuses for runtime coverage."

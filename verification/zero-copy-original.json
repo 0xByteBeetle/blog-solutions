@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-06T12:34:52.522Z",
+  "project": "examples/solana/zero-copy-original",
+  "status": "runtime-verified",
+  "sourceHashes": {
+    "examples/solana/zero-copy-original/Cargo.toml": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "examples/solana/zero-copy-original/Cargo.lock": "a8c0148a354f74bb31ab24534ce59d4c422a457b40c1a8e58a4b9185d3de7eba",
+    "examples/solana/zero-copy-original/Anchor.toml": "a6f830c24bca347aa8a8e4b649eb4a41d3e404f18de4dd2a1a7bf843c3e1f962",
+    "examples/solana/zero-copy-original/package.json": "51aa4935f4eca5cc345d93a50816a9f0f3c0fd3d73683653ea2c75f0035759a3",
+    "examples/solana/zero-copy-original/tsconfig.json": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "examples/solana/zero-copy-original/programs/borsh_deep_dive/Cargo.toml": "14ba836b5e0945487f5430bdefd74435a3cd05ab66b45359327c698ebbb180ef",
+    "examples/solana/zero-copy-original/programs/borsh_deep_dive/src/lib.rs": "ccbfbcfab72e507666161e51cf6d6e82244116d30bad5c536abaa5c160af86a1",
+    "examples/solana/zero-copy-original/tests/zero_copy.ts": "12a2a6cb4b615e2dccea9ff5ad4fefb3551a0a06af57a608e45c9a9b85d6e11e"
+  },
+  "command": "node scripts/run-original-anchor.mjs zero-copy-original",
+  "changes": "Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

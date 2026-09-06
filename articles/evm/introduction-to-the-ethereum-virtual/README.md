@@ -1,33 +1,22 @@
 # Introduction to the Ethereum Virtual Machine (EVM)
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/introduction-to-the-ethereum-virtual)
+[Read the article](https://andreyobruchkov1996.substack.com/p/introduction-to-the-ethereum-virtual) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 1 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `evm/foundry/src/Internals.sol`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd evm/foundry && forge test --offline --match-contract InternalsTest
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Successful and reverting call paths designed for opcode-level tracing
-
-Code: `evm/foundry/src/Tracing.sol`
-
-Run:
-
-```bash
-cd evm/foundry && forge test --offline --match-contract TracingTest
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Internals.sol](../../../evm/foundry/src/Internals.sol)
+- [evm/foundry/src/Tracing.sol](../../../evm/foundry/src/Tracing.sol)

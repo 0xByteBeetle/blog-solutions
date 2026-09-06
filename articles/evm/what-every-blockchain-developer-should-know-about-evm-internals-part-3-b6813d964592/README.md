@@ -1,33 +1,39 @@
 # What Every Blockchain Developer Should Know About EVM Internals — Part 3
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592)
+[Read the article](https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592) · [Published examples](published.md)
 
-Published: 2025-07-15
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 18 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | source-excerpt | [published source](../../../examples/evm/storage-validation/src/Storage.sol) |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | source-excerpt | [published source](../../../examples/evm/storage-validation/test/Tracing.t.sol) |
+| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
+| [13](published.md#block-13) | unclassified | Preserved in the published block; runnable mapping pending |
+| [14](published.md#block-14) | unclassified | Preserved in the published block; runnable mapping pending |
+| [15](published.md#block-15) | source-excerpt | [published source](../../../examples/evm/storage-validation/test/Storage.t.sol) |
+| [16](published.md#block-16) | unclassified | Preserved in the published block; runnable mapping pending |
+| [17](published.md#block-17) | source-excerpt | [published source](../../../examples/evm/storage-validation/script/DebugStore.sol) |
+| [18](published.md#block-18) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `evm/foundry/src/Internals.sol`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd evm/foundry && forge test --offline --match-contract InternalsTest
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Successful and reverting call paths designed for opcode-level tracing
-
-Code: `evm/foundry/src/Tracing.sol`
-
-Run:
-
-```bash
-cd evm/foundry && forge test --offline --match-contract TracingTest
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Internals.sol](../../../evm/foundry/src/Internals.sol)
+- [evm/foundry/src/Tracing.sol](../../../evm/foundry/src/Tracing.sol)

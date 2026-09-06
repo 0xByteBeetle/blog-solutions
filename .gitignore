@@ -21,3 +21,8 @@ node_modules/
 # Local validator material
 **/.local/
 **/*.log
+**/*.key
+**/*keypair*.json
+examples/**/out/
+examples/**/cache/
+examples/**/broadcast/

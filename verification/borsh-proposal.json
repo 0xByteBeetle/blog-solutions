@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-06T12:33:50.601Z",
+  "project": "examples/solana/borsh-proposal",
+  "status": "runtime-verified",
+  "sourceHashes": {
+    "examples/solana/borsh-proposal/Cargo.toml": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "examples/solana/borsh-proposal/Cargo.lock": "860aad4b7ca8b4ffc882efa7f6db4af2d5f1732dfe465b116c3ab0eeacc254ee",
+    "examples/solana/borsh-proposal/Anchor.toml": "a6f830c24bca347aa8a8e4b649eb4a41d3e404f18de4dd2a1a7bf843c3e1f962",
+    "examples/solana/borsh-proposal/package.json": "51aa4935f4eca5cc345d93a50816a9f0f3c0fd3d73683653ea2c75f0035759a3",
+    "examples/solana/borsh-proposal/tsconfig.json": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "examples/solana/borsh-proposal/programs/borsh_deep_dive/Cargo.toml": "9a2a68f12a816aa1701fb1334f423e5190f2fe09c8c6322e9db63a3d24b4659a",
+    "examples/solana/borsh-proposal/programs/borsh_deep_dive/src/lib.rs": "e9496d3638a4f02b7a0e38eb116a4604b691a8c558d63d238018622d52850719",
+    "examples/solana/borsh-proposal/tests/borsh_deep_dive.ts": "29ce37296f1a8592a6821e3b055cc8468bdb9c653361b2c104bd79d543407480"
+  },
+  "command": "node scripts/run-original-anchor.mjs borsh-proposal",
+  "changes": "Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

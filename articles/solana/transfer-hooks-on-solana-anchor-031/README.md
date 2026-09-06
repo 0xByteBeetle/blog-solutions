@@ -1,23 +1,39 @@
 # Transfer Hooks on Solana: Anchor 0.31 & Token-2022
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031)
+[Read the article](https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031) · [Published examples](published.md)
 
-Published: 2026-03-18
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 15 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### A deployed Token-2022 transfer hook with ExtraAccountMetaList and accepted and rejected transfers
+- [examples/solana/transfer-hook](../../../examples/solana/transfer-hook)
 
-Code: `solana/anchor/programs/transfer_hook`
+## Example map
 
-Run:
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | dependency-fragment | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | account-context | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | upstream-fragment | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | instruction-fragment | [published source](../../../examples/solana/transfer-hook/published-program.rs) |
+| [7](published.md#block-7) | program | [published source](../../../examples/solana/transfer-hook/published-program.rs) |
+| [8](published.md#block-8) | configuration | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | commands | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | commands | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | commands | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | client-program | [published source](../../../examples/solana/transfer-hook/published-client.ts) |
+| [13](published.md#block-13) | intentional-failure-command | Preserved in the published block; runnable mapping pending |
+| [14](published.md#block-14) | published-failure-output | Preserved in the published block; runnable mapping pending |
+| [15](published.md#block-15) | command | Preserved in the published block; runnable mapping pending |
 
-```bash
-cd solana/anchor && ./scripts/test.sh
-```
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-## Verification boundary
+## Supplementary labs
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+These older topic-level labs are not substitutes for the published code.
+
+- [solana/anchor/programs/transfer_hook](../../../solana/anchor/programs/transfer_hook)

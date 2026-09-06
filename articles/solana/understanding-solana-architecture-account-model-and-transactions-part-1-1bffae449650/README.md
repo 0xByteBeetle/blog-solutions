@@ -1,23 +1,19 @@
 # Understanding Solana: Architecture, Account Model and Transactions — part 1
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650)
+[Read the article](https://andreyobruchkov1996.substack.com/p/understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650) · [Published examples](published.md)
 
-Published: 2025-10-28
+No displayed code blocks in the captured article. No runtime verification claimed.
 
-The article contains 0 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **no-displayed-code**.
 
-## Companion implementation
+## Example map
 
-### Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables
+No displayed code blocks in the captured post.
 
-Code: `solana/fundamentals`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cargo test --manifest-path solana/fundamentals/Cargo.toml
-```
+These older topic-level labs are not substitutes for the published code.
 
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [solana/fundamentals](../../../solana/fundamentals)

@@ -1,43 +1,29 @@
 # eth_call vs debug_traceCall: How to Simulate, Trace, and Debug Ethereum Transactions
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/eth_call-vs-debug_tracecall-how-to)
+[Read the article](https://andreyobruchkov1996.substack.com/p/eth_call-vs-debug_tracecall-how-to) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 7 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Example map
 
-### Successful and reverting call paths designed for opcode-level tracing
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Code: `evm/foundry/src/Tracing.sol`
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-Run:
+## Supplementary labs
 
-```bash
-cd evm/foundry && forge test --offline --match-contract TracingTest
-```
+These older topic-level labs are not substitutes for the published code.
 
-### Real eth_call and debug_traceCall responses from a disposable Anvil node
-
-Code: `evm/rpc/run-local.sh`
-
-Run:
-
-```bash
-./evm/rpc/run-local.sh
-```
-
-### JSON-RPC request validation, batch correlation, and partial-error handling
-
-Code: `evm/go/rpcbatch`
-
-Run:
-
-```bash
-cd evm/go && go test ./rpcbatch
-```
-
-## Verification boundary
-
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Tracing.sol](../../../evm/foundry/src/Tracing.sol)
+- [evm/rpc/run-local.sh](../../../evm/rpc/run-local.sh)
+- [evm/go/rpcbatch](../../../evm/go/rpcbatch)

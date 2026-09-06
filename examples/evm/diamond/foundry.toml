@@ -1,0 +1,11 @@
+[profile.default]
+src = "src"
+script = "script"
+libs = []
+allow_paths = ["../../../.local/forge-std", "../../../node_modules/@openzeppelin/contracts"]
+remappings = ["forge-std/=../../../.local/forge-std/src/"]
+
+# The current Solar linter fails to resolve external relative library imports.
+# Solc compilation and local runtime checks remain enabled.
+[lint]
+lint_on_build = false

@@ -1,23 +1,36 @@
 # Proxies and Upgradability - Minimal Proxy (EIP-1167)
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-minimal)
+[Read the article](https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-minimal) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 6 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### CREATE, CREATE2, clones, transparent proxies, ERC-1967 slots, and UUPS upgrades
+- [examples/evm/minimal-proxy](../../../examples/evm/minimal-proxy)
 
-Code: `evm/foundry/src/Deployments.sol`
+## Recorded checks
 
-Run:
+- [examples/evm/minimal-proxy: runtime-verified](../../../verification/restored-evm.json) (2026-09-06)
 
-```bash
-cd evm/foundry && forge test --offline --match-contract DeploymentsTest
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-## Verification boundary
+## Example map
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | bytecode-fragment | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | program | [published source](../../../examples/evm/minimal-proxy/src/minimalProxy.sol) |
+| [3](published.md#block-3) | command | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+
+## Supplementary labs
+
+These older topic-level labs are not substitutes for the published code.
+
+- [evm/foundry/src/Deployments.sol](../../../evm/foundry/src/Deployments.sol)

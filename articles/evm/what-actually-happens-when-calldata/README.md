@@ -1,33 +1,37 @@
 # What Actually Happens When Calldata Hits the EVM
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/what-actually-happens-when-calldata)
+[Read the article](https://andreyobruchkov1996.substack.com/p/what-actually-happens-when-calldata) · [Published examples](published.md)
 
-Published: 2025-11-08
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 6 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### Calldata, ABI decoding, storage, call context, fallback behavior, and revert propagation
+- [examples/evm/calldata](../../../examples/evm/calldata)
 
-Code: `evm/foundry/src/Internals.sol`
+## Recorded checks
 
-Run:
+- [examples/evm/calldata: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
-```bash
-cd evm/foundry && forge test --offline --match-contract InternalsTest
-```
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
-### Successful and reverting call paths designed for opcode-level tracing
+## Example map
 
-Code: `evm/foundry/src/Tracing.sol`
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | solidity-source | [published source](../../../examples/evm/calldata/src/Example.sol) |
+| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
 
-Run:
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
-```bash
-cd evm/foundry && forge test --offline --match-contract TracingTest
-```
+## Supplementary labs
 
-## Verification boundary
+These older topic-level labs are not substitutes for the published code.
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+- [evm/foundry/src/Internals.sol](../../../evm/foundry/src/Internals.sol)
+- [evm/foundry/src/Tracing.sol](../../../evm/foundry/src/Tracing.sol)

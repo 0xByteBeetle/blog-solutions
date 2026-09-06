@@ -1,23 +1,44 @@
 # Architecting High-Performance Solana Programs: The Zero-Copy Deep Dive
 
-[Read the article on Substack](https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana)
+[Read the article](https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana) · [Published examples](published.md)
 
-Published: 2026-08-04
+Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
 
-The article contains 6 displayed code or output blocks. This page maps those examples to maintained implementations and checks; it does not duplicate the article itself.
+Article status: **source-restored**.
 
-## Companion implementation
+## Recovered source
 
-### Accounts, PDAs, Borsh bytes, messages, signatures, fee math, and address lookup tables
+- [examples/solana/zero-copy-original](../../../examples/solana/zero-copy-original)
+- [examples/solana/zero-copy](../../../examples/solana/zero-copy)
 
-Code: `solana/fundamentals`
+  Run: `node scripts/run-original-anchor.mjs zero-copy`
+- [examples/solana/zero-copy-layout](../../../examples/solana/zero-copy-layout)
 
-Run:
+  Run: `cargo test --manifest-path examples/solana/zero-copy-layout/Cargo.toml -- --nocapture`
 
-```bash
-cargo test --manifest-path solana/fundamentals/Cargo.toml
-```
+## Recorded checks
 
-## Verification boundary
+- [examples/solana/zero-copy-layout: unit-tested](../../../verification/restored-builds.json) (2026-09-06)
+- [examples/solana/zero-copy-original: runtime-verified](../../../verification/zero-copy-original.json) (2026-09-06)
+- [examples/solana/zero-copy: runtime-verified](../../../verification/zero-copy.json) (2026-09-06)
 
-The mapped deterministic tests or disposable local-chain scenario passed on 9 August 2026.
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
+
+## Example map
+
+| Block | Type | Source |
+| --- | --- | --- |
+| [1](published.md#block-1) | struct-fragment | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | test-program | [published source](../../../examples/solana/zero-copy-layout/src/lib.rs) |
+| [3](published.md#block-3) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | intentional-failure | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | program | [published source](../../../examples/solana/zero-copy/programs/zero_copy_deep_dive/src/lib.rs) |
+| [6](published.md#block-6) | integration-test | [published source](../../../examples/solana/zero-copy/tests/published.ts) |
+
+“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+
+## Supplementary labs
+
+These older topic-level labs are not substitutes for the published code.
+
+- [solana/fundamentals](../../../solana/fundamentals)

@@ -1,0 +1,880 @@
+[
+  {
+    "path": "examples/evm/rlp/go.mod",
+    "sha256": "b21abf1ee0a1c3a1c77186fa45f6e10e4d93201ba9857916827045c870626098",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/RLP_EVM",
+      "revision": "2dbcdaa835fc4e2fd64eea3a16303db2ba6f78d0",
+      "path": "go.mod"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/rlp/decode/decode.go",
+    "sha256": "2e51236fd0180c01ce7ba38364933e4d704b0344608a9aea85e19d2c01c5a993",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/RLP_EVM",
+      "revision": "2dbcdaa835fc4e2fd64eea3a16303db2ba6f78d0",
+      "path": "decode/decode.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/rlp/decode/decode_test.go",
+    "sha256": "9ae48f9269c61641eaebaf0b6e1bfc241ebd4912877a7f86fb819e273fe38df8",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/RLP_EVM",
+      "revision": "2dbcdaa835fc4e2fd64eea3a16303db2ba6f78d0",
+      "path": "decode/decode_test.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/rlp/encode/encode.go",
+    "sha256": "6c91c68f05e09da9b3db7479e65f48bb5455696a9ef76c32b54a8c5068be5567",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/RLP_EVM",
+      "revision": "2dbcdaa835fc4e2fd64eea3a16303db2ba6f78d0",
+      "path": "encode/encode.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/rlp/encode/encode_test.go",
+    "sha256": "cbf337e5e242e9d629f3527c28c0079b91cd0a1c30453b57e755153728b10d5f",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/RLP_EVM",
+      "revision": "2dbcdaa835fc4e2fd64eea3a16303db2ba6f78d0",
+      "path": "encode/encode_test.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/go.mod",
+    "sha256": "2dbb769b9e675a7b2e7437347c16f1bd926bbc5e1f84cc4a272cc99a836009e0",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "go.mod"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/go.sum",
+    "sha256": "2f1eb0745b3384c46ff8b4e439fc0b4ddaa07a2657df10d3e41c642e31963007",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "go.sum"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/account/account.go",
+    "sha256": "cf5e5e1b6e45be5925f1d6e3deffcdede35134888382500997d9e51c53899e49",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "account/account.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip1559/eip1559.go",
+    "sha256": "4131774273e3d8faf708805997c895fb08a561e133c0821abeebf8e90b324707",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip1559/eip1559.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip2930/eip2930.go",
+    "sha256": "e6e91357023a2a6a8b8a0b9ec5bb6ee8b61df5fdebb597cb35796ead23a8fe09",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip2930/eip2930.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip4844/eip4844.go",
+    "sha256": "8324d7e533c42a5c6d0a0a1a43ab72674471d4a3e5ff195a505da89722a7adb3",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip4844/eip4844.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip712/eip712.go",
+    "sha256": "5e73fb946ecf9d4fb9208f048e225ac6facfa72891bfddba49fb61767a9b9f16",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip712/eip712.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip712/verifier.sol",
+    "sha256": "d9196830d00b23029d0af4b38a570b4d9aeed72f7e63fb4d932302805ebca6e1",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip712/verifier.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip7702/eip7702_batch.go",
+    "sha256": "b8abdff7a9af3bfe2e70cf3fb8a9cc670a720adae647f92304d500d0fb582230",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/eip7702_batch.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip7702/invoked.sol",
+    "sha256": "1c5b072dc54111dcd349f049a66402bc54704936507b54af5de5761d0f220185",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/invoked.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol",
+    "sha256": "e95782736794b8ee19929a4c4782a6340ce19da2150368b3611f0fe2f26e1b9b",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/multi_delegation_invoker.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/legacy-tx/legacy.go",
+    "sha256": "c84cbd77d6a935f9b28d20f505f3270f994dde6094d3d2878dfc713d385c24b3",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "legacy-tx/legacy.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/personalsign/personalsign.go",
+    "sha256": "ed83d3679228b230da80e8f200f08b745de151ea33c23263d3714ccb936bd172",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "personalsign/personalsign.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/Anchor.toml",
+    "sha256": "24f8ffef7c27139066a572370d5b433c4355f8c9af4fbffc569404d5f313b71b",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/Cargo.lock",
+    "sha256": "b85bdb72cdce9b6b939116f7f672126dbac3149fb76ad52c703e4f0adedf2ffe",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/package.json",
+    "sha256": "3345fc4a92d043439eb56105a036450ec7eb0226441969a4d739ccbc878b54d5",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/pnpm-lock.yaml",
+    "sha256": "50d058e56cee3ca8afd84061966658dc3182e912402654ca3bfba08fefd4b0bc",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "pnpm-lock.yaml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/tsconfig.json",
+    "sha256": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/migrations/deploy.ts",
+    "sha256": "8484b6acd1cd6c4e5aef44b4058279e6e290a43015f9cf04ec4b4e7dac70df49",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "migrations/deploy.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/scripts/solana_accounts.ts",
+    "sha256": "18445dde0c805492f38f4ffe5c26aad154d1dfd5073cd4a4a54c93e8df2d82b1",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "scripts/solana_accounts.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/tests/solana_accounts.ts",
+    "sha256": "b97e1c370a820ad112c438775c04a37121ff7b4ec1aaa418c5b669564a97851f",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "tests/solana_accounts.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/programs/solana_accounts/Cargo.toml",
+    "sha256": "00060122f588737a8298ce33956b137547d6dcb81f0a45e74eadb6f688287a1b",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "programs/solana_accounts/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/programs/solana_accounts/Xargo.toml",
+    "sha256": "815f2dfb6197712a703a8e1f75b03c6991721e9eb7c40dfaec8b0b49da4aa629",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "programs/solana_accounts/Xargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs",
+    "sha256": "a998a65c834b05f55af6d5515a01d8bc7091508d269976160fe63504ebcdbb9f",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/Anchor-Solana-Accounts",
+      "revision": "1fd4d72a6cd9786d5b1d925623f0444e32baa7ac",
+      "path": "programs/solana_accounts/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/Cargo.lock",
+    "sha256": "860aad4b7ca8b4ffc882efa7f6db4af2d5f1732dfe465b116c3ab0eeacc254ee",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/Anchor.toml",
+    "sha256": "a6f830c24bca347aa8a8e4b649eb4a41d3e404f18de4dd2a1a7bf843c3e1f962",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/package.json",
+    "sha256": "51aa4935f4eca5cc345d93a50816a9f0f3c0fd3d73683653ea2c75f0035759a3",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/tsconfig.json",
+    "sha256": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/programs/borsh_deep_dive/Cargo.toml",
+    "sha256": "9a2a68f12a816aa1701fb1334f423e5190f2fe09c8c6322e9db63a3d24b4659a",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "programs/borsh_deep_dive/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/programs/borsh_deep_dive/src/lib.rs",
+    "sha256": "e9496d3638a4f02b7a0e38eb116a4604b691a8c558d63d238018622d52850719",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "programs/borsh_deep_dive/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-proposal/tests/borsh_deep_dive.ts",
+    "sha256": "29ce37296f1a8592a6821e3b055cc8468bdb9c653361b2c104bd79d543407480",
+    "source": {
+      "localProject": "borsh_deep_dive",
+      "path": "tests/borsh_deep_dive.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/Cargo.lock",
+    "sha256": "a8c0148a354f74bb31ab24534ce59d4c422a457b40c1a8e58a4b9185d3de7eba",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/Anchor.toml",
+    "sha256": "a6f830c24bca347aa8a8e4b649eb4a41d3e404f18de4dd2a1a7bf843c3e1f962",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/package.json",
+    "sha256": "51aa4935f4eca5cc345d93a50816a9f0f3c0fd3d73683653ea2c75f0035759a3",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/tsconfig.json",
+    "sha256": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/programs/borsh_deep_dive/Cargo.toml",
+    "sha256": "14ba836b5e0945487f5430bdefd74435a3cd05ab66b45359327c698ebbb180ef",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "programs/borsh_deep_dive/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/programs/borsh_deep_dive/src/lib.rs",
+    "sha256": "ccbfbcfab72e507666161e51cf6d6e82244116d30bad5c536abaa5c160af86a1",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "programs/borsh_deep_dive/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-original/tests/zero_copy.ts",
+    "sha256": "12a2a6cb4b615e2dccea9ff5ad4fefb3551a0a06af57a608e45c9a9b85d6e11e",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "tests/zero_copy.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/factory/src/basicfactory.sol",
+    "sha256": "fdc8e6d56b611d2e8288324a6787f656dbadb87208fb4fab929d4f070e893cb9",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/factories-how-smart-contracts-deploy",
+      "block": 1,
+      "sha256": "3e70d3ba22a9f914feae4e73ef5288d20d964d33b5fbfb8e19c79899826070cc"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/minimal-proxy/src/minimalProxy.sol",
+    "sha256": "588d7b16f6bf34c5f536c8698311299752b7778bca22bfd40be559a00c20fd4f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-minimal",
+      "block": 2,
+      "sha256": "46f6fc34c7728fd545aa2d23ba2e67c0883fcbfca278e6c721ece8b9f9493223"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/uups/src/UUPSLogicContract.sol",
+    "sha256": "956e627e9c2488d070bae16d8826f6f146290d05b0b62a7807972322fa8ef879",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-uups-proxy",
+      "block": 1,
+      "sha256": "cf27b90678b9a78791f0928d66593ee88374f33c12052fa43f08a3ff0aca4421"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/uups/src/UUPSProxy.sol",
+    "sha256": "8193952de55114b2cc4ac40feb30b6b9d7ea60dbbbbeb5ba355a543cc55d8796",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-uups-proxy",
+      "block": 2,
+      "sha256": "7d2b16b9b5a0f74fd32c6e8114a6680ea2c77c7a2f52435aac1d729a07d1f768"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/transparent-proxy/src/StorageV1.sol",
+    "sha256": "0196a6e0a0a2a1ce6da925a751013d6ec62cc99715ad284d00e341789d4ccd1e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability",
+      "block": 1,
+      "sha256": "8ca8d451f31cd28b334d32dea62bf4624c321bdab9378a77aa35ef62e7464e6b"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/transparent-proxy/src/StorageV2.sol",
+    "sha256": "0f59d43bad10a28082b957451b50f3791d7fd3dcc98b343c0ecd310192b0d544",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability",
+      "block": 2,
+      "sha256": "4008a73374502dd71556615f7f9603caab2826b91d575bf7010af7e7f044fd29"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/transparent-proxy/src/TransparentProxy1967.sol",
+    "sha256": "ebf9172cdf2688a26e18f3834fa57a497e2390b703aebc4f5bd5aaf0f71ac5d7",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability",
+      "block": 3,
+      "sha256": "76ffc1820c51c632fd745b0b3b2a1e7a6f84ab9def820c25c1832cf3578ead23"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/storage/src/Storage.sol",
+    "sha256": "3d490b02e30b32581994c75da540cb212dfd321eb65596a50a9f4fbbc9021cd7",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity",
+      "block": 1,
+      "sha256": "c192ab06f48afa175e6404db2955c78925174b178984f6f4722016bf10d10377"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/streaming/main.go",
+    "sha256": "15a34fce635956d62853917b914fe9b8133ac5b90a30da4881932d70b1ff4baf",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/streaming-on-chain-activity-in-real",
+      "block": 1,
+      "sha256": "d59085012cdcf35b35834f586c9120cb3d3447dd05499febb1b833b6cde2b04b"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/multicall/main.go",
+    "sha256": "34dfa5502470123699157e6167c8354f9282df9beee4efef9fb379fc31968e6e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/batching-calls-efficiently-with-multicall",
+      "block": 1,
+      "sha256": "e5dbcc2718a197c89cf0c13082b0fb2dfe08d6918e5736369b385947c58e99d7"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/evm/diamond/src/LibDiamond.sol",
+    "sha256": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 5,
+      "sha256": "f659d71b26e5c0b96ec172d6544ae7a1a917b7eb197dd28ac6e04a769ebe3c14"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/interfaces/IDiamondCut.sol",
+    "sha256": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 6,
+      "sha256": "d2e491f480f3fb763947f0feb4c284678fc996d500c130fb158f14b701b87cc0"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/interfaces/IDiamondLoupe.sol",
+    "sha256": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 7,
+      "sha256": "fcc2aa478bf26c6a9bffab73350b020e7463272a8369706eb0e32cf27460c4c3"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/Diamond.sol",
+    "sha256": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 8,
+      "sha256": "cd1a77ea271824c5ebcc7927bac22d5636e49ccbe9b7a5d4199536514658b408"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/facets/DiamondCutFacet.sol",
+    "sha256": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 9,
+      "sha256": "ce049d927b5e4124f86588063af091430b538f44c1a8d2e2a09f23c4952c7898"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/facets/DiamondLoupeFacet.sol",
+    "sha256": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 10,
+      "sha256": "f1259f7afa7858ef25113f792c669dd6550cb6fc6ece2348dd5d05791725c3cf"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/facets/OwnershipFacet.sol",
+    "sha256": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 11,
+      "sha256": "0bf1ad3911fcf89f15c45a477ddd0b81055ea19d06ff2604a6490808bb1e7dde"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/facets/ExampleFacet.sol",
+    "sha256": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 12,
+      "sha256": "ddc4071d293eb0dc329c64a35c8c376777a44d04bc95432a266b0ab65b513b16"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/diamond/src/facets/newFacet.sol",
+    "sha256": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 17,
+      "sha256": "37c24b440c101968201029c4d61c4a993774c567f2eab4b8d30629d659d14656"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/wallet-token-balances/lib.rs",
+    "sha256": "5493688ee91199b5be9e19b042bc4532d070ce67bb26f4963e88c7b708a4bf11",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 1,
+      "sha256": "9702c306fe1c2110a1bfe7e970440381cebf7b4ef8a046be8459f0251986fd2c"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/solana/wallet-token-balances/setup.ts",
+    "sha256": "262b52358c0fac399ce334a86e7b7967993905142c7dfb6959ba6764bd16f7e1",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 4,
+      "sha256": "caa188e35e8354560f477c05bf250d8974db789f7c24e9a44e53d936f2d4912c"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/solana/wallet-token-balances/client.ts",
+    "sha256": "c55f702638b13631e2c012d5711c054b34bae502ec78c58a6d41fbb5b08a322f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 5,
+      "sha256": "482ffac8db2e823522677f0150639d6ef19ab03a355022344d775d78c27e7cd9"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "examples/solana/transfer-hook/published-program.rs",
+    "sha256": "e3ff981b8a9312d55238661260d949b8e2f38d9e59bf8cd538c4c73eb184a7f0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 7,
+      "sha256": "0899e1fcd810a950f3f84c5f600e0cf781dc96092e8d188cb0357a443b8c7a67"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook/published-client.ts",
+    "sha256": "2d8374280f129995ae756a3fe06b49078eda335356833d4f4d631d8fba33ddb0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 12,
+      "sha256": "6145540021f492a66d6788749af39daa9f2112910aa831d1681f449978f7cb1b"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/borsh-profile/programs/borsh_deep_dive/src/lib.rs",
+    "sha256": "8d48e0b4c7680497afaef23440516c7067830078bb6dcf4244211e5512c2fc4c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh",
+      "block": 2,
+      "sha256": "b2ee74e6fc9f912ce436bd64fd15f8e3f9cfd0f79aa152829d0c690a2dcc0843"
+    },
+    "changes": [
+      "Environment placeholder substitution: YourProgramIdHere... -> Bo8J1of9EuuGw3DvSgTdV7Fug65oD7cERLsf5rzF6PG4"
+    ]
+  },
+  {
+    "path": "examples/solana/borsh-profile/tests/published.ts",
+    "sha256": "74571c9167298272720f1252a7877d285b88d0045bcc8847845d99ef27aba2fd",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh",
+      "block": 3,
+      "sha256": "a164d94f903df5ae00a9a3e4f92b4106246c1e8c2602f2a3cfb07071d2894aca"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy/programs/zero_copy_deep_dive/src/lib.rs",
+    "sha256": "55557ca2c89e40c1a3a4aa66402d3769f9b0d3091b5e5974e1b47c93cc4eba7a",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 5,
+      "sha256": "d73cd3b9bfc6bfb80d86ab37ac306430b20b97ecab4152a1c6d11fff1dfa9ba1"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy/tests/published.ts",
+    "sha256": "1ce25fa6b172dbf3fd74a6444da1f1d2286ea730a7364959488c057357700858",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 6,
+      "sha256": "68244dd301071a564c627bcc6e07b8c8dc36b69576cea7e8b014f978667acf7c"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/zero-copy-layout/src/lib.rs",
+    "sha256": "1fed75363c2246d996cc1539e052d52a835aebe8ab8a13b63439ee4aa63c0782",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 2,
+      "sha256": "7f3be386891a091dad5985a65d8e1ee6ab560bcd1a120d895bd524ce0c4ad63f"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/permit-verifier/src/PermitVerifier.sol",
+    "sha256": "39fbc12fc890ffefac2ef2e34eb693a6f0356965a15ab2b2cb71190a12d8faca",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/evm-message-signtypeddata-eip-712",
+      "block": 3,
+      "sha256": "9a544b44b083b22c85836188530db5c3be1691cb1390a22fb04b353f7c238f3f"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "examples/evm/delegation/src/Invoked.sol",
+    "sha256": "7fcd21497429b6d1cb6bdc97f18a2a19c85bea046fccd69563a3aa6f94ecd2b0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702",
+      "block": 4,
+      "sha256": "b6f1ba50736bd3275c16a0295c775db81e1ab33a9238c4a7a966d0cf095f08b5"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/delegation/src/MultiDelegationInvoker.sol",
+    "sha256": "cc387592a72717ce50e35c3675132740896c826272919c5063a24b876c0e15ca",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702",
+      "block": 5,
+      "sha256": "ac4291f322fa06c6b32d743b3a9531ff4558b9ad31dfccafa2810202680b6ebc"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "examples/evm/calldata/src/Example.sol",
+    "sha256": "75885b961d6ae3a0ab851125355f978e906cfce6215b469cd16c86cfe2a2f3c9",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/what-actually-happens-when-calldata",
+      "block": 1,
+      "sha256": "de8caf6cc7e423e69bf49f9c78b7f2b57ce33882c42115db79f44c7d3e74ef10"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/bytecode/src/MiniExample.sol",
+    "sha256": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/ethereum-calldata-and-bytecode-how",
+      "block": 6,
+      "sha256": "e6eaba303a7e34a87e38bde46f961c19419ff51466bf35539786ae3822d47ce2"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/storage-validation/src/Storage.sol",
+    "sha256": "7d17102e9a67740c3dfc118d41d98bfe96bd94bb46f958e8632aea4dd0aec636",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+      "block": 3,
+      "sha256": "7d73ec75414e9ad43a536d1ff54f9f25cb4a97d4ae7fdeb503a6e101719ede52"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/storage-validation/test/Storage.t.sol",
+    "sha256": "7f32fceecd8e6a16b598bef82147e49dea4e696476948421bf3a89044e97e81e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+      "block": 4,
+      "sha256": "4de46069dad0c0dfdefd20639016cf4e87bf5820355a341b274088b64f86aeeb"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/storage-validation/test/Tracing.t.sol",
+    "sha256": "b2ec00bcd144319271bf6fa5dbb5155593fcfb63993146bc43a63b946b1f66ee",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/tracing-ethereum-transactions-how",
+      "block": 1,
+      "sha256": "e2ac2f6fe2426c2b784fcc2ca6c8b312c32834ffd23acd70639f32bb9aba6789"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "examples/evm/storage-validation/script/DebugStore.sol",
+    "sha256": "cb1f9c38bd9c6de8457d572a6e07250ea8ef917ddf6f37c70f19092154207c93",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/tracing-ethereum-transactions-how",
+      "block": 10,
+      "sha256": "d06f5d4c5ab16a6709f0caf54da21bb6696a7511869ce0dc632b0fc6e0ca87e7"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "examples/evm/diamond/script/DeployDiamond.sol",
+    "sha256": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 13,
+      "sha256": "962c0a377b5665871a2714bdd9212c10dfcaeadd0b5ccad4cb5017406034ef97"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/evm/transaction-types/eip4844/trusted_setup.txt",
+    "sha256": "e695ba9905a832de98dc3567febe326b760382bfd77a9a6880ca51b602a7d7ff",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip4844/trusted_setup.txt"
+    },
+    "changes": []
+  }
+]
