@@ -10,15 +10,15 @@ Article status: **source-restored**.
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | upstream-struct | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | upstream-struct | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | formula | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | formula | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | instruction-name | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | instruction-name | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | program-name | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | worked-calculation | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | pseudocode | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

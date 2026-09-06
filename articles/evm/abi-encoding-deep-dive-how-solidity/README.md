@@ -20,11 +20,11 @@ These results apply to the listed projects, not every block in the article. Buil
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | source-excerpt | [published source](../../../examples/evm/storage/src/Storage.sol) |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | program | [published source](../../../examples/evm/storage/src/Storage.sol) |
+| [2](published.md#block-2) | abi-json | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | worked-selector | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | encoded-calldata | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | decoding-fragment-and-values | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

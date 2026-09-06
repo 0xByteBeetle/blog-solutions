@@ -24,20 +24,20 @@ These results apply to the listed projects, not every block in the article. Buil
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | source-excerpt | [published source](../../../examples/evm/uups/src/UUPSLogicContract.sol) |
-| [2](published.md#block-2) | source-excerpt | [published source](../../../examples/evm/uups/src/UUPSProxy.sol) |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | source-excerpt | [published source](../../../examples/evm/factory/src/basicfactory.sol) |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
-| [10](published.md#block-10) | source-excerpt | [published source](../../../examples/evm/minimal-proxy/src/minimalProxy.sol) |
-| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
-| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
-| [13](published.md#block-13) | unclassified | Preserved in the published block; runnable mapping pending |
-| [14](published.md#block-14) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | program | [published source](../../../examples/evm/uups/src/UUPSLogicContract.sol) |
+| [2](published.md#block-2) | program | [published source](../../../examples/evm/uups/src/UUPSProxy.sol) |
+| [3](published.md#block-3) | command | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | inspection-command | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | program | [published source](../../../examples/evm/factory/src/basicfactory.sol) |
+| [7](published.md#block-7) | command | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | bytecode-fragment | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | program | [published source](../../../examples/evm/minimal-proxy/src/minimalProxy.sol) |
+| [11](published.md#block-11) | command | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [13](published.md#block-13) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
+| [14](published.md#block-14) | commands-and-published-output | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

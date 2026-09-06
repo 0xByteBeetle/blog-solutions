@@ -9,6 +9,17 @@ Article status: **source-restored**.
 ## Recovered source
 
 - [examples/solana/transfer-hook](../../../examples/solana/transfer-hook)
+- [examples/solana/transfer-hook-original](../../../examples/solana/transfer-hook-original)
+
+  Run: `node scripts/run-original-anchor.mjs transfer-hook-original --regression`
+
+## Recorded checks
+
+- [examples/solana/transfer-hook-original: runtime-verified](../../../verification/transfer-hook-original-regression.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs transfer-hook-original --regression`
+
+These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map
 
@@ -20,7 +31,7 @@ Article status: **source-restored**.
 | [4](published.md#block-4) | instruction-fragment | Preserved in the published block; runnable mapping pending |
 | [5](published.md#block-5) | instruction-fragment | Preserved in the published block; runnable mapping pending |
 | [6](published.md#block-6) | instruction-fragment | [published source](../../../examples/solana/transfer-hook/published-program.rs) |
-| [7](published.md#block-7) | program | [published source](../../../examples/solana/transfer-hook/published-program.rs) |
+| [7](published.md#block-7) | program | [published source](../../../examples/solana/transfer-hook/published-program.rs); [original repo variant](../../../examples/solana/transfer-hook-original/programs/transfer-hook-project/src/lib.rs) |
 | [8](published.md#block-8) | configuration | Preserved in the published block; runnable mapping pending |
 | [9](published.md#block-9) | commands | Preserved in the published block; runnable mapping pending |
 | [10](published.md#block-10) | commands | Preserved in the published block; runnable mapping pending |

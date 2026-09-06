@@ -1,8 +1,8 @@
 # Source audit checkpoint: 6 September 2026
 
-This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 98 recovered source/configuration/data files.
+This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 106 recovered source/configuration/data files.
 
-75 blocks currently have direct recovered-source links. This is not a completion percentage: many of the 494 blocks are historical output, commands, data, explanatory fragments, or deliberate failures. 364 blocks still need explicit classification and review. Two captured posts have no displayed blocks.
+All 494 blocks now have explicit classifications. This is not a completion percentage: many blocks are historical output, commands, data, explanatory fragments, or deliberate failures, and classification is not semantic or runtime verification. Two captured posts have no displayed blocks.
 
 ## Checks completed on the recovered files
 
@@ -12,6 +12,8 @@ This audit is not complete. The old catalog's blanket verification claims have b
 - Three published Foundry storage tests, including the intended revert.
 - Build-only checks for transaction scripts, WebSocket streaming, multicall, signature verifier, delegation contracts, calldata, bytecode, and the diamond deployment script.
 - Source-integrity checks plus regression tests that deliberately mutate a source or published snapshot.
+- Original wallet-balance client with a separately prepared local ALT: two tests verify classic/Token-2022 balances, actual v0 ALT use, and zero for a missing ATA. The empty-ALT extension path failed and remains unresolved.
+- Original transfer-hook program with separate strengthened assertions: oversized transfer rejection with unchanged balances, then an exact successful transfer.
 
 The JSON files here bind results to source hashes. The two Solidity reproduction configurations that disable Solar linting document the external-library resolution problem; successful compilation is not represented as lint success.
 
@@ -19,11 +21,11 @@ The JSON files here bind results to source hashes. The two Solidity reproduction
 
 ### Solana Part 6: wallet_token_balances
 
-Resolved the missing source location after Andrey requested a broader home-folder search: `~/solana/wallet_tokens_balance`. Twelve original source/configuration files are now preserved in `examples/solana/wallet-token-balances-original`; wallets and deployment artifacts were excluded. The core program matches the publication apart from ID/whitespace, and the ALT creator matches apart from whitespace. A dedicated README lists the remaining fixture, address wiring, and stale scaffold-test gaps. Keep the original program/client unchanged; the next step is an explicitly separated reproducible test setup.
+Resolved the missing source location after Andrey requested a broader home-folder search: `~/solana/wallet_tokens_balance`. Twelve original source/configuration files are preserved; wallets and deployment artifacts were excluded. Fixture creation, address wiring and meaningful separate tests are implemented. The original client passes with a pre-populated finalized ALT. Its cold-extension path failed with an invalid ALT index; a readiness change needs Andrey's approval. See `REVIEW-FINDINGS.md` and the two separate wallet regression reports.
 
 ### Transfer-hook negative test
 
-The local original is `/Users/andreyobruchkov/clones/transfer-hook-project/tests/transfer-hook-project.ts`. Its whale-transfer test places both the transaction and `assert.fail()` inside the same `try`; the catch handles either failure and prints success. Consequently, its success message does not establish that the transfer was rejected. The local original has not been edited. The published program/client are preserved separately. Further work should keep the original test intact and obtain approval for a clearly separated corrected regression test if needed.
+The original test places both the transaction and `assert.fail()` inside the same `try`; the catch handles either failure and prints success. The original remains unchanged. The separately authorized regression now verifies the specific rejection and both token balances, and passes against the recovered original program.
 
 ### Public-network transaction examples
 
@@ -31,7 +33,7 @@ The original TransactionTypes programs are build-checked, not network-executed. 
 
 ### Remaining article review
 
-Finish per-block classification and compare original repository variants with printed excerpts, recording differences rather than silently merging them. Do not mark an entire article verified just because one project runs. The supplemental `evm/` and `solana/` labs remain available but are not authoritative article solutions.
+Classification is complete; example-level semantic/source comparison and execution coverage are not. Review the recorded selector and inspection-command discrepancies with Andrey, and continue comparing original variants with printed excerpts. Do not mark an entire article verified just because one project runs. The supplemental `evm/` and `solana/` labs are not authoritative article solutions.
 
 ## Resume safely
 

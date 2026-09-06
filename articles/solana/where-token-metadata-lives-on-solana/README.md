@@ -10,11 +10,11 @@ Article status: **source-restored**.
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | command | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | command | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | command | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | client-program | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | client-program | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

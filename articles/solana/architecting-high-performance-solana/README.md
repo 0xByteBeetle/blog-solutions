@@ -19,8 +19,14 @@ Article status: **source-restored**.
 ## Recorded checks
 
 - [examples/solana/zero-copy-layout: unit-tested](../../../verification/restored-builds.json) (2026-09-06)
+
+  Checked with: `cargo test --locked -- --nocapture`
 - [examples/solana/zero-copy-original: runtime-verified](../../../verification/zero-copy-original.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs zero-copy-original`
 - [examples/solana/zero-copy: runtime-verified](../../../verification/zero-copy.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs zero-copy`
 
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 

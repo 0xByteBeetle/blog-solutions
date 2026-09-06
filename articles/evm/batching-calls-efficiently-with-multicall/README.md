@@ -14,6 +14,8 @@ Article status: **source-restored**.
 
 - [examples/evm/multicall: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
+  Checked with: `go build -o /Users/andreyobruchkov/clones/blog-solutions/examples/evm/multicall/.local/program .`
+
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map

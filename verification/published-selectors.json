@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-06T13:09:25.101Z",
+  "status": "discrepancies-confirmed",
+  "command": "node scripts/verify-published-selectors.mjs",
+  "sourceHashes": {
+    "articles/evm/abi-encoding-deep-dive-how-solidity/published.md": "c8d2d35f65a55759e66c00712eeeea02abc35e4a43567ea78030a38fa314c2f0",
+    "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md": "c2a2eb924fddd953dcb96df583534bcf3213135a567c2fc9c774bbf1f34b2cf8"
+  },
+  "findings": [
+    {
+      "article": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
+      "block": 3,
+      "displayedSelector": "0xddd456b3",
+      "actualSelector": "0xddd356b3",
+      "fullHash": "0xddd356b3e15db61a9d0b2f433e45c4c4476d545eb8a5bc93957fe660a9e68cf5"
+    },
+    {
+      "article": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
+      "block": 24,
+      "queriedSelectors": [
+        "0xd09de08a",
+        "0xd09de08a"
+      ],
+      "newFacetSelector": "0x2baeceb7",
+      "note": "Second call repeats increment but its comment describes the new decrement facet."
+    }
+  ]
+}

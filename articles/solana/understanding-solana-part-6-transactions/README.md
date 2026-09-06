@@ -15,7 +15,15 @@ Article status: **source-restored**.
 
 ## Recorded checks
 
+- [examples/solana/wallet-token-balances-original: runtime-verified](../../../verification/wallet-token-balances-original-regression-prepared-alt.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --prepared-alt`
+- [examples/solana/wallet-token-balances-original: failed](../../../verification/wallet-token-balances-original-regression.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression`
 - [examples/solana/wallet-token-balances-original: build-checked](../../../verification/wallet-token-balances-original.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only`
 
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 

@@ -14,23 +14,25 @@ Article status: **source-restored**.
 
 - [examples/evm/storage-validation: unit-tested](../../../verification/restored-builds.json) (2026-09-06)
 
+  Checked with: `forge test`
+
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | solidity-source | [published source](../../../examples/evm/storage-validation/test/Tracing.t.sol) |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | source-excerpt | [published source](../../../examples/evm/storage-validation/test/Storage.t.sol) |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
-| [10](published.md#block-10) | solidity-source | [published source](../../../examples/evm/storage-validation/script/DebugStore.sol) |
-| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | integration-test | [published source](../../../examples/evm/storage-validation/test/Tracing.t.sol) |
+| [2](published.md#block-2) | command | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | command-and-illustrative-output | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | rpc-command | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | published-rpc-output-fragment | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | intentional-failure-test | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | command | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | integration-test | [published source](../../../examples/evm/storage-validation/test/Storage.t.sol) |
+| [9](published.md#block-9) | published-rpc-output-fragment | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | deployment-script | [published source](../../../examples/evm/storage-validation/script/DebugStore.sol) |
+| [11](published.md#block-11) | command | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

@@ -14,7 +14,11 @@ Article status: **source-restored**.
 ## Recorded checks
 
 - [examples/evm/permit-verifier: build-checked](../../../verification/restored-builds.json) (2026-09-06)
+
+  Checked with: `forge build`
 - [examples/evm/transaction-types: build-checked](../../../verification/restored-builds.json) (2026-09-06)
+
+  Checked with: `go test -run ^$ ./...`
 
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
@@ -22,11 +26,11 @@ These results apply to the listed projects, not every block in the article. Buil
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | solidity-source | [published source](../../../examples/evm/permit-verifier/src/PermitVerifier.sol), [published source](../../../examples/evm/transaction-types/eip712/verifier.sol); [original repo variant](../../../examples/evm/transaction-types/eip712/verifier.sol) |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending; [original repo variant](../../../examples/evm/transaction-types/eip712/eip712.go) |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | struct-fragment | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | pseudocode | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | program | [published source](../../../examples/evm/permit-verifier/src/PermitVerifier.sol), [published source](../../../examples/evm/transaction-types/eip712/verifier.sol); [original repo variant](../../../examples/evm/transaction-types/eip712/verifier.sol) |
+| [4](published.md#block-4) | program-with-omitted-imports | Preserved in the published block; runnable mapping pending; [original repo variant](../../../examples/evm/transaction-types/eip712/eip712.go) |
+| [5](published.md#block-5) | illustrative-output | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

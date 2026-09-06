@@ -10,7 +10,7 @@ Article status: **source-restored**.
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | program-with-omitted-pragma | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

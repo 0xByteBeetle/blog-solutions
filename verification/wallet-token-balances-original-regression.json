@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-06T12:59:35.076Z",
+  "project": "examples/solana/wallet-token-balances-original",
+  "status": "failed",
+  "sourceHashes": {
+    "examples/solana/wallet-token-balances-original/Cargo.toml": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "examples/solana/wallet-token-balances-original/Cargo.lock": "76e90c54fe9f6549806d5900b63b460a374775e1a2467aebd06c4288806d521c",
+    "examples/solana/wallet-token-balances-original/Anchor.toml": "1d4cc5025f78e164f5bb2043ea68fc2f6d3e21bb119cf853f68ff295b027375b",
+    "examples/solana/wallet-token-balances-original/package.json": "ae3068cf724a8aa1ecb843cde5f0357842925e11df715e60a35e30ee796c8281",
+    "examples/solana/wallet-token-balances-original/pnpm-lock.yaml": "b3017f5d950a00fd31e24ada5fe33c826d77e3bf42d3a9fec1c76245e1470918",
+    "examples/solana/wallet-token-balances-original/tsconfig.json": "8d3bf6b9a51ee1c0a14f8ce88a8f447d14ee14f9ace9a826332dce95edbdc34a",
+    "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/Cargo.toml": "b8be881334d719dedbe44eb378bd39d1ad294cb422af7ab267ea76ed8a7b7b86",
+    "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/Xargo.toml": "815f2dfb6197712a703a8e1f75b03c6991721e9eb7c40dfaec8b0b49da4aa629",
+    "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs": "4d59805f3d11dfe231c097d70d0ef690c01ea2f1b7241a8d11dbe7513ea24826",
+    "examples/solana/wallet-token-balances-original/tests/wallet_tokens_balance.ts": "64d3a6e94b97d7cd4a994817499e9d8e7512546856bd9c732fb19c264cc587c9",
+    "examples/solana/wallet-token-balances-original/scripts/client.ts": "9d895096d1617a1e93ac3c5e683b4777d7220cc3a2e918820a670fe5080ce492",
+    "examples/solana/wallet-token-balances-original/scripts/create_alts.ts": "ea39f37f4c36f805c0d04e17bc83d5e8344749a7760cccaf1e972c957e68d2d9"
+  },
+  "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --regression",
+  "changes": "Original program/client functions unchanged; temporary program ID and guarded demo entrypoint. The fixture waits for a rooted startup slot. A temporary ALT creator selects a finalized slot instead of confirmed. The created empty ALT is extended by the original client. No historical wallets or addresses used.",
+  "failure": "0 passing, 2 failing. ALT was created and extended with 2 addresses. Both balance calls failed with: invalid transaction: Transaction address table lookup uses an invalid index.",
+  "evidenceNote": "Failure summarized from the captured local runner output at /private/tmp/wallet-regression.log. This was recorded before full stdout capture was added to the runner; it is not a result for a modified client or the prepared-ALT mode.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

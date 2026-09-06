@@ -14,18 +14,20 @@ Article status: **source-restored**.
 
 - [examples/evm/calldata: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
+  Checked with: `forge build`
+
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | solidity-source | [published source](../../../examples/evm/calldata/src/Example.sol) |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | program | [published source](../../../examples/evm/calldata/src/Example.sol) |
+| [2](published.md#block-2) | annotated-bytecode | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | opcode-fragment | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

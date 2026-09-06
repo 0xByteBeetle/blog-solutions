@@ -10,7 +10,7 @@ if(fs.existsSync(root+'/verification'))for(const file of fs.readdirSync(root+'/v
  const report=JSON.parse(fs.readFileSync(root+'/verification/'+file));
  for(const check of report.results||[report]){
   const hashes=Object.entries(check.sourceHashes||{});
-  const current=hashes.length>0&&hashes.every(([p,h])=>fs.existsSync(root+'/'+p)&&hash(p)===h);
+  const current=hashes.length>0&&[...hashes,...Object.entries(check.harnessHashes||{})].every(([p,h])=>fs.existsSync(root+'/'+p)&&hash(p)===h);
   checks.push({...check,current,file:'verification/'+file,date:report.date});
  }
 }
@@ -20,7 +20,7 @@ for(const article of articles){
  const projectPaths=article.coverage.filter(c=>!c.path.endsWith('/published.md'));
  const links=projectPaths.map(c=>'- '+link(c.path,c.path)+(c.command?'\n\n  Run: `'+c.command+'`':'')).join('\n');
  const relevant=checks.filter(c=>projectPaths.some(p=>p.path===c.project));
- const results=relevant.map(c=>'- '+link(c.file,c.project+': '+(c.current?c.status:'stale result, rerun required'))+' ('+c.date.slice(0,10)+')').join('\n');
+ const results=relevant.map(c=>'- '+link(c.file,c.project+': '+(c.current?c.status:'stale result, rerun required'))+' ('+c.date.slice(0,10)+')'+(c.command?'\n\n  Checked with: `'+c.command+'`':'')).join('\n');
  const blocks=article.sourceBlocks.map(b=>{
   const primary=b.implementations.map(p=>link(p,'published source')).join(', ')||'Preserved in the published block; runnable mapping pending';
   const originals=(b.originalRepositoryFiles||[]).map(p=>link(p,'original repo variant')).join(', ');

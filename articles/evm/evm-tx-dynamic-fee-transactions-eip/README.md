@@ -14,18 +14,20 @@ Article status: **source-restored**.
 
 - [examples/evm/transaction-types: build-checked](../../../verification/restored-builds.json) (2026-09-06)
 
+  Checked with: `go test -run ^$ ./...`
+
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending; [original repo variant](../../../examples/evm/transaction-types/eip1559/eip1559.go) |
+| [1](published.md#block-1) | encoding-layout | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | illustrative-data | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | formula | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | rpc-command | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | published-rpc-output-fragment | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | program-with-omitted-imports | Preserved in the published block; runnable mapping pending; [original repo variant](../../../examples/evm/transaction-types/eip1559/eip1559.go) |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

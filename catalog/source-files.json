@@ -984,5 +984,77 @@
       "path": "scripts/create_alts.ts"
     },
     "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/Cargo.lock",
+    "sha256": "16cc33206a5d2570c645981a4321c4da48b4534d5c0146a5a269239c9da3b94c",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/Anchor.toml",
+    "sha256": "85c325297bf9abf41858873b50010edf6744d336c45a132900c03e824a1cc482",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/package.json",
+    "sha256": "82e3c5485aba960dd3035231db4edb4286e948693f6ce54d6eae765fbb5f30f6",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/tsconfig.json",
+    "sha256": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/programs/transfer-hook-project/Cargo.toml",
+    "sha256": "095ff64e5bc72945c0cf4e48fa4c5523b6fd027ea1170f0503b4aacd7f291589",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "programs/transfer-hook-project/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/programs/transfer-hook-project/src/lib.rs",
+    "sha256": "16bd2ce436beb2805f32398d8ba219d4504de0e0448d534c9fa9f111bd6f9f4e",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "programs/transfer-hook-project/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/transfer-hook-original/tests/transfer-hook-project.ts",
+    "sha256": "378f29b78ef29b25e228cd81488df32cddedfcdfbd3d1f976358c4ad88484481",
+    "source": {
+      "localProject": "transfer-hook-project",
+      "path": "tests/transfer-hook-project.ts"
+    },
+    "changes": []
   }
 ]

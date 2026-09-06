@@ -16,7 +16,11 @@ Article status: **source-restored**.
 ## Recorded checks
 
 - [examples/solana/borsh-profile: runtime-verified](../../../verification/borsh-profile.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs borsh-profile`
 - [examples/solana/borsh-proposal: runtime-verified](../../../verification/borsh-proposal.json) (2026-09-06)
+
+  Checked with: `node scripts/run-original-anchor.mjs borsh-proposal`
 
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 

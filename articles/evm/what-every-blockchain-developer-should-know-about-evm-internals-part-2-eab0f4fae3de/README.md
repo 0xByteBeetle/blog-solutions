@@ -10,26 +10,26 @@ Article status: **source-restored**.
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | source-excerpt | [published source](../../../examples/evm/calldata/src/Example.sol) |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
-| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
-| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
-| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
-| [13](published.md#block-13) | unclassified | Preserved in the published block; runnable mapping pending |
-| [14](published.md#block-14) | source-excerpt | [published source](../../../examples/evm/storage/src/Storage.sol) |
-| [15](published.md#block-15) | unclassified | Preserved in the published block; runnable mapping pending |
-| [16](published.md#block-16) | unclassified | Preserved in the published block; runnable mapping pending |
-| [17](published.md#block-17) | unclassified | Preserved in the published block; runnable mapping pending |
-| [18](published.md#block-18) | unclassified | Preserved in the published block; runnable mapping pending |
-| [19](published.md#block-19) | unclassified | Preserved in the published block; runnable mapping pending |
-| [20](published.md#block-20) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | api-signature | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | program-with-omitted-pragma | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | api-signatures | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | program-with-omitted-pragma | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | program | [published source](../../../examples/evm/calldata/src/Example.sol) |
+| [7](published.md#block-7) | annotated-bytecode | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | opcode-fragment | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | annotated-opcodes | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | program-with-omitted-pragma | Preserved in the published block; runnable mapping pending |
+| [13](published.md#block-13) | program-with-omitted-pragma | Preserved in the published block; runnable mapping pending |
+| [14](published.md#block-14) | program | [published source](../../../examples/evm/storage/src/Storage.sol) |
+| [15](published.md#block-15) | abi-json | Preserved in the published block; runnable mapping pending |
+| [16](published.md#block-16) | encoded-calldata | Preserved in the published block; runnable mapping pending |
+| [17](published.md#block-17) | decoding-fragment-and-values | Preserved in the published block; runnable mapping pending |
+| [18](published.md#block-18) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [19](published.md#block-19) | intentional-revert-fragment | Preserved in the published block; runnable mapping pending |
+| [20](published.md#block-20) | instruction-fragment | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

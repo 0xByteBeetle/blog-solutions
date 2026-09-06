@@ -282,7 +282,7 @@
       {
         "index": 1,
         "sha256": "c489d720cb6a4d0468c6b22cfd37088d6ae7e144546a025845223afa5a950b63",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -290,7 +290,7 @@
       {
         "index": 2,
         "sha256": "592596e2deb66086e35158269d243326a3addf9cf7fb55a1ea4e2cfcab496928",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -298,7 +298,7 @@
       {
         "index": 3,
         "sha256": "8e9784d02787af4950f8c5b8b5522b3de2de085dd13422b5f3930eeffaff24b2",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -306,7 +306,7 @@
       {
         "index": 4,
         "sha256": "63b9b5d580129c33ed326f195d66dc0f1c0174b405d4f35a6e90ef53a78e8570",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -314,7 +314,7 @@
       {
         "index": 5,
         "sha256": "54afca74d82a13cb4f0922bc3013e9a9438d1aca56ebdbad34e19f453b53cb89",
-        "kind": "unclassified",
+        "kind": "intentional-failure-command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -322,7 +322,7 @@
       {
         "index": 6,
         "sha256": "4685c8df0c1a4aa0dce0ab1e1f01d26668a746ef54935cf75ee59d3e62581733",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -330,7 +330,7 @@
       {
         "index": 7,
         "sha256": "485edb588a649d3805a9b4a3d3c39b88564944c0a28d7f0eb339e50268992234",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -338,7 +338,7 @@
       {
         "index": 8,
         "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd",
-        "kind": "unclassified",
+        "kind": "intentional-failure-command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -346,7 +346,7 @@
       {
         "index": 9,
         "sha256": "ffbaae836404d7c03b3028470ceca082513ecbfd9d32d9928f51093bcd6d3b8e",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -354,7 +354,7 @@
       {
         "index": 10,
         "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -362,7 +362,7 @@
       {
         "index": 11,
         "sha256": "4006a93c8742d144e5685f2a2be18f3a6aee3df16b275ac674522466f8bfb31f",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -370,7 +370,7 @@
       {
         "index": 12,
         "sha256": "f8d7cf6789c59118559eadba0edbc4a48117b6b232e2b8b06e7ca381ff1721b9",
-        "kind": "unclassified",
+        "kind": "intentional-failure-command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -378,7 +378,7 @@
       {
         "index": 13,
         "sha256": "5f2c1bbee49fb9b04483d43b30eead968d10dfd63e02b866ee6f24ba26c7242d",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/the-utility-extensions-completing/published.md",
         "status": "preserved",
         "implementations": []
@@ -415,7 +415,7 @@
       {
         "index": 1,
         "sha256": "b606dc009c8eebf9ed7852c03dd982af70fb81952d879bebc9e3867dca04d74e",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -423,7 +423,7 @@
       {
         "index": 2,
         "sha256": "66a6a309b8038689ac3af33efb45a6551e44124c4113652f5e9e2e1f3265fa4d",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -431,7 +431,7 @@
       {
         "index": 3,
         "sha256": "4a16b32bf53f5b5e1120a411ff3e0e44a2e1c7b6e55b18970cb3f074222c9edb",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -439,7 +439,7 @@
       {
         "index": 4,
         "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -447,7 +447,7 @@
       {
         "index": 5,
         "sha256": "56c46d4f022ff7e3dd64a3e40aeae4817b48d70f4639eccde9ffc046ab4394d0",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -455,7 +455,7 @@
       {
         "index": 6,
         "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -463,7 +463,7 @@
       {
         "index": 7,
         "sha256": "5ba99eb4b93b4e6cdbbc64226a4a1573ebfb26d6c5dd9f684f53b1e58e2542d5",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -471,7 +471,7 @@
       {
         "index": 8,
         "sha256": "398cdd46a7d188b90bc0c95733673351e74018f8bf432c8c740126e431744fc2",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -479,7 +479,7 @@
       {
         "index": 9,
         "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -487,7 +487,7 @@
       {
         "index": 10,
         "sha256": "92dd4b6ff62decf8169320e6c9aac8c19914d24c539bb0f5f3aab7d0a52b005c",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -495,7 +495,7 @@
       {
         "index": 11,
         "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -503,7 +503,7 @@
       {
         "index": 12,
         "sha256": "ff58c4574aa76eb8cfe72fe28b54afea5f0393d39f1f35d9e3717c3c7d3d0974",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/native-zk-on-solana-the-architecture/published.md",
         "status": "preserved",
         "implementations": []
@@ -540,7 +540,7 @@
       {
         "index": 1,
         "sha256": "33bc8b8813fb1890f24fabeae5d3e979ff5e2db8e3de5fed3698c7947d0fccee",
-        "kind": "unclassified",
+        "kind": "upstream-fragment",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -548,7 +548,7 @@
       {
         "index": 2,
         "sha256": "f5c97cf79675a5d5b05bac2f8105a62ff9f757eb63aa6cbd4d659ea9f06e2c4b",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -556,7 +556,7 @@
       {
         "index": 3,
         "sha256": "2e41a05afb5e1ff4003fd3d2088568317cbfc56fe9db5fd7dbb2dc512d86dddb",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -564,7 +564,7 @@
       {
         "index": 4,
         "sha256": "d2e5e6c5f621baec5409b239f060825d67317994a2d26d730b9530f7765d6927",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -572,7 +572,7 @@
       {
         "index": 5,
         "sha256": "9d6ef3b48e8903af1ad3917a9241cc71e8a4dba881bc4a47e230b81c5e6b581e",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -580,7 +580,7 @@
       {
         "index": 6,
         "sha256": "750b7b3f51617984e4b66ebf99a17742ad5de3788176bdd7218194748cace708",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -588,7 +588,7 @@
       {
         "index": 7,
         "sha256": "48daf39dd5ea4fbff85d6fd0195ae9b234ea50b7b9f508e6f23f52257bebe689",
-        "kind": "unclassified",
+        "kind": "published-output",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -596,7 +596,7 @@
       {
         "index": 8,
         "sha256": "9e6f050b437c3092cafcdf006f5d3e05ae72774b8c4478b10bde0a34cf95ed2e",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -604,7 +604,7 @@
       {
         "index": 9,
         "sha256": "51351964350a906fc92edb64e4842d81d83ad1dc0a8c8343fd7a7c6feef67679",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -612,7 +612,7 @@
       {
         "index": 10,
         "sha256": "157ac6a551a829b8016d99134f05644e495c3aa60fab510994048e44461fbf11",
-        "kind": "unclassified",
+        "kind": "annotated-rpc-output",
         "snapshot": "articles/solana/engineering-native-yield-a-deep-dive/published.md",
         "status": "preserved",
         "implementations": []
@@ -636,6 +636,11 @@
       {
         "path": "examples/solana/transfer-hook",
         "description": "Recovered author source. Check the source manifest and runtime results before running."
+      },
+      {
+        "path": "examples/solana/transfer-hook-original",
+        "description": "Original local variant, unchanged. A separate regression test corrects the original test false positive.",
+        "command": "node scripts/run-original-anchor.mjs transfer-hook-original --regression"
       }
     ],
     "verification": {
@@ -710,7 +715,10 @@
         "implementations": [
           "examples/solana/transfer-hook/published-program.rs"
         ],
-        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization."
+        "matchRule": "Published block is a substring of the source after whitespace and typographic-quote normalization.",
+        "originalRepositoryFiles": [
+          "examples/solana/transfer-hook-original/programs/transfer-hook-project/src/lib.rs"
+        ]
       },
       {
         "index": 8,
@@ -816,7 +824,7 @@
       {
         "index": 1,
         "sha256": "498c32e987bf7a01ba69d626c54bd419054219e732ad8729815c17f0426e2d4c",
-        "kind": "unclassified",
+        "kind": "configuration-command",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -824,7 +832,7 @@
       {
         "index": 2,
         "sha256": "4137147be2bc53482413b91ba20d4f1a78cea8592d025480f7261e92630d9c46",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -832,7 +840,7 @@
       {
         "index": 3,
         "sha256": "6c44d2b34f86b4dffc226df33f3aeed4725257d59129f5ebc52ff2153e2149f7",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -840,7 +848,7 @@
       {
         "index": 4,
         "sha256": "b63ca1742c3c230bf379d0d3ef6c654ae94bf4e7ee4950b58b89767be8460f9f",
-        "kind": "unclassified",
+        "kind": "configuration-command",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -848,7 +856,7 @@
       {
         "index": 5,
         "sha256": "012c6d5efb2d8213bdc9902a2de8665012d4131405f2f76f86f481f4f8cf6ca4",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -856,7 +864,7 @@
       {
         "index": 6,
         "sha256": "fbe162a4f40b446da99361d985e730009b7d8da92d1de5968886dc084e1037e2",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -864,7 +872,7 @@
       {
         "index": 7,
         "sha256": "cff1e3c9e26a157f86594c514ef33618d170eb5ab7e988b675609a629a9cbe20",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -872,7 +880,7 @@
       {
         "index": 8,
         "sha256": "010803df2cd8cec4da3ce806d884f567b75fb5c86b8c18b3c3df40903a52e908",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -880,7 +888,7 @@
       {
         "index": 9,
         "sha256": "347d061f5a12a6b9ea624a7dc86cacf3fb05b93424b54d6f802209deb2311ad2",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/solana/solana-token-2022-transfer-hooks/published.md",
         "status": "preserved",
         "implementations": []
@@ -917,7 +925,7 @@
       {
         "index": 1,
         "sha256": "f31689a1ae665243eaf97abe070b0a82293b622d89de2c98e38307b80cff1e23",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -925,7 +933,7 @@
       {
         "index": 2,
         "sha256": "3c891c8b700f0ef7ae1c7e3342230f95a6bdd6be16412b81dcb7607049b0730c",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -933,7 +941,7 @@
       {
         "index": 3,
         "sha256": "f94d63101b73bf41f7f680d6cee35e862a33cc37df265cdf0e501003b7b9de66",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -941,7 +949,7 @@
       {
         "index": 4,
         "sha256": "dff305fece40d621fbd642bd188908c70223812d6473cc0588f53ad9af5168a3",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -949,7 +957,7 @@
       {
         "index": 5,
         "sha256": "0a254d3f68f3cc25e5e6da2f586146f32dd52b5b62d81708425ae4a1fecaa865",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -957,7 +965,7 @@
       {
         "index": 6,
         "sha256": "355cd468b43ef90fd441047f1a6717b36ad72491cd8ec938f6d5844295f9d703",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/from-convention-to-explicit-state/published.md",
         "status": "preserved",
         "implementations": []
@@ -999,7 +1007,7 @@
       {
         "index": 1,
         "sha256": "6896fec4314341cf289270830adf8f8fadb4497ec31be523997cddce049948b1",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
         "implementations": []
@@ -1007,7 +1015,7 @@
       {
         "index": 2,
         "sha256": "e27426109f672241325912926ffa4a28e274361354fcb35bedeca1eca1e2c400",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
         "implementations": []
@@ -1015,7 +1023,7 @@
       {
         "index": 3,
         "sha256": "a55535f2910acd051ac9a0bf4905625f869eccf437c2d2a76861a7547cd34400",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
         "implementations": []
@@ -1023,7 +1031,7 @@
       {
         "index": 4,
         "sha256": "ad52f9afde30ab8c2dfaad336afc831cbe50a7d9df7b0425f3118fa820bf1cd9",
-        "kind": "unclassified",
+        "kind": "client-program",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
         "implementations": []
@@ -1031,7 +1039,7 @@
       {
         "index": 5,
         "sha256": "328da9f66525530e16c4094de2e7970cd8f90037586bb5d8d9b24228b9a93976",
-        "kind": "unclassified",
+        "kind": "client-program",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
         "implementations": []
@@ -1073,7 +1081,7 @@
       {
         "index": 1,
         "sha256": "c217e452783c0cc7c1a7a91e20ab6fd7e660469056cb625484608406bc1906a0",
-        "kind": "unclassified",
+        "kind": "upstream-struct",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1081,7 +1089,7 @@
       {
         "index": 2,
         "sha256": "d4c71bf4689a3c4ba15bcd76cb4679bf4d718485f2619f2201eab2df7104187c",
-        "kind": "unclassified",
+        "kind": "upstream-struct",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1089,7 +1097,7 @@
       {
         "index": 3,
         "sha256": "91cc921826c3f1bcbbcc7c62934ebbbcd45670b349b94a34ea37406edd7e4418",
-        "kind": "unclassified",
+        "kind": "configuration-command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1097,7 +1105,7 @@
       {
         "index": 4,
         "sha256": "efaff20538fd951fd62ca2a95f21e219e7e6ce7af98b73372b11ba3e53d87a6a",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1105,7 +1113,7 @@
       {
         "index": 5,
         "sha256": "6762fa58d2767624b827d3dc641fbf550906aceb671ea467ee6cca46357bbba7",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1113,7 +1121,7 @@
       {
         "index": 6,
         "sha256": "35e98880218d913c4a26475db1481c5764b9c93a8c20921275d98832f0c3d42e",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1121,7 +1129,7 @@
       {
         "index": 7,
         "sha256": "e588c139ff068f8e457f54fe29fe343da67307b281ad7500fff722727b7f68ac",
-        "kind": "unclassified",
+        "kind": "installation-command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1129,7 +1137,7 @@
       {
         "index": 8,
         "sha256": "5ca6fcf6ecccb64768fb860ddcabd54ad2d75df1cf9757ad437a7413f43a9b04",
-        "kind": "unclassified",
+        "kind": "command-and-illustrative-output",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1137,7 +1145,7 @@
       {
         "index": 9,
         "sha256": "111406a59d5a00fede94fa175a07c55fe873c3fa5104dc18c00f6830d8400cd8",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1145,7 +1153,7 @@
       {
         "index": 10,
         "sha256": "75ebbe3db08fcfe1238d3538d8a5d791423d9dfd9d50efb8e1975cd5ce1eea9e",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1153,7 +1161,7 @@
       {
         "index": 11,
         "sha256": "f4f88ced5be0463bf3d6e186f173f5bc8d221c720239516bd02bbc76546d17c8",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1161,7 +1169,7 @@
       {
         "index": 12,
         "sha256": "35d06d737cf7f13816d83924704e585b797edd521734c00ef5f69de1feb53449",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1169,7 +1177,7 @@
       {
         "index": 13,
         "sha256": "d8df569085d10370417eb33ce8754cfc7b24311ee4164e50afb1484afbd0f1e2",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/spl-token-program-architecture-a/published.md",
         "status": "preserved",
         "implementations": []
@@ -1369,7 +1377,7 @@
       {
         "index": 1,
         "sha256": "fe992de2e8ecbf2fa6c3e960568c56270f47eac9d201d36b8735badf5a1c1b00",
-        "kind": "unclassified",
+        "kind": "upstream-struct",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1377,7 +1385,7 @@
       {
         "index": 2,
         "sha256": "ff9c2d877094ef18b6c12cca17c08a803ef0550adc3f3ac9688ff1537d1260a6",
-        "kind": "unclassified",
+        "kind": "upstream-struct",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1385,7 +1393,7 @@
       {
         "index": 3,
         "sha256": "81630e2d7c252c0db29043b4da3c1f7031d0661b718233e4347626788fd971ea",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1393,7 +1401,7 @@
       {
         "index": 4,
         "sha256": "7d489419cdd83e620b0e542fd8195b38e7e7b4ab735a79e6abc5e760aa25d340",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1401,7 +1409,7 @@
       {
         "index": 5,
         "sha256": "4e98e91147c8ba9669ee006dab98c649090f8026629104bca820c1639d15afdc",
-        "kind": "unclassified",
+        "kind": "instruction-name",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1409,7 +1417,7 @@
       {
         "index": 6,
         "sha256": "22bf4d2499107096cc888e579e2146cea2a12287af8d250d676a7e0bc3e46462",
-        "kind": "unclassified",
+        "kind": "instruction-name",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1417,7 +1425,7 @@
       {
         "index": 7,
         "sha256": "ae006acedddae21c1c9d29af80cecf8e487857879cf022a9937f81343ea4539c",
-        "kind": "unclassified",
+        "kind": "program-name",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1425,7 +1433,7 @@
       {
         "index": 8,
         "sha256": "06f68490d2b93cb4247edbaa202f368034ecb0953204bfdc4eb36db20f7172e6",
-        "kind": "unclassified",
+        "kind": "worked-calculation",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1433,7 +1441,7 @@
       {
         "index": 9,
         "sha256": "72072e6ad24d1abf210e11ea01308938e00cbbaeab1243ccd95bcd51e0d11cb9",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/solana/understanding-solana-part-5-transaction/published.md",
         "status": "preserved",
         "implementations": []
@@ -1470,7 +1478,7 @@
       {
         "index": 1,
         "sha256": "12ede46f9c363de074f916a70dc90a637ce6d40b35b955a76ac13ba9e624797b",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1478,7 +1486,7 @@
       {
         "index": 2,
         "sha256": "5499b5016d4e8a2931be86c56a401fb0b81cc106241b6a8d2054c889b07b2168",
-        "kind": "unclassified",
+        "kind": "upstream-fragment",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1486,7 +1494,7 @@
       {
         "index": 3,
         "sha256": "2b5879a62915a06a9582e9010110641a30ab94ee837fa5922b8eafcb10c545b9",
-        "kind": "unclassified",
+        "kind": "annotated-bytes",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1494,7 +1502,7 @@
       {
         "index": 4,
         "sha256": "72441108f6871e3e27e9c5ecc544a0e9677a4cf64f7848c47c1b62713ba319d0",
-        "kind": "unclassified",
+        "kind": "worked-calculation",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1502,7 +1510,7 @@
       {
         "index": 5,
         "sha256": "1220832caa86f8239416c301b1abd7cb1573c926cc6c955fc3a6cca8e1a1382c",
-        "kind": "unclassified",
+        "kind": "upstream-structs",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1510,7 +1518,7 @@
       {
         "index": 6,
         "sha256": "d59e13f6476506b7424d5d5ef1ea0ce479bfc540d03c4500f78e36aafa551308",
-        "kind": "unclassified",
+        "kind": "upstream-structs",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1518,7 +1526,7 @@
       {
         "index": 7,
         "sha256": "0d4ca0baf3a70bb40d9ae9fedb527abd1e9fd38df5a9253563bb9e0c35f1ad64",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1526,7 +1534,7 @@
       {
         "index": 8,
         "sha256": "6de7668819a4e0d588499b791b6fa81d234a70ec193b14b6abc4ac8d5de9830a",
-        "kind": "unclassified",
+        "kind": "struct-fragment",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1534,7 +1542,7 @@
       {
         "index": 9,
         "sha256": "3cf23dbcafb343d6d48d8f09e14a31994b732064f33cb9441a6c2bb9aa7d87f2",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1542,7 +1550,7 @@
       {
         "index": 10,
         "sha256": "ead2509fc98b5400ca17126184714748ccdc6172cdfbf5f14b828bbcd0961488",
-        "kind": "unclassified",
+        "kind": "upstream-struct",
         "snapshot": "articles/solana/understanding-solana-part4-instructions/published.md",
         "status": "preserved",
         "implementations": []
@@ -1583,7 +1591,7 @@
       {
         "index": 1,
         "sha256": "0584c7e4fb88a650e097d746dcfba816e48e9b4ad7d9c881c37ca65fa3adf20a",
-        "kind": "unclassified",
+        "kind": "installation-commands",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1591,7 +1599,7 @@
       {
         "index": 2,
         "sha256": "c9611cc6956be643f91451931a0ed3a7246de26b0898ba424f4cde6032a05cca",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1599,7 +1607,7 @@
       {
         "index": 3,
         "sha256": "5f97fa02d44f8413e1dd09d93ceecd441f207077a66c91e2733b16dbb0bf1721",
-        "kind": "unclassified",
+        "kind": "program",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1607,7 +1615,7 @@
       {
         "index": 4,
         "sha256": "fc07dbcb05b641301a3262caaa25e314f9a8994020c5346569975af2b5edc895",
-        "kind": "unclassified",
+        "kind": "configuration-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1615,7 +1623,7 @@
       {
         "index": 5,
         "sha256": "16811d0b170bdb622afa1297efce73605cfc9311452ae368403ea205ae6302d2",
-        "kind": "source-excerpt",
+        "kind": "struct-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": [
@@ -1626,7 +1634,7 @@
       {
         "index": 6,
         "sha256": "5e50996f67019071e29306116f738fef839a4b6950f50f2f7798cf269390c916",
-        "kind": "unclassified",
+        "kind": "constraint-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1634,7 +1642,7 @@
       {
         "index": 7,
         "sha256": "6b5126f5eb38895b7e2b0d1bf81c2d3ee5e68e5b9e7228271a64889845e2285c",
-        "kind": "source-excerpt",
+        "kind": "account-context",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": [
@@ -1645,7 +1653,7 @@
       {
         "index": 8,
         "sha256": "76f573be823578f3510b615259b6fea53a8a15498d74f7398070eb2c58effe8b",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1653,7 +1661,7 @@
       {
         "index": 9,
         "sha256": "425cd4d04b554fe39348c131bcea9c4a63447abd5889314551d08d52c8ee887d",
-        "kind": "unclassified",
+        "kind": "account-context",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1661,7 +1669,7 @@
       {
         "index": 10,
         "sha256": "c2f12f60986773a1f0db05e23cb5f3771ce2595ff64de3a89588547b931ff4b4",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1669,7 +1677,7 @@
       {
         "index": 11,
         "sha256": "6e5db8a06282c3a298d7811b61015894b9f466efc6fea8330a73822f35b0c146",
-        "kind": "unclassified",
+        "kind": "account-context",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1677,7 +1685,7 @@
       {
         "index": 12,
         "sha256": "49a31cb510588a3bc5459e6d96898478f88157bdf54e4264c8ee5afc13ea58dd",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1685,7 +1693,7 @@
       {
         "index": 13,
         "sha256": "8bc51d94cb8395b87346835ab2ff4de6b0e5a8b849939fc6ab40dd16bb24267f",
-        "kind": "source-excerpt",
+        "kind": "client-program",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": [
@@ -1696,7 +1704,7 @@
       {
         "index": 14,
         "sha256": "32f7da5297312783b8fdf52565e411f953a4f630c90d7898c1b92f58745331e3",
-        "kind": "unclassified",
+        "kind": "deployment-commands",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1704,7 +1712,7 @@
       {
         "index": 15,
         "sha256": "f69dfaffc4d1f8b99cfbfd0f950ac08cf7057ad8b7828e69dfd61c52c817c9a0",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/solana/understanding-solana-part-3-anchor/published.md",
         "status": "preserved",
         "implementations": []
@@ -1741,7 +1749,7 @@
       {
         "index": 1,
         "sha256": "3acae42638406560ecf60e92a90f478c719c4d04e11724dd86efc7fe2c2fef9e",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1749,7 +1757,7 @@
       {
         "index": 2,
         "sha256": "c9cc4a2f03737ebe3a90a52dacc5208d497b7c15ecd3f0284766eaa1d3b3eb29",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1757,7 +1765,7 @@
       {
         "index": 3,
         "sha256": "ab8c7a7497c445a31b9d41d51348fa0d62ee7eb0e5b84336614dfd8d9531e3e4",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1765,7 +1773,7 @@
       {
         "index": 4,
         "sha256": "47b424b5e5a6c018bd1f49073b7a8fa379f45a49f60803c02898c040e26106c7",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1773,7 +1781,7 @@
       {
         "index": 5,
         "sha256": "fa444c37c47ec8c3ce44f8a09352dfbdc1766df9ca142dc9dfbc9269ff1e635f",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1781,7 +1789,7 @@
       {
         "index": 6,
         "sha256": "c38b9d7634462a99bc32af3522f3e8f9dbb6c253e6c233cb4e0b81e1838f6b1a",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -1789,7 +1797,7 @@
       {
         "index": 7,
         "sha256": "5d89f68fcd637d09a4d0c2eb1f4b7c5ecc3a20d3f63fe13d70af6b5eb5a1c2a8",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/solana/understanding-solana-account-model/published.md",
         "status": "preserved",
         "implementations": []
@@ -2179,7 +2187,7 @@
       {
         "index": 1,
         "sha256": "f4a7e041f8d20a0176b6c16c79aefe9146f87b475be8339b8d8203f13fbbf3bc",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2187,7 +2195,7 @@
       {
         "index": 2,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2195,7 +2203,7 @@
       {
         "index": 3,
         "sha256": "c8152b84a2e2c4b49db74921144f21d3b9ffc27e110e7e951df93aca8712d749",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2203,7 +2211,7 @@
       {
         "index": 4,
         "sha256": "93b17e49936e02fd6bf9c08b5fabfa841436b8190e0dcc74cece1c70c99993e5",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2211,7 +2219,7 @@
       {
         "index": 5,
         "sha256": "5e9290913b79ae5caf0103b4688ac6ac5cd1aee520db5155736685c63b440a74",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2219,7 +2227,7 @@
       {
         "index": 6,
         "sha256": "961199159debd57789401f8df93f7fc0473f5c955ebe97812be5a50d162f010c",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": [
@@ -2230,7 +2238,7 @@
       {
         "index": 7,
         "sha256": "bf2c370d58fe8e9cefe8307cdcf96b360239095f9dcc38c58c66cff917ffe515",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2238,7 +2246,7 @@
       {
         "index": 8,
         "sha256": "e5e381edef9558eeb48acef1c5bb5af5f4212439dab6a6b6a41ee453ebd75c77",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2246,7 +2254,7 @@
       {
         "index": 9,
         "sha256": "94214bfba2070c5d9ea075d21df3fa3f8c8e16ef3f632564da4c288f3c7b6d07",
-        "kind": "unclassified",
+        "kind": "published-hash",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2254,7 +2262,7 @@
       {
         "index": 10,
         "sha256": "668ed055bbb8475e36015643b1f4a3dfc807223217470cf78b5ad4d9c19a483b",
-        "kind": "unclassified",
+        "kind": "test-data",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2262,7 +2270,7 @@
       {
         "index": 11,
         "sha256": "db2f0b4a8b6117e9dc391ab6f4095c54539c9f821eab85a7e8b221531198b5ba",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/deployments-and-deterministic-addresses/published.md",
         "status": "preserved",
         "implementations": []
@@ -2371,7 +2379,7 @@
       {
         "index": 1,
         "sha256": "a4c2a8820741b88195c698526cd18f5401608a25164163a8e98b50b5200b4d4d",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/catching-eth-native-transfers-without/published.md",
         "status": "preserved",
         "implementations": []
@@ -2379,7 +2387,7 @@
       {
         "index": 2,
         "sha256": "24edea3fe810b313cfb298bc0e544722bb3e70f2dd7b19e3b3e77bbdf49833b6",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/catching-eth-native-transfers-without/published.md",
         "status": "preserved",
         "implementations": []
@@ -2387,7 +2395,7 @@
       {
         "index": 3,
         "sha256": "aa9871ecfa25e1114e293cd548b233bd66d2b99830ad8f7f7f613e39c60f3a5f",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/catching-eth-native-transfers-without/published.md",
         "status": "preserved",
         "implementations": []
@@ -2488,7 +2496,7 @@
       {
         "index": 1,
         "sha256": "a495df46e9b937256c956665661a4b327d792b2757cb47d4ed71d7f9d232230a",
-        "kind": "unclassified",
+        "kind": "event-declaration",
         "snapshot": "articles/evm/understanding-events-the-evms-built/published.md",
         "status": "preserved",
         "implementations": []
@@ -2496,7 +2504,7 @@
       {
         "index": 2,
         "sha256": "f379dabcea5bcf9150c31c41c981a302ffa9843d88c0ca07c4cb09008ac56b70",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/understanding-events-the-evms-built/published.md",
         "status": "preserved",
         "implementations": []
@@ -2504,7 +2512,7 @@
       {
         "index": 3,
         "sha256": "a461de78459511f5f6478947ad51451251fa1abe47518a811cbbae3c187f504d",
-        "kind": "unclassified",
+        "kind": "published-rpc-output",
         "snapshot": "articles/evm/understanding-events-the-evms-built/published.md",
         "status": "preserved",
         "implementations": []
@@ -2551,7 +2559,7 @@
       {
         "index": 1,
         "sha256": "e79590d539e5efdf9a2da96a9dffcc76968ef8cecb65b93d2e61c2eb6c62fd48",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2559,7 +2567,7 @@
       {
         "index": 2,
         "sha256": "2ec1997fc022c12df1afdce878111a663107f07e7adcc0b0c96cb3ff34412b91",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2567,7 +2575,7 @@
       {
         "index": 3,
         "sha256": "8e4fa9d9a638a9253c8f1d6b12c01f422838d1a05482701928a2fe0b49c81740",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2575,7 +2583,7 @@
       {
         "index": 4,
         "sha256": "a13ca67e8c1bbfb8c96b593d8fc349f6b679598e4402b0afe3eb31d55ef5ec05",
-        "kind": "unclassified",
+        "kind": "incomplete-rpc-command",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2583,7 +2591,7 @@
       {
         "index": 5,
         "sha256": "e9f3e9ccc737b25aeed61311bfc655cf6d1050aaa26659f8a4e169af49eba913",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2591,7 +2599,7 @@
       {
         "index": 6,
         "sha256": "6dd0205b36ba39e62eca5998f6a52760973d4fa0d61723d4c1725f19ed201b92",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2599,7 +2607,7 @@
       {
         "index": 7,
         "sha256": "69d2c4bbde842c747ec2c5cc19c47e37fe0e93a2360422e586ca922e108c2cba",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
         "status": "preserved",
         "implementations": []
@@ -2682,7 +2690,7 @@
       {
         "index": 1,
         "sha256": "75a8013a5483b2cfc9e4d610ee278fa8f0889851cb5584407a29258302db8bc1",
-        "kind": "unclassified",
+        "kind": "struct-fragment",
         "snapshot": "articles/evm/evm-message-signtypeddata-eip-712/published.md",
         "status": "preserved",
         "implementations": []
@@ -2690,7 +2698,7 @@
       {
         "index": 2,
         "sha256": "69eb57ddadfe282326c9ccdca71f59e52581abbee57593f92db6cecdce49b180",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/evm-message-signtypeddata-eip-712/published.md",
         "status": "preserved",
         "implementations": []
@@ -2698,7 +2706,7 @@
       {
         "index": 3,
         "sha256": "9a544b44b083b22c85836188530db5c3be1691cb1390a22fb04b353f7c238f3f",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/evm-message-signtypeddata-eip-712/published.md",
         "status": "preserved",
         "implementations": [
@@ -2714,7 +2722,7 @@
       {
         "index": 4,
         "sha256": "bd8f38ad7ad8f46a357611dc497c349d47f95e8195151ac2a1c720138081daa5",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-message-signtypeddata-eip-712/published.md",
         "status": "preserved",
         "implementations": [],
@@ -2726,7 +2734,7 @@
       {
         "index": 5,
         "sha256": "0f9955976f188baceef61cd7c9ea9d5a95f355b0e7501c05e8a4553c36c27575",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/evm-message-signtypeddata-eip-712/published.md",
         "status": "preserved",
         "implementations": []
@@ -2767,7 +2775,7 @@
       {
         "index": 1,
         "sha256": "86f6134c6dd448557651c8d55f10256871d6b5b61853c48a57758e8718eae957",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": []
@@ -2775,7 +2783,7 @@
       {
         "index": 2,
         "sha256": "7710fe24e91bcecc02c2bf42fbdb5e0614ef4d20d4941298517b9ee7d4b54ccc",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": []
@@ -2783,7 +2791,7 @@
       {
         "index": 3,
         "sha256": "88e0897786484579dc52aaae521d331468d18d569bb906f803a574b2c736c961",
-        "kind": "unclassified",
+        "kind": "worked-encoding",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": []
@@ -2791,7 +2799,7 @@
       {
         "index": 4,
         "sha256": "06976674e371616d8dd2c86efb30424c0cf6eea9affd226b6f53038cb4afe3f6",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": []
@@ -2799,7 +2807,7 @@
       {
         "index": 5,
         "sha256": "c1a7fd0dfdfb6c0d6f5fdf6d7c87784fd083e4c5cb6f3f404d54e7e5a24df84a",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": [],
@@ -2811,7 +2819,7 @@
       {
         "index": 6,
         "sha256": "ebf1460db49c96f101d128414cd02ec459028df0d99e9fcb0912b4afb21350d6",
-        "kind": "unclassified",
+        "kind": "published-output",
         "snapshot": "articles/evm/evm-message-signed-data-eip-191-and/published.md",
         "status": "preserved",
         "implementations": []
@@ -2861,7 +2869,7 @@
       {
         "index": 1,
         "sha256": "8d50f1d563e83782897a6377fc9cd76c50953b8a1c034539fe7e6b0bb6461f60",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2869,7 +2877,7 @@
       {
         "index": 2,
         "sha256": "1f8a6952997a9b2e41096571989b9e91ce48029be8f1d69cbd3a94cb6ba7c83b",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2877,7 +2885,7 @@
       {
         "index": 3,
         "sha256": "b609ce94b634111057ed9862d73b8dfb59fdb3db96871e890436834b5e38c1ae",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2885,7 +2893,7 @@
       {
         "index": 4,
         "sha256": "b6f1ba50736bd3275c16a0295c775db81e1ab33a9238c4a7a966d0cf095f08b5",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": [
@@ -2901,7 +2909,7 @@
       {
         "index": 5,
         "sha256": "ac4291f322fa06c6b32d743b3a9531ff4558b9ad31dfccafa2810202680b6ebc",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": [
@@ -2917,7 +2925,7 @@
       {
         "index": 6,
         "sha256": "d15c75885668594640ed01532d700d0e6bc32b3d22b5fa602350ebf19c1eb2ab",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2925,7 +2933,7 @@
       {
         "index": 7,
         "sha256": "d0f25feaba57f0f81fea1e0c2fa0125d81b9297791d14c77559cb9b0ad23fd63",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2933,7 +2941,7 @@
       {
         "index": 8,
         "sha256": "de40b421391c280b72c85aad99992ea4f2cfc363ab342c79102da6144f9fe1cc",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2941,7 +2949,7 @@
       {
         "index": 9,
         "sha256": "5954c6475bf0bd692b0d53eaab6ce1a53fe3b0c0ea52deaa7a93cfc48c51eae9",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2949,7 +2957,7 @@
       {
         "index": 10,
         "sha256": "a6e3c9aeff3682c7d089eaf92d7196a40446ebab8caf11bffa444c22c9dafcf1",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -2957,7 +2965,7 @@
       {
         "index": 11,
         "sha256": "f0d8409659121cf7a28e883fe1a1eca5e0804da5c9b63cb73c3f5b773271b413",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": [
@@ -2972,7 +2980,7 @@
       {
         "index": 12,
         "sha256": "b873f02f89e8b0be7e9c8a52aac1e19b3917b444e009436804adeed82c2661da",
-        "kind": "unclassified",
+        "kind": "transaction-fragment",
         "snapshot": "articles/evm/evm-tx-setcode-transactions-eip-7702/published.md",
         "status": "preserved",
         "implementations": []
@@ -3018,7 +3026,7 @@
       {
         "index": 1,
         "sha256": "071486f5932868cdd43d88dadda160f8aa3e3c3abc39c44be4e3cb08c0eb6796",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-blob-transactions-eip-4844/published.md",
         "status": "preserved",
         "implementations": []
@@ -3026,7 +3034,7 @@
       {
         "index": 2,
         "sha256": "02dd9a1692252f20fffa5fa7e26858b9f3b5f87e2749477b3e4317232af3977b",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-tx-blob-transactions-eip-4844/published.md",
         "status": "preserved",
         "implementations": [],
@@ -3076,7 +3084,7 @@
       {
         "index": 1,
         "sha256": "b0f3f2f62172de7df04f4285a53ea59bd6fbf52140d55f3c4a89c820b09aba1f",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3084,7 +3092,7 @@
       {
         "index": 2,
         "sha256": "25efcd9f09c24a34b03cfab30e2de25d2a7b908e63b727fc3c0d20482e6753e8",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3092,7 +3100,7 @@
       {
         "index": 3,
         "sha256": "e1b2dc0b933ef173030e7c5e887c9432212d99e03c0a523f20e27d52a11e53e6",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3100,7 +3108,7 @@
       {
         "index": 4,
         "sha256": "779c2eb240ae8ee7df92778f74ae0681fe7e9307e5e7d33f977cfbef85ed22ae",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3108,7 +3116,7 @@
       {
         "index": 5,
         "sha256": "0056441c6b52e7d2274e49f6598f6099f0864d57b7201106de60cb11bff36395",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3116,7 +3124,7 @@
       {
         "index": 6,
         "sha256": "a80513a53713f50c60ba6b49aa884e0a5e86dc18a3a0b40842ccd7fa68e24f9a",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-tx-dynamic-fee-transactions-eip/published.md",
         "status": "preserved",
         "implementations": [],
@@ -3166,7 +3174,7 @@
       {
         "index": 1,
         "sha256": "5195a92bddefb730c2891e6d4e4f4bf1c65e93afdc3afded64465a891d7d8c1d",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3174,7 +3182,7 @@
       {
         "index": 2,
         "sha256": "3714c69221874345bd158b17092e3fd9fda1671df1b32da9540ef4874708fb01",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3182,7 +3190,7 @@
       {
         "index": 3,
         "sha256": "cae52656555796fd0ceece5fc4f01dddb101ec09d273ffa8dcb88a4ed5245a4b",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3190,7 +3198,7 @@
       {
         "index": 4,
         "sha256": "de88de5307aca9b37d33395694f382720d57895a195a0016b65015114218b135",
-        "kind": "unclassified",
+        "kind": "published-rpc-output",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3198,7 +3206,7 @@
       {
         "index": 5,
         "sha256": "8bf921ca57705d0cc46293b6756b24486810694111f231f6176e8b8a05e7ee09",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": []
@@ -3206,7 +3214,7 @@
       {
         "index": 6,
         "sha256": "941f1e4572897a0cc142a3c40fe30007f6b9499f40128582242ec073feeadd93",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-tx-access-list-transactions-eip/published.md",
         "status": "preserved",
         "implementations": [],
@@ -3256,7 +3264,7 @@
       {
         "index": 1,
         "sha256": "196e7365b8062b188d1b11aad2189192ab698af4baa9c874080a27627bfd72b5",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/evm-tx-understanding-legacy-ethereum/published.md",
         "status": "preserved",
         "implementations": [],
@@ -3268,7 +3276,7 @@
       {
         "index": 2,
         "sha256": "52e6155bce80db38b8bb98cdedbdc3426406ef9bf7c1c33379a898307d4dbf7d",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/evm-tx-understanding-legacy-ethereum/published.md",
         "status": "preserved",
         "implementations": []
@@ -3276,7 +3284,7 @@
       {
         "index": 3,
         "sha256": "a3933209cb132c7e10b2da56bef60ed4d4c1a01dddcd3635efcc2810db6c9c40",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/evm-tx-understanding-legacy-ethereum/published.md",
         "status": "preserved",
         "implementations": []
@@ -3284,7 +3292,7 @@
       {
         "index": 4,
         "sha256": "515b3245dd2eac05cc344aefb3e1fc63074efc9566cc27e2f67f358ce69ac79f",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/evm-tx-understanding-legacy-ethereum/published.md",
         "status": "preserved",
         "implementations": [
@@ -3429,7 +3437,7 @@
       {
         "index": 1,
         "sha256": "e2ac2f6fe2426c2b784fcc2ca6c8b312c32834ffd23acd70639f32bb9aba6789",
-        "kind": "solidity-source",
+        "kind": "integration-test",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": [
@@ -3440,7 +3448,7 @@
       {
         "index": 2,
         "sha256": "8ac84484d3a7050215f2f81afc00322dadb2b7be7dc8fdacea27026704ef481b",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3448,7 +3456,7 @@
       {
         "index": 3,
         "sha256": "700828a8e2a3081ce451276645e3bd51e78d6602b0774f6199292d425f8d12a3",
-        "kind": "unclassified",
+        "kind": "command-and-illustrative-output",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3456,7 +3464,7 @@
       {
         "index": 4,
         "sha256": "da8f8927b5c05075275aa5e3deb2cf0c0f7b035bb4b48d0257b885e5288a8a6d",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3464,7 +3472,7 @@
       {
         "index": 5,
         "sha256": "f8fac8735ba8a00f22e3d6b5f86c47bd284cd01447155336d3771b5f20aa30b0",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3472,7 +3480,7 @@
       {
         "index": 6,
         "sha256": "18ecd5ec9a5e5d121d7213474bae559956926338d6885c773fd0b157193ba21e",
-        "kind": "unclassified",
+        "kind": "intentional-failure-test",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3480,7 +3488,7 @@
       {
         "index": 7,
         "sha256": "e86b6de92f8ce28cd6a4079d1cad6d466df360d14fd1328be79029a34b568e92",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3488,7 +3496,7 @@
       {
         "index": 8,
         "sha256": "07865709de14a63377941fc8960245940177bac33d098009003afac8b6f14cb8",
-        "kind": "source-excerpt",
+        "kind": "integration-test",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": [
@@ -3499,7 +3507,7 @@
       {
         "index": 9,
         "sha256": "12cdca6489b1ebfc9bcd1442ad2579242e5d3424599bfece86e86878e421c821",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3507,7 +3515,7 @@
       {
         "index": 10,
         "sha256": "d06f5d4c5ab16a6709f0caf54da21bb6696a7511869ce0dc632b0fc6e0ca87e7",
-        "kind": "solidity-source",
+        "kind": "deployment-script",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": [
@@ -3518,7 +3526,7 @@
       {
         "index": 11,
         "sha256": "3873c275ec8920fe0ae93704d938dc541f08d9024ea21f127b67f9cf8b314975",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/tracing-ethereum-transactions-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3565,7 +3573,7 @@
       {
         "index": 1,
         "sha256": "da2d504f9a1c8c43a6b7f95f5cff820263dadb08b82987b8ffc1c5ff3fbd604c",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": [
@@ -3576,7 +3584,7 @@
       {
         "index": 2,
         "sha256": "81f8fb62bbba660fc3bcc18ecab610896df96364635fe95eb35b2002c5a8e975",
-        "kind": "unclassified",
+        "kind": "installation-commands",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3584,7 +3592,7 @@
       {
         "index": 3,
         "sha256": "319d78093482a77d23de073b59919584bb2b371582af990d3cf532a5f1ec3524",
-        "kind": "unclassified",
+        "kind": "inspection-commands",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3592,7 +3600,7 @@
       {
         "index": 4,
         "sha256": "0ea6fcf6ce2e8638fc5ba0638a3ba122038083ae02328d7390083872010ef13b",
-        "kind": "unclassified",
+        "kind": "setup-commands",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3600,7 +3608,7 @@
       {
         "index": 5,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3608,7 +3616,7 @@
       {
         "index": 6,
         "sha256": "af1dcb1aa4c60adbc01f20ec53e09cc01041824666a8e00ccc473ff6cb467285",
-        "kind": "unclassified",
+        "kind": "deployment-command",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3616,7 +3624,7 @@
       {
         "index": 7,
         "sha256": "68522e34158931c5f336cfe2f6d37ecdf08849ed17de55d3a3940019f830e0d9",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/evm-developer-tools-explained-foundry/published.md",
         "status": "preserved",
         "implementations": []
@@ -3658,7 +3666,7 @@
       {
         "index": 1,
         "sha256": "13254ccf483cdacf0fa929032368e601656ffa5fea6f602a1e0711a568d4f5c5",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3666,7 +3674,7 @@
       {
         "index": 2,
         "sha256": "28198e1544f1bfab37e0939380a811fe80c504005c6fbc8207aaf210879a598a",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3674,7 +3682,7 @@
       {
         "index": 3,
         "sha256": "b7d1f81e4b37fd7fc25b411d57a99adbd9b934bad2c968804ac50c1d8e50435d",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3682,7 +3690,7 @@
       {
         "index": 4,
         "sha256": "7d3466b8993771480140c4eafa80079b30ecedb1ed2f6918e145ec9749e22529",
-        "kind": "unclassified",
+        "kind": "api-signatures",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3690,7 +3698,7 @@
       {
         "index": 5,
         "sha256": "4a47de1ca01e0d3c007a73fc067bc202af0adcd1cf29a14f3595c144cba89992",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3698,7 +3706,7 @@
       {
         "index": 6,
         "sha256": "b2f94405a94fe28bb635890bf3ef850ffb3abd73f909d014d9536ba3bee6fbd7",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3706,7 +3714,7 @@
       {
         "index": 7,
         "sha256": "fb1df9bd4f35a01f16ee3804df61204e31ef972b92c68c7d898730b7bd08987e",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3714,7 +3722,7 @@
       {
         "index": 8,
         "sha256": "b35a4445c5c9f91e4fb26dd06e5a4f82783927c137e9ae5aa0ad5e60e868e15e",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3722,7 +3730,7 @@
       {
         "index": 9,
         "sha256": "11dc988110571029559c7ba33d8dad4491391e1053c9141a10b98c8a80c51320",
-        "kind": "unclassified",
+        "kind": "intentional-revert-fragment",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3730,7 +3738,7 @@
       {
         "index": 10,
         "sha256": "76bed6e2db44afbb49daa70c20876895d1f4d111253daa88f5134d5255204c46",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/solidity-execution-overview-payable/published.md",
         "status": "preserved",
         "implementations": []
@@ -3776,7 +3784,7 @@
       {
         "index": 1,
         "sha256": "c192ab06f48afa175e6404db2955c78925174b178984f6f4722016bf10d10377",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
         "status": "preserved",
         "implementations": [
@@ -3787,7 +3795,7 @@
       {
         "index": 2,
         "sha256": "72857717ecf1422012857932b05558e8420f6ebaec414f8eed43d8a7726e9a56",
-        "kind": "unclassified",
+        "kind": "abi-json",
         "snapshot": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
         "status": "preserved",
         "implementations": []
@@ -3795,7 +3803,7 @@
       {
         "index": 3,
         "sha256": "bc046549abff507247c8f85b0ff1f9d9b5a6c4696b017bbf3e8622d14ece6960",
-        "kind": "unclassified",
+        "kind": "worked-selector",
         "snapshot": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
         "status": "preserved",
         "implementations": []
@@ -3803,7 +3811,7 @@
       {
         "index": 4,
         "sha256": "031f24b2fffa736004fe15a6a0b4b9f8d19d4570e475d39288f4980674ab419c",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
         "status": "preserved",
         "implementations": []
@@ -3811,7 +3819,7 @@
       {
         "index": 5,
         "sha256": "8c3d116acc47a86b7f502e7cbb2f80582dbf9eaf07bfd175f8498d5f412c614a",
-        "kind": "unclassified",
+        "kind": "decoding-fragment-and-values",
         "snapshot": "articles/evm/abi-encoding-deep-dive-how-solidity/published.md",
         "status": "preserved",
         "implementations": []
@@ -3857,7 +3865,7 @@
       {
         "index": 1,
         "sha256": "de8caf6cc7e423e69bf49f9c78b7f2b57ce33882c42115db79f44c7d3e74ef10",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": [
@@ -3868,7 +3876,7 @@
       {
         "index": 2,
         "sha256": "ac03449a66c5d641f9291938aea674de9a341e107f51371d9912619f28ec057d",
-        "kind": "unclassified",
+        "kind": "annotated-bytecode",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": []
@@ -3876,7 +3884,7 @@
       {
         "index": 3,
         "sha256": "efb02c60f68cb5db35ef623b405b32142efda64487ec649d10b3061e87ae4079",
-        "kind": "unclassified",
+        "kind": "opcode-fragment",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": []
@@ -3884,7 +3892,7 @@
       {
         "index": 4,
         "sha256": "f73c11d3d05d57e3918f2d140d8961baabe1696a241e1b6b46455acf3ecf7734",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": []
@@ -3892,7 +3900,7 @@
       {
         "index": 5,
         "sha256": "76cfd6e77c6a19e28d452c4a34e83354351c801cedccc54cf2e55471336366e1",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": []
@@ -3900,7 +3908,7 @@
       {
         "index": 6,
         "sha256": "275dff0c6547142187b1c25305230bf6c7b1ccdc78e0ed3c6c766d8644ad7397",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-actually-happens-when-calldata/published.md",
         "status": "preserved",
         "implementations": []
@@ -3946,7 +3954,7 @@
       {
         "index": 1,
         "sha256": "a4b41e9a95eb276943975a176f2703b0cd52f30248bdab8747cf1376223b3a39",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3954,7 +3962,7 @@
       {
         "index": 2,
         "sha256": "85bae15019c5b5a804626f1b372f429dc6e8d523819c62000bb952f8d0d99566",
-        "kind": "unclassified",
+        "kind": "example-call",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3962,7 +3970,7 @@
       {
         "index": 3,
         "sha256": "50b65eb7b0cc89e539dda6d7a0f08d94c1db4909f689304da7b981e7329ebaf8",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3970,7 +3978,7 @@
       {
         "index": 4,
         "sha256": "680b2afa382afbf8532baff4339f790c6a75b05a3e7df2bb1ec233a03cebaca4",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3978,7 +3986,7 @@
       {
         "index": 5,
         "sha256": "cdbe332efd41929289a901e11172768fba942561f7aeefe51285455cbcdf1fe3",
-        "kind": "unclassified",
+        "kind": "command-and-published-output",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -3986,7 +3994,7 @@
       {
         "index": 6,
         "sha256": "e6eaba303a7e34a87e38bde46f961c19419ff51466bf35539786ae3822d47ce2",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": [
@@ -3997,7 +4005,7 @@
       {
         "index": 7,
         "sha256": "4b7b5348a64e84219aa4bd56d51a1818e0ca62eeb698809bfcfd5faa801d787b",
-        "kind": "unclassified",
+        "kind": "bytecode",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -4005,7 +4013,7 @@
       {
         "index": 8,
         "sha256": "60cf856210908ea469c6926cdd14d34c261836c741e83367883b40c3773d93e2",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -4013,7 +4021,7 @@
       {
         "index": 9,
         "sha256": "96614fc0be1c4ebdd099d3ca1491edc6ef665223f10936eb5b311a375a4e6679",
-        "kind": "unclassified",
+        "kind": "illustrative-transaction",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -4021,7 +4029,7 @@
       {
         "index": 10,
         "sha256": "83a88e34958d36a109e1d4bee3907bf5b033848980f3771899ebab88f487fafa",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/ethereum-calldata-and-bytecode-how/published.md",
         "status": "preserved",
         "implementations": []
@@ -4063,7 +4071,7 @@
       {
         "index": 1,
         "sha256": "46f6f66584976eb663f67a6dc6ff2857eaced389d2d1500f65e7718ab936e4c0",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/introduction-to-the-ethereum-virtual/published.md",
         "status": "preserved",
         "implementations": []
@@ -4132,7 +4140,7 @@
       {
         "index": 1,
         "sha256": "f8a8c5e347d86fc27cb1086a8f4fdd3769214e74a7ba0fa246235d51851a4794",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4140,7 +4148,7 @@
       {
         "index": 2,
         "sha256": "e6496b6473dc689058d369df8d6cc0508c73fa580c00852baa5d9c72047ebba6",
-        "kind": "unclassified",
+        "kind": "interface",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4148,7 +4156,7 @@
       {
         "index": 3,
         "sha256": "40bd850105302c358469bc469fcbab1a6f035c682eeecf9d45c29751490c1e4a",
-        "kind": "unclassified",
+        "kind": "interface",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4156,7 +4164,7 @@
       {
         "index": 4,
         "sha256": "3035c99334b4952807c87db495264a5ff97a243102a38ac9c1c7ac2e8994b509",
-        "kind": "unclassified",
+        "kind": "interface",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4164,7 +4172,7 @@
       {
         "index": 5,
         "sha256": "f659d71b26e5c0b96ec172d6544ae7a1a917b7eb197dd28ac6e04a769ebe3c14",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4175,7 +4183,7 @@
       {
         "index": 6,
         "sha256": "d2e491f480f3fb763947f0feb4c284678fc996d500c130fb158f14b701b87cc0",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4186,7 +4194,7 @@
       {
         "index": 7,
         "sha256": "fcc2aa478bf26c6a9bffab73350b020e7463272a8369706eb0e32cf27460c4c3",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4197,7 +4205,7 @@
       {
         "index": 8,
         "sha256": "cd1a77ea271824c5ebcc7927bac22d5636e49ccbe9b7a5d4199536514658b408",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4208,7 +4216,7 @@
       {
         "index": 9,
         "sha256": "ce049d927b5e4124f86588063af091430b538f44c1a8d2e2a09f23c4952c7898",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4219,7 +4227,7 @@
       {
         "index": 10,
         "sha256": "f1259f7afa7858ef25113f792c669dd6550cb6fc6ece2348dd5d05791725c3cf",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4230,7 +4238,7 @@
       {
         "index": 11,
         "sha256": "0bf1ad3911fcf89f15c45a477ddd0b81055ea19d06ff2604a6490808bb1e7dde",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4241,7 +4249,7 @@
       {
         "index": 12,
         "sha256": "ddc4071d293eb0dc329c64a35c8c376777a44d04bc95432a266b0ab65b513b16",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4252,7 +4260,7 @@
       {
         "index": 13,
         "sha256": "962c0a377b5665871a2714bdd9212c10dfcaeadd0b5ccad4cb5017406034ef97",
-        "kind": "solidity-source",
+        "kind": "deployment-script",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4263,7 +4271,7 @@
       {
         "index": 14,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4271,7 +4279,7 @@
       {
         "index": 15,
         "sha256": "bb8ebd8187dc3b388b1a3198c8bad4bf2cf4e226b880866f8403de52cf0c3d52",
-        "kind": "unclassified",
+        "kind": "deployment-command",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4279,7 +4287,7 @@
       {
         "index": 16,
         "sha256": "f349d96fe6d61f0faa067280a1bac61695df5585d4b36a124c86d39fd5790d07",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4287,7 +4295,7 @@
       {
         "index": 17,
         "sha256": "37c24b440c101968201029c4d61c4a993774c567f2eab4b8d30629d659d14656",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": [
@@ -4298,7 +4306,7 @@
       {
         "index": 18,
         "sha256": "f368a00d0954f58bd88190481da7dd9d9950d8bb44fa444eee90102119d5c9bf",
-        "kind": "unclassified",
+        "kind": "command-and-illustrative-output",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4306,7 +4314,7 @@
       {
         "index": 19,
         "sha256": "c639fdfd480a6bbf9ff95cb244746b0baebdcb79b3198fe5e6423530dff55e5f",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4314,7 +4322,7 @@
       {
         "index": 20,
         "sha256": "06999ccec2f03317330738e4e2422f60f7a80543ddc58f481fcd9ca140754e35",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4322,7 +4330,7 @@
       {
         "index": 21,
         "sha256": "f62d953e4c3df468177eacfefa2e08b3c84213a9cd5f0c6f98a6bb282f0d0a2c",
-        "kind": "unclassified",
+        "kind": "selector-mapping",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4330,7 +4338,7 @@
       {
         "index": 22,
         "sha256": "fe52ece5e35743052990c57bfb988cc30022ce58a27101da6bda2e3c11ae4b1e",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4338,7 +4346,7 @@
       {
         "index": 23,
         "sha256": "842b4329ca2e1cda71d77525c9c3a2f7ac91e63d7fe4450c929da6ce1e477634",
-        "kind": "unclassified",
+        "kind": "selector-mapping",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4346,7 +4354,7 @@
       {
         "index": 24,
         "sha256": "284f8a784a76d27863253e684be5f7137c8e46f716f955978965928f427eea44",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4354,7 +4362,7 @@
       {
         "index": 25,
         "sha256": "8d5c367a80432972d822fe3e61a0b4c422a585527b4005f38c5595538e46ceed",
-        "kind": "unclassified",
+        "kind": "library-with-omitted-pragma",
         "snapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
         "status": "preserved",
         "implementations": []
@@ -4403,7 +4411,7 @@
       {
         "index": 1,
         "sha256": "af838685797e188600b4b4f6b014d3d4eb25601fa2d8fe412bf492548a6950e3",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": [
@@ -4414,7 +4422,7 @@
       {
         "index": 2,
         "sha256": "2d40b55a7002eab3ed032be83ca8f5926abf4c0482204589f937b8b92abc5ddd",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": [
@@ -4425,7 +4433,7 @@
       {
         "index": 3,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4433,7 +4441,7 @@
       {
         "index": 4,
         "sha256": "f1f31d3171c9017a3cfc243d1a3af894b1c9c46fc2f21e787809de148d6efeb2",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4441,7 +4449,7 @@
       {
         "index": 5,
         "sha256": "d97cd64a3849cda6e806ba02acfa283109bd94ab82f8ae696da28ff377b790e5",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4449,7 +4457,7 @@
       {
         "index": 6,
         "sha256": "7fdc012a9d7af5ac38422f008ab3a533e2d81b2a6d7d7d4c1f60308bbed46d3f",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": [
@@ -4460,7 +4468,7 @@
       {
         "index": 7,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4468,7 +4476,7 @@
       {
         "index": 8,
         "sha256": "832f5ebd5cd05216aada4832b5590c1ac6e632462ee94d942fc7c96ac2232839",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4476,7 +4484,7 @@
       {
         "index": 9,
         "sha256": "9d4a9e92416671174f06884cca4fd5d5d41743b5567707d85e97e832b3ea6388",
-        "kind": "unclassified",
+        "kind": "bytecode-fragment",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4484,7 +4492,7 @@
       {
         "index": 10,
         "sha256": "6f8e419fef9c9963d322e8124e3ff01e7674fbd1728dc608e0022d503a655718",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": [
@@ -4495,7 +4503,7 @@
       {
         "index": 11,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4503,7 +4511,7 @@
       {
         "index": 12,
         "sha256": "ae4fa3ed03ed8b2f9ee32d996f679ba380a32147814fdd030832cd0f944ec142",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4511,7 +4519,7 @@
       {
         "index": 13,
         "sha256": "39e44b56c140589015f6b4dd8ad383089295bed246f6ece2f973b4262d396f18",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4519,7 +4527,7 @@
       {
         "index": 14,
         "sha256": "f4b9dc7caa5f2538585d42f398b46107af1ad305db7a2b632b089715be891654",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-2-df8f05998d5e/published.md",
         "status": "preserved",
         "implementations": []
@@ -4564,7 +4572,7 @@
       {
         "index": 1,
         "sha256": "f4a7e041f8d20a0176b6c16c79aefe9146f87b475be8339b8d8203f13fbbf3bc",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4572,7 +4580,7 @@
       {
         "index": 2,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4580,7 +4588,7 @@
       {
         "index": 3,
         "sha256": "c8152b84a2e2c4b49db74921144f21d3b9ffc27e110e7e951df93aca8712d749",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4588,7 +4596,7 @@
       {
         "index": 4,
         "sha256": "93b17e49936e02fd6bf9c08b5fabfa841436b8190e0dcc74cece1c70c99993e5",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4596,7 +4604,7 @@
       {
         "index": 5,
         "sha256": "5e9290913b79ae5caf0103b4688ac6ac5cd1aee520db5155736685c63b440a74",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4604,7 +4612,7 @@
       {
         "index": 6,
         "sha256": "7d73ec75414e9ad43a536d1ff54f9f25cb4a97d4ae7fdeb503a6e101719ede52",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": [
@@ -4615,7 +4623,7 @@
       {
         "index": 7,
         "sha256": "bf2c370d58fe8e9cefe8307cdcf96b360239095f9dcc38c58c66cff917ffe515",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4623,7 +4631,7 @@
       {
         "index": 8,
         "sha256": "e5e381edef9558eeb48acef1c5bb5af5f4212439dab6a6b6a41ee453ebd75c77",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4631,7 +4639,7 @@
       {
         "index": 9,
         "sha256": "94214bfba2070c5d9ea075d21df3fa3f8c8e16ef3f632564da4c288f3c7b6d07",
-        "kind": "unclassified",
+        "kind": "published-hash",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4639,7 +4647,7 @@
       {
         "index": 10,
         "sha256": "668ed055bbb8475e36015643b1f4a3dfc807223217470cf78b5ad4d9c19a483b",
-        "kind": "unclassified",
+        "kind": "test-data",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4647,7 +4655,7 @@
       {
         "index": 11,
         "sha256": "7d81e08a56d00a5cd065b0e5da3929d5692eb2e3415afda08f67001da63b1d89",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4655,7 +4663,7 @@
       {
         "index": 12,
         "sha256": "312bf18bbeec2c912d63a20f2f582d00cc2522ea1966900394ff5c6f3d7708b3",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": [
@@ -4666,7 +4674,7 @@
       {
         "index": 13,
         "sha256": "35af57c149d48632f482bdc0304d6de9a149c3ef41ecbbe03449dc8a026636c6",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": [
@@ -4677,7 +4685,7 @@
       {
         "index": 14,
         "sha256": "7ead68e3fc5714cc6739f323cfbfdfd99c604d14338aa5c9dd99c66f70db743a",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": [
@@ -4688,7 +4696,7 @@
       {
         "index": 15,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4696,7 +4704,7 @@
       {
         "index": 16,
         "sha256": "b4249f7212c7a9223e2aa80d6e9b0853c2313bb8e7a0fc2f348ce7e5d6552c18",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4704,7 +4712,7 @@
       {
         "index": 17,
         "sha256": "4acf2c0b4d2848aa1589a071822b97884f8485938a8588c644db4c0113a067ef",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4712,7 +4720,7 @@
       {
         "index": 18,
         "sha256": "629a8d874defc9c920cba8970bb2ea16d9f3aed6e04f30a6e4dcc9594b822772",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4720,7 +4728,7 @@
       {
         "index": 19,
         "sha256": "fdfd8cded5b28ce9f36f8691b52a4bb640d0a5810e0b4bd34d4c988e1673f6e9",
-        "kind": "unclassified",
+        "kind": "intentional-failure-command-and-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4728,7 +4736,7 @@
       {
         "index": 20,
         "sha256": "cc94a5679f38ebf5b506d52299af8c8f9ad439b7a4d72e69cfa20a3bdc1aa06c",
-        "kind": "unclassified",
+        "kind": "inspection-commands",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4736,7 +4744,7 @@
       {
         "index": 21,
         "sha256": "e8f1a0d2fb2f7e31b552c649445495f4c6390c1156d7070a95863b743f3c70b9",
-        "kind": "unclassified",
+        "kind": "commands-and-published-output",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4744,7 +4752,7 @@
       {
         "index": 22,
         "sha256": "6c9b7642458d7780a0a1c7266f2d5e423a7e77d22c41f96da043be3f497bd69b",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/published.md",
         "status": "preserved",
         "implementations": []
@@ -4791,7 +4799,7 @@
       {
         "index": 1,
         "sha256": "a495df46e9b937256c956665661a4b327d792b2757cb47d4ed71d7f9d232230a",
-        "kind": "unclassified",
+        "kind": "event-declaration",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4799,7 +4807,7 @@
       {
         "index": 2,
         "sha256": "8a2a0e0fd2f65cbaaf05d1a9e54c7e8c8271fbbe67168d0bb49d87a3f947279d",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4807,7 +4815,7 @@
       {
         "index": 3,
         "sha256": "b40286efcfec89785511332fca197472c7ee0a84077b7d4c1145be22d263d539",
-        "kind": "unclassified",
+        "kind": "published-rpc-output",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4815,7 +4823,7 @@
       {
         "index": 4,
         "sha256": "7c237e6f673bf7282b5448271dc25d30b4e3cfd1e413a96429c9bc71b0a44aff",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": [
@@ -4826,7 +4834,7 @@
       {
         "index": 5,
         "sha256": "cf534f7f522e06557edae7034eeb0368867529f0fb71bdc5e2c221fcee5ec280",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4834,7 +4842,7 @@
       {
         "index": 6,
         "sha256": "b41ba0085eb4f7e4b9ec12ad3669e0eace27e3827735a25f7f23350b06de5568",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4842,7 +4850,7 @@
       {
         "index": 7,
         "sha256": "aa9871ecfa25e1114e293cd548b233bd66d2b99830ad8f7f7f613e39c60f3a5f",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4850,7 +4858,7 @@
       {
         "index": 8,
         "sha256": "e265068e5f9eb1d77e99177791067e9a826a1890f3374c4873bc83862cdf6ae2",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": [
@@ -4861,7 +4869,7 @@
       {
         "index": 9,
         "sha256": "c859bf5826fc3a95a2baa7aceef4602a69483ed95fbf3f7effc258af34b0ea9f",
-        "kind": "unclassified",
+        "kind": "published-output",
         "snapshot": "articles/evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/published.md",
         "status": "preserved",
         "implementations": []
@@ -4908,7 +4916,7 @@
       {
         "index": 1,
         "sha256": "e79590d539e5efdf9a2da96a9dffcc76968ef8cecb65b93d2e61c2eb6c62fd48",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4916,7 +4924,7 @@
       {
         "index": 2,
         "sha256": "591ff0a67fb1711455492ebdd3f4873f57baa23dc58e5b90aeafbc33698966ea",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4924,7 +4932,7 @@
       {
         "index": 3,
         "sha256": "253058f2862eef93d75824927ecc66c4e7359a008f38264d7c85fc359e8d35c8",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4932,7 +4940,7 @@
       {
         "index": 4,
         "sha256": "d01d02dd128160091eae91ec39cd0e9e3bd127a939daf87f6106f8a087bd1b2a",
-        "kind": "unclassified",
+        "kind": "incomplete-rpc-command",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4940,7 +4948,7 @@
       {
         "index": 5,
         "sha256": "e9f3e9ccc737b25aeed61311bfc655cf6d1050aaa26659f8a4e169af49eba913",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4948,7 +4956,7 @@
       {
         "index": 6,
         "sha256": "f5e23da252ba518002cb6611281cbd99c5bca28c7f421f1a808b5933cd6065ac",
-        "kind": "unclassified",
+        "kind": "rpc-request-fragment",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4956,7 +4964,7 @@
       {
         "index": 7,
         "sha256": "5b70ab4c19dd8651d48d90a8080ab10eb7bd148a97d0abfb8f5df316b332811a",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc/published.md",
         "status": "preserved",
         "implementations": []
@@ -4997,7 +5005,7 @@
       {
         "index": 1,
         "sha256": "5daffa57245b5b5856d2ab314c057e3b8d93ddd9f80b3bfb9c46a4fa29fc977d",
-        "kind": "unclassified",
+        "kind": "gas-schedule-pseudocode",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5005,7 +5013,7 @@
       {
         "index": 2,
         "sha256": "73e07db8232e3df833967bef4c3143c32bf0de779b145cdc66b6a702c774959c",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5013,7 +5021,7 @@
       {
         "index": 3,
         "sha256": "7d73ec75414e9ad43a536d1ff54f9f25cb4a97d4ae7fdeb503a6e101719ede52",
-        "kind": "solidity-source",
+        "kind": "program",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": [
@@ -5024,7 +5032,7 @@
       {
         "index": 4,
         "sha256": "4de46069dad0c0dfdefd20639016cf4e87bf5820355a341b274088b64f86aeeb",
-        "kind": "solidity-source",
+        "kind": "integration-test",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": [
@@ -5035,7 +5043,7 @@
       {
         "index": 5,
         "sha256": "e8a531fa9c6cc869550f67d14cc1c6b06fc62c02cce0da6940a0f380826b74c7",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5043,7 +5051,7 @@
       {
         "index": 6,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5051,7 +5059,7 @@
       {
         "index": 7,
         "sha256": "af1dcb1aa4c60adbc01f20ec53e09cc01041824666a8e00ccc473ff6cb467285",
-        "kind": "unclassified",
+        "kind": "deployment-command",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5059,7 +5067,7 @@
       {
         "index": 8,
         "sha256": "d89043ed0910d272d515939792692b2cf12efd692008b9a7cb79802a53087554",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5067,7 +5075,7 @@
       {
         "index": 9,
         "sha256": "040b9542575788578a924dfca7f5c6bf396102156088486eb2b22b93e815fa61",
-        "kind": "unclassified",
+        "kind": "commands",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5075,7 +5083,7 @@
       {
         "index": 10,
         "sha256": "ed4e8540e644f446f2bdd62e61a78a7989bb8bc344099e8f813f126f73634dd7",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5083,7 +5091,7 @@
       {
         "index": 11,
         "sha256": "4187b219c96190fabecc80acfda94bce3b5551e1eed28fe8b65fed9a5effc6e6",
-        "kind": "unclassified",
+        "kind": "published-output-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5091,7 +5099,7 @@
       {
         "index": 12,
         "sha256": "337c1a83311713de4449cf273762116154787add7b8d2a2a4643b74b00fa7a8a",
-        "kind": "unclassified",
+        "kind": "command-and-published-output",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5099,7 +5107,7 @@
       {
         "index": 13,
         "sha256": "2fd40063ff05a0ae2df8fe6f63425ae54b354797c242efa309925eb329d2d3e6",
-        "kind": "unclassified",
+        "kind": "struct-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5107,7 +5115,7 @@
       {
         "index": 14,
         "sha256": "0865f45e4c397b8bd16ff9cbe544b60b3b20baa4fc31ce2ff232d5d47eec54c5",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5115,7 +5123,7 @@
       {
         "index": 15,
         "sha256": "8d91539b9e9c42621525e89a5177a06555a0101c87dc606aaa41f543aa9afac7",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5123,7 +5131,7 @@
       {
         "index": 16,
         "sha256": "2ec678c8a13c55305ac994a58fe1eebe667df9aa1daaae0d7ee731d1d787968f",
-        "kind": "unclassified",
+        "kind": "function-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5131,7 +5139,7 @@
       {
         "index": 17,
         "sha256": "5dddf4f92579de1092a5cc796ee18223eae5f3800fac98cc30949544393158ed",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5139,7 +5147,7 @@
       {
         "index": 18,
         "sha256": "97f124cc32ea4f06f0b3765bbcea6b4c4976c9fb8e43be031699dab83668dcc6",
-        "kind": "unclassified",
+        "kind": "function-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5147,7 +5155,7 @@
       {
         "index": 19,
         "sha256": "19f36b387088d0d211b06ef230dd2010817038e8f22eba00a4e5e474bab4e9b6",
-        "kind": "unclassified",
+        "kind": "declaration-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5155,7 +5163,7 @@
       {
         "index": 20,
         "sha256": "47b47d80c4b6f0bc80c1f0051326b375ab7776dc1b1774167454e716f52e7ab6",
-        "kind": "unclassified",
+        "kind": "constructor-fragment",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5163,7 +5171,7 @@
       {
         "index": 21,
         "sha256": "0c4a429cb753cf0a8cf9188f65b4125b53a79bb6c10fcf5523239ae4cb0ff7f6",
-        "kind": "unclassified",
+        "kind": "event-declaration",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5171,7 +5179,7 @@
       {
         "index": 22,
         "sha256": "e030b4cbad30a6ef09a4f96144f708045ab0998f71828b8bc4dd408dfa2973c9",
-        "kind": "unclassified",
+        "kind": "assembly-template",
         "snapshot": "articles/evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f/published.md",
         "status": "preserved",
         "implementations": []
@@ -5217,7 +5225,7 @@
       {
         "index": 1,
         "sha256": "071486f5932868cdd43d88dadda160f8aa3e3c3abc39c44be4e3cb08c0eb6796",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5225,7 +5233,7 @@
       {
         "index": 2,
         "sha256": "97f3473a7ad01fb7c7a6a01ba2af9f76e8fd280ac396af60c7ee56c82f94fc18",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5233,7 +5241,7 @@
       {
         "index": 3,
         "sha256": "8d50f1d563e83782897a6377fc9cd76c50953b8a1c034539fe7e6b0bb6461f60",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5241,7 +5249,7 @@
       {
         "index": 4,
         "sha256": "1f8a6952997a9b2e41096571989b9e91ce48029be8f1d69cbd3a94cb6ba7c83b",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5249,7 +5257,7 @@
       {
         "index": 5,
         "sha256": "b609ce94b634111057ed9862d73b8dfb59fdb3db96871e890436834b5e38c1ae",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5257,7 +5265,7 @@
       {
         "index": 6,
         "sha256": "20c2f65be92efda633f49bd6ec02dd3e4107eab1662fb63a3a9fec8d5b1662f5",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": [
@@ -5269,7 +5277,7 @@
       {
         "index": 7,
         "sha256": "593c568a93ebba00374f50c155d3dcc4b9fa0f409d935b46524e200afa4c153b",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": [
@@ -5281,7 +5289,7 @@
       {
         "index": 8,
         "sha256": "d15c75885668594640ed01532d700d0e6bc32b3d22b5fa602350ebf19c1eb2ab",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5289,7 +5297,7 @@
       {
         "index": 9,
         "sha256": "d0f25feaba57f0f81fea1e0c2fa0125d81b9297791d14c77559cb9b0ad23fd63",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5297,7 +5305,7 @@
       {
         "index": 10,
         "sha256": "3ae5b727fe51c894e3145f91fe52cb816fb79cd7089e6ef8491c08ec1fa4345f",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5305,7 +5313,7 @@
       {
         "index": 11,
         "sha256": "5954c6475bf0bd692b0d53eaab6ce1a53fe3b0c0ea52deaa7a93cfc48c51eae9",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5313,7 +5321,7 @@
       {
         "index": 12,
         "sha256": "77f5c15f245e2fc893055e5750abac807a75b00ba17ab0faa3877d2ef4b231dd",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5321,7 +5329,7 @@
       {
         "index": 13,
         "sha256": "51fc4baf6369a327be4882678ec3ae21370996c9e1829c3773bdb62a08beaf71",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": [
@@ -5332,7 +5340,7 @@
       {
         "index": 14,
         "sha256": "b873f02f89e8b0be7e9c8a52aac1e19b3917b444e009436804adeed82c2661da",
-        "kind": "unclassified",
+        "kind": "transaction-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5340,7 +5348,7 @@
       {
         "index": 15,
         "sha256": "75a8013a5483b2cfc9e4d610ee278fa8f0889851cb5584407a29258302db8bc1",
-        "kind": "unclassified",
+        "kind": "struct-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5348,7 +5356,7 @@
       {
         "index": 16,
         "sha256": "69eb57ddadfe282326c9ccdca71f59e52581abbee57593f92db6cecdce49b180",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5356,7 +5364,7 @@
       {
         "index": 17,
         "sha256": "ac63ca4b08703862bb1a0b126d768a4aec2fd4eb2cb006b846e742dfd67e7818",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": [
@@ -5368,7 +5376,7 @@
       {
         "index": 18,
         "sha256": "668e4f6d21daaef1f0e5318ec70be3b7f26e2181bb6f441bddda002ff5618a92",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5376,7 +5384,7 @@
       {
         "index": 19,
         "sha256": "0f9955976f188baceef61cd7c9ea9d5a95f355b0e7501c05e8a4553c36c27575",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/published.md",
         "status": "preserved",
         "implementations": []
@@ -5426,7 +5434,7 @@
       {
         "index": 1,
         "sha256": "3a9853407da9144002b3cbbcfe045c47cf504a03eb8be42e3a84d38622ade386",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5434,7 +5442,7 @@
       {
         "index": 2,
         "sha256": "2019b8c1b2cc9a0dfa29b266b33450bde819a46dcd4c3b249b915673dcd6fab6",
-        "kind": "source-excerpt",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": [
@@ -5445,7 +5453,7 @@
       {
         "index": 3,
         "sha256": "b16912214b3dc7b0127a4aee4206d2ddf1ffface8ba3375fc7e6cb8fd1f20a86",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5453,7 +5461,7 @@
       {
         "index": 4,
         "sha256": "52e6155bce80db38b8bb98cdedbdc3426406ef9bf7c1c33379a898307d4dbf7d",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5461,7 +5469,7 @@
       {
         "index": 5,
         "sha256": "b6d0f05a7d197829b1ac41cc746d71cfca1e7ee9573daadfac5f35eec1c06c1e",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5469,7 +5477,7 @@
       {
         "index": 6,
         "sha256": "dbc3880e2b34688a53450de5a3967d77bc2c285325754a7891b62cf720cf8bbd",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": [
@@ -5480,7 +5488,7 @@
       {
         "index": 7,
         "sha256": "5195a92bddefb730c2891e6d4e4f4bf1c65e93afdc3afded64465a891d7d8c1d",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5488,7 +5496,7 @@
       {
         "index": 8,
         "sha256": "73a04bf7cc3adbf0c34b4fd7a287cd6d10e2f4a641742c66d0d0bf191879aece",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5496,7 +5504,7 @@
       {
         "index": 9,
         "sha256": "695629eada6160d4e61fb834823bb75fea11ac37460c2f50338501cc58aa5bd6",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5504,7 +5512,7 @@
       {
         "index": 10,
         "sha256": "040ae8446b2b3be3ee8aa25ac5b60d15868134d2f8ce784903d83fbdbb207270",
-        "kind": "unclassified",
+        "kind": "published-rpc-output",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5512,7 +5520,7 @@
       {
         "index": 11,
         "sha256": "8bf921ca57705d0cc46293b6756b24486810694111f231f6176e8b8a05e7ee09",
-        "kind": "unclassified",
+        "kind": "inspection-command",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5520,7 +5528,7 @@
       {
         "index": 12,
         "sha256": "9c93ff50788a489a94f8360d9341df2ccce91d785c4949602bfe921e08c80d73",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5528,7 +5536,7 @@
       {
         "index": 13,
         "sha256": "b0f3f2f62172de7df04f4285a53ea59bd6fbf52140d55f3c4a89c820b09aba1f",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5536,7 +5544,7 @@
       {
         "index": 14,
         "sha256": "4f672015de9e625d4a4e9cfd6a006c9466a7c802a23f535853a892d0c4146d3e",
-        "kind": "unclassified",
+        "kind": "illustrative-data",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5544,7 +5552,7 @@
       {
         "index": 15,
         "sha256": "e1b2dc0b933ef173030e7c5e887c9432212d99e03c0a523f20e27d52a11e53e6",
-        "kind": "unclassified",
+        "kind": "formula",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5552,7 +5560,7 @@
       {
         "index": 16,
         "sha256": "73a0dd9d5823b6357c3d1a52ac7f95276fb1c146ccc34791de55bae9f4b3ca3c",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5560,7 +5568,7 @@
       {
         "index": 17,
         "sha256": "ec8ec943bc6131b7283a85f31cad0656c4e4539d4afedd5109c9db1bd5a2bbf9",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5568,7 +5576,7 @@
       {
         "index": 18,
         "sha256": "5f93fc84daccb5c86821e784ce44c3e076b4579091af037769cd474794abd9fc",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5576,7 +5584,7 @@
       {
         "index": 19,
         "sha256": "916a6d64b4b7fc643b74fe0697203f28fe9043b51c4586b3616fdf9bc641731a",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5584,7 +5592,7 @@
       {
         "index": 20,
         "sha256": "3bf5f5862f193475e81c6d54ab4fa9071c95d4ee58d5f386f0415eae29ca2b77",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5592,7 +5600,7 @@
       {
         "index": 21,
         "sha256": "cdbe40c4e7536c4774398f910ab6f8a2acc3480fc3c76f6ffdea580013eb1bd4",
-        "kind": "unclassified",
+        "kind": "worked-encoding",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5600,7 +5608,7 @@
       {
         "index": 22,
         "sha256": "d71bf6f71ab8fcdb0f00dbced675a84d7a0e05191e2cc1f502c72e75b117b2fd",
-        "kind": "unclassified",
+        "kind": "pseudocode",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5608,7 +5616,7 @@
       {
         "index": 23,
         "sha256": "6821d3e70d793d89db7cec58e1c19e34abcd5c8f50a72de205f5fc608df77a98",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-imports",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5616,7 +5624,7 @@
       {
         "index": 24,
         "sha256": "ebf1460db49c96f101d128414cd02ec459028df0d99e9fcb0912b4afb21350d6",
-        "kind": "unclassified",
+        "kind": "published-output",
         "snapshot": "articles/evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/published.md",
         "status": "preserved",
         "implementations": []
@@ -5658,7 +5666,7 @@
       {
         "index": 1,
         "sha256": "7d73ec75414e9ad43a536d1ff54f9f25cb4a97d4ae7fdeb503a6e101719ede52",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": [
@@ -5669,7 +5677,7 @@
       {
         "index": 2,
         "sha256": "81f8fb62bbba660fc3bcc18ecab610896df96364635fe95eb35b2002c5a8e975",
-        "kind": "unclassified",
+        "kind": "installation-commands",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5677,7 +5685,7 @@
       {
         "index": 3,
         "sha256": "319d78093482a77d23de073b59919584bb2b371582af990d3cf532a5f1ec3524",
-        "kind": "unclassified",
+        "kind": "inspection-commands",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5685,7 +5693,7 @@
       {
         "index": 4,
         "sha256": "0ea6fcf6ce2e8638fc5ba0638a3ba122038083ae02328d7390083872010ef13b",
-        "kind": "unclassified",
+        "kind": "setup-commands",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5693,7 +5701,7 @@
       {
         "index": 5,
         "sha256": "50bc66d8aae5ae9020e15d53a103ddf91de202b3af5aeb3fd124b6861cdd2405",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5701,7 +5709,7 @@
       {
         "index": 6,
         "sha256": "af1dcb1aa4c60adbc01f20ec53e09cc01041824666a8e00ccc473ff6cb467285",
-        "kind": "unclassified",
+        "kind": "deployment-command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5709,7 +5717,7 @@
       {
         "index": 7,
         "sha256": "68522e34158931c5f336cfe2f6d37ecdf08849ed17de55d3a3940019f830e0d9",
-        "kind": "unclassified",
+        "kind": "illustrative-output",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5717,7 +5725,7 @@
       {
         "index": 8,
         "sha256": "722d00560d43fe941419fb16b4742f404bd05327ce7595c310ea7bb2baf2f728",
-        "kind": "source-excerpt",
+        "kind": "integration-test",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": [
@@ -5728,7 +5736,7 @@
       {
         "index": 9,
         "sha256": "8ac84484d3a7050215f2f81afc00322dadb2b7be7dc8fdacea27026704ef481b",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5736,7 +5744,7 @@
       {
         "index": 10,
         "sha256": "7077bbabc730ec2818d7a3f10509cad6cd8d5bf798edb128ee3268e2934cdc9b",
-        "kind": "unclassified",
+        "kind": "command-and-illustrative-output",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5744,7 +5752,7 @@
       {
         "index": 11,
         "sha256": "6ffe4f20f1dcad83067690490c53b823307cf63c2a34f9e2a6d21ad0df21594b",
-        "kind": "unclassified",
+        "kind": "rpc-command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5752,7 +5760,7 @@
       {
         "index": 12,
         "sha256": "a91ad97a9399b4d03ce2c5ad65d3bb1ac7781f0f146238e7dc94760ee0e7de2b",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5760,7 +5768,7 @@
       {
         "index": 13,
         "sha256": "95f4d8554401c2b0b896e87dbc8cabc5923823ad800d3fbcc89afd71d690c3d5",
-        "kind": "unclassified",
+        "kind": "intentional-failure-test",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5768,7 +5776,7 @@
       {
         "index": 14,
         "sha256": "e86b6de92f8ce28cd6a4079d1cad6d466df360d14fd1328be79029a34b568e92",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5776,7 +5784,7 @@
       {
         "index": 15,
         "sha256": "a1d645ac5b2b8e5f12be065d6a6cf8fb3b27b46d1eb1408ee651c4ad7c6af8a4",
-        "kind": "source-excerpt",
+        "kind": "integration-test",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": [
@@ -5787,7 +5795,7 @@
       {
         "index": 16,
         "sha256": "85ac84e0f876ed313a3ad9fc2897a7dedf7a7fd2c4e0f1234a0a01153f57aea1",
-        "kind": "unclassified",
+        "kind": "published-rpc-output-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5795,7 +5803,7 @@
       {
         "index": 17,
         "sha256": "be21828d6058c4b575e6a8ab0db6457b9d65db62b5409d42fbf3ae4aafc0722b",
-        "kind": "source-excerpt",
+        "kind": "deployment-script",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": [
@@ -5806,7 +5814,7 @@
       {
         "index": 18,
         "sha256": "3873c275ec8920fe0ae93704d938dc541f08d9024ea21f127b67f9cf8b314975",
-        "kind": "unclassified",
+        "kind": "command",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592/published.md",
         "status": "preserved",
         "implementations": []
@@ -5848,7 +5856,7 @@
       {
         "index": 1,
         "sha256": "13254ccf483cdacf0fa929032368e601656ffa5fea6f602a1e0711a568d4f5c5",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5856,7 +5864,7 @@
       {
         "index": 2,
         "sha256": "28198e1544f1bfab37e0939380a811fe80c504005c6fbc8207aaf210879a598a",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5864,7 +5872,7 @@
       {
         "index": 3,
         "sha256": "b7d1f81e4b37fd7fc25b411d57a99adbd9b934bad2c968804ac50c1d8e50435d",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5872,7 +5880,7 @@
       {
         "index": 4,
         "sha256": "7d3466b8993771480140c4eafa80079b30ecedb1ed2f6918e145ec9749e22529",
-        "kind": "unclassified",
+        "kind": "api-signatures",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5880,7 +5888,7 @@
       {
         "index": 5,
         "sha256": "4a47de1ca01e0d3c007a73fc067bc202af0adcd1cf29a14f3595c144cba89992",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5888,7 +5896,7 @@
       {
         "index": 6,
         "sha256": "76ab8e95ca1cf54524f54322e7a99ee286755f4725420fdd60ca40da9f012be6",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": [
@@ -5899,7 +5907,7 @@
       {
         "index": 7,
         "sha256": "f281cd03f944123eda6abec58fc68b317afc45b8fa24fed6426de255f2e40a0b",
-        "kind": "unclassified",
+        "kind": "annotated-bytecode",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5907,7 +5915,7 @@
       {
         "index": 8,
         "sha256": "efb02c60f68cb5db35ef623b405b32142efda64487ec649d10b3061e87ae4079",
-        "kind": "unclassified",
+        "kind": "opcode-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5915,7 +5923,7 @@
       {
         "index": 9,
         "sha256": "d185e20a412d7ba14617e618dcd09c101661938fa6b44dbbe0700318e73f0b9f",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5923,7 +5931,7 @@
       {
         "index": 10,
         "sha256": "d8343ad698a07a5ff329719da94347307e9c6022a0eb91a4f2d3176a76745b00",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5931,7 +5939,7 @@
       {
         "index": 11,
         "sha256": "749a2fdac55dd913d229774e6eb864232164c8c608863f770d40d80566887b34",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5939,7 +5947,7 @@
       {
         "index": 12,
         "sha256": "b2f94405a94fe28bb635890bf3ef850ffb3abd73f909d014d9536ba3bee6fbd7",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5947,7 +5955,7 @@
       {
         "index": 13,
         "sha256": "fb1df9bd4f35a01f16ee3804df61204e31ef972b92c68c7d898730b7bd08987e",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5955,7 +5963,7 @@
       {
         "index": 14,
         "sha256": "26c26792876b85649eff6c75916c72991c0a169763493ea062f8f60eae31e185",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": [
@@ -5966,7 +5974,7 @@
       {
         "index": 15,
         "sha256": "2a50b0f0f8dfbd98f80d779dfe461fa0a90223f02fe93bb6e2782960391f9cdb",
-        "kind": "unclassified",
+        "kind": "abi-json",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5974,7 +5982,7 @@
       {
         "index": 16,
         "sha256": "031f24b2fffa736004fe15a6a0b4b9f8d19d4570e475d39288f4980674ab419c",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5982,7 +5990,7 @@
       {
         "index": 17,
         "sha256": "17d064bf5cbe93ac94211a50b7df5671a423ac34ae6a613df9a7a5c8cd9cd26d",
-        "kind": "unclassified",
+        "kind": "decoding-fragment-and-values",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5990,7 +5998,7 @@
       {
         "index": 18,
         "sha256": "fccda4022e396d271f8b0327d464a835d0fd1cb6daa5097ac98aeeff33b98d50",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -5998,7 +6006,7 @@
       {
         "index": 19,
         "sha256": "1c879ebef4a4f7d1ee733c7a2cc4e153b1d5c8a5d811751f4dd95b0a3efcadf3",
-        "kind": "unclassified",
+        "kind": "intentional-revert-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -6006,7 +6014,7 @@
       {
         "index": 20,
         "sha256": "76bed6e2db44afbb49daa70c20876895d1f4d111253daa88f5134d5255204c46",
-        "kind": "unclassified",
+        "kind": "instruction-fragment",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/published.md",
         "status": "preserved",
         "implementations": []
@@ -6048,7 +6056,7 @@
       {
         "index": 1,
         "sha256": "a4b41e9a95eb276943975a176f2703b0cd52f30248bdab8747cf1376223b3a39",
-        "kind": "unclassified",
+        "kind": "api-signature",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6056,7 +6064,7 @@
       {
         "index": 2,
         "sha256": "85bae15019c5b5a804626f1b372f429dc6e8d523819c62000bb952f8d0d99566",
-        "kind": "unclassified",
+        "kind": "example-call",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6064,7 +6072,7 @@
       {
         "index": 3,
         "sha256": "50b65eb7b0cc89e539dda6d7a0f08d94c1db4909f689304da7b981e7329ebaf8",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6072,7 +6080,7 @@
       {
         "index": 4,
         "sha256": "680b2afa382afbf8532baff4339f790c6a75b05a3e7df2bb1ec233a03cebaca4",
-        "kind": "unclassified",
+        "kind": "encoding-layout",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6080,7 +6088,7 @@
       {
         "index": 5,
         "sha256": "c73853d34192a238213da2fdb11c9f7471dcbf6e5c31ffd3ecc397cc513def81",
-        "kind": "unclassified",
+        "kind": "command-and-published-output",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6088,7 +6096,7 @@
       {
         "index": 6,
         "sha256": "ad3846d97aed7537ea3fd8d24b885a5bb948d0b074ef0d54d797ca36e63c4893",
-        "kind": "unclassified",
+        "kind": "program-with-omitted-pragma",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6096,7 +6104,7 @@
       {
         "index": 7,
         "sha256": "d7e4b81175b335c1e8191b09ea7ee94d343af50765aa93aac84fc869273f382f",
-        "kind": "source-excerpt",
+        "kind": "program",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": [
@@ -6107,7 +6115,7 @@
       {
         "index": 8,
         "sha256": "4b7b5348a64e84219aa4bd56d51a1818e0ca62eeb698809bfcfd5faa801d787b",
-        "kind": "unclassified",
+        "kind": "bytecode",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6115,7 +6123,7 @@
       {
         "index": 9,
         "sha256": "60cf856210908ea469c6926cdd14d34c261836c741e83367883b40c3773d93e2",
-        "kind": "unclassified",
+        "kind": "annotated-opcodes",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6123,7 +6131,7 @@
       {
         "index": 10,
         "sha256": "5713f9d77c34fdb5aced085c94de515d9b21b277789ca8e64b448646a1f871cc",
-        "kind": "unclassified",
+        "kind": "illustrative-transaction",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []
@@ -6131,7 +6139,7 @@
       {
         "index": 11,
         "sha256": "83a88e34958d36a109e1d4bee3907bf5b033848980f3771899ebab88f487fafa",
-        "kind": "unclassified",
+        "kind": "encoded-calldata",
         "snapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
         "status": "preserved",
         "implementations": []

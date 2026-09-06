@@ -10,18 +10,18 @@ Article status: **source-restored**.
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | unclassified | Preserved in the published block; runnable mapping pending |
-| [5](published.md#block-5) | unclassified | Preserved in the published block; runnable mapping pending |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
-| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
-| [11](published.md#block-11) | unclassified | Preserved in the published block; runnable mapping pending |
-| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | command | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | commands | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | command | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | inspection-command | Preserved in the published block; runnable mapping pending |
+| [5](published.md#block-5) | command | Preserved in the published block; runnable mapping pending |
+| [6](published.md#block-6) | inspection-command | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | command | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | commands | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | command | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | command | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | command | Preserved in the published block; runnable mapping pending |
+| [12](published.md#block-12) | command | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 

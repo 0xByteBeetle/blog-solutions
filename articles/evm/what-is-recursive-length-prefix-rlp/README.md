@@ -14,6 +14,8 @@ Article status: **source-restored**.
 
 - [examples/evm/rlp: unit-tested](../../../verification/restored-builds.json) (2026-09-06)
 
+  Checked with: `go test ./...`
+
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
 ## Example map

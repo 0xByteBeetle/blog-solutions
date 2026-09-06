@@ -14,7 +14,11 @@ Article status: **source-restored**.
 ## Recorded checks
 
 - [examples/evm/delegation: build-checked](../../../verification/restored-builds.json) (2026-09-06)
+
+  Checked with: `forge build`
 - [examples/evm/transaction-types: build-checked](../../../verification/restored-builds.json) (2026-09-06)
+
+  Checked with: `go test -run ^$ ./...`
 
 These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
 
@@ -22,18 +26,18 @@ These results apply to the listed projects, not every block in the article. Buil
 
 | Block | Type | Source |
 | --- | --- | --- |
-| [1](published.md#block-1) | unclassified | Preserved in the published block; runnable mapping pending |
-| [2](published.md#block-2) | unclassified | Preserved in the published block; runnable mapping pending |
-| [3](published.md#block-3) | unclassified | Preserved in the published block; runnable mapping pending |
-| [4](published.md#block-4) | solidity-source | [published source](../../../examples/evm/delegation/src/Invoked.sol), [published source](../../../examples/evm/transaction-types/eip7702/invoked.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/invoked.sol) |
-| [5](published.md#block-5) | solidity-source | [published source](../../../examples/evm/delegation/src/MultiDelegationInvoker.sol), [published source](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol) |
-| [6](published.md#block-6) | unclassified | Preserved in the published block; runnable mapping pending |
-| [7](published.md#block-7) | unclassified | Preserved in the published block; runnable mapping pending |
-| [8](published.md#block-8) | unclassified | Preserved in the published block; runnable mapping pending |
-| [9](published.md#block-9) | unclassified | Preserved in the published block; runnable mapping pending |
-| [10](published.md#block-10) | unclassified | Preserved in the published block; runnable mapping pending |
-| [11](published.md#block-11) | source-excerpt | [published source](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go); [original repo variant](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go) |
-| [12](published.md#block-12) | unclassified | Preserved in the published block; runnable mapping pending |
+| [1](published.md#block-1) | encoding-layout | Preserved in the published block; runnable mapping pending |
+| [2](published.md#block-2) | encoding-layout | Preserved in the published block; runnable mapping pending |
+| [3](published.md#block-3) | encoding-layout | Preserved in the published block; runnable mapping pending |
+| [4](published.md#block-4) | program | [published source](../../../examples/evm/delegation/src/Invoked.sol), [published source](../../../examples/evm/transaction-types/eip7702/invoked.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/invoked.sol) |
+| [5](published.md#block-5) | program | [published source](../../../examples/evm/delegation/src/MultiDelegationInvoker.sol), [published source](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol); [original repo variant](../../../examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol) |
+| [6](published.md#block-6) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [7](published.md#block-7) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [8](published.md#block-8) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [9](published.md#block-9) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [10](published.md#block-10) | instruction-fragment | Preserved in the published block; runnable mapping pending |
+| [11](published.md#block-11) | program | [published source](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go); [original repo variant](../../../examples/evm/transaction-types/eip7702/eip7702_batch.go) |
+| [12](published.md#block-12) | transaction-fragment | Preserved in the published block; runnable mapping pending |
 
 “Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
 
