@@ -1,0 +1,124 @@
+{
+  "environment": {
+    "PATH_prefix": ".tools/bin",
+    "SUI_CONFIG_DIR": ".local/sui-config",
+    "MOVE_HOME": ".local/move-cache",
+    "NO_COLOR": "1"
+  },
+  "provenance": {
+    "framework_cache_seeded_from": "/Users/andreyobruchkov/clones/temp_blog_area/sui-move-foundations-lab/toolchain/move-cache",
+    "note": "The cache contains the exact pinned framework revision. It avoids fetching unchanged framework sources again during this local verification. Both Move.lock files were generated, not copied.",
+    "signing_keys_before_and_after": 0
+  },
+  "records": [
+    {
+      "label": "01-main-manifest",
+      "cwd": "move",
+      "command": "sui move build",
+      "exit_code": 0,
+      "duration_seconds": 0.686,
+      "stdout": "",
+      "stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\n",
+      "plain_stdout": "",
+      "plain_stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\n"
+    },
+    {
+      "label": "02-notebook-build",
+      "cwd": "move",
+      "command": "sui move build",
+      "exit_code": 0,
+      "duration_seconds": 0.546,
+      "stdout": "",
+      "stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\n",
+      "plain_stdout": "",
+      "plain_stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\n"
+    },
+    {
+      "label": "03-tests",
+      "cwd": "move",
+      "command": "sui move test",
+      "exit_code": 0,
+      "duration_seconds": 4.074,
+      "stdout": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\nRunning Move unit tests\n[ PASS    ] sui_foundations::notebook_tests::test_create_and_update\n[ PASS    ] sui_foundations::notebook_tests::test_distinct_ids\n[ PASS    ] sui_foundations::notebook_tests::test_wrong_capability\nTest result: OK. Total tests: 3; passed: 3; failed: 0\n",
+      "stderr": "",
+      "plain_stdout": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_foundations\nRunning Move unit tests\n[ PASS    ] sui_foundations::notebook_tests::test_create_and_update\n[ PASS    ] sui_foundations::notebook_tests::test_distinct_ids\n[ PASS    ] sui_foundations::notebook_tests::test_wrong_capability\nTest result: OK. Total tests: 3; passed: 3; failed: 0\n",
+      "plain_stderr": ""
+    },
+    {
+      "label": "04-negative-manifest",
+      "cwd": "move/negative/copy_object",
+      "command": "sui move build",
+      "exit_code": 0,
+      "duration_seconds": 0.506,
+      "stdout": "",
+      "stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING copy_object_failure\n",
+      "plain_stdout": "",
+      "plain_stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING copy_object_failure\n"
+    },
+    {
+      "label": "05-negative-copy",
+      "cwd": "move/negative/copy_object",
+      "command": "sui move build",
+      "exit_code": 1,
+      "duration_seconds": 0.417,
+      "stdout": "Failed to build Move modules: Compilation error.\n",
+      "stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING copy_object_failure\n\u001b[0m\u001b[1m\u001b[38;5;9merror[EC05001]\u001b[0m\u001b[1m: ability constraint not satisfied\u001b[0m\n   \u001b[0m\u001b[34m\u250c\u2500\u001b[0m ./sources/bad_copy.move:4:9\n   \u001b[0m\u001b[34m\u2502\u001b[0m\n\u001b[0m\u001b[34m 4\u001b[0m \u001b[0m\u001b[34m\u2502\u001b[0m     id: \u001b[0m\u001b[31mUID\u001b[0m,\n   \u001b[0m\u001b[34m\u2502\u001b[0m         \u001b[0m\u001b[31m^^^\u001b[0m\n   \u001b[0m\u001b[34m\u2502\u001b[0m         \u001b[0m\u001b[31m\u2502\u001b[0m\n   \u001b[0m\u001b[34m\u2502\u001b[0m         \u001b[0m\u001b[31mInvalid field type. The struct was declared with the ability 'copy' so all fields require the ability 'copy'\u001b[0m\n   \u001b[0m\u001b[34m\u2502\u001b[0m         \u001b[0m\u001b[34mThe type 'sui::object::UID' does not have the ability 'copy'\u001b[0m\n   \u001b[0m\u001b[34m\u2502\u001b[0m\n   \u001b[0m\u001b[34m\u250c\u2500\u001b[0m /Users/andreyobruchkov/clones/temp_blog_area/sui-selfcontained-lab/.local/move-cache/git/https___github_com_MystenLabs_sui_git_719fb2960ccfbf9f4d33041f8ea5146d30671696/crates/sui-framework/packages/sui-framework/sources/object.move:84:15\n   \u001b[0m\u001b[34m\u2502\u001b[0m\n\u001b[0m\u001b[34m84\u001b[0m \u001b[0m\u001b[34m\u2502\u001b[0m public struct UID has store {\n   \u001b[0m\u001b[34m\u2502\u001b[0m               \u001b[0m\u001b[34m---\u001b[0m \u001b[0m\u001b[34mTo satisfy the constraint, the 'copy' ability would need to be added here\u001b[0m\n\n",
+      "plain_stdout": "Failed to build Move modules: Compilation error.\n",
+      "plain_stderr": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING copy_object_failure\nerror[EC05001]: ability constraint not satisfied\n   \u250c\u2500 ./sources/bad_copy.move:4:9\n   \u2502\n 4 \u2502     id: UID,\n   \u2502         ^^^\n   \u2502         \u2502\n   \u2502         Invalid field type. The struct was declared with the ability 'copy' so all fields require the ability 'copy'\n   \u2502         The type 'sui::object::UID' does not have the ability 'copy'\n   \u2502\n   \u250c\u2500 /Users/andreyobruchkov/clones/temp_blog_area/sui-selfcontained-lab/.local/move-cache/git/https___github_com_MystenLabs_sui_git_719fb2960ccfbf9f4d33041f8ea5146d30671696/crates/sui-framework/packages/sui-framework/sources/object.move:84:15\n   \u2502\n84 \u2502 public struct UID has store {\n   \u2502               --- To satisfy the constraint, the 'copy' ability would need to be added here\n\n"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "move/Move.toml",
+      "sha256": "fabef9698ae3b5295031059ea7849bf655d2472b28d797ea33d843fb1d251559",
+      "code": "[package]\nname = \"sui_foundations\"\nedition = \"2024\"\n"
+    },
+    {
+      "path": "move/sources/notebook.move",
+      "sha256": "0821fad1830b5d0fd2aafe0614d5662e7c2baad60547c03c02d3efd321642b8f",
+      "code": "module sui_foundations::notebook;\n\nconst EWrongNotebook: u64 = 0;\n\npublic struct Notebook has key, store {\n    id: UID,\n    value: u64,\n}\n\npublic struct NotebookCap has key, store {\n    id: UID,\n    notebook: ID,\n}\n\npublic fun create(value: u64, ctx: &mut TxContext): (Notebook, NotebookCap) {\n    let notebook = Notebook { id: object::new(ctx), value };\n    let cap = NotebookCap {\n        id: object::new(ctx),\n        notebook: object::id(&notebook),\n    };\n    (notebook, cap)\n}\n\npublic fun value(notebook: &Notebook): u64 {\n    notebook.value\n}\n\npublic fun set_value(notebook: &mut Notebook, cap: &NotebookCap, value: u64) {\n    assert!(object::id(notebook) == cap.notebook, EWrongNotebook);\n    notebook.value = value;\n}\n\n#[test_only]\npublic fun destroy_for_testing(notebook: Notebook, cap: NotebookCap) {\n    let Notebook { id, value: _ } = notebook;\n    object::delete(id);\n    let NotebookCap { id, notebook: _ } = cap;\n    object::delete(id);\n}\n"
+    },
+    {
+      "path": "move/tests/notebook_tests.move",
+      "sha256": "3b50df6c555d11905961a346544cd5ee3af2f441513d09c24cc3efb2956b5490",
+      "code": "#[test_only]\nmodule sui_foundations::notebook_tests;\n\nuse sui_foundations::notebook;\n\n#[test]\nfun test_create_and_update() {\n    let mut ctx = tx_context::dummy();\n    let (mut note, cap) = notebook::create(7, &mut ctx);\n    let original_id = object::id(&note);\n    assert!(notebook::value(&note) == 7, 1);\n    notebook::set_value(&mut note, &cap, 9);\n    assert!(notebook::value(&note) == 9, 2);\n    assert!(object::id(&note) == original_id, 3);\n    notebook::destroy_for_testing(note, cap);\n}\n\n#[test]\nfun test_distinct_ids() {\n    let mut ctx = tx_context::dummy();\n    let (first, first_cap) = notebook::create(7, &mut ctx);\n    let (second, second_cap) = notebook::create(7, &mut ctx);\n    assert!(object::id(&first) != object::id(&second), 4);\n    notebook::destroy_for_testing(first, first_cap);\n    notebook::destroy_for_testing(second, second_cap);\n}\n\n#[test]\n#[expected_failure(abort_code = 0, location = sui_foundations::notebook)]\nfun test_wrong_capability() {\n    let mut ctx = tx_context::dummy();\n    let (mut first, first_cap) = notebook::create(7, &mut ctx);\n    let (second, second_cap) = notebook::create(7, &mut ctx);\n    notebook::set_value(&mut first, &second_cap, 9);\n    notebook::destroy_for_testing(first, first_cap);\n    notebook::destroy_for_testing(second, second_cap);\n}\n"
+    },
+    {
+      "path": "move/negative/copy_object/Move.toml",
+      "sha256": "97808fce7bebef9e13a7a2e358368963f63913cbb81ae102a8777895631ba63f",
+      "code": "[package]\nname = \"copy_object_failure\"\nedition = \"2024\"\n"
+    },
+    {
+      "path": "move/negative/copy_object/sources/bad_copy.move",
+      "sha256": "953208a93d4294be045ae558c745b1b60c000a789a867758bfac64ececabdee4",
+      "code": "module copy_object_failure::bad_copy;\n\npublic struct BadNotebook has key, store, copy {\n    id: UID,\n}\n"
+    }
+  ],
+  "release_bytecode_before_test_build": {
+    "path": "move/build/sui_foundations/bytecode_modules/notebook.mv",
+    "bytes": 422,
+    "sha256": "47036b656e02133e9794fb73ab06d9d33f32496ea4633a0cfafdba5ecba76219"
+  },
+  "locks": [
+    {
+      "path": "move/Move.lock",
+      "source": "Generated automatically from visible Move.toml, never copied",
+      "framework_revisions": [
+        "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+        "719fb2960ccfbf9f4d33041f8ea5146d30671696"
+      ],
+      "sha256": "5a059758d9abb8d5518eb6c8cd9bb54a8b878ee36d9e470b6c19d050818cee43",
+      "code": "# Generated by move; do not edit\n# This file should be checked in.\n\n[move]\nversion = 4\n\n[pinned.testnet.MoveStdlib]\nsource = { git = \"https://github.com/MystenLabs/sui.git\", subdir = \"crates/sui-framework/packages/move-stdlib\", rev = \"719fb2960ccfbf9f4d33041f8ea5146d30671696\" }\nuse_environment = \"testnet\"\nmanifest_digest = \"C4FE4C91DE74CBF223B2E380AE40F592177D21870DC2D7EB6227D2D694E05363\"\ndeps = {}\n\n[pinned.testnet.Sui]\nsource = { git = \"https://github.com/MystenLabs/sui.git\", subdir = \"crates/sui-framework/packages/sui-framework\", rev = \"719fb2960ccfbf9f4d33041f8ea5146d30671696\" }\nuse_environment = \"testnet\"\nmanifest_digest = \"7AFB66695545775FBFBB2D3078ADFD084244D5002392E837FDE21D9EA1C6D01C\"\ndeps = { MoveStdlib = \"MoveStdlib\" }\n\n[pinned.testnet.sui_foundations]\nsource = { root = true }\nuse_environment = \"testnet\"\nmanifest_digest = \"5745706258F61D6CE210904B3E6AE87A73CE9D31A6F93BE4718C442529332A87\"\ndeps = { std = \"MoveStdlib\", sui = \"Sui\" }\n"
+    },
+    {
+      "path": "move/negative/copy_object/Move.lock",
+      "source": "Generated automatically from visible Move.toml, never copied",
+      "framework_revisions": [
+        "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+        "719fb2960ccfbf9f4d33041f8ea5146d30671696"
+      ],
+      "sha256": "3c1068d18d425d7bf6dc22c2656b6d7a5a721ecf56e9242fc009a438f5ae5851",
+      "code": "# Generated by move; do not edit\n# This file should be checked in.\n\n[move]\nversion = 4\n\n[pinned.testnet.MoveStdlib]\nsource = { git = \"https://github.com/MystenLabs/sui.git\", subdir = \"crates/sui-framework/packages/move-stdlib\", rev = \"719fb2960ccfbf9f4d33041f8ea5146d30671696\" }\nuse_environment = \"testnet\"\nmanifest_digest = \"C4FE4C91DE74CBF223B2E380AE40F592177D21870DC2D7EB6227D2D694E05363\"\ndeps = {}\n\n[pinned.testnet.Sui]\nsource = { git = \"https://github.com/MystenLabs/sui.git\", subdir = \"crates/sui-framework/packages/sui-framework\", rev = \"719fb2960ccfbf9f4d33041f8ea5146d30671696\" }\nuse_environment = \"testnet\"\nmanifest_digest = \"7AFB66695545775FBFBB2D3078ADFD084244D5002392E837FDE21D9EA1C6D01C\"\ndeps = { MoveStdlib = \"MoveStdlib\" }\n\n[pinned.testnet.copy_object_failure]\nsource = { root = true }\nuse_environment = \"testnet\"\nmanifest_digest = \"5745706258F61D6CE210904B3E6AE87A73CE9D31A6F93BE4718C442529332A87\"\ndeps = { std = \"MoveStdlib\", sui = \"Sui\" }\n"
+    }
+  ]
+}

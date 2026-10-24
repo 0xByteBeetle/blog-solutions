@@ -1,5 +1,5 @@
 {
-  "status": "Newly authored draft companion, not a recovered published snapshot",
+  "status": "Newly authored draft author reference, not a recovered published snapshot",
   "recorded_on": "2026-10-24",
   "base_commit": "e8fa7b1781e3fbd3afe5031e20bc4aedd2d62111",
   "implementation": "Move source and tests",
@@ -20,7 +20,11 @@
     "original_move": "evidence/recorded-move/verification.json",
     "original_chain": "evidence/recorded-chain/verification.json",
     "repository_setup": "evidence/repository-setup.json",
-    "repository_decoder": "evidence/repository-decoder-verification.json"
+    "repository_decoder": "evidence/repository-decoder-verification.json",
+    "selfcontained_setup": "evidence/recorded-selfcontained/setup-manifest.json",
+    "selfcontained_staged_move": "evidence/recorded-selfcontained/build-manifest.json",
+    "selfcontained_setup_guards": "evidence/recorded-selfcontained/setup-checks.json",
+    "repository_selfcontained": "evidence/repository-selfcontained-verification.json"
   },
   "boundaries": [
     "The package was not published",
@@ -97,6 +101,11 @@
       "origin": "New draft Move source, copied without body changes"
     },
     {
+      "path": "setup_sui.py",
+      "sha256": "90fa81577d8d11d8a4f3a684b4857b4560c32c51eae65ccd8e333919b9cbb8e8",
+      "origin": "Complete standalone setup printed inline in the draft, copied without body changes"
+    },
+    {
       "path": "toolchain.json",
       "sha256": "d74412ecd991ce8aee5b7bc5fc31a99330f3be2c81e266ea81fcfc52bd03ea8b",
       "origin": "Reproduction setup, separate from the Move implementation"
@@ -106,5 +115,6 @@
       "sha256": "1c4f8de0a8812e94748e55049c84ddba1e3bb8af25fdc63c6963531a9640d8a4",
       "origin": "Reproduction setup, separate from the Move implementation"
     }
-  ]
+  ],
+  "reader_delivery": "The Substack post is self-contained. This repository is an author reference, not a required reader download."
 }

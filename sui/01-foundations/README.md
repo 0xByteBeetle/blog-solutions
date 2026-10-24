@@ -1,10 +1,12 @@
 # Sui foundations
 
-Draft companion for **Understanding Sui Part 1: Objects, Tokenomics, and Storage**.
+Author reference for the draft **Understanding Sui Part 1: Objects, Tokenomics, and Storage**.
+
+The reader-facing Substack post contains the complete walkthrough, including setup code, configuration, manifests, source files, commands, and actual output. Readers do not need to clone this repository or follow an unshown helper. This directory preserves the author's runnable source and verification evidence for maintaining the series.
 
 The Move package makes object rules observable through compilation and local tests. Python reads an existing public Testnet object, decodes its saved Move value locally, and reads its producing transaction's fee summary. The local verification command does not create keys, request faucet funds, publish a package, or submit transactions.
 
-While the companion is under review, clone its feature branch so the Sui directory is included:
+For author maintenance while the draft is under review, check out its feature branch:
 
 ```sh
 git clone --branch codex/sui-foundations https://github.com/0xByteBeetle/blog-solutions.git
@@ -22,15 +24,15 @@ The release label selects the toolchain. It does not select a network for the lo
 
 The recorded Move run uses macOS ARM64. The other official release assets are pinned for setup, but have not been executed in this checkpoint.
 
-From the companion directory, install the CLI into its ignored `.tools/` folder:
+The complete standalone setup printed in the post is preserved in `setup_sui.py`. From this directory:
 
 ```sh
-python3 install_sui.py
+python3 setup_sui.py
 ```
 
-The installer chooses a pinned official asset for macOS, Ubuntu, or Windows, verifies its recorded SHA-256, and extracts only the `sui` executable. Download URLs and checksums are in [toolchain.json](toolchain.json). It does not change a global installation. Unsupported platforms can install the same [official release](https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.82.3) manually.
+It embeds the pinned official release URLs and SHA-256 values, downloads or verifies a cached archive, and extracts only the CLI into the ignored `.tools/bin/` directory. It creates the lab directories and isolated `.local/sui-config/` configuration with an empty keystore. It uses only the Python standard library and needs no other authored file. It leaves a nonempty keystore unchanged and rejects an archive checksum mismatch before executing its CLI. The manual commands below assume a POSIX shell.
 
-If the archive is already available, reuse it instead of downloading it again:
+The original split `install_sui.py`, `toolchain.json`, and `local_cli.py` helpers remain available for existing author workflows. To reuse an archive with that compatibility installer:
 
 ```sh
 python3 install_sui.py --archive /path/to/the/platform-specific-archive.tgz
@@ -109,8 +111,12 @@ The selected object already existed before these reads. A Testnet reset or servi
 - `evidence/recorded-chain/`: actual public responses, stdout, stderr, and read-only checks from October 24, 2026
 - `provenance.json`: source hashes and the boundaries of the recorded checks
 - `verify.py`: local build/test orchestration, separate from the author implementation
+- `setup_sui.py`: the complete standalone bootstrap printed inline in the post
+- `evidence/recorded-selfcontained/`: fresh-directory bootstrap, generated lockfiles, staged builds, tests, and setup guard checks
 - `local_cli.py`: isolated keyless client configuration and dependency-cache setup
 - `install_sui.py` and `toolchain.json`: pinned CLI setup
+
+The self-contained bootstrap verification reused an already downloaded official archive and the exact pinned framework cache. It recomputed the archive SHA-256 before extraction. Both lockfiles were generated from the printed manifests, never preseeded. This evidence does not claim a fresh network download.
 
 Files ending in `.stderr.plain.txt` are ANSI-stripped display copies. The original `.stderr.txt` captures remain alongside them. Source files were moved into the companion's `move/` and `client/` directories without changing their bodies.
 
