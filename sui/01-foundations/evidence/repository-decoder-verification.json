@@ -1,0 +1,16 @@
+{
+  "scope": "Local decoding of the existing saved object response",
+  "captured_at_utc": "2026-10-24T17:35:25.908806+00:00",
+  "command": "python3 client/02_decode_coin.py",
+  "working_directory": "sui/01-foundations",
+  "source_sha256": "7486b1ac13ed42b3f6b42ffc254f859ce7016122a649a99ad1daeb83a65b1580",
+  "source_matches_original": true,
+  "exit_code": 0,
+  "stderr_empty": true,
+  "stdout_matches_original_capture": true,
+  "decoded_balance_mist": "10000000",
+  "truncated_39_byte_input_rejected_locally": true,
+  "network_queries": 0,
+  "transaction_construction": false,
+  "transaction_submissions": false
+}

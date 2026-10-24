@@ -2,7 +2,7 @@
 
 Draft companion for **Understanding Sui Part 1: Objects, Tokenomics, and Storage**.
 
-The Move package makes object rules observable through compilation and local tests. Python reads an existing public Testnet object and its producing transaction's fee summary. The local verification command does not create keys, request faucet funds, publish a package, or submit transactions.
+The Move package makes object rules observable through compilation and local tests. Python reads an existing public Testnet object, decodes its saved Move value locally, and reads its producing transaction's fee summary. The local verification command does not create keys, request faucet funds, publish a package, or submit transactions.
 
 While the companion is under review, clone its feature branch so the Sui directory is included:
 
@@ -85,23 +85,26 @@ sui move build --disassemble
 
 The production module is written to `build/sui_foundations/bytecode_modules/notebook.mv`. Its disassembly is written to `build/sui_foundations/disassembly/notebook.mvb`. A later test build can include test-only code, so production-artifact inspection is recorded before running tests.
 
-## Read existing chain data
+## Read and inspect existing chain data
 
-These optional reads need access to the official public Testnet GraphQL service. Run them from `sui/01-foundations` in this order:
+This optional inspection sequence has two network queries and one local decoder. The object and fee queries need access to the official public Testnet GraphQL service. Run the programs from `sui/01-foundations` in this order:
 
 ```sh
 python3 client/01_read_object.py
+python3 client/02_decode_coin.py
 python3 client/03_read_storage_costs.py
 ```
 
-The first script saves the response to `evidence/object.json`. The second reads that observation and follows its producing transaction. They use only Python's standard library and retain TLS verification. No signing material is needed.
+The first script saves the response to `evidence/object.json`. The second reads that saved response without contacting the network, decodes the UID and balance, and compares the results with the service's parsed fields. It deliberately truncates the 40-byte value to 39 bytes to demonstrate its local shape check. That rejection is not a validator rejection. The third script follows the saved object's producing transaction and reconstructs its fee.
+
+All three programs use only Python's standard library. The two network queries retain TLS verification. No signing material is needed.
 
 The selected object already existed before these reads. A Testnet reset or service retention change can make it unavailable. The programs report that condition instead of replacing it with invented data. Network responses can change, so the recorded checkpoint is not an expected constant for a new read.
 
 ## Files and evidence
 
 - `move/`: Move manifest, locked dependencies, source, local tests, and an isolated negative fixture
-- `client/`: the two chain-read programs shown in the draft
+- `client/`: two chain-read programs and the original local Move-value decoder
 - `evidence/recorded-move/`: actual compiler and local-test captures from the author run
 - `evidence/recorded-chain/`: actual public responses, stdout, stderr, and read-only checks from October 24, 2026
 - `provenance.json`: source hashes and the boundaries of the recorded checks

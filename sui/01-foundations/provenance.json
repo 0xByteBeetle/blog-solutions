@@ -3,7 +3,7 @@
   "recorded_on": "2026-10-24",
   "base_commit": "e8fa7b1781e3fbd3afe5031e20bc4aedd2d62111",
   "implementation": "Move source and tests",
-  "client": "Python standard-library GraphQL reads",
+  "client": "Python standard-library GraphQL reads and local Move-value decoding",
   "toolchain": "sui 1.82.3-bf4073918ed3",
   "tested_platform": "macos-arm64",
   "framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
@@ -19,7 +19,8 @@
     "repository_chain": "evidence/repository-chain-verification.json",
     "original_move": "evidence/recorded-move/verification.json",
     "original_chain": "evidence/recorded-chain/verification.json",
-    "repository_setup": "evidence/repository-setup.json"
+    "repository_setup": "evidence/repository-setup.json",
+    "repository_decoder": "evidence/repository-decoder-verification.json"
   },
   "boundaries": [
     "The package was not published",
@@ -39,6 +40,11 @@
       "path": "client/01_read_object.py",
       "sha256": "aec6694e7214a5ff747e7e7b045e022e221418a6634bdfa06a56d040c77fd69e",
       "origin": "Earlier draft chain-read source, moved into client without body changes"
+    },
+    {
+      "path": "client/02_decode_coin.py",
+      "sha256": "7486b1ac13ed42b3f6b42ffc254f859ce7016122a649a99ad1daeb83a65b1580",
+      "origin": "Original draft local Move-value decoder, restored without body changes"
     },
     {
       "path": "client/03_read_storage_costs.py",
