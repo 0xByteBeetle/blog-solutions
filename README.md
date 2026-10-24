@@ -12,6 +12,7 @@ See [remaining review and source gaps](verification/REMAINING.md) for the curren
 - `examples/`: recovered author programs and projects. Their origins and any formatting/setup changes are recorded in `catalog/source-files.json`.
 - `verification/`: actual build/runtime results, kept separate from source recovery.
 - `evm/` and `solana/`: older supplementary labs. They are not authoritative implementations of the posts.
+- [`sui/`](sui/): newly authored Sui draft companions with Move examples, local compilation and tests, and separate Python chain reads.
 
 ## Check and run
 

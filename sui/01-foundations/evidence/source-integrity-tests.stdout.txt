@@ -1,0 +1,11 @@
+✔ source integrity passes without claiming article completion (159.309292ms)
+✔ changing an original implementation fails source integrity (96.570666ms)
+✔ changing a published example fails source integrity (88.715625ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 393.317875

@@ -1,0 +1,63 @@
+{
+  "scope": "Local compilation and Move unit tests only",
+  "cli": "sui 1.82.3-bf4073918ed3",
+  "artifact": {
+    "path": "move/build/sui_foundations/bytecode_modules/notebook.mv",
+    "bytes": 422,
+    "sha256": "47036b656e02133e9794fb73ab06d9d33f32496ea4633a0cfafdba5ecba76219"
+  },
+  "tests": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  },
+  "expected_test_names": [
+    "test_create_and_update",
+    "test_distinct_ids",
+    "test_wrong_capability"
+  ],
+  "intentional_copy_failure_observed": true,
+  "chain_reads": false,
+  "package_publications": false,
+  "transaction_submissions": false,
+  "signing_keys": 0,
+  "runs": [
+    {
+      "command": [
+        "sui",
+        "--version"
+      ],
+      "working_directory": ".",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sui",
+        "move",
+        "build"
+      ],
+      "working_directory": "move",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sui",
+        "move",
+        "test"
+      ],
+      "working_directory": "move",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "sui",
+        "move",
+        "build",
+        "--path",
+        "negative/copy_object"
+      ],
+      "working_directory": "move",
+      "exit_code": 1
+    }
+  ]
+}

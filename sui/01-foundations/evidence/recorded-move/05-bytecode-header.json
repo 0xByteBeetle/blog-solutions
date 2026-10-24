@@ -1,0 +1,11 @@
+{
+  "command": "od -An -tx1 -N16 build/sui_foundations/bytecode_modules/notebook.mv",
+  "argv": [
+    "od",
+    "-An",
+    "-tx1",
+    "-N16",
+    "build/sui_foundations/bytecode_modules/notebook.mv"
+  ],
+  "exit_code": 0
+}

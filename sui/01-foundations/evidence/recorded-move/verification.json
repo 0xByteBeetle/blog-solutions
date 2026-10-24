@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "official_archive_sha256_verified": true,
+    "empty_main_manifest_build": true,
+    "normal_module_build": true,
+    "all_three_tests_pass": true,
+    "expected_abort_pins_code_and_location": true,
+    "normal_bytecode_is_422_bytes": true,
+    "test_only_destructor_absent": true,
+    "negative_manifest_builds": true,
+    "negative_failure_is_copy_ability": true,
+    "no_signing_keys_in_captured_configuration": true
+  },
+  "toolchain": "sui 1.82.3-bf4073918ed3",
+  "framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+  "chain_mutations": false,
+  "source_frozen": true
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Separate optional public Testnet reads from the repository client paths",
+  "captured_at_utc": "2026-10-24T17:11:44.220823+00:00",
+  "network": "testnet",
+  "object_id": "0x846dbd2afd7d7531e7feea369cfecd2586359a7315324ccfffaeea649071362f",
+  "object_version": 3,
+  "checkpoint": 398744383,
+  "balance_mist": "10000000",
+  "producing_transaction": "FT6BDcF3pzwzWUBoNJYiUmbKGu7H1bitHrz5XSDG4jNF",
+  "status": "SUCCESS",
+  "commands": [
+    "python3 client/01_read_object.py",
+    "python3 client/03_read_storage_costs.py"
+  ],
+  "stderr_empty": true,
+  "transaction_construction": false,
+  "transaction_submissions": false
+}

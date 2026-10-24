@@ -1,0 +1,12 @@
+Existing transaction: FT6BDcF3pzwzWUBoNJYiUmbKGu7H1bitHrz5XSDG4jNF
+Execution status: SUCCESS
+Gas budget: 20000000 MIST
+computationCost: 1000000 MIST
+storageCost: 1976000 MIST
+storageRebate: 1975802 MIST
+nonRefundableStorageFee: 198 MIST
+Net gas charge: 1000198 MIST = 0.001000198 SUI
+Non-refundable storage fee is reported separately, not added again
+Sum of SUI balance changes: -1000198 MIST
+PASS: this transfer's balance changes match the calculated gas charge
+No transaction was constructed, signed, or submitted
