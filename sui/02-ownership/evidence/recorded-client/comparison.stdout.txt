@@ -1,0 +1,6 @@
+baseline: value=9, same owner=True
+partial: value=9, same owner=False
+complete: value=11, same owner=True
+PASS: notebook identity, capability identity, and their binding stayed unchanged
+PASS: only the notebook moved first, then the capability followed
+PASS: both object records stayed unchanged after the rejected attempts

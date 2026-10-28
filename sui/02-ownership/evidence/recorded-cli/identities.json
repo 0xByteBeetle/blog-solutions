@@ -1,0 +1,8 @@
+{
+  "alice": "0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c",
+  "bob": "0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30",
+  "chain_id": "5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae",
+  "package": "0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404",
+  "notebook": "0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a",
+  "capability": "0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e"
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "label": "terminal-one",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "terminal-one",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "terminal-two",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "terminal-two",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "manifest",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "manifest",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "build",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "build",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "tests",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "tests",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "publish",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "publish",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "create",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "create",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "alice-update",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "alice-update",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "transfer-notebook",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "transfer-notebook",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "choose-gas",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "choose-gas",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "bob-rejected",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "bob-rejected",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "alice-rejected",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "alice-rejected",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "transfer-capability",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "transfer-capability",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "bob-update",
+    "shell": "/bin/bash",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "label": "bob-update",
+    "shell": "/bin/zsh",
+    "exit_code": 0,
+    "stderr": ""
+  }
+]

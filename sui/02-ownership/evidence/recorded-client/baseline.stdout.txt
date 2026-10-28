@@ -1,0 +1,12 @@
+Snapshot: baseline
+Notebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
+Notebook version: 4
+Notebook owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
+Notebook value: 9
+Capability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
+Capability version: 4
+Capability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
+Capability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
+Binding matches: True
+Same address owns both: True
+Saved: evidence/baseline.json

@@ -1,0 +1,76 @@
+{
+  "endpoint": "127.0.0.1:9000",
+  "network": "disposable Sui localnet",
+  "chain_id": "5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae",
+  "python": "3.13.7",
+  "dependencies": {
+    "grpcio": "1.84.1",
+    "grpcio-reflection": "1.84.1",
+    "protobuf": "7.36.2"
+  },
+  "records": [
+    {
+      "label": "rpc-health-check",
+      "command": "python3 client/rpc.py",
+      "exit_code": 0,
+      "duration_seconds": 0.032,
+      "output": "RPC endpoint: 127.0.0.1:9000\nChain identifier: 5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae\nService checkpoint: 305\n"
+    },
+    {
+      "label": "baseline",
+      "command": "python3 client/01_inspect_owned.py 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e baseline",
+      "exit_code": 0,
+      "duration_seconds": 0.22,
+      "output": "Snapshot: baseline\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 4\nNotebook owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: True\nSaved: evidence/baseline.json\n"
+    },
+    {
+      "label": "partial",
+      "command": "python3 client/01_inspect_owned.py 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e partial",
+      "exit_code": 0,
+      "duration_seconds": 0.269,
+      "output": "Snapshot: partial\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 5\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: False\nSaved: evidence/partial.json\n"
+    },
+    {
+      "label": "rejected",
+      "command": "python3 client/01_inspect_owned.py 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e rejected",
+      "exit_code": 0,
+      "duration_seconds": 0.319,
+      "output": "Snapshot: rejected\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 5\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: False\nSaved: evidence/rejected.json\n"
+    },
+    {
+      "label": "complete",
+      "command": "python3 client/01_inspect_owned.py 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e complete",
+      "exit_code": 0,
+      "duration_seconds": 0.319,
+      "output": "Snapshot: complete\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 7\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 11\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 7\nCapability owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: True\nSaved: evidence/complete.json\n"
+    },
+    {
+      "label": "comparison",
+      "command": "python3 client/02_compare_handover.py evidence/baseline.json evidence/partial.json evidence/rejected.json evidence/complete.json",
+      "exit_code": 0,
+      "duration_seconds": 0.034,
+      "output": "baseline: value=9, same owner=True\npartial: value=9, same owner=False\ncomplete: value=11, same owner=True\nPASS: notebook identity, capability identity, and their binding stayed unchanged\nPASS: only the notebook moved first, then the capability followed\nPASS: both object records stayed unchanged after the rejected attempts\n"
+    }
+  ],
+  "source_files": [
+    {
+      "filename": "client/01_inspect_owned.py",
+      "code": "import argparse\nimport json\nfrom pathlib import Path\nfrom rpc import rpc\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"notebook_id\")\nparser.add_argument(\"capability_id\")\nparser.add_argument(\"label\")\nargs = parser.parse_args()\nif not args.label.isidentifier():\n    parser.error(\"Use a simple label such as baseline, partial, or complete\")\nresponses = {\n    name: rpc(\"GetObject\", object_id=object_id, read_mask={\"paths\": [\"*\"]})\n    for name, object_id in ((\"notebook\", args.notebook_id), (\"capability\", args.capability_id))\n}\nnote = responses[\"notebook\"][\"object\"]\ncap = responses[\"capability\"][\"object\"]\nbound_id = cap[\"json\"][\"notebook\"]\nassert bound_id == note[\"object_id\"]\nassert note[\"owner\"][\"kind\"] == cap[\"owner\"][\"kind\"] == \"ADDRESS\"\nPath(\"evidence\").mkdir(exist_ok=True)\npath = Path(\"evidence\") / f\"{args.label}.json\"\npath.write_text(json.dumps(responses, indent=2) + \"\\n\")\nprint(\"Snapshot:\", args.label)\nprint(\"Notebook ID:\", note[\"object_id\"])\nprint(\"Notebook version:\", note[\"version\"])\nprint(\"Notebook owner:\", note[\"owner\"][\"address\"])\nprint(\"Notebook value:\", note[\"json\"][\"value\"])\nprint(\"Capability ID:\", cap[\"object_id\"])\nprint(\"Capability version:\", cap[\"version\"])\nprint(\"Capability owner:\", cap[\"owner\"][\"address\"])\nprint(\"Capability notebook:\", bound_id)\nprint(\"Binding matches:\", bound_id == note[\"object_id\"])\nprint(\"Same address owns both:\", note[\"owner\"] == cap[\"owner\"])\nprint(\"Saved:\", path)\n",
+      "sha256": "2f1cd59bd244af5f2a3023bd681acd1aeb243089ce966f4cdd528bd01fa6bf3b"
+    },
+    {
+      "filename": "client/02_compare_handover.py",
+      "code": "import argparse\nimport json\nfrom pathlib import Path\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"snapshots\", nargs=4, metavar=\"FILE\")\nargs = parser.parse_args()\nstates = [json.loads(Path(path).read_text()) for path in args.snapshots]\nassert states[1] == states[2]\nstates = [states[0], states[1], states[3]]\nnotes = [state[\"notebook\"][\"object\"] for state in states]\ncaps = [state[\"capability\"][\"object\"] for state in states]\nassert len({note[\"object_id\"] for note in notes}) == 1\nassert len({cap[\"object_id\"] for cap in caps}) == 1\nassert all(cap[\"json\"][\"notebook\"] == note[\"object_id\"] for note, cap in zip(notes, caps))\nassert notes[0][\"owner\"] == caps[0][\"owner\"]\nassert notes[1][\"owner\"] != caps[1][\"owner\"]\nassert notes[2][\"owner\"] == caps[2][\"owner\"]\nassert caps[0][\"owner\"] == caps[1][\"owner\"]\nassert notes[1][\"owner\"] == notes[2][\"owner\"]\nassert notes[0][\"json\"][\"value\"] == notes[1][\"json\"][\"value\"]\nassert notes[2][\"json\"][\"value\"] != notes[1][\"json\"][\"value\"]\nfor label, note, cap in zip((\"baseline\", \"partial\", \"complete\"), notes, caps):\n    print(f\"{label}: value={note['json']['value']}, same owner={note['owner'] == cap['owner']}\")\nprint(\"PASS: notebook identity, capability identity, and their binding stayed unchanged\")\nprint(\"PASS: only the notebook moved first, then the capability followed\")\nprint(\"PASS: both object records stayed unchanged after the rejected attempts\")\n",
+      "sha256": "7cc9485c29ebf66d4dc416d18b7de194724f56781a71ded08cbbc3dd1df18138"
+    },
+    {
+      "filename": "client/rpc.py",
+      "code": "import os\nimport grpc\nfrom google.protobuf import descriptor_pool, json_format, message_factory\nfrom grpc_reflection.v1alpha.proto_reflection_descriptor_database import (\n    ProtoReflectionDescriptorDatabase,\n)\n\nendpoint = os.environ.get(\"SUI_GRPC_ENDPOINT\", \"127.0.0.1:9000\")\nservice_name = \"sui.rpc.v2.LedgerService\"\n\n\ndef rpc(method_name, **fields):\n    host = endpoint.rsplit(\":\", 1)[0]\n    if host in {\"localhost\", \"127.0.0.1\", \"[::1]\"}:\n        channel = grpc.insecure_channel(endpoint)\n    else:\n        channel = grpc.secure_channel(endpoint, grpc.ssl_channel_credentials())\n    with channel:\n        pool = descriptor_pool.DescriptorPool(ProtoReflectionDescriptorDatabase(channel))\n        method = pool.FindServiceByName(service_name).methods_by_name[method_name]\n        request_type = message_factory.GetMessageClass(method.input_type)\n        response_type = message_factory.GetMessageClass(method.output_type)\n        call = channel.unary_unary(\n            f\"/{service_name}/{method_name}\",\n            request_serializer=request_type.SerializeToString,\n            response_deserializer=response_type.FromString,\n        )\n        response = call(request_type(**fields), timeout=30)\n        return json_format.MessageToDict(response, preserving_proto_field_name=True)\n\n\nif __name__ == \"__main__\":\n    info = rpc(\"GetServiceInfo\")\n    print(\"RPC endpoint:\", endpoint)\n    print(\"Chain identifier:\", info[\"chain_id\"])\n    print(\"Service checkpoint:\", info[\"checkpoint_height\"])\n",
+      "sha256": "bcd0dbc7743f42dd789da5db7d0f4bee8c0d1173da5897d65b51a78cf141ed14"
+    }
+  ],
+  "setup_command": "python3 -m venv .venv\nsource .venv/bin/activate\npython3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2",
+  "observation_note": "Two sequential native GetObject requests per label. Mutations paused during capture. These are public node observations, not transaction authorization or certified proofs.",
+  "verification_environment_note": "Author verification reuses the existing virtual environment with the pinned dependency versions. The visible reader setup creates a fresh .venv and installs the same packages.",
+  "complete": true
+}

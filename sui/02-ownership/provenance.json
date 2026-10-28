@@ -1,0 +1,308 @@
+{
+  "article_status": "unpublished draft",
+  "substack_draft": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
+  "network": "disposable localnet, not a public-network deployment",
+  "cli": "sui 1.82.3-bf4073918ed3",
+  "framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+  "source_root_note": "Sources are relative to the author staging workspace, not required runtime dependencies. No wallet, node database, private key, generated build binary, or Published.toml was copied.",
+  "copied_files": [
+    {
+      "file": "client/rpc.py",
+      "source": "sui-part2-client/client/rpc.py",
+      "sha256": "bcd0dbc7743f42dd789da5db7d0f4bee8c0d1173da5897d65b51a78cf141ed14",
+      "transformation": "none"
+    },
+    {
+      "file": "client/01_inspect_owned.py",
+      "source": "sui-part2-client/client/01_inspect_owned.py",
+      "sha256": "2f1cd59bd244af5f2a3023bd681acd1aeb243089ce966f4cdd528bd01fa6bf3b",
+      "transformation": "none"
+    },
+    {
+      "file": "client/02_compare_handover.py",
+      "source": "sui-part2-client/client/02_compare_handover.py",
+      "sha256": "7cc9485c29ebf66d4dc416d18b7de194724f56781a71ded08cbbc3dd1df18138",
+      "transformation": "none"
+    },
+    {
+      "file": "move/sources/notebook.move",
+      "source": "sui-part2-owned-lab/move/sources/notebook.move",
+      "sha256": "ed3e843f9e519ec8fa9baf56bf968c9790b0b21e388630da0051c86b99b31560",
+      "transformation": "none"
+    },
+    {
+      "file": "move/tests/handover_tests.move",
+      "source": "sui-part2-owned-lab/move/tests/handover_tests.move",
+      "sha256": "a408a030a2f3695f7c1e941470d92b34e6374d3d6ae26872900fd70f971b8799",
+      "transformation": "none"
+    },
+    {
+      "file": "move/Move.toml.template",
+      "source": "sui-part2-owned-lab/Move.toml.template",
+      "sha256": "a9bd1547607556a26e3d028e49c36c49983b47b2e4d11c0813842b39bcdd9cb2",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/baseline.json",
+      "source": "sui-part2-client/evidence/baseline.json",
+      "sha256": "cce60741390a58a7f8e442216965b6adc45943778c34bdc0e41eff1ea8c8c7e3",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/partial.json",
+      "source": "sui-part2-client/evidence/partial.json",
+      "sha256": "9198c47e7395cc185351e49135bd39c47f7678cd282e21a2268fe67bf2fe3e6e",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/rejected.json",
+      "source": "sui-part2-client/evidence/rejected.json",
+      "sha256": "9046db6e86666e94ccf30201dd48412a937ca2aa1fff413e092357dadd99b6fc",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/complete.json",
+      "source": "sui-part2-client/evidence/complete.json",
+      "sha256": "b859674cbc2a1ae178b1f6dbcfafd2beb36054d3eeb0f3a8d3369bd88f7f90d9",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/baseline.stdout.txt",
+      "source": "sui-part2-client/evidence/baseline.stdout.txt",
+      "sha256": "a9dfa66465625260157a213b39b48b9871dd3ba75723bf30e3c7c94875fa9680",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/partial.stdout.txt",
+      "source": "sui-part2-client/evidence/partial.stdout.txt",
+      "sha256": "f8cb548eb9708392fee75521388092d4adeb2518b1cdbac7b39b33fd4e88e570",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/rejected.stdout.txt",
+      "source": "sui-part2-client/evidence/rejected.stdout.txt",
+      "sha256": "c166515a4393bf5fc23849d136e761aad26f71f98f47e6d8ac2dec08a9703ea5",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/complete.stdout.txt",
+      "source": "sui-part2-client/evidence/complete.stdout.txt",
+      "sha256": "5fe22e7b2dece14cec33033c88ed708a5caac6437448ff5c4428851021739b12",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/comparison.stdout.txt",
+      "source": "sui-part2-client/evidence/comparison.stdout.txt",
+      "sha256": "587a13eb8004514690ffc9157bb464a143a5a4964f1d0fa4ac12b9b2540bd02c",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/rpc-health-check.stdout.txt",
+      "source": "sui-part2-client/evidence/rpc-health-check.stdout.txt",
+      "sha256": "420dbca4d20688db1b5239d2f9388be059052071850867ba8f65fa087498a6f6",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-client/rejection-records-equal.json",
+      "source": "sui-part2-client/evidence/rejection-records-equal.json",
+      "sha256": "890daed3bf962802b4fa668ac5a55972016c8162a8dbd7e10cfe153f2c39f183",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/build.stdout.txt",
+      "source": "sui-part2-owned-lab/evidence/build.stdout.txt",
+      "sha256": "a9d02ab8a49af7e0e8e8a48674ff823f71d6c44c4c9fba86120060528b535dff",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/fresh-build.stdout.txt",
+      "source": "sui-part2-owned-lab/evidence/fresh-build.stdout.txt",
+      "sha256": "a9d02ab8a49af7e0e8e8a48674ff823f71d6c44c4c9fba86120060528b535dff",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/tests.stdout.txt",
+      "source": "sui-part2-owned-lab/evidence/tests.stdout.txt",
+      "sha256": "164a4fc505dc34fb01e455eeed979f409647c6a39ec9d519898d08fa6784ecfa",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/publish.json",
+      "source": "sui-part2-owned-lab/evidence/publish.json",
+      "sha256": "3a3e3ac4bef1aa8dbf228ef7c1aa26e93e1c670f80d9333f02954fcacce336d4",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/publish.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/publish.stderr.txt",
+      "sha256": "8b4e348733a153a780805351f01810032c51ce848cb91fdc868e1a4b0d5ccb93",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/create.json",
+      "source": "sui-part2-owned-lab/evidence/create.json",
+      "sha256": "db472f76db48331c086c7c22caa2437cb21cbfc6224ab1097edda8fd5537fb56",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/create.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/create.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-update.json",
+      "source": "sui-part2-owned-lab/evidence/alice-update.json",
+      "sha256": "22b1ba205a5ef006bac11145f37cad8f4a0846ab49320feaefc6c5ee01e42337",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-update.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/alice-update.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/transfer-notebook.json",
+      "source": "sui-part2-owned-lab/evidence/transfer-notebook.json",
+      "sha256": "7833800a3f0d45c40dc1a172f5923fc9905a873ad632ff393cef73a39ab261b4",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/transfer-notebook.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/transfer-notebook.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-rejected.stdout.txt",
+      "source": "sui-part2-owned-lab/evidence/bob-rejected.stdout.txt",
+      "sha256": "bd6499249e2bf61673c5c2d4a1517c92cbe1cc0357f0ba91d7d057e50886ac41",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-rejected.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/bob-rejected.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-rejected.stdout.txt",
+      "source": "sui-part2-owned-lab/evidence/alice-rejected.stdout.txt",
+      "sha256": "3ddb74bf6f23b8e6a552a8d51aadf55b1d4df30d7c116f11850a4161bca5b79d",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-rejected.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/alice-rejected.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/transfer-capability.json",
+      "source": "sui-part2-owned-lab/evidence/transfer-capability.json",
+      "sha256": "1d6a73c522ce8db911130f5d888a1df6af5bb8efe4bf8500a66acf6949416d06",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/transfer-capability.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/transfer-capability.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-update.json",
+      "source": "sui-part2-owned-lab/evidence/bob-update.json",
+      "sha256": "05443a431aa4c0c8e8288c09ef5dfdd32e01e1d1f859cc9466d8bafbcf275a20",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-update.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/bob-update.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-gas.json",
+      "source": "sui-part2-owned-lab/evidence/alice-gas.json",
+      "sha256": "0e41a4f0daace77afca759f528cac8bdcdba6ae2e86406753ab42d29db8a6f43",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/alice-gas.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/alice-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-gas.json",
+      "source": "sui-part2-owned-lab/evidence/bob-gas.json",
+      "sha256": "7da838d4bcdcbc1302472722fd8540cd57d8f4688bc5a0619f51c611b21b05e9",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/bob-gas.stderr.txt",
+      "source": "sui-part2-owned-lab/evidence/bob-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/identities.json",
+      "source": "sui-part2-owned-lab/evidence/identities.json",
+      "sha256": "c2c1a28446503f81f0ef593d8c207cd6802649448e240578b018e9381805a952",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/Move.toml",
+      "source": "sui-part2-owned-lab/move/Move.toml",
+      "sha256": "6d9e38a533f4d35acdc4f6a236a22ff564a5e88fd0c1a5b38df6531afc8bcf25",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/Move.lock",
+      "source": "sui-part2-owned-lab/move/Move.lock",
+      "sha256": "19bb531344e32b43c18196b112e7f432664463f05403450fdad0530f54c9acab",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/reader-setup.json",
+      "source": "sui-part2-owned-lab/evidence/reader-setup.json",
+      "sha256": "1b2b046e865bb8f8912c75aeb52309d50ebb92f4718742d2c9bbcadbd9b18816",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/client-manifest.json",
+      "source": "sui-part2-client/examples-manifest.json",
+      "sha256": "c0e5a0285e2d0dbbe11648f21513335c816e3beb1648515e07e9fa39a78aaf27",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/verification.json",
+      "source": "sui-part2-owned-lab/evidence/verification.json",
+      "sha256": "a061344569961c9eb9fbbcd73014cb75679154b162d168d8440a359f9f20ffd1",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/archive-verification.json",
+      "source": "sui-part2-owned-lab/evidence/archive-verification.json",
+      "sha256": "fca67a7bf6396bfa335177ad3abfbdba3f2c5ef04516f7da70fa8e4d8f796bae",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/recorded-cli/reader-syntax.json",
+      "source": "sui-part2-owned-lab/evidence/reader-syntax.json",
+      "sha256": "f9d87d78387e9475bf8a767cafd938d0f9e05010899156804edba672786db4ec",
+      "transformation": "none"
+    }
+  ],
+  "generated_files": {
+    "evidence/cli-manifest.json": "From sui-part2-owned-lab/evidence/article-manifest.json, with full_output_file and network-specific Move.toml source paths remapped into recorded-cli. Commands and captured outputs retained. Added reference_note.",
+    "evidence/captured-commands.json": "From sui-part2-owned-lab/evidence/captured-commands.json. Selected five signed command records only. Optional unsigned BCS records excluded."
+  },
+  "boundary_notes": [
+    "The four object captures use two sequential GetObject requests per stage while mutations were paused. They are service observations, not atomic certified snapshots.",
+    "The two signed wrong-owner commands were rejected during input validation. They did not produce Move abort effects.",
+    "Move expected-failure tests exercise test_scenario inventory checks or the application binding guard as labeled in the source.",
+    "The author reused an existing virtual environment and official framework cache. The visible setup supplies fresh-environment commands. Generated Move.lock was not copied before the original build."
+  ]
+}

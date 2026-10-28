@@ -1,0 +1,13 @@
+{
+  "terminal_one": "mkdir -p sui-ownership\ncd sui-ownership\nmkdir -p .local/network move/sources move/tests client evidence\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nsui genesis --working-dir \"$SUI_CONFIG_DIR\" --with-faucet --committee-size 1 --epoch-duration-ms 86400000\nsui start --network.config \"$SUI_CONFIG_DIR\" --with-faucet --fullnode-rpc-port 9000",
+  "terminal_two": "cd sui-ownership\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nsui client addresses --json > evidence/addresses.json\nALICE=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][0][1])')\nBOB=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][1][1])')\nCHAIN_ID=$(sui client chain-identifier --json | python3 -c 'import json, sys; print(json.load(sys.stdin)[\"base58\"])')\nprintf 'ALICE=%s\\nBOB=%s\\nCHAIN_ID=%s\\n' \"$ALICE\" \"$BOB\" \"$CHAIN_ID\"",
+  "genesis_output": "",
+  "note": "The official genesis command creates the local prefunded accounts and key files without printing mnemonic phrases. The server remains running in terminal one. Setup uses absolute paths to avoid relative keystore paths. Actual generation used the same flags with an author-specific working directory.",
+  "cache_note": "Official framework cache copied from Part1 lab before builds. Generated lock was not copied.",
+  "private_paths": [
+    ".local/network",
+    ".private"
+  ],
+  "port": 9000,
+  "cli": "sui 1.82.3-bf4073918ed3"
+}

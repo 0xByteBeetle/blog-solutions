@@ -1,0 +1,21 @@
+{
+  "release": "mainnet-v1.82.3",
+  "archive": "sui-move-foundations-lab/toolchain/sui-mainnet-v1.82.3-macos-arm64.tgz",
+  "sha256": "861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9",
+  "version": "sui 1.82.3-bf4073918ed3",
+  "members": [
+    "./",
+    "./sui-debug",
+    "./sui-faucet",
+    "./sui",
+    "./sui-node",
+    "./sui-tool",
+    "./sui-bridge",
+    "./sui-fork",
+    "./move-analyzer",
+    "./sui-bridge-cli"
+  ],
+  "extract_cli_only": "tar -xzf .tools/sui.tgz -C .tools/bin ./sui",
+  "strip_components_required": false,
+  "verification": "Recomputed archive SHA256 with shasum, listed full archive with tar, invoked existing verified CLI version. No download or extraction performed during this read-only check."
+}

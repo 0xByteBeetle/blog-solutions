@@ -1,0 +1,7 @@
+{
+  "complete_GetObject_records_equal": true,
+  "files": [
+    "partial.json",
+    "rejected.json"
+  ]
+}

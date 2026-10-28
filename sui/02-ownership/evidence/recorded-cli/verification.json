@@ -1,0 +1,53 @@
+{
+  "checks": {
+    "build_pass": true,
+    "fresh_manifest_with_no_lock_pass": true,
+    "unit_tests_passed": 4,
+    "bob_signed_rejection_exit1": true,
+    "alice_signed_rejection_exit1": true,
+    "rejected_objects_unchanged": true,
+    "notebook_id_preserved": true,
+    "capability_id_preserved": true,
+    "capability_binding_preserved": true,
+    "baseline_value9": true,
+    "complete_value11": true,
+    "complete_both_owned_bob": true,
+    "reader_blocks_bash_zsh_syntax_pass": true,
+    "private_paths_excluded": [
+      ".local/",
+      ".private/"
+    ]
+  },
+  "ownership_matrix": [
+    {
+      "phase": "baseline",
+      "notebook_owner": "0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c",
+      "capability_owner": "0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c",
+      "notebook_version": "4",
+      "capability_version": "4",
+      "value": "9",
+      "binding": true
+    },
+    {
+      "phase": "partial",
+      "notebook_owner": "0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30",
+      "capability_owner": "0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c",
+      "notebook_version": "5",
+      "capability_version": "4",
+      "value": "9",
+      "binding": true
+    },
+    {
+      "phase": "complete",
+      "notebook_owner": "0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30",
+      "capability_owner": "0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30",
+      "notebook_version": "7",
+      "capability_version": "7",
+      "value": "11",
+      "binding": true
+    }
+  ],
+  "chain_scope": "Disposable localhost network only; no paid or public-funded transaction",
+  "node_running": "127.0.0.1:9000, keep for parent screenshots",
+  "cli": "sui 1.82.3-bf4073918ed3"
+}

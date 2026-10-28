@@ -1,0 +1,3 @@
+RPC endpoint: 127.0.0.1:9000
+Chain identifier: 5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae
+Service checkpoint: 305

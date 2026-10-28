@@ -1,0 +1,153 @@
+{
+  "title": "Understanding Sui Part 2: Ownership and Capability Checks",
+  "cli": "sui 1.82.3-bf4073918ed3",
+  "network": "Disposable Localnet, 1validator, epoch duration86400000ms",
+  "identities": {
+    "alice": "0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c",
+    "bob": "0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30",
+    "chain_id": "5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae",
+    "package": "0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404",
+    "notebook": "0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a",
+    "capability": "0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e"
+  },
+  "source_files": [
+    {
+      "filename": "evidence/recorded-cli/Move.toml",
+      "code": "[package]\nname = \"sui_ownership\"\nedition = \"2024\"\n\n[environments]\nlocalnet = \"5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae\"",
+      "sha256": "6d9e38a533f4d35acdc4f6a236a22ff564a5e88fd0c1a5b38df6531afc8bcf25",
+      "language": "toml",
+      "source_filename": "move/Move.toml"
+    },
+    {
+      "filename": "move/sources/notebook.move",
+      "code": "module sui_ownership::notebook;\n\nconst EWrongNotebook: u64 = 0;\n\npublic struct Notebook has key, store {\n    id: UID,\n    value: u64,\n}\n\npublic struct NotebookCap has key, store {\n    id: UID,\n    notebook: ID,\n}\n\npublic fun create(value: u64, ctx: &mut TxContext): (Notebook, NotebookCap) {\n    let notebook = Notebook { id: object::new(ctx), value };\n    let cap = NotebookCap {\n        id: object::new(ctx),\n        notebook: object::id(&notebook),\n    };\n    (notebook, cap)\n}\n\npublic fun create_owned(value: u64, ctx: &mut TxContext) {\n    let (notebook, cap) = create(value, ctx);\n    transfer::transfer(notebook, ctx.sender());\n    transfer::transfer(cap, ctx.sender());\n}\n\npublic fun value(notebook: &Notebook): u64 {\n    notebook.value\n}\n\npublic fun set_value(notebook: &mut Notebook, cap: &NotebookCap, value: u64) {\n    assert!(object::id(notebook) == cap.notebook, EWrongNotebook);\n    notebook.value = value;\n}\n\n#[test_only]\npublic fun destroy_for_testing(notebook: Notebook, cap: NotebookCap) {\n    let Notebook { id, value: _ } = notebook;\n    object::delete(id);\n    let NotebookCap { id, notebook: _ } = cap;\n    object::delete(id);\n}",
+      "sha256": "ed3e843f9e519ec8fa9baf56bf968c9790b0b21e388630da0051c86b99b31560",
+      "language": "text",
+      "source_filename": "move/sources/notebook.move"
+    },
+    {
+      "filename": "move/tests/handover_tests.move",
+      "code": "#[test_only]\nmodule sui_ownership::handover_tests;\n\nuse sui::test_scenario;\nuse sui_ownership::notebook::{Self, Notebook, NotebookCap};\n\nconst ALICE: address = @0xA;\nconst BOB: address = @0xB;\n\n#[test]\nfun test_complete_handover() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let mut note = scenario.take_from_sender<Notebook>();\n    let cap = scenario.take_from_sender<NotebookCap>();\n    let original_id = object::id(&note);\n    notebook::set_value(&mut note, &cap, 9);\n    scenario.return_to_sender(cap);\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(BOB);\n    assert!(scenario.has_most_recent_for_sender<Notebook>(), 1);\n    assert!(!scenario.has_most_recent_for_sender<NotebookCap>(), 2);\n    scenario.next_tx(ALICE);\n    assert!(!scenario.has_most_recent_for_sender<Notebook>(), 3);\n    let cap = scenario.take_from_sender<NotebookCap>();\n    transfer::public_transfer(cap, BOB);\n    scenario.next_tx(BOB);\n    let mut note = scenario.take_from_sender<Notebook>();\n    let cap = scenario.take_from_sender<NotebookCap>();\n    assert!(object::id(&note) == original_id, 4);\n    notebook::set_value(&mut note, &cap, 11);\n    assert!(notebook::value(&note) == 11, 5);\n    scenario.return_to_sender(note);\n    scenario.return_to_sender(cap);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 3, location = sui::test_scenario)]\nfun test_bob_cannot_take_alices_capability() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(BOB);\n    let cap = scenario.take_from_sender<NotebookCap>();\n    scenario.return_to_sender(cap);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 3, location = sui::test_scenario)]\nfun test_alice_cannot_take_bobs_notebook() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    scenario.return_to_sender(note);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 0, location = sui_ownership::notebook)]\nfun test_matching_type_can_have_wrong_binding() {\n    let mut ctx = tx_context::dummy();\n    let (mut note, cap) = notebook::create(7, &mut ctx);\n    let (other, other_cap) = notebook::create(7, &mut ctx);\n    notebook::set_value(&mut note, &other_cap, 11);\n    notebook::destroy_for_testing(note, cap);\n    notebook::destroy_for_testing(other, other_cap);\n}",
+      "sha256": "a408a030a2f3695f7c1e941470d92b34e6374d3d6ae26872900fd70f971b8799",
+      "language": "text",
+      "source_filename": "move/tests/handover_tests.move"
+    }
+  ],
+  "reader_steps": [
+    {
+      "label": "terminal-one",
+      "command": "mkdir -p sui-ownership\ncd sui-ownership\nmkdir -p .local/network move/sources move/tests client evidence\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nsui genesis --working-dir \"$SUI_CONFIG_DIR\" --with-faucet --committee-size 1 --epoch-duration-ms 86400000\nsui start --network.config \"$SUI_CONFIG_DIR\" --with-faucet --fullnode-rpc-port 9000",
+      "output": "",
+      "note": "The genesis command is silent on success. The final command is a long-running local server. Keep this terminal open. Its startup log varies; the next commands verify readiness."
+    },
+    {
+      "label": "terminal-two",
+      "command": "cd sui-ownership\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nsui client addresses --json > evidence/addresses.json\nALICE=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][0][1])')\nBOB=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][1][1])')\nCHAIN_ID=$(sui client chain-identifier --json | python3 -c 'import json, sys; print(json.load(sys.stdin)[\"base58\"])')\nprintf 'ALICE=%s\\nBOB=%s\\nCHAIN_ID=%s\\n' \"$ALICE\" \"$BOB\" \"$CHAIN_ID\"",
+      "output": "ALICE=0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nBOB=0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nCHAIN_ID=5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae"
+    },
+    {
+      "label": "manifest",
+      "command": "cat > move/Move.toml <<TOML\n[package]\nname = \"sui_ownership\"\nedition = \"2024\"\n\n[environments]\nlocalnet = \"$CHAIN_ID\"\nTOML",
+      "output": "",
+      "note": "The shell substitutes CHAIN_ID obtained above. The value differs after a new genesis."
+    },
+    {
+      "label": "build",
+      "command": "sui move build --path move",
+      "output": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nwarning[WSL06002]: non-composable transfer to sender\n   \u250c\u2500 ./sources/notebook.move:26:5\n   \u2502\n24 \u2502 public fun create_owned(value: u64, ctx: &mut TxContext) {\n   \u2502            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.\n25 \u2502     let (notebook, cap) = create(value, ctx);\n26 \u2502     transfer::transfer(notebook, ctx.sender());\n   \u2502     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   \u2502     \u2502                            \u2502\n   \u2502     \u2502                            Transaction sender address coming from here\n   \u2502     Transfer of an object to transaction sender address\n   \u2502\n   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')\n\nwarning[WSL06002]: non-composable transfer to sender\n   \u250c\u2500 ./sources/notebook.move:27:5\n   \u2502\n24 \u2502 public fun create_owned(value: u64, ctx: &mut TxContext) {\n   \u2502            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.\n   \u00b7\n27 \u2502     transfer::transfer(cap, ctx.sender());\n   \u2502     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   \u2502     \u2502                       \u2502\n   \u2502     \u2502                       Transaction sender address coming from here\n   \u2502     Transfer of an object to transaction sender address\n   \u2502\n   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')\n\nPlease report feedback on the linter warnings at https://forums.sui.io",
+      "cwd": "project root",
+      "expected_exit_code": 0
+    },
+    {
+      "label": "tests",
+      "command": "sui move test --path move",
+      "output": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::handover_tests::test_alice_cannot_take_bobs_notebook\n[ PASS    ] sui_ownership::handover_tests::test_bob_cannot_take_alices_capability\n[ PASS    ] sui_ownership::handover_tests::test_complete_handover\n[ PASS    ] sui_ownership::handover_tests::test_matching_type_can_have_wrong_binding\nTest result: OK. Total tests: 4; passed: 4; failed: 0",
+      "cwd": "project root",
+      "expected_exit_code": 0,
+      "test_scope": "Two inventory rejections are Move test_scenario behavior, not public-node authorization. A separate expected code0 test exercises set_value\u2019s guard."
+    },
+    {
+      "label": "publish",
+      "command": "sui client publish move --sender \"$ALICE\" --gas-budget 100000000 --json > evidence/publish.json\nPACKAGE_ID=$(python3 -c 'import json; d=json.load(open(\"evidence/publish.json\")); print(next(o[\"packageId\"] for o in d[\"objectChanges\"] if o[\"type\"] == \"published\"))')\nprintf 'PACKAGE_ID=%s\\n' \"$PACKAGE_ID\"",
+      "output": "PACKAGE_ID=0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404",
+      "full_output_file": "evidence/recorded-cli/publish.json",
+      "expected_exit_code": 0,
+      "source_output_file": "evidence/publish.json"
+    },
+    {
+      "label": "create",
+      "command": "sui client call --package \"$PACKAGE_ID\" --module notebook --function create_owned --args 7 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/create.json\nNOTE_ID=$(python3 -c 'import json; d=json.load(open(\"evidence/create.json\")); print(next(o[\"objectId\"] for o in d[\"objectChanges\"] if o[\"type\"] == \"created\" and o[\"objectType\"].endswith(\"::notebook::Notebook\")))')\nCAP_ID=$(python3 -c 'import json; d=json.load(open(\"evidence/create.json\")); print(next(o[\"objectId\"] for o in d[\"objectChanges\"] if o[\"type\"] == \"created\" and o[\"objectType\"].endswith(\"::notebook::NotebookCap\")))')\nprintf 'NOTE_ID=%s\\nCAP_ID=%s\\n' \"$NOTE_ID\" \"$CAP_ID\"",
+      "output": "NOTE_ID=0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nCAP_ID=0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e",
+      "full_output_file": "evidence/recorded-cli/create.json",
+      "expected_exit_code": 0,
+      "source_output_file": "evidence/create.json"
+    },
+    {
+      "label": "alice-update",
+      "command": "sui client call --package \"$PACKAGE_ID\" --module notebook --function set_value --args \"$NOTE_ID\" \"$CAP_ID\" 9 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/alice-update.json\npython3 -c 'import json; d=json.load(open(\"evidence/alice-update.json\")); print(\"Status:\", d[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", d[\"digest\"])'",
+      "output": "Status: success\nDigest: 2rw7Put45TCHTqe4Xxm89kW4pTVvNzcxn5bXUspZ24ht",
+      "output_kind": "Exact projection from retained complete CLI JSON",
+      "full_output_file": "evidence/recorded-cli/alice-update.json",
+      "source_output_file": "evidence/alice-update.json"
+    },
+    {
+      "label": "transfer-notebook",
+      "command": "sui client transfer --to \"$BOB\" --object-id \"$NOTE_ID\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/transfer-notebook.json\npython3 -c 'import json; d=json.load(open(\"evidence/transfer-notebook.json\")); print(\"Status:\", d[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", d[\"digest\"])'",
+      "output": "Status: success\nDigest: E1NJGs4H8pXxkQSxUFnxYpjCHPvSUechM1RWFCb9kcLr",
+      "output_kind": "Exact projection from retained complete CLI JSON",
+      "full_output_file": "evidence/recorded-cli/transfer-notebook.json",
+      "source_output_file": "evidence/transfer-notebook.json"
+    },
+    {
+      "label": "choose-gas",
+      "command": "sui client gas \"$ALICE\" --json > evidence/alice-gas.json\nsui client gas \"$BOB\" --json > evidence/bob-gas.json\nALICE_GAS=$(python3 -c 'import json; print(json.load(open(\"evidence/alice-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nBOB_GAS=$(python3 -c 'import json; print(json.load(open(\"evidence/bob-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nprintf 'ALICE_GAS=%s\\nBOB_GAS=%s\\n' \"$ALICE_GAS\" \"$BOB_GAS\"",
+      "output": "ALICE_GAS=0x04cc9af7470c81ac5de46e4baad115c68e866d0681ffce9dabd4e06637b6b2a6\nBOB_GAS=0x54e8455b1dd75ab643d0a5f1a81d6b94c114877453b06d08f0218fdc4f4340a0",
+      "note": "Explicit gas coins and budgets avoid the automatic gas-selection simulation becoming the first rejection boundary."
+    },
+    {
+      "label": "bob-rejected",
+      "command": "sui client call --package \"$PACKAGE_ID\" --module notebook --function set_value --args \"$NOTE_ID\" \"$CAP_ID\" 10 --sender \"$BOB\" --gas \"$BOB_GAS\" --gas-budget 50000000 --json > evidence/bob-rejected.txt 2>&1\nprintf 'Exit code: %s\\n' \"$?\"\nsed -n '/^    0: RPC error:/p' evidence/bob-rejected.txt",
+      "output": "Exit code: 1\n    0: RPC error: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e is owned by account address 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c, but given owner/signer address is 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\"",
+      "primary_command_exit_code": 1,
+      "full_output_file": "evidence/recorded-cli/bob-rejected.stdout.txt",
+      "note": "The first command exits1. The printed cause is selected from real CLI output; the full redirected output remains in the generated text file. Native full-node input validation rejects before Move execution, not EWrongNotebook.",
+      "source_output_file": "evidence/bob-rejected.stdout.txt"
+    },
+    {
+      "label": "alice-rejected",
+      "command": "sui client call --package \"$PACKAGE_ID\" --module notebook --function set_value --args \"$NOTE_ID\" \"$CAP_ID\" 10 --sender \"$ALICE\" --gas \"$ALICE_GAS\" --gas-budget 50000000 --json > evidence/alice-rejected.txt 2>&1\nprintf 'Exit code: %s\\n' \"$?\"\nsed -n '/^    0: RPC error:/p' evidence/alice-rejected.txt",
+      "output": "Exit code: 1\n    0: RPC error: code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a is owned by account address 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30, but given owner/signer address is 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\"",
+      "primary_command_exit_code": 1,
+      "full_output_file": "evidence/recorded-cli/alice-rejected.stdout.txt",
+      "note": "The first command exits1. The printed cause is selected from real CLI output; the full redirected output remains in the generated text file. Native full-node input validation rejects before Move execution, not EWrongNotebook.",
+      "source_output_file": "evidence/alice-rejected.stdout.txt"
+    },
+    {
+      "label": "transfer-capability",
+      "command": "sui client transfer --to \"$BOB\" --object-id \"$CAP_ID\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/transfer-capability.json\npython3 -c 'import json; d=json.load(open(\"evidence/transfer-capability.json\")); print(\"Status:\", d[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", d[\"digest\"])'",
+      "output": "Status: success\nDigest: EgKaJDCDRiWd22x9oArB41KuEnwRJXDXxw6QAbH7Xjkn",
+      "output_kind": "Exact projection from retained complete CLI JSON",
+      "full_output_file": "evidence/recorded-cli/transfer-capability.json",
+      "source_output_file": "evidence/transfer-capability.json"
+    },
+    {
+      "label": "bob-update",
+      "command": "sui client call --package \"$PACKAGE_ID\" --module notebook --function set_value --args \"$NOTE_ID\" \"$CAP_ID\" 11 --sender \"$BOB\" --gas-budget 50000000 --json > evidence/bob-update.json\npython3 -c 'import json; d=json.load(open(\"evidence/bob-update.json\")); print(\"Status:\", d[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", d[\"digest\"])'",
+      "output": "Status: success\nDigest: CKHHx63vwqAGVuKKrxUNqxNPMP5UXrZotNUdRXBM5mgv",
+      "output_kind": "Exact projection from retained complete CLI JSON",
+      "full_output_file": "evidence/recorded-cli/bob-update.json",
+      "source_output_file": "evidence/bob-update.json"
+    }
+  ],
+  "actor_note": "Unit tests use ALICE @0xA and BOB @0xB as test_scenario fixtures. CLI accounts are newly generated prefunded local genesis addresses; the same role labels do not imply equal literal addresses.",
+  "cache_note": "Copied prior official framework cache; no fresh network download claim. Fresh package with no lockfile compiled correctly and generated its own localnet lock.",
+  "environment_note": "genesis and node used author-specific paths, while displayed commands use new project sui-ownership. Absolute configuration paths avoid relative keystore errors.",
+  "boundaries": {
+    "test_inventory": "test_scenario expected abort3",
+    "application_guard": "expected abort0 in sui_ownership::notebook",
+    "signed_node_rejections": "InvalidArgument ordinary input-owner checks with explicit gas and budget",
+    "unsigned_bytes": "Optional public audit material; after handover old references are stale."
+  },
+  "privacy_note": "Never copy .local or .private. They contain disposable local keys. All evidence/ receipts are public local transaction data. No original wallet, public-funded wallet, mainnet operation, or paid transaction was used.",
+  "reference_note": "Unpublished author reference. Reader commands retain the original fresh-directory workflow. Recorded output paths and the network-specific Move.toml source path were remapped into recorded-cli. Use move/Move.toml.template with a freshly obtained CHAIN_ID to run on a new localnet. Raw optional unsigned-transaction BCS was excluded."
+}

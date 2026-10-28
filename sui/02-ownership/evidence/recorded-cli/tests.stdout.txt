@@ -1,0 +1,9 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::handover_tests::test_alice_cannot_take_bobs_notebook
+[ PASS    ] sui_ownership::handover_tests::test_bob_cannot_take_alices_capability
+[ PASS    ] sui_ownership::handover_tests::test_complete_handover
+[ PASS    ] sui_ownership::handover_tests::test_matching_type_can_have_wrong_binding
+Test result: OK. Total tests: 4; passed: 4; failed: 0

@@ -5,6 +5,7 @@ Runnable companions for the Sui technical series on [0xByteBeetle](https://andre
 | Article | Code | Status |
 | --- | --- | --- |
 | Part 1: Objects, Tokenomics, and Storage | [01-foundations](01-foundations/) | Draft companion. Move build and local tests are separate from the recorded public-chain reads. |
+| Part 2: Ownership and Capability Checks | [02-ownership](02-ownership/) | Draft author reference. Four Move tests, two local-node ownership rejections, and native gRPC observations. |
 
 Move defines the onchain examples. Python handles public-chain queries, local inspection of returned data, and reproduction setup. Each companion keeps source files, exact commands, captured results, and their scope together.
 
