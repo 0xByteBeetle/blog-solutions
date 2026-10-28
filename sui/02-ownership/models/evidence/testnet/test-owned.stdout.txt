@@ -1,0 +1,7 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::owned::another_notebooks_cap_is_rejected
+[ PASS    ] sui_ownership::owned::matching_cap_updates_value
+Test result: OK. Total tests: 2; passed: 2; failed: 0

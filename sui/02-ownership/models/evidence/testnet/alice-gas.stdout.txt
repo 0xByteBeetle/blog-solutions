@@ -1,0 +1,11 @@
+{
+  "gasCoins": [
+    {
+      "gasCoinId": "0xe5e67319047bef21b0d942e02bc0968fbc7c80cec27686b9acff8da03ff8e202",
+      "mistBalance": 500000000,
+      "suiBalance": "0.50"
+    }
+  ],
+  "addressMistBalance": 1498012000,
+  "addressSuiBalance": "1.49"
+}

@@ -1,0 +1,143 @@
+{
+  "digest": "8DPSi8L4MK4Jo4ydwvm5iUAkgVMUZP5HvZgn1fEv6m8E",
+  "transaction": {
+    "data": {
+      "messageVersion": "v1",
+      "transaction": {
+        "kind": "ProgrammableTransaction",
+        "inputs": [
+          {
+            "type": "pure",
+            "valueType": null,
+            "value": [
+              7,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "transactions": [
+          {
+            "MoveCall": {
+              "package": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f",
+              "module": "owned",
+              "function": "create_owned",
+              "arguments": [
+                {
+                  "Input": 0
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "gasData": {
+        "payment": [],
+        "owner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "price": "1000",
+        "budget": "50000000"
+      }
+    },
+    "txSignatures": [
+      "ADQq7R7GolsdtchfJmxyZfO+WVldm39pDtoy9HXLpmjuwXgroMAt7AZIgN8HYLSo6gqi7ZmSRuMZQaKhPrRXdQk15IldYhfxcg/P0lryPVeYWVoETEnVG0TjQK/YNwCQlQ=="
+    ]
+  },
+  "effects": {
+    "messageVersion": "v1",
+    "status": {
+      "status": "success"
+    },
+    "executedEpoch": "1266",
+    "gasUsed": {
+      "computationCost": "1000000",
+      "storageCost": "2910800",
+      "storageRebate": "0",
+      "nonRefundableStorageFee": "0"
+    },
+    "transactionDigest": "8DPSi8L4MK4Jo4ydwvm5iUAkgVMUZP5HvZgn1fEv6m8E",
+    "created": [
+      {
+        "owner": {
+          "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+        },
+        "reference": {
+          "objectId": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+          "version": 1,
+          "digest": "D3fWFsVnFCjSBNaRAVNpxK3travw71vmRemS8r5sM1qj"
+        }
+      },
+      {
+        "owner": {
+          "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+        },
+        "reference": {
+          "objectId": "0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
+          "version": 1,
+          "digest": "3zAVZnUsNuckVxtUY7UBUzoYxEzxvG2SSKZNDizFXdba"
+        }
+      }
+    ],
+    "accumulatorEvents": [
+      {
+        "accumulatorObj": "0xf5c8fcdf82d93e49a04558fafd900583a13e93cf124b3a910d992bf14ac0ca58",
+        "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "ty": "0x2::balance::Balance<0x2::sui::SUI>",
+        "operation": "split",
+        "value": {
+          "integer": 3910800
+        }
+      }
+    ],
+    "gasObject": {
+      "owner": {
+        "AddressOwner": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "reference": {
+        "objectId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0,
+        "digest": "11111111111111111111111111111111"
+      }
+    }
+  },
+  "objectChanges": [
+    {
+      "type": "created",
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "owner": {
+        "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      },
+      "objectType": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook",
+      "objectId": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+      "version": "1",
+      "digest": "D3fWFsVnFCjSBNaRAVNpxK3travw71vmRemS8r5sM1qj"
+    },
+    {
+      "type": "created",
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "owner": {
+        "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      },
+      "objectType": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::NotebookCap",
+      "objectId": "0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
+      "version": "1",
+      "digest": "3zAVZnUsNuckVxtUY7UBUzoYxEzxvG2SSKZNDizFXdba"
+    }
+  ],
+  "balanceChanges": [
+    {
+      "owner": {
+        "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      },
+      "coinType": "0x2::sui::SUI",
+      "amount": "-3910800"
+    }
+  ],
+  "timestampMs": "1793212183138",
+  "checkpoint": "400248319"
+}

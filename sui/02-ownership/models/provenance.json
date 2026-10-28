@@ -1,855 +1,1905 @@
 {
   "article_status": "unpublished draft",
   "substack_draft": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
-  "network": "fresh disposable localnet",
-  "chain_id": "Hj5zCy4vEHoy6WA6Kow4p9BxyYzYypTy4HckJSEtvXDn",
-  "cli": "sui 1.82.3-bf4073918ed3",
+  "network": "public Sui Testnet",
+  "chain_id": "69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
+  "cli": "sui 1.83.0-16d2dc1e05ed",
   "framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
-  "copied_files": [
+  "current_evidence_directory": "evidence/testnet",
+  "source_and_evidence_files": [
     {
       "file": "move/sources/owned.move",
-      "source": "sui-ownership-models-lab/move/sources/owned.move",
+      "source": "sui-ownership-testnet-lab/move/sources/owned.move",
       "sha256": "9663a4e754dc64a99a8a4dc15ae7799bfb6ffaf7b589a8426270f8f6f11d7ea5",
       "transformation": "none"
     },
     {
       "file": "move/sources/registry.move",
-      "source": "sui-ownership-models-lab/move/sources/registry.move",
+      "source": "sui-ownership-testnet-lab/move/sources/registry.move",
       "sha256": "503d72b095ea437b1269db793492f185b19db84228052ee0096344b5db5dc886",
       "transformation": "none"
     },
     {
       "file": "move/sources/rules.move",
-      "source": "sui-ownership-models-lab/move/sources/rules.move",
+      "source": "sui-ownership-testnet-lab/move/sources/rules.move",
       "sha256": "1f02927c321429cfc9d4b5ff964778fe6bd8d9f0769427872c090edde1f2d70f",
       "transformation": "none"
     },
     {
       "file": "move/sources/case.move",
-      "source": "sui-ownership-models-lab/move/sources/case.move",
+      "source": "sui-ownership-testnet-lab/move/sources/case.move",
       "sha256": "5c9b74f14e6dd5d17fa649a3fb25aee6138e0ee7169f3eb9db3396a119c4105d",
       "transformation": "none"
     },
     {
       "file": "move/sources/party_counter.move",
-      "source": "sui-ownership-models-lab/move/sources/party_counter.move",
+      "source": "sui-ownership-testnet-lab/move/sources/party_counter.move",
       "sha256": "b6192115465103579e611dd16ea6d0b0eaeae9bbb206b531fcf0a968ec11bc30",
       "transformation": "none"
     },
     {
       "file": "client/read_object.py",
-      "source": "sui-ownership-models-lab/client/read_object.py",
-      "sha256": "a84d8ebd40289082ed88628a38d8c00948cb61f696d03b55c4279bc675073465",
+      "source": "sui-ownership-testnet-lab/client/read_object.py",
+      "sha256": "d4a56de0853195f2537dbbb45483f6d7bd6c99f14fe4dae58407572439abaaad",
       "transformation": "none"
     },
     {
       "file": "client/receipt.py",
-      "source": "sui-ownership-models-lab/client/receipt.py",
+      "source": "sui-ownership-testnet-lab/client/receipt.py",
       "sha256": "a4230c986c71d0ac4d2b5bc5ef415d2558faf371fdcda842809bb93ee04bc42e",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/addresses.json",
-      "source": "sui-ownership-models-lab/evidence/addresses.json",
-      "sha256": "ddc27cb0c2ad459364d1520167345aec3b38c856b6fea72be8076fbc5201d316",
+      "file": "requirements.txt",
+      "source": "blog-solutions-sui/sui/02-ownership/models/requirements.txt",
+      "sha256": "e638a6b57997b3dddf02c3329d320be88df00ac34373b86c52596e043f81ab5b",
+      "transformation": "preserved pinned Python dependencies"
+    },
+    {
+      "file": "move/Move.toml.template",
+      "source": "sui-ownership-testnet-lab/move/Move.toml",
+      "sha256": "d19e0b9d746abe926ae0fcb17be02ad50bbb13a33265b7c8d2d9ed4d6783d1dd",
+      "transformation": "renamed as a portable manifest template"
+    },
+    {
+      "file": "evidence/testnet/Move.toml",
+      "source": "sui-ownership-testnet-lab/move/Move.toml",
+      "sha256": "d19e0b9d746abe926ae0fcb17be02ad50bbb13a33265b7c8d2d9ed4d6783d1dd",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/addresses.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/addresses.stderr.txt",
+      "file": "evidence/testnet/Move.lock",
+      "source": "sui-ownership-testnet-lab/move/Move.lock",
+      "sha256": "fc3e5ead81678dd57ffac489eea9a0e16e2ac12336e6ab59ae77ba757a4d8d80",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/addresses.json",
+      "source": "sui-ownership-testnet-lab/evidence/addresses.json",
+      "sha256": "a64d00bcf85e225d2ff99172568a1dcf4b9e133b2b1186537c0d19070fd28685",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/addresses.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/addresses.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/addresses.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/addresses.stdout.txt",
-      "sha256": "ddc27cb0c2ad459364d1520167345aec3b38c856b6fea72be8076fbc5201d316",
+      "file": "evidence/testnet/addresses.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/addresses.stdout.txt",
+      "sha256": "a64d00bcf85e225d2ff99172568a1dcf4b9e133b2b1186537c0d19070fd28685",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas-before-split.json",
-      "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.json",
-      "sha256": "b2de2eb52c784b3323c88225db77258671da45fc84db92570119435b5ca22396",
+      "file": "evidence/testnet/alice-balance-before.json",
+      "source": "sui-ownership-testnet-lab/evidence/alice-balance-before.json",
+      "sha256": "a14fa3d7d7330aa38c0acdde3af39b083636c667d25c6eb329c65f538510ae6a",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas-before-split.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.stderr.txt",
+      "file": "evidence/testnet/alice-balance-before.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-balance-before.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas-before-split.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.stdout.txt",
-      "sha256": "b2de2eb52c784b3323c88225db77258671da45fc84db92570119435b5ca22396",
+      "file": "evidence/testnet/alice-balance-before.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-balance-before.stdout.txt",
+      "sha256": "a14fa3d7d7330aa38c0acdde3af39b083636c667d25c6eb329c65f538510ae6a",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas.json",
-      "source": "sui-ownership-models-lab/evidence/alice-gas.json",
-      "sha256": "c6466333db16a3b6eb5932da5d7a39479465821eac35fe04fa95ee524516cbd3",
+      "file": "evidence/testnet/alice-gas-before-split.json",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before-split.json",
+      "sha256": "f87e5153c3f1309045d633210ae914b52032db812efe15b42548bcbcdb49ceda",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/alice-gas.stderr.txt",
+      "file": "evidence/testnet/alice-gas-before-split.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before-split.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/alice-gas.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/alice-gas.stdout.txt",
-      "sha256": "c6466333db16a3b6eb5932da5d7a39479465821eac35fe04fa95ee524516cbd3",
+      "file": "evidence/testnet/alice-gas-before-split.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before-split.stdout.txt",
+      "sha256": "f87e5153c3f1309045d633210ae914b52032db812efe15b42548bcbcdb49ceda",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/bob-gas.json",
-      "source": "sui-ownership-models-lab/evidence/bob-gas.json",
-      "sha256": "2be6e7328e7fc9c8b0ec562cc0f66b7e0de52b90de78e8c849ed0c18c52abb83",
+      "file": "evidence/testnet/alice-gas-before.json",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before.json",
+      "sha256": "336c8ace8bbc4a89f579466db10cae386a6a150bd687b7b9a0dbc8e756b89a45",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/bob-gas.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/bob-gas.stderr.txt",
+      "file": "evidence/testnet/alice-gas-before.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/bob-gas.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/bob-gas.stdout.txt",
-      "sha256": "2be6e7328e7fc9c8b0ec562cc0f66b7e0de52b90de78e8c849ed0c18c52abb83",
+      "file": "evidence/testnet/alice-gas-before.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas-before.stdout.txt",
+      "sha256": "336c8ace8bbc4a89f579466db10cae386a6a150bd687b7b9a0dbc8e756b89a45",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/build.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/build.stderr.txt",
+      "file": "evidence/testnet/alice-gas.json",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas.json",
+      "sha256": "5902baeed7723b1f6f2c5cb36c0fb8696ec0e58ca3d0a8336272d98308748141",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/alice-gas.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/alice-gas.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-gas.stdout.txt",
+      "sha256": "5902baeed7723b1f6f2c5cb36c0fb8696ec0e58ca3d0a8336272d98308748141",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/alice-materialize-gas.json",
+      "source": "sui-ownership-testnet-lab/evidence/alice-materialize-gas.json",
+      "sha256": "9473684c21e83295798df2f7d90d91d73aafe0abc42e964601226e8c89db7690",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/alice-materialize-gas.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-materialize-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/alice-materialize-gas.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/alice-materialize-gas.stdout.txt",
+      "sha256": "9473684c21e83295798df2f7d90d91d73aafe0abc42e964601226e8c89db7690",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-balance-before.json",
+      "source": "sui-ownership-testnet-lab/evidence/bob-balance-before.json",
+      "sha256": "a14fa3d7d7330aa38c0acdde3af39b083636c667d25c6eb329c65f538510ae6a",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-balance-before.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-balance-before.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-balance-before.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-balance-before.stdout.txt",
+      "sha256": "a14fa3d7d7330aa38c0acdde3af39b083636c667d25c6eb329c65f538510ae6a",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas-before.json",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas-before.json",
+      "sha256": "336c8ace8bbc4a89f579466db10cae386a6a150bd687b7b9a0dbc8e756b89a45",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas-before.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas-before.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas-before.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas-before.stdout.txt",
+      "sha256": "336c8ace8bbc4a89f579466db10cae386a6a150bd687b7b9a0dbc8e756b89a45",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas.json",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas.json",
+      "sha256": "09f141dfec4c50a44248a8a2ee1b52b2c53680832a7df74139cda29643b73cd5",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-gas.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-gas.stdout.txt",
+      "sha256": "09f141dfec4c50a44248a8a2ee1b52b2c53680832a7df74139cda29643b73cd5",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-materialize-gas.json",
+      "source": "sui-ownership-testnet-lab/evidence/bob-materialize-gas.json",
+      "sha256": "96e1f2b7eb4eddbcd9674ddb65576299a7b92c36b79e9c4f690ea1f739a84191",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-materialize-gas.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-materialize-gas.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/bob-materialize-gas.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/bob-materialize-gas.stdout.txt",
+      "sha256": "96e1f2b7eb4eddbcd9674ddb65576299a7b92c36b79e9c4f690ea1f739a84191",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/build.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/build.stderr.txt",
       "sha256": "847b0d7e3762e315a496a758f5ab65af695640f5eb899184c7ef9df0d1bd8a23",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/build.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/build.stdout.txt",
+      "file": "evidence/testnet/build.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/build.stdout.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/cap-transfer.json",
-      "source": "sui-ownership-models-lab/evidence/cap-transfer.json",
-      "sha256": "77f43598046d91879c78490bae04e2145696de47a0ee69e50b4bf3bf941e8209",
+      "file": "evidence/testnet/cap-transfer.json",
+      "source": "sui-ownership-testnet-lab/evidence/cap-transfer.json",
+      "sha256": "68d91a9fa1ba9bc5071d25a027db275f70e9625a21e56f1f5696807418e871d5",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/cap-transfer.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/cap-transfer.stderr.txt",
+      "file": "evidence/testnet/cap-transfer.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/cap-transfer.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/cap-transfer.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/cap-transfer.stdout.txt",
-      "sha256": "77f43598046d91879c78490bae04e2145696de47a0ee69e50b4bf3bf941e8209",
+      "file": "evidence/testnet/cap-transfer.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/cap-transfer.stdout.txt",
+      "sha256": "68d91a9fa1ba9bc5071d25a027db275f70e9625a21e56f1f5696807418e871d5",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/capability.json",
-      "source": "sui-ownership-models-lab/evidence/capability.json",
-      "sha256": "81b3e01979fdb72fbfd76a3ea9a3af8c066cc60f1b928abfa8a47813fcb433fe",
+      "file": "evidence/testnet/capability.json",
+      "source": "sui-ownership-testnet-lab/evidence/capability.json",
+      "sha256": "602b5b23e9109fcf5b58d5ba8ff9a7c3a458a85a0fd74bc5b9011cb4d6d99181",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-pack.json",
-      "source": "sui-ownership-models-lab/evidence/case-pack.json",
-      "sha256": "c6ea7d85aeb54407aaa4e35b3ae6f40f13f8d26fd9f760c1281eb8a021f62aef",
+      "file": "evidence/testnet/case-pack.json",
+      "source": "sui-ownership-testnet-lab/evidence/case-pack.json",
+      "sha256": "12cfc9076482b42fc19d734f8cefdce7cd550bd5fa59d7b502399130f7d1085b",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-pack.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/case-pack.stderr.txt",
+      "file": "evidence/testnet/case-pack.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-pack.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-pack.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/case-pack.stdout.txt",
-      "sha256": "c6ea7d85aeb54407aaa4e35b3ae6f40f13f8d26fd9f760c1281eb8a021f62aef",
+      "file": "evidence/testnet/case-pack.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-pack.stdout.txt",
+      "sha256": "12cfc9076482b42fc19d734f8cefdce7cd550bd5fa59d7b502399130f7d1085b",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-unpack.json",
-      "source": "sui-ownership-models-lab/evidence/case-unpack.json",
-      "sha256": "7cdbc3390c32041a320321dbcb7ed5513cba84f98244c76a469623b5aa7941fe",
+      "file": "evidence/testnet/case-unpack.json",
+      "source": "sui-ownership-testnet-lab/evidence/case-unpack.json",
+      "sha256": "007623a17c36fe7e4b38799cb66c534a4ff26ffabba65e699c7cf3b5965de922",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-unpack.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/case-unpack.stderr.txt",
+      "file": "evidence/testnet/case-unpack.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-unpack.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-unpack.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/case-unpack.stdout.txt",
-      "sha256": "7cdbc3390c32041a320321dbcb7ed5513cba84f98244c76a469623b5aa7941fe",
+      "file": "evidence/testnet/case-unpack.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-unpack.stdout.txt",
+      "sha256": "007623a17c36fe7e4b38799cb66c534a4ff26ffabba65e699c7cf3b5965de922",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-update-inside.json",
-      "source": "sui-ownership-models-lab/evidence/case-update-inside.json",
-      "sha256": "6437b35218511fa817c3805e23436acfb6303805f9d33e2cd000babac0e99688",
+      "file": "evidence/testnet/case-update-inside.json",
+      "source": "sui-ownership-testnet-lab/evidence/case-update-inside.json",
+      "sha256": "cac14fc24dbdc2f637573004106574a6596e6af80c2976937ae18d91edbc2f0b",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-update-inside.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/case-update-inside.stderr.txt",
+      "file": "evidence/testnet/case-update-inside.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-update-inside.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/case-update-inside.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/case-update-inside.stdout.txt",
-      "sha256": "6437b35218511fa817c3805e23436acfb6303805f9d33e2cd000babac0e99688",
+      "file": "evidence/testnet/case-update-inside.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/case-update-inside.stdout.txt",
+      "sha256": "cac14fc24dbdc2f637573004106574a6596e6af80c2976937ae18d91edbc2f0b",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/chain-id.json",
-      "source": "sui-ownership-models-lab/evidence/chain-id.json",
-      "sha256": "5d7645ff6dc34c8ba05944e5bfcb7028680beee30b91fd20b5fa207352a67d44",
+      "file": "evidence/testnet/chain-id.json",
+      "source": "sui-ownership-testnet-lab/evidence/chain-id.json",
+      "sha256": "231a6db5b82333fb2a5ba467bac223197e4db0d28f8b964e230d3669d88ee749",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/chain-id.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/chain-id.stderr.txt",
+      "file": "evidence/testnet/chain-id.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/chain-id.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/chain-id.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/chain-id.stdout.txt",
-      "sha256": "5d7645ff6dc34c8ba05944e5bfcb7028680beee30b91fd20b5fa207352a67d44",
+      "file": "evidence/testnet/chain-id.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/chain-id.stdout.txt",
+      "sha256": "231a6db5b82333fb2a5ba467bac223197e4db0d28f8b964e230d3669d88ee749",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/commands.json",
-      "source": "sui-ownership-models-lab/evidence/commands.json",
-      "sha256": "acd079d85ce98cf187d09f1d25a1fb5ba7c2745ce9c804958525e970f659da53",
+      "file": "evidence/testnet/commands.json",
+      "source": "sui-ownership-testnet-lab/evidence/commands.json",
+      "sha256": "f940554b91cf63040ba08c301c7f7119c30303b58b8d2a01242c696c89cfc5c7",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/identities.json",
-      "source": "sui-ownership-models-lab/evidence/identities.json",
-      "sha256": "5a7ab6c7896ed0a4cbb14de739189a3f07568f7e59a84c9936b43658d5dbfb73",
+      "file": "evidence/testnet/faucet-alice.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/faucet-alice.stdout.txt",
+      "sha256": "676e837404099324965b71f67f6fb2f3f121a5ae51421d1a241382e0108d3aa2",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/immutable.json",
-      "source": "sui-ownership-models-lab/evidence/immutable.json",
-      "sha256": "cb73b7f62598b9685c719a8d6dc8907492fb481a6057205d0e5b032dc5451d70",
+      "file": "evidence/testnet/faucet-alice.txt",
+      "source": "sui-ownership-testnet-lab/evidence/faucet-alice.txt",
+      "sha256": "51a54aad2ae13df1dc86d883b37c09c44ac0e2d19c7e5ccb96dbc43253496323",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-alice-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-alice-rejected.stderr.txt",
+      "file": "evidence/testnet/faucet-bob.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/faucet-bob.stdout.txt",
+      "sha256": "fbac3278fa9afcf536063f2a17dce19682182dce1e2e3ba974f6b9dc097643dc",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/faucet-bob.txt",
+      "source": "sui-ownership-testnet-lab/evidence/faucet-bob.txt",
+      "sha256": "756f7a31318cfff80fa3af3477d0097fa061fa47292726ad8617ebf81d9b45b3",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/identities.json",
+      "source": "sui-ownership-testnet-lab/evidence/identities.json",
+      "sha256": "31d7cc4fde446ad871d49deeabd2cf2d8e23c607e9d33307c946ab9375278dcf",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/immutable.json",
+      "source": "sui-ownership-testnet-lab/evidence/immutable.json",
+      "sha256": "20a138ba7ccddaa72efd427dcff3a39981ee1402aa3c21724562aa9c55cd854c",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/owned-alice-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-alice-rejected.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-alice-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-alice-rejected.stdout.txt",
-      "sha256": "9c0c71cdc8a34b32d9c004cb133e6929ff73a4e8856c0376dfbf54415b4d2c4b",
+      "file": "evidence/testnet/owned-alice-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-alice-rejected.stdout.txt",
+      "sha256": "87187159d84e42c33db9146cc3155a95081a0a3088404cbccc804d093c8d5628",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-alice-update.json",
-      "source": "sui-ownership-models-lab/evidence/owned-alice-update.json",
-      "sha256": "32b719d3a1ad8fba109d9c4f95ae2a1ad0938a858c929ed8df9226bade55421a",
+      "file": "evidence/testnet/owned-alice-update.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned-alice-update.json",
+      "sha256": "9a809483535dffba50718877de01100424eaa1484e3a2183d173d0e021758753",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-alice-update.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-alice-update.stderr.txt",
+      "file": "evidence/testnet/owned-alice-update.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-alice-update.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-alice-update.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-alice-update.stdout.txt",
-      "sha256": "32b719d3a1ad8fba109d9c4f95ae2a1ad0938a858c929ed8df9226bade55421a",
+      "file": "evidence/testnet/owned-alice-update.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-alice-update.stdout.txt",
+      "sha256": "9a809483535dffba50718877de01100424eaa1484e3a2183d173d0e021758753",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-bob-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-bob-rejected.stderr.txt",
+      "file": "evidence/testnet/owned-bob-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-bob-rejected.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-bob-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-bob-rejected.stdout.txt",
-      "sha256": "94bd0b7e8f1b11e3ead4808305859509dc035a2e6bfd5396569cd289e968e738",
+      "file": "evidence/testnet/owned-bob-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-bob-rejected.stdout.txt",
+      "sha256": "c2115294fc5d6dca5dd2b517c0d18b0f46ec821c3b2ec9a35c33202811b4f899",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-bob-update.json",
-      "source": "sui-ownership-models-lab/evidence/owned-bob-update.json",
-      "sha256": "b2810ea39fda4c1b27dfd7e68bd609f179e263fbe756698442485722da14a226",
+      "file": "evidence/testnet/owned-bob-update.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned-bob-update.json",
+      "sha256": "566209a04b7f0d7fb5b56216d6721808c4011a4a88e821488da1e56101ff31bd",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-bob-update.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-bob-update.stderr.txt",
+      "file": "evidence/testnet/owned-bob-update.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-bob-update.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-bob-update.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-bob-update.stdout.txt",
-      "sha256": "b2810ea39fda4c1b27dfd7e68bd609f179e263fbe756698442485722da14a226",
+      "file": "evidence/testnet/owned-bob-update.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-bob-update.stdout.txt",
+      "sha256": "566209a04b7f0d7fb5b56216d6721808c4011a4a88e821488da1e56101ff31bd",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-create.json",
-      "source": "sui-ownership-models-lab/evidence/owned-create.json",
-      "sha256": "1d4816159cf8ef1f192e74aa0af2906eaa5db92c62b3579c3c655f9313578281",
+      "file": "evidence/testnet/owned-create.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned-create.json",
+      "sha256": "7311bdb17da29d725caf775e8254ed91d7ae93d09d9119696fab62bafd3f5fd7",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-create.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-create.stderr.txt",
+      "file": "evidence/testnet/owned-create.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-create.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-create.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-create.stdout.txt",
-      "sha256": "1d4816159cf8ef1f192e74aa0af2906eaa5db92c62b3579c3c655f9313578281",
+      "file": "evidence/testnet/owned-create.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-create.stdout.txt",
+      "sha256": "7311bdb17da29d725caf775e8254ed91d7ae93d09d9119696fab62bafd3f5fd7",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-transfer.json",
-      "source": "sui-ownership-models-lab/evidence/owned-transfer.json",
-      "sha256": "7d0c8e5d1aa339c4dfed7b9c76eff790ba6a2bec00eb97c6513c75a11f26ef7e",
+      "file": "evidence/testnet/owned-transfer.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned-transfer.json",
+      "sha256": "d788f1e25891d87862a418434dd204fc48b0c9c193927a41a029da46ac8dd2b5",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-transfer.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-transfer.stderr.txt",
+      "file": "evidence/testnet/owned-transfer.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-transfer.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned-transfer.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/owned-transfer.stdout.txt",
-      "sha256": "7d0c8e5d1aa339c4dfed7b9c76eff790ba6a2bec00eb97c6513c75a11f26ef7e",
+      "file": "evidence/testnet/owned-transfer.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/owned-transfer.stdout.txt",
+      "sha256": "d788f1e25891d87862a418434dd204fc48b0c9c193927a41a029da46ac8dd2b5",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned.json",
-      "source": "sui-ownership-models-lab/evidence/owned.json",
-      "sha256": "07409cf5f3d4005d0aa696a6df6f5de2618e57c8b03199bf54ab69881e2c6a57",
+      "file": "evidence/testnet/owned.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned.json",
+      "sha256": "7e30f63f8408ee93ed17eb75eb9d62d0fbdc6ff675832788cdc6a1fe6064ba66",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/owned_before.json",
-      "source": "sui-ownership-models-lab/evidence/owned_before.json",
-      "sha256": "c30b35f8931dbf8d3f8e902a61725f10dd4c282b16eace59278ef9f37393b3ec",
+      "file": "evidence/testnet/owned_before.json",
+      "source": "sui-ownership-testnet-lab/evidence/owned_before.json",
+      "sha256": "e98b3b6ce8f5bb846644e29de3772abead2e29c27bc975af428e30e7a673217b",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-bob-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/party-bob-rejected.stderr.txt",
+      "file": "evidence/testnet/party-bob-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-bob-rejected.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-bob-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/party-bob-rejected.stdout.txt",
-      "sha256": "7bd543b0e3eb858dd118136fad0dcfc50dd14a9d6aff7ad671a0259b257ce6d0",
+      "file": "evidence/testnet/party-bob-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-bob-rejected.stdout.txt",
+      "sha256": "fe9b6ed3e9a763eaf4550cda05c45398f03b1f71856e4d462963b288de6469d5",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-create.json",
-      "source": "sui-ownership-models-lab/evidence/party-create.json",
-      "sha256": "fa73e0238e1a21fb6911eb460e73c27e1616d8e93524ad2ac5a1019c1232b218",
+      "file": "evidence/testnet/party-create.json",
+      "source": "sui-ownership-testnet-lab/evidence/party-create.json",
+      "sha256": "1d9dddbb906296ce55aee6256cc72efe904c39cfc6bb5971761f003072035a32",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-create.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/party-create.stderr.txt",
+      "file": "evidence/testnet/party-create.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-create.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-create.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/party-create.stdout.txt",
-      "sha256": "fa73e0238e1a21fb6911eb460e73c27e1616d8e93524ad2ac5a1019c1232b218",
+      "file": "evidence/testnet/party-create.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-create.stdout.txt",
+      "sha256": "1d9dddbb906296ce55aee6256cc72efe904c39cfc6bb5971761f003072035a32",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-a.json",
-      "source": "sui-ownership-models-lab/evidence/party-update-a.json",
-      "sha256": "2637d575c625468e7054effaacc34f9aa7d8770b0e10dded9c07f7bda2344579",
+      "file": "evidence/testnet/party-update-a.json",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-a.json",
+      "sha256": "b222bf32b3b60bcb05741f12060e696f277a26e8321f335e5ebb4cf4d7181bef",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-a.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/party-update-a.stderr.txt",
+      "file": "evidence/testnet/party-update-a.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-a.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-a.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/party-update-a.stdout.txt",
-      "sha256": "2637d575c625468e7054effaacc34f9aa7d8770b0e10dded9c07f7bda2344579",
+      "file": "evidence/testnet/party-update-a.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-a.stdout.txt",
+      "sha256": "b222bf32b3b60bcb05741f12060e696f277a26e8321f335e5ebb4cf4d7181bef",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-b.json",
-      "source": "sui-ownership-models-lab/evidence/party-update-b.json",
-      "sha256": "5b40e5dc2d3048ad4788801f5fb5aebd757b37a6f0ddcec3111be12a308defc3",
+      "file": "evidence/testnet/party-update-b.json",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-b.json",
+      "sha256": "f9384ba8c1a25899bf5440d6eb8082d1519cf2ae60d9c63b35c5509762139235",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-b.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/party-update-b.stderr.txt",
+      "file": "evidence/testnet/party-update-b.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-b.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party-update-b.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/party-update-b.stdout.txt",
-      "sha256": "5b40e5dc2d3048ad4788801f5fb5aebd757b37a6f0ddcec3111be12a308defc3",
+      "file": "evidence/testnet/party-update-b.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/party-update-b.stdout.txt",
+      "sha256": "f9384ba8c1a25899bf5440d6eb8082d1519cf2ae60d9c63b35c5509762139235",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/party.json",
-      "source": "sui-ownership-models-lab/evidence/party.json",
-      "sha256": "f738c2d56803683b1647cc7acfdfc2af3e5ca93e65d9adefffd25428142a24e4",
+      "file": "evidence/testnet/party.json",
+      "source": "sui-ownership-testnet-lab/evidence/party.json",
+      "sha256": "336ab8b92bd832629a9871b97d9c570ffd38b96f1ea837ab3c11c752694e69fc",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/prepare-party-gas.json",
-      "source": "sui-ownership-models-lab/evidence/prepare-party-gas.json",
-      "sha256": "4acfafa93b95d56533e9dc0d9ed07ff87cf5e260c31fae1c21247691d551943b",
+      "file": "evidence/testnet/prepare-party-gas.json",
+      "source": "sui-ownership-testnet-lab/evidence/prepare-party-gas.json",
+      "sha256": "62e235c222d3c48191964625d68ec963b54ed7492c7092f07f6f3a6b85176fb9",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/prepare-party-gas.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/prepare-party-gas.stderr.txt",
+      "file": "evidence/testnet/prepare-party-gas.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/prepare-party-gas.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/prepare-party-gas.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/prepare-party-gas.stdout.txt",
-      "sha256": "4acfafa93b95d56533e9dc0d9ed07ff87cf5e260c31fae1c21247691d551943b",
+      "file": "evidence/testnet/prepare-party-gas.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/prepare-party-gas.stdout.txt",
+      "sha256": "62e235c222d3c48191964625d68ec963b54ed7492c7092f07f6f3a6b85176fb9",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/publish.json",
-      "source": "sui-ownership-models-lab/evidence/publish.json",
-      "sha256": "0714aaeb71b1206b5c294020217cde5e32322318bfa3826bfed7466f27288c9b",
+      "file": "evidence/testnet/publish.json",
+      "source": "sui-ownership-testnet-lab/evidence/publish.json",
+      "sha256": "71d449a60126bc6c03ec02da2b4a7a89fd184e23bdd03a9559b9630f254566fc",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/publish.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/publish.stderr.txt",
+      "file": "evidence/testnet/publish.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/publish.stderr.txt",
       "sha256": "9e8810dc58f05ca24cbb3632a096db022d856744a010627c30667a6e27ebd332",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/publish.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/publish.stdout.txt",
-      "sha256": "0714aaeb71b1206b5c294020217cde5e32322318bfa3826bfed7466f27288c9b",
+      "file": "evidence/testnet/publish.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/publish.stdout.txt",
+      "sha256": "71d449a60126bc6c03ec02da2b4a7a89fd184e23bdd03a9559b9630f254566fc",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-capability.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-capability.stderr.txt",
+      "file": "evidence/testnet/read-capability.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-capability.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-capability.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-capability.stdout.txt",
-      "sha256": "6346d33037196de75b3fe2db12151d7755b899fff172fb85060336b1e620bab1",
+      "file": "evidence/testnet/read-capability.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-capability.stdout.txt",
+      "sha256": "6e135a866628826f7e9f48d5316bbdbb7c56131619de6dbe82000dbdee8ba759",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-immutable.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-immutable.stderr.txt",
+      "file": "evidence/testnet/read-immutable.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-immutable.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-immutable.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-immutable.stdout.txt",
-      "sha256": "6b060dc85caa61dc9e8c3d2ba5eb74577313b0db486069b6c33a4af435588242",
+      "file": "evidence/testnet/read-immutable.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-immutable.stdout.txt",
+      "sha256": "cef7f18398cfbba8799783fca1ebf8426dce0666114141814f081aef403ac42d",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-owned.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-owned.stderr.txt",
+      "file": "evidence/testnet/read-owned.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-owned.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-owned.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-owned.stdout.txt",
-      "sha256": "77811e8cff259fb3392d184bdaf45aad6b0557208b871174e409c30214dce9c4",
+      "file": "evidence/testnet/read-owned.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-owned.stdout.txt",
+      "sha256": "ca40a4b190d2ce9465cfda7d327e148c7c201fb0e39d70c6558f0a427f9b7c4f",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-owned_before.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-owned_before.stderr.txt",
+      "file": "evidence/testnet/read-owned_before.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-owned_before.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-owned_before.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-owned_before.stdout.txt",
-      "sha256": "012551984f7e27a512b7afc8d8a73d68d960b4990edd4bbaefd5211192d10642",
+      "file": "evidence/testnet/read-owned_before.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-owned_before.stdout.txt",
+      "sha256": "1d6e02d9e30e6f8292bac76cc40f83ecd95429f889b2a40822dff318745e3622",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-party.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-party.stderr.txt",
+      "file": "evidence/testnet/read-party.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-party.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-party.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-party.stdout.txt",
-      "sha256": "04e38973ee1d398ebe4b20f518d3bc44de09d5087233e5b574de91a4b087e061",
+      "file": "evidence/testnet/read-party.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-party.stdout.txt",
+      "sha256": "5e7d0c35a9124f4d03b3c84bdf4ef28f77645102464d36391730b77a97574083",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-shared.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-shared.stderr.txt",
+      "file": "evidence/testnet/read-shared.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-shared.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-shared.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-shared.stdout.txt",
-      "sha256": "9193ba3e03ef11081a688ea8a893fe8fb891b89abcb38d4130d672da52e31b6a",
+      "file": "evidence/testnet/read-shared.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-shared.stdout.txt",
+      "sha256": "3156763782a33c9e7d3fbb165b17b0470c761cd8089cf900d0ae5a42e7fad11e",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-unwrapped.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-unwrapped.stderr.txt",
+      "file": "evidence/testnet/read-unwrapped.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-unwrapped.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-unwrapped.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-unwrapped.stdout.txt",
-      "sha256": "447b04df3ce501bc4a35b3d177b1cec677f1c0071e313adad3141ea31cab04a9",
+      "file": "evidence/testnet/read-unwrapped.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-unwrapped.stdout.txt",
+      "sha256": "5f40c2147bf62596e258f200910103757bbc7acc761511a2ad9ad69f31dbde71",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-wrapped.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-wrapped.stderr.txt",
+      "file": "evidence/testnet/read-wrapped.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-wrapped.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-wrapped.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-wrapped.stdout.txt",
-      "sha256": "f1fdfb7f50971e01bab3feeed192d3fc892f46d6f2297eb1eef39dd832de19f3",
+      "file": "evidence/testnet/read-wrapped.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-wrapped.stdout.txt",
+      "sha256": "5df187617b620ccd59d75c2528c25bbc541f942b8d7fa7b124fda570fce22b30",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-wrapped_child.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/read-wrapped_child.stderr.txt",
+      "file": "evidence/testnet/read-wrapped_child.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-wrapped_child.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/read-wrapped_child.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/read-wrapped_child.stdout.txt",
-      "sha256": "7d65f54009f1f45e62c9686e6344e371f144700385315c0c1355c41160962a87",
+      "file": "evidence/testnet/read-wrapped_child.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/read-wrapped_child.stdout.txt",
+      "sha256": "25015542105942164bb6c4dc6ba81ee414a33bcca5c1dc339aa94853a78164b9",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-alice-add.json",
-      "source": "sui-ownership-models-lab/evidence/registry-alice-add.json",
-      "sha256": "dfac9129254d5118e869752addd3f584549ec995d8bf7bde2ec750223c384f68",
+      "file": "evidence/testnet/registry-alice-add.json",
+      "source": "sui-ownership-testnet-lab/evidence/registry-alice-add.json",
+      "sha256": "b869b5a67635ada655756cdfdbb988f13a19d06e3e23fb48a3726eccce25a4d6",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-alice-add.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-alice-add.stderr.txt",
+      "file": "evidence/testnet/registry-alice-add.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-alice-add.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-alice-add.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-alice-add.stdout.txt",
-      "sha256": "dfac9129254d5118e869752addd3f584549ec995d8bf7bde2ec750223c384f68",
+      "file": "evidence/testnet/registry-alice-add.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-alice-add.stdout.txt",
+      "sha256": "b869b5a67635ada655756cdfdbb988f13a19d06e3e23fb48a3726eccce25a4d6",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-bob-add.json",
-      "source": "sui-ownership-models-lab/evidence/registry-bob-add.json",
-      "sha256": "3a48570aba2c4010d738cb2df4b3e8cccaff486b3349186a53fad9962cbf0b11",
+      "file": "evidence/testnet/registry-bob-add.json",
+      "source": "sui-ownership-testnet-lab/evidence/registry-bob-add.json",
+      "sha256": "fc70329b7001f8fa83e52976295fc6708997e92535c69f1793355f8eeb691eec",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-bob-add.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-bob-add.stderr.txt",
+      "file": "evidence/testnet/registry-bob-add.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-bob-add.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-bob-add.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-bob-add.stdout.txt",
-      "sha256": "3a48570aba2c4010d738cb2df4b3e8cccaff486b3349186a53fad9962cbf0b11",
+      "file": "evidence/testnet/registry-bob-add.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-bob-add.stdout.txt",
+      "sha256": "fc70329b7001f8fa83e52976295fc6708997e92535c69f1793355f8eeb691eec",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-bob-reset-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-bob-reset-rejected.stderr.txt",
+      "file": "evidence/testnet/registry-bob-reset-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-bob-reset-rejected.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-bob-reset-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-bob-reset-rejected.stdout.txt",
-      "sha256": "6e3e83bb945d07a94a1773f82434c07f6c0b699a1eefbe6c6464fe5ee85b73b4",
+      "file": "evidence/testnet/registry-bob-reset-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-bob-reset-rejected.stdout.txt",
+      "sha256": "a05a471605369c5857b90ddb34277f1558a0b8087644b243c9634defc7cdb187",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-create.json",
-      "source": "sui-ownership-models-lab/evidence/registry-create.json",
-      "sha256": "32da18473f86f8809d931fa765bea782a7afa674a27d891b31cc517bd94f7986",
+      "file": "evidence/testnet/registry-create.json",
+      "source": "sui-ownership-testnet-lab/evidence/registry-create.json",
+      "sha256": "341db6a7751b597c2ef2c2eb9d0e9f5fbc65811b11fcc5139bb15c96648bd34c",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-create.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-create.stderr.txt",
+      "file": "evidence/testnet/registry-create.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-create.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-create.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-create.stdout.txt",
-      "sha256": "32da18473f86f8809d931fa765bea782a7afa674a27d891b31cc517bd94f7986",
+      "file": "evidence/testnet/registry-create.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-create.stdout.txt",
+      "sha256": "341db6a7751b597c2ef2c2eb9d0e9f5fbc65811b11fcc5139bb15c96648bd34c",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-failed-receipt.json",
-      "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.json",
-      "sha256": "b3d12861b9ff3a81b10c3eb9fe380b03c42afd39127779a3dd0dd43b09632abe",
+      "file": "evidence/testnet/registry-failed-receipt.json",
+      "source": "sui-ownership-testnet-lab/evidence/registry-failed-receipt.json",
+      "sha256": "c837af20a51adfa8aafe40665a9541280a5dbe3d5e817e96e947b899f8cb1e0f",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-failed-receipt.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.stderr.txt",
+      "file": "evidence/testnet/registry-failed-receipt.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-failed-receipt.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/registry-failed-receipt.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.stdout.txt",
-      "sha256": "b3d12861b9ff3a81b10c3eb9fe380b03c42afd39127779a3dd0dd43b09632abe",
+      "file": "evidence/testnet/registry-failed-receipt.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/registry-failed-receipt.stdout.txt",
+      "sha256": "c837af20a51adfa8aafe40665a9541280a5dbe3d5e817e96e947b899f8cb1e0f",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-bob-mutation-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-bob-mutation-rejected.stderr.txt",
+      "file": "evidence/testnet/rules-bob-mutation-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-bob-mutation-rejected.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-bob-mutation-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-bob-mutation-rejected.stdout.txt",
-      "sha256": "2581144baaf83a3c3790c008f026667baecf3c6d984682d9f83bb9adf8635e74",
+      "file": "evidence/testnet/rules-bob-mutation-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-bob-mutation-rejected.stdout.txt",
+      "sha256": "c34363f380ec1763e5ad28172365b28b51290e948b622ac49f55cb0eb3872337",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-bob-read.json",
-      "source": "sui-ownership-models-lab/evidence/rules-bob-read.json",
-      "sha256": "c8d0a5d1994bbe9fccd4d56225de4c27e07c6195f30f3f5a02010489257221e3",
+      "file": "evidence/testnet/rules-bob-read.json",
+      "source": "sui-ownership-testnet-lab/evidence/rules-bob-read.json",
+      "sha256": "e14aa029912e31e927cac2b47c2e3bb18c6470be5946721210e4c61c48489b8f",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-bob-read.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-bob-read.stderr.txt",
+      "file": "evidence/testnet/rules-bob-read.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-bob-read.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-bob-read.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-bob-read.stdout.txt",
-      "sha256": "c8d0a5d1994bbe9fccd4d56225de4c27e07c6195f30f3f5a02010489257221e3",
+      "file": "evidence/testnet/rules-bob-read.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-bob-read.stdout.txt",
+      "sha256": "e14aa029912e31e927cac2b47c2e3bb18c6470be5946721210e4c61c48489b8f",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-create.json",
-      "source": "sui-ownership-models-lab/evidence/rules-create.json",
-      "sha256": "58d452c3373ea9c6b5ce93e9a3e9e26cea6990bed700b8d5c56129d6e8d114fd",
+      "file": "evidence/testnet/rules-create.json",
+      "source": "sui-ownership-testnet-lab/evidence/rules-create.json",
+      "sha256": "ec36e28114f91d49a0a609014240b898187b2e61f0a5e9483ac22f58185bccf8",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-create.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-create.stderr.txt",
+      "file": "evidence/testnet/rules-create.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-create.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-create.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-create.stdout.txt",
-      "sha256": "58d452c3373ea9c6b5ce93e9a3e9e26cea6990bed700b8d5c56129d6e8d114fd",
+      "file": "evidence/testnet/rules-create.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-create.stdout.txt",
+      "sha256": "ec36e28114f91d49a0a609014240b898187b2e61f0a5e9483ac22f58185bccf8",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-failed-receipt.json",
-      "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.json",
-      "sha256": "ffae4bd74a7d2b96f2098892c5fb90f3c0da4857ae2f48d02ab5c74a7a4231a1",
+      "file": "evidence/testnet/rules-failed-receipt.json",
+      "source": "sui-ownership-testnet-lab/evidence/rules-failed-receipt.json",
+      "sha256": "6c6e42fb77ca1524e4b56b98ef5509e74f32bd9df2dc85e21c55940f89eb1014",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-failed-receipt.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.stderr.txt",
+      "file": "evidence/testnet/rules-failed-receipt.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-failed-receipt.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/rules-failed-receipt.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.stdout.txt",
-      "sha256": "ffae4bd74a7d2b96f2098892c5fb90f3c0da4857ae2f48d02ab5c74a7a4231a1",
+      "file": "evidence/testnet/rules-failed-receipt.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/rules-failed-receipt.stdout.txt",
+      "sha256": "6c6e42fb77ca1524e4b56b98ef5509e74f32bd9df2dc85e21c55940f89eb1014",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/shared.json",
-      "source": "sui-ownership-models-lab/evidence/shared.json",
-      "sha256": "3f706fa5aa919c26ec70efa903a3bba0b9b10bf00d0997d01125f0114cd99363",
+      "file": "evidence/testnet/shared.json",
+      "source": "sui-ownership-testnet-lab/evidence/shared.json",
+      "sha256": "643a33c57f11b34ef232dee894806a97b009fda75d7bdcbeafc51b9500a43e23",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/split-party-gas.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/split-party-gas.stderr.txt",
+      "file": "evidence/testnet/stages.json",
+      "source": "sui-ownership-testnet-lab/evidence/stages.json",
+      "sha256": "8901c3fa93a860725b0974e79ad36c0d00fce5985db1badb61556c54a971823e",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/system_probe.json",
+      "source": "sui-ownership-testnet-lab/evidence/system_probe.json",
+      "sha256": "ae06d41e729fc1b8b0f91b5208de9936609504c41d7e0ea48f4a0aa5ec682cca",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/test-case.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-case.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/split-party-gas.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/split-party-gas.stdout.txt",
-      "sha256": "070f089c24562c2e57fdd467f918ef2b15cd28bbffa9a772132d22a519ced3dd",
-      "transformation": "none"
-    },
-    {
-      "file": "evidence/recorded/test-case.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/test-case.stderr.txt",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "transformation": "none"
-    },
-    {
-      "file": "evidence/recorded/test-case.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/test-case.stdout.txt",
+      "file": "evidence/testnet/test-case.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-case.stdout.txt",
       "sha256": "c385dde3bc40a311e32ab5e0f90bf3487d0c9e7773ec51f3729a590afe827413",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-owned.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/test-owned.stderr.txt",
+      "file": "evidence/testnet/test-owned.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-owned.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-owned.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/test-owned.stdout.txt",
+      "file": "evidence/testnet/test-owned.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-owned.stdout.txt",
       "sha256": "7aab08af3509ef966bf107294fa1ad6a3c396ffb11ea00deabe643f72a17fea7",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-party_counter.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/test-party_counter.stderr.txt",
+      "file": "evidence/testnet/test-party_counter.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-party_counter.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-party_counter.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/test-party_counter.stdout.txt",
+      "file": "evidence/testnet/test-party_counter.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-party_counter.stdout.txt",
       "sha256": "408cd5c2d980480a440baf7fc062d0f4ab5c0b4649f07c5241313560e92c4df7",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-registry.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/test-registry.stderr.txt",
+      "file": "evidence/testnet/test-registry.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-registry.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-registry.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/test-registry.stdout.txt",
+      "file": "evidence/testnet/test-registry.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-registry.stdout.txt",
       "sha256": "283eb911878f41b31b59d9fb412903072c1003454253f1f6c14f23c7fc7b80f2",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-rules.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/test-rules.stderr.txt",
+      "file": "evidence/testnet/test-rules.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-rules.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/test-rules.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/test-rules.stdout.txt",
+      "file": "evidence/testnet/test-rules.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/test-rules.stdout.txt",
       "sha256": "80b4485814fa170a6be11eabba52a2e3e40c05aef28de01fc9a1aa2312d7cf30",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/unwrapped.json",
-      "source": "sui-ownership-models-lab/evidence/unwrapped.json",
-      "sha256": "ff15b2371f493fa4dadb0add22cbdd00b82e724523a275790164a99d28734146",
+      "file": "evidence/testnet/testnet-validation.json",
+      "source": "sui-ownership-testnet-lab/evidence/testnet-validation.json",
+      "sha256": "ab7124fe40bc7c0eddfcf2fad4f8a0ec6a1eb85d793c82eab3db6668346da2cd",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/wrapped-direct-update-rejected.stderr.txt",
-      "source": "sui-ownership-models-lab/evidence/wrapped-direct-update-rejected.stderr.txt",
+      "file": "evidence/testnet/unwrapped.json",
+      "source": "sui-ownership-testnet-lab/evidence/unwrapped.json",
+      "sha256": "31f021ee5fe4636412e7c668a3cc39f2c08a369d8d3569527525ac09e14bd4fb",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/version.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/version.stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/wrapped-direct-update-rejected.stdout.txt",
-      "source": "sui-ownership-models-lab/evidence/wrapped-direct-update-rejected.stdout.txt",
-      "sha256": "94700d1a9dfef7787a4bb0efad697d55bba2c9ec7a5ebc51176c7c027f5e402f",
+      "file": "evidence/testnet/version.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/version.stdout.txt",
+      "sha256": "1372a2b4e8921fae769b9885670f0f9394e9900d865485c8d5b30c09bbd6bf39",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/wrapped.json",
-      "source": "sui-ownership-models-lab/evidence/wrapped.json",
-      "sha256": "323ff7abb70aa167ce8dea6375fa92c9700ef18b86cd7fc687b7daf1cb2a3f2b",
+      "file": "evidence/testnet/wrapped-direct-update-rejected.stderr.txt",
+      "source": "sui-ownership-testnet-lab/evidence/wrapped-direct-update-rejected.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/wrapped_child.json",
-      "source": "sui-ownership-models-lab/evidence/wrapped_child.json",
-      "sha256": "07ee86ecb27244674902276dc6558051208b78927f67fb93e7f79a8115f518ee",
+      "file": "evidence/testnet/wrapped-direct-update-rejected.stdout.txt",
+      "source": "sui-ownership-testnet-lab/evidence/wrapped-direct-update-rejected.stdout.txt",
+      "sha256": "ae6c4fbe5fd7b74c8b84a1f5f4f57e466e2d09e943db3b5c60a0cf38e09cde34",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/Move.toml",
-      "source": "sui-ownership-models-lab/move/Move.toml",
-      "sha256": "a1415b96fef7282570183570015278383799a4eaec3df0f3d5ef87563d959955",
+      "file": "evidence/testnet/wrapped.json",
+      "source": "sui-ownership-testnet-lab/evidence/wrapped.json",
+      "sha256": "eb71f5aedccf0ece1b12df280f76f8cdede28b4fefe2f101abce9de0a28c6622",
       "transformation": "none"
     },
     {
-      "file": "evidence/recorded/Move.lock",
-      "source": "sui-ownership-models-lab/move/Move.lock",
-      "sha256": "7db74e9d04ea8a9b9f1a8707317a141d7dc87526b3a265578f883e0037a821db",
+      "file": "evidence/testnet/wrapped_child.json",
+      "source": "sui-ownership-testnet-lab/evidence/wrapped_child.json",
+      "sha256": "09a25623eec03f7826419e2440155beaa3fbf1fda3c004353ed78a2c7d5372ed",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/toolchain/archive-checksum.txt",
+      "source": "sui-ownership-testnet-lab/evidence/toolchain/archive-checksum.txt",
+      "sha256": "868905bccce7fd6722325c15c09f5c367e37b9193a3eb77007d87863c52d5d5e",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/toolchain/cli-release.json",
+      "source": "sui-ownership-testnet-lab/evidence/toolchain/cli-release.json",
+      "sha256": "38d7830ab8909118ab10f4b7f982335e1c0a902fd51d0f0fc7055ced86c2e94f",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/toolchain/cli-version.txt",
+      "source": "sui-ownership-testnet-lab/evidence/toolchain/cli-version.txt",
+      "sha256": "1372a2b4e8921fae769b9885670f0f9394e9900d865485c8d5b30c09bbd6bf39",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/testnet/toolchain/network-research.json",
+      "source": "sui-ownership-testnet-lab/evidence/toolchain/network-research.json",
+      "sha256": "a8e671c0b87c3b2b3b025eb1bcb3c6b746e746ef2b3f1bd6eeac70832e3759c5",
+      "transformation": "omitted author-only dry-run simulation metadata"
+    },
+    {
+      "file": "evidence/testnet/testnet-validation.json",
+      "source": "sui-ownership-testnet-lab/evidence/testnet-validation.json",
+      "sha256": "ab7124fe40bc7c0eddfcf2fad4f8a0ec6a1eb85d793c82eab3db6668346da2cd",
       "transformation": "none"
     }
   ],
-  "generated_files": [
-    "move/Move.toml.template",
-    "requirements.txt",
-    ".gitignore",
-    "README.md",
-    "evidence/verification.json",
-    "evidence/source-audit.json"
+  "archived_localnet": {
+    "notice": "Historical metadata and hashes from the previous localnet run. The current reader default and manifest template were subsequently changed for Testnet. This object does not assert that historical source hashes match their current files.",
+    "provenance": {
+      "article_status": "unpublished draft",
+      "substack_draft": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
+      "network": "fresh disposable localnet",
+      "chain_id": "Hj5zCy4vEHoy6WA6Kow4p9BxyYzYypTy4HckJSEtvXDn",
+      "cli": "sui 1.82.3-bf4073918ed3",
+      "framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+      "copied_files": [
+        {
+          "file": "move/sources/owned.move",
+          "source": "sui-ownership-models-lab/move/sources/owned.move",
+          "sha256": "9663a4e754dc64a99a8a4dc15ae7799bfb6ffaf7b589a8426270f8f6f11d7ea5",
+          "transformation": "none"
+        },
+        {
+          "file": "move/sources/registry.move",
+          "source": "sui-ownership-models-lab/move/sources/registry.move",
+          "sha256": "503d72b095ea437b1269db793492f185b19db84228052ee0096344b5db5dc886",
+          "transformation": "none"
+        },
+        {
+          "file": "move/sources/rules.move",
+          "source": "sui-ownership-models-lab/move/sources/rules.move",
+          "sha256": "1f02927c321429cfc9d4b5ff964778fe6bd8d9f0769427872c090edde1f2d70f",
+          "transformation": "none"
+        },
+        {
+          "file": "move/sources/case.move",
+          "source": "sui-ownership-models-lab/move/sources/case.move",
+          "sha256": "5c9b74f14e6dd5d17fa649a3fb25aee6138e0ee7169f3eb9db3396a119c4105d",
+          "transformation": "none"
+        },
+        {
+          "file": "move/sources/party_counter.move",
+          "source": "sui-ownership-models-lab/move/sources/party_counter.move",
+          "sha256": "b6192115465103579e611dd16ea6d0b0eaeae9bbb206b531fcf0a968ec11bc30",
+          "transformation": "none"
+        },
+        {
+          "file": "client/read_object.py",
+          "source": "sui-ownership-models-lab/client/read_object.py",
+          "sha256": "a84d8ebd40289082ed88628a38d8c00948cb61f696d03b55c4279bc675073465",
+          "transformation": "none"
+        },
+        {
+          "file": "client/receipt.py",
+          "source": "sui-ownership-models-lab/client/receipt.py",
+          "sha256": "a4230c986c71d0ac4d2b5bc5ef415d2558faf371fdcda842809bb93ee04bc42e",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/addresses.json",
+          "source": "sui-ownership-models-lab/evidence/addresses.json",
+          "sha256": "ddc27cb0c2ad459364d1520167345aec3b38c856b6fea72be8076fbc5201d316",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/addresses.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/addresses.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/addresses.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/addresses.stdout.txt",
+          "sha256": "ddc27cb0c2ad459364d1520167345aec3b38c856b6fea72be8076fbc5201d316",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas-before-split.json",
+          "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.json",
+          "sha256": "b2de2eb52c784b3323c88225db77258671da45fc84db92570119435b5ca22396",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas-before-split.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas-before-split.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/alice-gas-before-split.stdout.txt",
+          "sha256": "b2de2eb52c784b3323c88225db77258671da45fc84db92570119435b5ca22396",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas.json",
+          "source": "sui-ownership-models-lab/evidence/alice-gas.json",
+          "sha256": "c6466333db16a3b6eb5932da5d7a39479465821eac35fe04fa95ee524516cbd3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/alice-gas.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/alice-gas.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/alice-gas.stdout.txt",
+          "sha256": "c6466333db16a3b6eb5932da5d7a39479465821eac35fe04fa95ee524516cbd3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/bob-gas.json",
+          "source": "sui-ownership-models-lab/evidence/bob-gas.json",
+          "sha256": "2be6e7328e7fc9c8b0ec562cc0f66b7e0de52b90de78e8c849ed0c18c52abb83",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/bob-gas.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/bob-gas.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/bob-gas.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/bob-gas.stdout.txt",
+          "sha256": "2be6e7328e7fc9c8b0ec562cc0f66b7e0de52b90de78e8c849ed0c18c52abb83",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/build.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/build.stderr.txt",
+          "sha256": "847b0d7e3762e315a496a758f5ab65af695640f5eb899184c7ef9df0d1bd8a23",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/build.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/build.stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/cap-transfer.json",
+          "source": "sui-ownership-models-lab/evidence/cap-transfer.json",
+          "sha256": "77f43598046d91879c78490bae04e2145696de47a0ee69e50b4bf3bf941e8209",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/cap-transfer.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/cap-transfer.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/cap-transfer.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/cap-transfer.stdout.txt",
+          "sha256": "77f43598046d91879c78490bae04e2145696de47a0ee69e50b4bf3bf941e8209",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/capability.json",
+          "source": "sui-ownership-models-lab/evidence/capability.json",
+          "sha256": "81b3e01979fdb72fbfd76a3ea9a3af8c066cc60f1b928abfa8a47813fcb433fe",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-pack.json",
+          "source": "sui-ownership-models-lab/evidence/case-pack.json",
+          "sha256": "c6ea7d85aeb54407aaa4e35b3ae6f40f13f8d26fd9f760c1281eb8a021f62aef",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-pack.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/case-pack.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-pack.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/case-pack.stdout.txt",
+          "sha256": "c6ea7d85aeb54407aaa4e35b3ae6f40f13f8d26fd9f760c1281eb8a021f62aef",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-unpack.json",
+          "source": "sui-ownership-models-lab/evidence/case-unpack.json",
+          "sha256": "7cdbc3390c32041a320321dbcb7ed5513cba84f98244c76a469623b5aa7941fe",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-unpack.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/case-unpack.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-unpack.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/case-unpack.stdout.txt",
+          "sha256": "7cdbc3390c32041a320321dbcb7ed5513cba84f98244c76a469623b5aa7941fe",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-update-inside.json",
+          "source": "sui-ownership-models-lab/evidence/case-update-inside.json",
+          "sha256": "6437b35218511fa817c3805e23436acfb6303805f9d33e2cd000babac0e99688",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-update-inside.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/case-update-inside.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/case-update-inside.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/case-update-inside.stdout.txt",
+          "sha256": "6437b35218511fa817c3805e23436acfb6303805f9d33e2cd000babac0e99688",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/chain-id.json",
+          "source": "sui-ownership-models-lab/evidence/chain-id.json",
+          "sha256": "5d7645ff6dc34c8ba05944e5bfcb7028680beee30b91fd20b5fa207352a67d44",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/chain-id.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/chain-id.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/chain-id.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/chain-id.stdout.txt",
+          "sha256": "5d7645ff6dc34c8ba05944e5bfcb7028680beee30b91fd20b5fa207352a67d44",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/commands.json",
+          "source": "sui-ownership-models-lab/evidence/commands.json",
+          "sha256": "acd079d85ce98cf187d09f1d25a1fb5ba7c2745ce9c804958525e970f659da53",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/identities.json",
+          "source": "sui-ownership-models-lab/evidence/identities.json",
+          "sha256": "5a7ab6c7896ed0a4cbb14de739189a3f07568f7e59a84c9936b43658d5dbfb73",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/immutable.json",
+          "source": "sui-ownership-models-lab/evidence/immutable.json",
+          "sha256": "cb73b7f62598b9685c719a8d6dc8907492fb481a6057205d0e5b032dc5451d70",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-alice-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-alice-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-alice-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-alice-rejected.stdout.txt",
+          "sha256": "9c0c71cdc8a34b32d9c004cb133e6929ff73a4e8856c0376dfbf54415b4d2c4b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-alice-update.json",
+          "source": "sui-ownership-models-lab/evidence/owned-alice-update.json",
+          "sha256": "32b719d3a1ad8fba109d9c4f95ae2a1ad0938a858c929ed8df9226bade55421a",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-alice-update.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-alice-update.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-alice-update.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-alice-update.stdout.txt",
+          "sha256": "32b719d3a1ad8fba109d9c4f95ae2a1ad0938a858c929ed8df9226bade55421a",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-bob-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-bob-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-bob-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-bob-rejected.stdout.txt",
+          "sha256": "94bd0b7e8f1b11e3ead4808305859509dc035a2e6bfd5396569cd289e968e738",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-bob-update.json",
+          "source": "sui-ownership-models-lab/evidence/owned-bob-update.json",
+          "sha256": "b2810ea39fda4c1b27dfd7e68bd609f179e263fbe756698442485722da14a226",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-bob-update.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-bob-update.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-bob-update.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-bob-update.stdout.txt",
+          "sha256": "b2810ea39fda4c1b27dfd7e68bd609f179e263fbe756698442485722da14a226",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-create.json",
+          "source": "sui-ownership-models-lab/evidence/owned-create.json",
+          "sha256": "1d4816159cf8ef1f192e74aa0af2906eaa5db92c62b3579c3c655f9313578281",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-create.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-create.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-create.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-create.stdout.txt",
+          "sha256": "1d4816159cf8ef1f192e74aa0af2906eaa5db92c62b3579c3c655f9313578281",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-transfer.json",
+          "source": "sui-ownership-models-lab/evidence/owned-transfer.json",
+          "sha256": "7d0c8e5d1aa339c4dfed7b9c76eff790ba6a2bec00eb97c6513c75a11f26ef7e",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-transfer.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-transfer.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned-transfer.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/owned-transfer.stdout.txt",
+          "sha256": "7d0c8e5d1aa339c4dfed7b9c76eff790ba6a2bec00eb97c6513c75a11f26ef7e",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned.json",
+          "source": "sui-ownership-models-lab/evidence/owned.json",
+          "sha256": "07409cf5f3d4005d0aa696a6df6f5de2618e57c8b03199bf54ab69881e2c6a57",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/owned_before.json",
+          "source": "sui-ownership-models-lab/evidence/owned_before.json",
+          "sha256": "c30b35f8931dbf8d3f8e902a61725f10dd4c282b16eace59278ef9f37393b3ec",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-bob-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/party-bob-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-bob-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/party-bob-rejected.stdout.txt",
+          "sha256": "7bd543b0e3eb858dd118136fad0dcfc50dd14a9d6aff7ad671a0259b257ce6d0",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-create.json",
+          "source": "sui-ownership-models-lab/evidence/party-create.json",
+          "sha256": "fa73e0238e1a21fb6911eb460e73c27e1616d8e93524ad2ac5a1019c1232b218",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-create.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/party-create.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-create.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/party-create.stdout.txt",
+          "sha256": "fa73e0238e1a21fb6911eb460e73c27e1616d8e93524ad2ac5a1019c1232b218",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-a.json",
+          "source": "sui-ownership-models-lab/evidence/party-update-a.json",
+          "sha256": "2637d575c625468e7054effaacc34f9aa7d8770b0e10dded9c07f7bda2344579",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-a.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/party-update-a.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-a.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/party-update-a.stdout.txt",
+          "sha256": "2637d575c625468e7054effaacc34f9aa7d8770b0e10dded9c07f7bda2344579",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-b.json",
+          "source": "sui-ownership-models-lab/evidence/party-update-b.json",
+          "sha256": "5b40e5dc2d3048ad4788801f5fb5aebd757b37a6f0ddcec3111be12a308defc3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-b.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/party-update-b.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party-update-b.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/party-update-b.stdout.txt",
+          "sha256": "5b40e5dc2d3048ad4788801f5fb5aebd757b37a6f0ddcec3111be12a308defc3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/party.json",
+          "source": "sui-ownership-models-lab/evidence/party.json",
+          "sha256": "f738c2d56803683b1647cc7acfdfc2af3e5ca93e65d9adefffd25428142a24e4",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/prepare-party-gas.json",
+          "source": "sui-ownership-models-lab/evidence/prepare-party-gas.json",
+          "sha256": "4acfafa93b95d56533e9dc0d9ed07ff87cf5e260c31fae1c21247691d551943b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/prepare-party-gas.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/prepare-party-gas.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/prepare-party-gas.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/prepare-party-gas.stdout.txt",
+          "sha256": "4acfafa93b95d56533e9dc0d9ed07ff87cf5e260c31fae1c21247691d551943b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/publish.json",
+          "source": "sui-ownership-models-lab/evidence/publish.json",
+          "sha256": "0714aaeb71b1206b5c294020217cde5e32322318bfa3826bfed7466f27288c9b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/publish.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/publish.stderr.txt",
+          "sha256": "9e8810dc58f05ca24cbb3632a096db022d856744a010627c30667a6e27ebd332",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/publish.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/publish.stdout.txt",
+          "sha256": "0714aaeb71b1206b5c294020217cde5e32322318bfa3826bfed7466f27288c9b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-capability.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-capability.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-capability.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-capability.stdout.txt",
+          "sha256": "6346d33037196de75b3fe2db12151d7755b899fff172fb85060336b1e620bab1",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-immutable.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-immutable.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-immutable.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-immutable.stdout.txt",
+          "sha256": "6b060dc85caa61dc9e8c3d2ba5eb74577313b0db486069b6c33a4af435588242",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-owned.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-owned.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-owned.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-owned.stdout.txt",
+          "sha256": "77811e8cff259fb3392d184bdaf45aad6b0557208b871174e409c30214dce9c4",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-owned_before.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-owned_before.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-owned_before.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-owned_before.stdout.txt",
+          "sha256": "012551984f7e27a512b7afc8d8a73d68d960b4990edd4bbaefd5211192d10642",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-party.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-party.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-party.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-party.stdout.txt",
+          "sha256": "04e38973ee1d398ebe4b20f518d3bc44de09d5087233e5b574de91a4b087e061",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-shared.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-shared.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-shared.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-shared.stdout.txt",
+          "sha256": "9193ba3e03ef11081a688ea8a893fe8fb891b89abcb38d4130d672da52e31b6a",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-unwrapped.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-unwrapped.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-unwrapped.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-unwrapped.stdout.txt",
+          "sha256": "447b04df3ce501bc4a35b3d177b1cec677f1c0071e313adad3141ea31cab04a9",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-wrapped.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-wrapped.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-wrapped.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-wrapped.stdout.txt",
+          "sha256": "f1fdfb7f50971e01bab3feeed192d3fc892f46d6f2297eb1eef39dd832de19f3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-wrapped_child.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/read-wrapped_child.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/read-wrapped_child.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/read-wrapped_child.stdout.txt",
+          "sha256": "7d65f54009f1f45e62c9686e6344e371f144700385315c0c1355c41160962a87",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-alice-add.json",
+          "source": "sui-ownership-models-lab/evidence/registry-alice-add.json",
+          "sha256": "dfac9129254d5118e869752addd3f584549ec995d8bf7bde2ec750223c384f68",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-alice-add.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-alice-add.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-alice-add.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-alice-add.stdout.txt",
+          "sha256": "dfac9129254d5118e869752addd3f584549ec995d8bf7bde2ec750223c384f68",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-bob-add.json",
+          "source": "sui-ownership-models-lab/evidence/registry-bob-add.json",
+          "sha256": "3a48570aba2c4010d738cb2df4b3e8cccaff486b3349186a53fad9962cbf0b11",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-bob-add.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-bob-add.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-bob-add.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-bob-add.stdout.txt",
+          "sha256": "3a48570aba2c4010d738cb2df4b3e8cccaff486b3349186a53fad9962cbf0b11",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-bob-reset-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-bob-reset-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-bob-reset-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-bob-reset-rejected.stdout.txt",
+          "sha256": "6e3e83bb945d07a94a1773f82434c07f6c0b699a1eefbe6c6464fe5ee85b73b4",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-create.json",
+          "source": "sui-ownership-models-lab/evidence/registry-create.json",
+          "sha256": "32da18473f86f8809d931fa765bea782a7afa674a27d891b31cc517bd94f7986",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-create.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-create.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-create.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-create.stdout.txt",
+          "sha256": "32da18473f86f8809d931fa765bea782a7afa674a27d891b31cc517bd94f7986",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-failed-receipt.json",
+          "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.json",
+          "sha256": "b3d12861b9ff3a81b10c3eb9fe380b03c42afd39127779a3dd0dd43b09632abe",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-failed-receipt.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/registry-failed-receipt.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/registry-failed-receipt.stdout.txt",
+          "sha256": "b3d12861b9ff3a81b10c3eb9fe380b03c42afd39127779a3dd0dd43b09632abe",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-bob-mutation-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-bob-mutation-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-bob-mutation-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-bob-mutation-rejected.stdout.txt",
+          "sha256": "2581144baaf83a3c3790c008f026667baecf3c6d984682d9f83bb9adf8635e74",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-bob-read.json",
+          "source": "sui-ownership-models-lab/evidence/rules-bob-read.json",
+          "sha256": "c8d0a5d1994bbe9fccd4d56225de4c27e07c6195f30f3f5a02010489257221e3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-bob-read.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-bob-read.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-bob-read.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-bob-read.stdout.txt",
+          "sha256": "c8d0a5d1994bbe9fccd4d56225de4c27e07c6195f30f3f5a02010489257221e3",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-create.json",
+          "source": "sui-ownership-models-lab/evidence/rules-create.json",
+          "sha256": "58d452c3373ea9c6b5ce93e9a3e9e26cea6990bed700b8d5c56129d6e8d114fd",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-create.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-create.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-create.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-create.stdout.txt",
+          "sha256": "58d452c3373ea9c6b5ce93e9a3e9e26cea6990bed700b8d5c56129d6e8d114fd",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-failed-receipt.json",
+          "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.json",
+          "sha256": "ffae4bd74a7d2b96f2098892c5fb90f3c0da4857ae2f48d02ab5c74a7a4231a1",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-failed-receipt.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/rules-failed-receipt.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/rules-failed-receipt.stdout.txt",
+          "sha256": "ffae4bd74a7d2b96f2098892c5fb90f3c0da4857ae2f48d02ab5c74a7a4231a1",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/shared.json",
+          "source": "sui-ownership-models-lab/evidence/shared.json",
+          "sha256": "3f706fa5aa919c26ec70efa903a3bba0b9b10bf00d0997d01125f0114cd99363",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/split-party-gas.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/split-party-gas.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/split-party-gas.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/split-party-gas.stdout.txt",
+          "sha256": "070f089c24562c2e57fdd467f918ef2b15cd28bbffa9a772132d22a519ced3dd",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-case.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/test-case.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-case.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/test-case.stdout.txt",
+          "sha256": "c385dde3bc40a311e32ab5e0f90bf3487d0c9e7773ec51f3729a590afe827413",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-owned.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/test-owned.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-owned.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/test-owned.stdout.txt",
+          "sha256": "7aab08af3509ef966bf107294fa1ad6a3c396ffb11ea00deabe643f72a17fea7",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-party_counter.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/test-party_counter.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-party_counter.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/test-party_counter.stdout.txt",
+          "sha256": "408cd5c2d980480a440baf7fc062d0f4ab5c0b4649f07c5241313560e92c4df7",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-registry.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/test-registry.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-registry.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/test-registry.stdout.txt",
+          "sha256": "283eb911878f41b31b59d9fb412903072c1003454253f1f6c14f23c7fc7b80f2",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-rules.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/test-rules.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/test-rules.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/test-rules.stdout.txt",
+          "sha256": "80b4485814fa170a6be11eabba52a2e3e40c05aef28de01fc9a1aa2312d7cf30",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/unwrapped.json",
+          "source": "sui-ownership-models-lab/evidence/unwrapped.json",
+          "sha256": "ff15b2371f493fa4dadb0add22cbdd00b82e724523a275790164a99d28734146",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/wrapped-direct-update-rejected.stderr.txt",
+          "source": "sui-ownership-models-lab/evidence/wrapped-direct-update-rejected.stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/wrapped-direct-update-rejected.stdout.txt",
+          "source": "sui-ownership-models-lab/evidence/wrapped-direct-update-rejected.stdout.txt",
+          "sha256": "94700d1a9dfef7787a4bb0efad697d55bba2c9ec7a5ebc51176c7c027f5e402f",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/wrapped.json",
+          "source": "sui-ownership-models-lab/evidence/wrapped.json",
+          "sha256": "323ff7abb70aa167ce8dea6375fa92c9700ef18b86cd7fc687b7daf1cb2a3f2b",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/wrapped_child.json",
+          "source": "sui-ownership-models-lab/evidence/wrapped_child.json",
+          "sha256": "07ee86ecb27244674902276dc6558051208b78927f67fb93e7f79a8115f518ee",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/Move.toml",
+          "source": "sui-ownership-models-lab/move/Move.toml",
+          "sha256": "a1415b96fef7282570183570015278383799a4eaec3df0f3d5ef87563d959955",
+          "transformation": "none"
+        },
+        {
+          "file": "evidence/recorded/Move.lock",
+          "source": "sui-ownership-models-lab/move/Move.lock",
+          "sha256": "7db74e9d04ea8a9b9f1a8707317a141d7dc87526b3a265578f883e0037a821db",
+          "transformation": "none"
+        }
+      ],
+      "generated_files": [
+        "move/Move.toml.template",
+        "requirements.txt",
+        ".gitignore",
+        "README.md",
+        "evidence/verification.json",
+        "evidence/source-audit.json"
+      ],
+      "manifest_transformation": "The recorded local chain identifier is replaced by literal $CHAIN_ID in Move.toml.template. Generate a real manifest for each fresh network.",
+      "preservation_note": "Public JSON receipts and stdout/stderr captures are copied without modification. No .local, .private, wallet, keystore, node database, build binary, or Published.toml is copied. The earlier notebook-only lab remains in the parent directory as archived author reference.",
+      "evidence_limits": "Owner observations are individual native GetObject responses, not atomic snapshots or consensus proofs. Local tests, signed local execution, failed execution, input-owner rejection and client resolution failure are distinct claims. Multiple successful inflight party submissions do not prove parallel conflicting execution or a latency benchmark."
+    }
+  },
+  "excluded": [
+    ".private/",
+    ".local/",
+    ".tools/",
+    "move/build/",
+    "move/Published.toml",
+    "toolchain/withdrawal-dry-run-1.82.txt",
+    "toolchain/withdrawal-dry-run-1.83.txt"
   ],
-  "manifest_transformation": "The recorded local chain identifier is replaced by literal $CHAIN_ID in Move.toml.template. Generate a real manifest for each fresh network.",
-  "preservation_note": "Public JSON receipts and stdout/stderr captures are copied without modification. No .local, .private, wallet, keystore, node database, build binary, or Published.toml is copied. The earlier notebook-only lab remains in the parent directory as archived author reference.",
-  "evidence_limits": "Owner observations are individual native GetObject responses, not atomic snapshots or consensus proofs. Local tests, signed local execution, failed execution, input-owner rejection and client resolution failure are distinct claims. Multiple successful inflight party submissions do not prove parallel conflicting execution or a latency benchmark."
+  "root_owned_generated_command_map": "evidence/reader-commands.json is updated separately when the final Testnet draft is generated."
 }

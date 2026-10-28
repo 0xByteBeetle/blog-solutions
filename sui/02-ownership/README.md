@@ -1,6 +1,6 @@
 # Sui Part 2: choosing an object ownership model
 
-The current five-form article reference is in [models/](models/README.md), covering address-owned, shared, immutable, wrapped, and party objects with actual local evidence. Its [Substack draft](https://andreyobruchkov1996.substack.com/publish/post/222510085) contains all reader-facing material inline.
+The current five-form article reference is in [models/](models/README.md), covering address-owned, shared, immutable, wrapped, and party objects with actual public Testnet evidence and retained local Move tests. Its [Substack draft](https://andreyobruchkov1996.substack.com/publish/post/222510085) contains all reader-facing material inline.
 
 ## Archived notebook and capability investigation
 

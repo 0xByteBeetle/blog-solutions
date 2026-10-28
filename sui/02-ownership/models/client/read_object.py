@@ -16,7 +16,7 @@ parser.add_argument("label")
 args = parser.parse_args()
 if not args.label.isidentifier():
     parser.error("Use a simple label such as owned, shared, or wrapped_child")
-endpoint = os.environ.get("SUI_GRPC_ENDPOINT", "127.0.0.1:9000")
+endpoint = os.environ.get("SUI_GRPC_ENDPOINT", "fullnode.testnet.sui.io:443")
 host = endpoint.rsplit(":", 1)[0]
 channel = (
     grpc.insecure_channel(endpoint)

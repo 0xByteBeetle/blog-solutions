@@ -1,43 +1,44 @@
 {
   "date": "2026-10-28",
   "destination": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
-  "state": "unpublished draft, saved and reloaded in Chrome and opened in the in-app browser",
+  "state": "unpublished draft saved and reloaded in Chrome, then reloaded in the in-app browser",
+  "network": "Sui Testnet",
+  "cli": "sui 1.83.0-16d2dc1e05ed",
+  "local_move_tests_passed": 7,
+  "successful_testnet_executions": 20,
+  "persistent_failed_testnet_executions": 2,
+  "input_owner_rejections": 3,
+  "wrapped_lookup_rejections": 2,
   "main_sections": 9,
-  "native_code_blocks": 84,
+  "native_code_blocks": 90,
   "legacy_code_blocks": 0,
   "code_text_exact": true,
   "missing_authored_paragraphs": 0,
   "ordinary_quoted_introduction": true,
   "divider_after_introduction": true,
-  "real_screenshots": 3,
-  "images_have_alt_text": true,
-  "move_tests_passed": 7,
-  "network": "fresh disposable localnet",
-  "model_evidence": "../models/evidence/verification.json",
+  "real_testnet_screenshots": 3,
+  "images_loaded_with_alt_text": true,
+  "explorer_links": 20,
+  "saved_body_sha256": "fbb2738e1c3f381b3c1278993a250dd13c47fcca69adc2b75e87dd362663c621",
+  "evidence": "../models/evidence/testnet/testnet-validation.json",
   "reader_commands": "../models/evidence/reader-commands.json",
-  "saved_body_sha256": "58b9b0fcdc399110089dace55c15299d76892bf87cd61139c420b5808c1311c8",
-  "source_checks": "Five Move modules and two Python files match the printed native source blocks",
-  "review": "Independent ownership/capability and wrapped/party reviews found no substantive corrections",
-  "language_notes": "Python and shell selected explicitly. Move has no native highlighter. Plain Text was selected, but Substack returns some Plain Text blocks as Auto-detect after reload and infers Rust on one Move source. Text is unchanged.",
-  "capture_notes": "Actual grpcui v1.5.4 responses from the running local node. The Case screenshot explicitly requests historical version 13 from this run. No terminal recreation or generated images.",
+  "capture_notes": "Shared and party screenshots show actual native RPC responses from fullnode.testnet.sui.io:443. Suiscan Case screenshot was captured at version 5 before the update and unpack transactions. No local-chain screenshot remains in this draft.",
+  "language_notes": "All Python and Bash selections checked after reload. Move has no supported dedicated highlighter. Plain Text was selected, but Substack returns some such blocks as Auto-detect after reload. Text stays exact.",
   "images": [
     {
-      "alt": "Native Sui GetObject response for the shared registry showing current version 10, SHARED start version 7, Alice in the application admin field, and entries 2.",
-      "complete": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!8Gdi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4121519-6632-4205-bcf7-5b06e3283ca9_1000x365.png",
-      "width": 1038
+      "alt": "Native public Testnet registry response showing SHARED ownership with start version 1 and current version 4, plus Alice as application admin and entries 2.",
+      "loaded": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!a-WN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F52b91c57-59db-4837-8316-b4947782e747_1050x455.png"
     },
     {
-      "alt": "Native Sui GetObject response for Case version 13 showing the original notebook ID nested inside the case with value 11.",
-      "complete": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!TgaZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3d18e98d-53fe-461d-92ae-d805dbbef8eb_1000x350.png",
-      "width": 1038
+      "alt": "Suiscan Testnet page captured before unpacking: Case version 5 is owned by Bob and contains the original notebook ID with value 11 in its Fields view.",
+      "loaded": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!syPb!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcbf7b163-37e0-4d25-a61e-3c67970bbb2e_1340x1000.png"
     },
     {
-      "alt": "Native Sui GetObject response for the party counter showing current version 13, owner kind CONSENSUS_ADDRESS, Alice as owner, start version 10, and value 2.",
-      "complete": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!89fa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2a46d6cf-52e3-46c3-8779-3bfd133e9bd7_1000x365.png",
-      "width": 1038
+      "alt": "Native public Testnet response for the party counter, showing CONSENSUS_ADDRESS ownership by Alice, start version 1, current version 4, and value 2 after both updates.",
+      "loaded": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!JA4d!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F465e2233-a466-4cf9-a962-559781c5e60a_1050x455.png"
     }
   ]
 }

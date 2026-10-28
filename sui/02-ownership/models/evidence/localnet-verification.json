@@ -1,0 +1,88 @@
+{
+  "status": "passed",
+  "scope": "Read-only audit of the ordered captured lab. Historical wrapped state was not queried again after unwrapping.",
+  "checks": {
+    "all_success_receipts": "13 receipt statuses checked",
+    "state_relationships": "All five owner/containment states match their sources and observed results",
+    "party_inputs": "Both successful calls use the same consensus start reference and distinct gas coins; counter final value 2",
+    "inspector_stdout": "All eight successful saved observations exactly match source rendering of their full JSON; wrapped_child saves NOT_FOUND with exit 1",
+    "failed_execution_receipts": "Both failed executions fetched by digest; registry MoveAbort0 and immutable InvalidObjectByMutRef confirmed"
+  },
+  "owner_states": {
+    "owned": {
+      "object_id": "0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451",
+      "object_version": "7",
+      "owner": {
+        "kind": "ADDRESS",
+        "address": "0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05"
+      }
+    },
+    "shared": {
+      "object_id": "0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082",
+      "object_version": "10",
+      "owner": {
+        "kind": "SHARED",
+        "version": "7"
+      }
+    },
+    "immutable": {
+      "object_id": "0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5",
+      "object_version": "9",
+      "owner": {
+        "kind": "IMMUTABLE"
+      }
+    },
+    "wrapped": {
+      "object_id": "0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d",
+      "object_version": "13",
+      "owner": {
+        "kind": "ADDRESS",
+        "address": "0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05"
+      }
+    },
+    "party": {
+      "object_id": "0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217",
+      "object_version": "13",
+      "owner": {
+        "kind": "CONSENSUS_ADDRESS",
+        "address": "0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520",
+        "version": "10"
+      }
+    }
+  },
+  "failure_boundaries": {
+    "owned-alice-rejected": "Full-node ordinary input owner check, before Move",
+    "owned-bob-rejected": "Full-node ordinary input owner check for the capability, before Move",
+    "registry-bob-reset-rejected": {
+      "stage": "Move execution abort code 0 in registry::reset",
+      "digest": "2oAZXBFPPJzZ7Af3MgrM9qMoAvAsyiU9Ua9dWLHyqpb5",
+      "receipt_lookup": "Persistent failed transaction confirmed in evidence/recorded/registry-failed-receipt.json",
+      "effect_status": {
+        "status": "failure",
+        "error": "MoveAbort(MoveLocation { module: ModuleId { address: 752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce, name: Identifier(\"registry\") }, function: 2, instruction: 11, function_name: Some(\"reset\") }, 0) in command 0"
+      }
+    },
+    "rules-bob-mutation-rejected": {
+      "stage": "Execution-time Move call argument rejection: InvalidObjectByMutRef",
+      "digest": "31447BLoJhfRcJfQAAooc8BL4bBnqmZiLX1LEdPosUk6",
+      "receipt_lookup": "Persistent failed transaction confirmed in evidence/recorded/rules-failed-receipt.json",
+      "effect_status": {
+        "status": "failure",
+        "error": "CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0"
+      }
+    },
+    "read-wrapped_child": "Native GetObject returned NOT_FOUND while notebook was nested in Case",
+    "wrapped-direct-update-rejected": "Client/RPC object resolution failed before signed execution; no committed failed call is established",
+    "party-bob-rejected": "Observed full-node input owner check, before Move"
+  },
+  "interpretation_notes": [
+    "Shared registry admin is a Move field, distinct from its SHARED runtime owner form.",
+    "The existing immutable object can be supplied by Bob as &Rules, but not as &mut Rules.",
+    "The Case is ADDRESS-owned. The nested Notebook is not independently live while wrapped; its ID remains in the Case value and is restored on unwrap.",
+    "case-pack.effects.wrapped identifies the notebook. The CLI objectChanges projection labels that transition deleted; do not interpret that projection as permanent UID destruction.",
+    "Party RPC owner.kind CONSENSUS_ADDRESS stays restricted to Alice. CLI objectType sharedObject is a consensus input representation, not a change of ownership to SHARED.",
+    "party.owner.version 10 is start metadata, distinct from party.version13. Both updates supplied initialSharedVersion10.",
+    "Concurrent successful submissions demonstrate the chosen input coordination, not parallel execution of writes or a latency benchmark."
+  ],
+  "reader_sha256": "a84d8ebd40289082ed88628a38d8c00948cb61f696d03b55c4279bc675073465"
+}

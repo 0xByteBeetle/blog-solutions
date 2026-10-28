@@ -13,5 +13,6 @@ move/Published.toml
 evidence/*.json
 evidence/*.txt
 !evidence/verification.json
+!evidence/localnet-verification.json
 !evidence/reader-commands.json
 !evidence/source-audit.json

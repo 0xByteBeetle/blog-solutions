@@ -1,6 +1,3 @@
 [package]
 name = "sui_ownership"
 edition = "2024"
-
-[environments]
-localnet = "$CHAIN_ID"

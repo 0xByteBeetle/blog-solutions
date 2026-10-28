@@ -1,0 +1,27 @@
+{
+  "object": {
+    "bcs": {
+      "name": "Object",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwpzdWlfc3lzdGVtDlN1aVN5c3RlbVN0YXRlAADOjMo/AAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQIAAAAAAAAAAgEAAAAAAAAAIF4FhBXfnGxgnAKTfLQXDoKB/6E8VUw/ux3bBDCVLp3X8OoVAAAAAAA="
+    },
+    "object_id": "0x0000000000000000000000000000000000000000000000000000000000000005",
+    "version": "1070238926",
+    "digest": "7uzoSd9CX5bePJME93yTnLcq9FPWhuRTZy9QfLpre4er",
+    "owner": {
+      "kind": "SHARED",
+      "version": "1"
+    },
+    "object_type": "0x0000000000000000000000000000000000000000000000000000000000000003::sui_system::SuiSystemState",
+    "has_public_transfer": false,
+    "contents": {
+      "name": "0x0000000000000000000000000000000000000000000000000000000000000003::sui_system::SuiSystemState",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUCAAAAAAAAAA=="
+    },
+    "previous_transaction": "7L2CiJFSfNQj7vTfcjGcqJGnkExeromxDHjTUSyxeonv",
+    "storage_rebate": "1436400",
+    "json": {
+      "version": "2",
+      "id": "0x0000000000000000000000000000000000000000000000000000000000000005"
+    }
+  }
+}
