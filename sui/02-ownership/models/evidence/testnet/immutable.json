@@ -2,25 +2,25 @@
   "object": {
     "bcs": {
       "name": "Object",
-      "value": "AABf21q7ereX/t0RR2ijEbTjHjRDBV8r3T0laYrbT70pDwVydWxlcwVSdWxlcwABAQAAAAAAAAAo0fQabYKHlzT+VE5hYw6Cz5lsTbDzWVSvj0V31G88nGIKAAAAAAAAAAMgItvV4a1dCmtMHLxhxkf4jXZwBjCxu1/HWsQE/oMinQVQSxQAAAAAAA=="
+      "value": "AAAgqMYB/7tFEj7+PWXpYfC6WrBSgnjI/t80Eniws+GkvwVydWxlcwVSdWxlcwABAQAAAAAAAAAo4KPwIJCOQoe8B5ntHA2vY56XrbLRgZRRdldFGYclIl4KAAAAAAAAAAMgtbR3cs77DQKlcxIgo2Vde28cU2DtMJHCK/tK2fnGTotQSxQAAAAAAA=="
     },
-    "object_id": "0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62",
+    "object_id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e",
     "version": "1",
-    "digest": "CGkQL14b6KfYR9H8Bq7TSXroC82v1PyvMNVpcZscjeRh",
+    "digest": "6iUgPU9db9ytKQUKDkAB7aB38qJjtRz3t8nYVuc5H9E6",
     "owner": {
       "kind": "IMMUTABLE"
     },
-    "object_type": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::rules::Rules",
+    "object_type": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules",
     "has_public_transfer": true,
     "contents": {
-      "name": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::rules::Rules",
-      "value": "0fQabYKHlzT+VE5hYw6Cz5lsTbDzWVSvj0V31G88nGIKAAAAAAAAAA=="
+      "name": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules",
+      "value": "4KPwIJCOQoe8B5ntHA2vY56XrbLRgZRRdldFGYclIl4KAAAAAAAAAA=="
     },
-    "previous_transaction": "3M5HYrk6LiTCmTsyJf7MPtMRvjR89C3Fr2CsGBcC9uJC",
+    "previous_transaction": "DEJQ8nhJd7zBwC2kxWAc44Rc6UhkJctsA64eEF2NVQzN",
     "storage_rebate": "1330000",
     "json": {
       "limit": "10",
-      "id": "0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62"
+      "id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e"
     }
   }
 }

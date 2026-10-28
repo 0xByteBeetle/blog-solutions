@@ -1,11 +1,11 @@
-Object ID: 0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff
+Object ID: 0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c
 Version: 5
-Type: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::case::Case
+Type: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::case::Case
 Owner: {"address": "0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0", "kind": "ADDRESS"}
 Move value: {
-  "id": "0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff",
+  "id": "0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c",
   "notebook": {
-    "id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+    "id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
     "value": "11"
   }
 }

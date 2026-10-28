@@ -1,0 +1,133 @@
+{
+  "digest": "BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP",
+  "transaction": {
+    "data": {
+      "messageVersion": "v1",
+      "transaction": {
+        "kind": "ProgrammableTransaction",
+        "inputs": [
+          {
+            "type": "object",
+            "objectType": "sharedObject",
+            "objectId": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+            "initialSharedVersion": "1",
+            "mutable": true
+          }
+        ],
+        "transactions": [
+          {
+            "MoveCall": {
+              "package": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f",
+              "module": "registry",
+              "function": "add_entry",
+              "arguments": [
+                {
+                  "Input": 0
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "gasData": {
+        "payment": [],
+        "owner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "price": "1000",
+        "budget": "50000000"
+      }
+    },
+    "txSignatures": [
+      "AP5QKyNNWpiZTcxPTzhPBRahke8v6XHNtoo7km9cKoo+ke5melvX4ypJ6ViiO3mbD2vlKUObO3XvySKsC1nwIgQ15IldYhfxcg/P0lryPVeYWVoETEnVG0TjQK/YNwCQlQ=="
+    ]
+  },
+  "effects": {
+    "messageVersion": "v1",
+    "status": {
+      "status": "success"
+    },
+    "executedEpoch": "1266",
+    "gasUsed": {
+      "computationCost": "1000000",
+      "storageCost": "1618800",
+      "storageRebate": "1618638",
+      "nonRefundableStorageFee": "162"
+    },
+    "modifiedAtVersions": [
+      {
+        "objectId": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+        "sequenceNumber": "1"
+      }
+    ],
+    "sharedObjects": [
+      {
+        "objectId": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+        "version": 1,
+        "digest": "DcXCZkqY4sY46VidAu1Ss3kNBzPMMUEniuHUYkTYEkTS"
+      }
+    ],
+    "transactionDigest": "BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP",
+    "mutated": [
+      {
+        "owner": {
+          "Shared": {
+            "initial_shared_version": 1
+          }
+        },
+        "reference": {
+          "objectId": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+          "version": 2,
+          "digest": "FJxUxPU6cCLzkrpVPyWsenTatphrnPjTCbBdwoo7H61n"
+        }
+      }
+    ],
+    "accumulatorEvents": [
+      {
+        "accumulatorObj": "0xf5c8fcdf82d93e49a04558fafd900583a13e93cf124b3a910d992bf14ac0ca58",
+        "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "ty": "0x2::balance::Balance<0x2::sui::SUI>",
+        "operation": "split",
+        "value": {
+          "integer": 1000162
+        }
+      }
+    ],
+    "gasObject": {
+      "owner": {
+        "AddressOwner": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "reference": {
+        "objectId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0,
+        "digest": "11111111111111111111111111111111"
+      }
+    }
+  },
+  "objectChanges": [
+    {
+      "type": "mutated",
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 1
+        }
+      },
+      "objectType": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::Registry",
+      "objectId": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+      "version": "2",
+      "previousVersion": "1",
+      "digest": "FJxUxPU6cCLzkrpVPyWsenTatphrnPjTCbBdwoo7H61n"
+    }
+  ],
+  "balanceChanges": [
+    {
+      "owner": {
+        "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      },
+      "coinType": "0x2::sui::SUI",
+      "amount": "-1000162"
+    }
+  ],
+  "timestampMs": "1793212228437",
+  "checkpoint": "400248535"
+}

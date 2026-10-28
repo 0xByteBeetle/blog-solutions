@@ -1,9 +1,9 @@
-Object ID: 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59
+Object ID: 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050
 Version: 7
-Type: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook
+Type: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook
 Owner: {"address": "0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0", "kind": "ADDRESS"}
 Move value: {
-  "id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+  "id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
   "value": "12"
 }
 Saved: evidence/unwrapped.json

@@ -1,0 +1,9 @@
+Object ID: 0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86
+Version: 4
+Type: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter
+Owner: {"address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497", "kind": "CONSENSUS_ADDRESS", "version": "1"}
+Move value: {
+  "id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
+  "value": "2"
+}
+Saved: evidence/party.json

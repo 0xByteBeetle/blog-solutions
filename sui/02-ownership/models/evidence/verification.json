@@ -4,13 +4,14 @@
   "network": "public Sui Testnet",
   "chain_id": "69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
   "cli": "sui 1.83.0-16d2dc1e05ed",
-  "scope": "Offline checks of actual committed Testnet receipts, captured native gRPC observations, local Move tests, and rejection diagnostics. No transactions replayed by this integration.",
-  "successful_committed_receipts": 20,
+  "scope": "Offline checks of fresh public Testnet receipts, captured native gRPC observations, local Move tests, and rejection diagnostics. No transactions replayed by this repository integration.",
+  "successful_committed_receipts": 17,
   "executed_failed_receipts": 2,
   "local_move_tests_passed": 7,
+  "automatic_gas": "All 17 successful and two committed failed executions have an empty gasData.payment list. No gas coin materialization or splitting is used by the current walkthrough.",
   "owner_states": {
     "owned_before": {
-      "object_id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+      "object_id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
       "object_version": "2",
       "owner": {
         "kind": "ADDRESS",
@@ -18,7 +19,7 @@
       }
     },
     "owned": {
-      "object_id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+      "object_id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
       "object_version": "4",
       "owner": {
         "kind": "ADDRESS",
@@ -26,7 +27,7 @@
       }
     },
     "capability": {
-      "object_id": "0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
+      "object_id": "0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293",
       "object_version": "4",
       "owner": {
         "kind": "ADDRESS",
@@ -34,7 +35,7 @@
       }
     },
     "shared": {
-      "object_id": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+      "object_id": "0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
       "object_version": "4",
       "owner": {
         "kind": "SHARED",
@@ -42,14 +43,14 @@
       }
     },
     "immutable": {
-      "object_id": "0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62",
+      "object_id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e",
       "object_version": "1",
       "owner": {
         "kind": "IMMUTABLE"
       }
     },
     "wrapped": {
-      "object_id": "0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff",
+      "object_id": "0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c",
       "object_version": "5",
       "owner": {
         "kind": "ADDRESS",
@@ -57,7 +58,7 @@
       }
     },
     "unwrapped": {
-      "object_id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+      "object_id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
       "object_version": "7",
       "owner": {
         "kind": "ADDRESS",
@@ -65,8 +66,8 @@
       }
     },
     "party": {
-      "object_id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
-      "object_version": "4",
+      "object_id": "0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6",
+      "object_version": "3",
       "owner": {
         "kind": "CONSENSUS_ADDRESS",
         "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
@@ -75,230 +76,145 @@
     }
   },
   "transactions": {
-    "alice-materialize-gas": {
-      "digest": "GDy73tszN3smoGoPWoLxXxhofj81PuwiDs9cS1sYEepb",
-      "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/GDy73tszN3smoGoPWoLxXxhofj81PuwiDs9cS1sYEepb"
-    },
-    "bob-materialize-gas": {
-      "digest": "CE9R3UzajKQQDb8Ej9hipcewsUtz3195zvgqModBSLpU",
-      "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/CE9R3UzajKQQDb8Ej9hipcewsUtz3195zvgqModBSLpU"
-    },
     "publish": {
-      "digest": "9ztdJjZ7mifDspETYXPN8G85jVG9C8Z5EMavEyaqa2MN",
+      "digest": "9hLA4w6XbkqkAwJt6XX1uafsDqu59BXDtYMinEfRE4T3",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/9ztdJjZ7mifDspETYXPN8G85jVG9C8Z5EMavEyaqa2MN"
+      "explorer": "https://suiscan.xyz/testnet/tx/9hLA4w6XbkqkAwJt6XX1uafsDqu59BXDtYMinEfRE4T3"
     },
     "owned-create": {
-      "digest": "8DPSi8L4MK4Jo4ydwvm5iUAkgVMUZP5HvZgn1fEv6m8E",
+      "digest": "J6hfBFwNLd2HZQtx3ASX2ys7vBY1iHsJvGcwDdCRqeb2",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/8DPSi8L4MK4Jo4ydwvm5iUAkgVMUZP5HvZgn1fEv6m8E"
+      "explorer": "https://suiscan.xyz/testnet/tx/J6hfBFwNLd2HZQtx3ASX2ys7vBY1iHsJvGcwDdCRqeb2"
     },
     "owned-alice-update": {
-      "digest": "4c4RHDFWZUySiCExUErEAN7CFrQyuzXfbeQ4WeFyRfkp",
+      "digest": "HKjgjS8DsgXMfRhJHPrngLUKi5tarS3Nuw31gxL6f56z",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/4c4RHDFWZUySiCExUErEAN7CFrQyuzXfbeQ4WeFyRfkp"
+      "explorer": "https://suiscan.xyz/testnet/tx/HKjgjS8DsgXMfRhJHPrngLUKi5tarS3Nuw31gxL6f56z"
     },
     "owned-transfer": {
-      "digest": "Bip94cy5XY9GzbDVwXt21Rs6aPzvQ519GM87E7i2WZPe",
+      "digest": "CDm9AcLC2KsC6WYRGahNATWHB3Pa2gZHvMzaxvSFukov",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/Bip94cy5XY9GzbDVwXt21Rs6aPzvQ519GM87E7i2WZPe"
+      "explorer": "https://suiscan.xyz/testnet/tx/CDm9AcLC2KsC6WYRGahNATWHB3Pa2gZHvMzaxvSFukov"
     },
     "cap-transfer": {
-      "digest": "7QnRHaRni4swxPs33GQs29ztj1dHtK5PAu7gDEt4Bmde",
+      "digest": "7CVpmyQuHZCfboyZ7giKUJjn6YkrQgxHUfmhmhZuiNZ8",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/7QnRHaRni4swxPs33GQs29ztj1dHtK5PAu7gDEt4Bmde"
+      "explorer": "https://suiscan.xyz/testnet/tx/7CVpmyQuHZCfboyZ7giKUJjn6YkrQgxHUfmhmhZuiNZ8"
     },
     "owned-bob-update": {
-      "digest": "EmxXD3avUTMudWwpdKDn7tdfP7ETXcw2QVmrkczAtzhM",
+      "digest": "9vN7rMVaBUcNyzsdu22p5YZ9Xe4bQdX7JmTY6avoKeej",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/EmxXD3avUTMudWwpdKDn7tdfP7ETXcw2QVmrkczAtzhM"
+      "explorer": "https://suiscan.xyz/testnet/tx/9vN7rMVaBUcNyzsdu22p5YZ9Xe4bQdX7JmTY6avoKeej"
     },
     "registry-create": {
-      "digest": "35zWTXvKhVQCrvyerQkcZBqex7vyt728qcS2Qv9UyBfH",
+      "digest": "8mUEBoL8rAbcbcM3CxCWwE8SwTftA6XwsCUsMzU6tk5k",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/35zWTXvKhVQCrvyerQkcZBqex7vyt728qcS2Qv9UyBfH"
+      "explorer": "https://suiscan.xyz/testnet/tx/8mUEBoL8rAbcbcM3CxCWwE8SwTftA6XwsCUsMzU6tk5k"
     },
     "registry-alice-add": {
-      "digest": "BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP",
+      "digest": "3iMSEAacuQRDKzY97tDS6KdAgDCXhkMzxroG6ADYbL7U",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP"
+      "explorer": "https://suiscan.xyz/testnet/tx/3iMSEAacuQRDKzY97tDS6KdAgDCXhkMzxroG6ADYbL7U"
     },
     "registry-bob-add": {
-      "digest": "9NkcvwHHSnt1A3FDYRwsEqbeZrWSy6aygt7uCMDGi5r4",
+      "digest": "6o1czPoWBDJbxLX5TUi7TR3STHD4ai77CzR8qndH6N1o",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/9NkcvwHHSnt1A3FDYRwsEqbeZrWSy6aygt7uCMDGi5r4"
+      "explorer": "https://suiscan.xyz/testnet/tx/6o1czPoWBDJbxLX5TUi7TR3STHD4ai77CzR8qndH6N1o"
     },
     "rules-create": {
-      "digest": "3M5HYrk6LiTCmTsyJf7MPtMRvjR89C3Fr2CsGBcC9uJC",
+      "digest": "DEJQ8nhJd7zBwC2kxWAc44Rc6UhkJctsA64eEF2NVQzN",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/3M5HYrk6LiTCmTsyJf7MPtMRvjR89C3Fr2CsGBcC9uJC"
+      "explorer": "https://suiscan.xyz/testnet/tx/DEJQ8nhJd7zBwC2kxWAc44Rc6UhkJctsA64eEF2NVQzN"
     },
     "rules-bob-read": {
-      "digest": "A3uwACCX174eivECamMorGxFH2RZnNEmAJqm38CXmkP1",
+      "digest": "5sV1tfAofeomH9CtHbUt7yEQ52gyPJopH5i23oDb7qzp",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/A3uwACCX174eivECamMorGxFH2RZnNEmAJqm38CXmkP1"
+      "explorer": "https://suiscan.xyz/testnet/tx/5sV1tfAofeomH9CtHbUt7yEQ52gyPJopH5i23oDb7qzp"
     },
     "case-pack": {
-      "digest": "GqFQmdBL9zpHvHHGQ4bdsHiUVZNMdv4hr9wybLwpHf9A",
+      "digest": "orimpPkhLh3TN9JiH2bnDL9bwjNwSKdbCuw5TfC6xDk",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/GqFQmdBL9zpHvHHGQ4bdsHiUVZNMdv4hr9wybLwpHf9A"
+      "explorer": "https://suiscan.xyz/testnet/tx/orimpPkhLh3TN9JiH2bnDL9bwjNwSKdbCuw5TfC6xDk"
     },
     "case-update-inside": {
-      "digest": "8QRF7oSCUmY8CA5wbdtBYkPmSRKwj7skkP81qq91Q3TF",
+      "digest": "5Pm3C7o8hRVmhcFtTVA6nXA42tE6w3fEfYRKnyRA2uo9",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/8QRF7oSCUmY8CA5wbdtBYkPmSRKwj7skkP81qq91Q3TF"
+      "explorer": "https://suiscan.xyz/testnet/tx/5Pm3C7o8hRVmhcFtTVA6nXA42tE6w3fEfYRKnyRA2uo9"
     },
     "case-unpack": {
-      "digest": "CVdaroEYLsTi5c8ii6zFBBNUAUy3XEXTejCR7nGMxAV2",
+      "digest": "4zZpHJuMkrAmJ7NckTpo8BPsAMwjYax3RyhTXGDnjycB",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/CVdaroEYLsTi5c8ii6zFBBNUAUy3XEXTejCR7nGMxAV2"
+      "explorer": "https://suiscan.xyz/testnet/tx/4zZpHJuMkrAmJ7NckTpo8BPsAMwjYax3RyhTXGDnjycB"
     },
     "party-create": {
-      "digest": "3MDiE3KAYdhaYjsAvTf5EEHRDkRQBGJgcn4YeEHrTc2q",
+      "digest": "3FTXCAntLZNozkfGEWcKZxbDkxJBpKQuvFoz1LQGqMjj",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/3MDiE3KAYdhaYjsAvTf5EEHRDkRQBGJgcn4YeEHrTc2q"
-    },
-    "prepare-party-gas": {
-      "digest": "oezyKHjY1Lcyt9SPfGbBKCPmwvaVtHKC3Aq3g2yGwEF",
-      "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/oezyKHjY1Lcyt9SPfGbBKCPmwvaVtHKC3Aq3g2yGwEF"
+      "explorer": "https://suiscan.xyz/testnet/tx/3FTXCAntLZNozkfGEWcKZxbDkxJBpKQuvFoz1LQGqMjj"
     },
     "party-update-a": {
-      "digest": "6AhankWo3fc9ZEC5auK3TsMPCmAyH1QpVHHBQEEcsU6g",
+      "digest": "HcdjXwXxTPW9zDA7sfto55pEWJCY9ko5RbBYzLfQyE5j",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/6AhankWo3fc9ZEC5auK3TsMPCmAyH1QpVHHBQEEcsU6g"
+      "explorer": "https://suiscan.xyz/testnet/tx/HcdjXwXxTPW9zDA7sfto55pEWJCY9ko5RbBYzLfQyE5j"
     },
     "party-update-b": {
-      "digest": "EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC",
+      "digest": "5MUYYRfWP6KkG4XD47HZGrKkSPEh4XqZqyebm25Mk9Le",
       "status": "success",
-      "explorer": "https://suiscan.xyz/testnet/tx/EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC"
+      "explorer": "https://suiscan.xyz/testnet/tx/5MUYYRfWP6KkG4XD47HZGrKkSPEh4XqZqyebm25Mk9Le"
     },
     "registry-failed-receipt": {
-      "digest": "B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa",
+      "digest": "GSz1wpk89aW1Hqgt4g1y2UwNGXPWoVD2muDLGdnj8gUU",
       "status": "failure",
-      "explorer": "https://suiscan.xyz/testnet/tx/B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa"
+      "explorer": "https://suiscan.xyz/testnet/tx/GSz1wpk89aW1Hqgt4g1y2UwNGXPWoVD2muDLGdnj8gUU"
     },
     "rules-failed-receipt": {
-      "digest": "G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC",
+      "digest": "HQoijmMqg6CqtxE76sy63dng7RAawte77UDs5kj8MN3u",
       "status": "failure",
-      "explorer": "https://suiscan.xyz/testnet/tx/G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC"
+      "explorer": "https://suiscan.xyz/testnet/tx/HQoijmMqg6CqtxE76sy63dng7RAawte77UDs5kj8MN3u"
     }
   },
-  "checks": [
-    "alice-materialize-gas uses guarded Testnet",
-    "bob-materialize-gas uses guarded Testnet",
-    "publish uses guarded Testnet",
-    "owned-create uses guarded Testnet",
-    "owned-alice-update uses guarded Testnet",
-    "owned-transfer uses guarded Testnet",
-    "owned-alice-rejected uses guarded Testnet",
-    "owned-bob-rejected uses guarded Testnet",
-    "cap-transfer uses guarded Testnet",
-    "owned-bob-update uses guarded Testnet",
-    "registry-create uses guarded Testnet",
-    "registry-alice-add uses guarded Testnet",
-    "registry-bob-add uses guarded Testnet",
-    "registry-bob-reset-rejected uses guarded Testnet",
-    "rules-create uses guarded Testnet",
-    "rules-bob-read uses guarded Testnet",
-    "rules-bob-mutation-rejected uses guarded Testnet",
-    "case-pack uses guarded Testnet",
-    "wrapped-direct-update-rejected uses guarded Testnet",
-    "case-update-inside uses guarded Testnet",
-    "case-unpack uses guarded Testnet",
-    "party-create uses guarded Testnet",
-    "party-bob-rejected uses guarded Testnet",
-    "prepare-party-gas uses guarded Testnet",
-    "party-update-a uses guarded Testnet",
-    "party-update-b uses guarded Testnet",
-    "alice-materialize-gas committed success",
-    "bob-materialize-gas committed success",
-    "publish committed success",
-    "owned-create committed success",
-    "owned-alice-update committed success",
-    "owned-transfer committed success",
-    "cap-transfer committed success",
-    "owned-bob-update committed success",
-    "registry-create committed success",
-    "registry-alice-add committed success",
-    "registry-bob-add committed success",
-    "rules-create committed success",
-    "rules-bob-read committed success",
-    "case-pack committed success",
-    "case-update-inside committed success",
-    "case-unpack committed success",
-    "party-create committed success",
-    "prepare-party-gas committed success",
-    "party-update-a committed success",
-    "party-update-b committed success",
-    "Alice owns notebook value9 before handover",
-    "Bob owns notebook value11 after complete handover",
-    "Bob owns matching capability",
-    "Shared registry preserves admin and two accepted entries",
-    "Frozen rules remain immutable limit10",
-    "Address-owned Case contains same notebook at value11",
-    "Wrapped notebook independent native lookup NOT_FOUND",
-    "Unwrapped notebook original identity restored at value12",
-    "Restricted party counter Alice owner with value2",
-    "owned-alice-rejected fails owner admission before Move",
-    "owned-bob-rejected fails owner admission before Move",
-    "party-bob-rejected fails owner admission before Move",
-    "registry-failed-receipt persistent execution failure verified",
-    "rules-failed-receipt persistent execution failure verified",
-    "Partya uses Alice and separate intended gas",
-    "Partya supplies consensus start reference",
-    "Partya launched before batch wait",
-    "Partyb uses Alice and separate intended gas",
-    "Partyb supplies consensus start reference",
-    "Partyb launched before batch wait",
-    "Party gas coin identities are distinct",
-    "Local Move tests pass for owned",
-    "Local Move tests pass for registry",
-    "Local Move tests pass for rules",
-    "Local Move tests pass for case",
-    "Local Move tests pass for party_counter",
-    "Native inspector stdout matches JSON for owned_before",
-    "Native inspector stdout matches JSON for owned",
-    "Native inspector stdout matches JSON for capability",
-    "Native inspector stdout matches JSON for shared",
-    "Native inspector stdout matches JSON for immutable",
-    "Native inspector stdout matches JSON for wrapped",
-    "Native inspector stdout matches JSON for unwrapped",
-    "Native inspector stdout matches JSON for party"
-  ],
   "failure_boundaries": {
-    "owned-alice-rejected": "Input-owner check before Move. No committed failed transaction is established.",
-    "owned-bob-rejected": "Capability input-owner check before Move. No committed failed transaction is established.",
+    "owned-alice-rejected": "Input-owner check before Move, reported during automatic gas selection. No committed failed transaction is established.",
+    "owned-bob-rejected": "Capability input-owner check before Move, reported during automatic gas selection. No committed failed transaction is established.",
     "registry-bob-reset-rejected": {
       "stage": "Committed MoveAbort code0 in registry::reset",
-      "digest": "B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa",
+      "digest": "GSz1wpk89aW1Hqgt4g1y2UwNGXPWoVD2muDLGdnj8gUU",
       "receipt": "testnet/registry-failed-receipt.json"
     },
     "rules-bob-mutation-rejected": {
       "stage": "Committed execution argument error InvalidObjectByMutRef",
-      "digest": "G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC",
+      "digest": "HQoijmMqg6CqtxE76sy63dng7RAawte77UDs5kj8MN3u",
       "receipt": "testnet/rules-failed-receipt.json"
     },
     "read-wrapped_child": "Native GetObject NOT_FOUND while notebook was nested inside Case.",
     "wrapped-direct-update-rejected": "Object resolution failed before execution. No committed failed transaction is established.",
-    "party-bob-rejected": "Input-owner check before Move. No committed failed transaction is established."
+    "party-bob-rejected": "Input-owner check before Move, reported during automatic gas selection. No committed failed transaction is established."
   },
   "interpretation_notes": [
     "The shared admin address is a Move field, distinct from runtime owner kind SHARED.",
     "The Case is address-owned. Wrapping is containment rather than an owner enum named WRAPPED.",
     "case-pack.effects.wrapped identifies the notebook. The CLI objectChanges deleted projection does not establish destruction of its UID.",
-    "Party current object version4 and consensus start version1 serve different roles. CLI sharedObject input representation does not give public shared access.",
-    "Both inflight party calls succeeded with distinct 0.1-SUI gas coins. Conflicting writes still have ordered execution. No latency or parallel-write benchmark is claimed.",
-    "Ordinary successful calls in this capture generally used address-balance gas. The setup materialized 0.5-SUI coins for explicit gas in deliberate rejection checks and to split distinct party gas inputs.",
-    "The commands manifest retains an earlier unsuccessful build attempt before the final successful build. The five recorded local test commands all pass."
+    "Party current object version3 and consensus start version1 serve different roles. CLI sharedObject input representation does not give public shared access.",
+    "The two inflight party calls succeeded with distinct transaction digests and automatic address-balance gas. Conflicting writes have ordered execution. No latency or parallel-write benchmark is claimed."
   ],
   "reader_sha256": "d4a56de0853195f2537dbbb45483f6d7bd6c99f14fe4dae58407572439abaaad",
-  "archive": "recorded/ and localnet-verification.json retain the previous localnet run, not current article evidence.",
+  "archives": {
+    "testnet-explicit-gas-archive": "Previous public Testnet run with explicit gas coins. Its original provenance and verification are preserved beside it.",
+    "recorded": "Previous localnet run with localnet-verification.json."
+  },
   "independent_validation": {
     "file": "testnet/testnet-validation.json",
     "status": "passed",
-    "checks": 126
+    "checks": 109,
+    "portable_recheck": "scripts/validate_evidence.py"
+  },
+  "counts": {
+    "local_move_tests": 7,
+    "successful_signed_testnet_executions": 17,
+    "persistent_failed_executions": 2,
+    "input_owner_rejections": 3,
+    "wrapped_lookup_rejections": 2,
+    "successful_native_object_reads": 8,
+    "receipt_selector_cases": 7,
+    "checks": 109
   }
 }

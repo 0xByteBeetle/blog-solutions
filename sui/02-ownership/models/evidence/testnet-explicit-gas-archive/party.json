@@ -1,0 +1,28 @@
+{
+  "object": {
+    "bcs": {
+      "name": "Object",
+      "value": "AABf21q7ereX/t0RR2ijEbTjHjRDBV8r3T0laYrbT70pDw1wYXJ0eV9jb3VudGVyB0NvdW50ZXIAAQQAAAAAAAAAKGcavWnmL1hAS43pmmn4Ofu7R/vMVy7KXCNwV+sX+P6GAgAAAAAAAAAEAQAAAAAAAACfgFWbmWo3XDQamQaiwQ/IJVXD2cNkYQXePcAM6BRUlyDIeWniGSkGkznMb6b7nwqGh5roRXCFC/ewSo/ebQnk8zB0FQAAAAAA"
+    },
+    "object_id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
+    "version": "4",
+    "digest": "DVmVSFmRMmuiJaG5bg9akVdRutH2USKnpY75mscwQhU2",
+    "owner": {
+      "kind": "CONSENSUS_ADDRESS",
+      "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "version": "1"
+    },
+    "object_type": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter",
+    "has_public_transfer": true,
+    "contents": {
+      "name": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter",
+      "value": "Zxq9aeYvWEBLjemaafg5+7tH+8xXLspcI3BX6xf4/oYCAAAAAAAAAA=="
+    },
+    "previous_transaction": "EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC",
+    "storage_rebate": "1406000",
+    "json": {
+      "value": "2",
+      "id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86"
+    }
+  }
+}

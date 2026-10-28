@@ -1,0 +1,10 @@
+Object ID: 0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a
+Version: 4
+Type: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::Registry
+Owner: {"kind": "SHARED", "version": "1"}
+Move value: {
+  "admin": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+  "entries": "2",
+  "id": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a"
+}
+Saved: evidence/shared.json

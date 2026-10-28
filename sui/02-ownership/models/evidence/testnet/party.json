@@ -2,27 +2,27 @@
   "object": {
     "bcs": {
       "name": "Object",
-      "value": "AABf21q7ereX/t0RR2ijEbTjHjRDBV8r3T0laYrbT70pDw1wYXJ0eV9jb3VudGVyB0NvdW50ZXIAAQQAAAAAAAAAKGcavWnmL1hAS43pmmn4Ofu7R/vMVy7KXCNwV+sX+P6GAgAAAAAAAAAEAQAAAAAAAACfgFWbmWo3XDQamQaiwQ/IJVXD2cNkYQXePcAM6BRUlyDIeWniGSkGkznMb6b7nwqGh5roRXCFC/ewSo/ebQnk8zB0FQAAAAAA"
+      "value": "AAAgqMYB/7tFEj7+PWXpYfC6WrBSgnjI/t80Eniws+Gkvw1wYXJ0eV9jb3VudGVyB0NvdW50ZXIAAQMAAAAAAAAAKBBRzg+WqLTIM8/4DAVnCPFI+X2UqW3i74e+SQQb5fnWAgAAAAAAAAAEAQAAAAAAAACfgFWbmWo3XDQamQaiwQ/IJVXD2cNkYQXePcAM6BRUlyBArYH+bDwiAv7CVPCiM1t94rX68/q7aiMrtzr3UsWmSzB0FQAAAAAA"
     },
-    "object_id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
-    "version": "4",
-    "digest": "DVmVSFmRMmuiJaG5bg9akVdRutH2USKnpY75mscwQhU2",
+    "object_id": "0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6",
+    "version": "3",
+    "digest": "45mhUAgZG9krkzXQVW9ENKDhFFoymBRcDXwkQEhD1dzL",
     "owner": {
       "kind": "CONSENSUS_ADDRESS",
       "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
       "version": "1"
     },
-    "object_type": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter",
+    "object_type": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::party_counter::Counter",
     "has_public_transfer": true,
     "contents": {
-      "name": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter",
-      "value": "Zxq9aeYvWEBLjemaafg5+7tH+8xXLspcI3BX6xf4/oYCAAAAAAAAAA=="
+      "name": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::party_counter::Counter",
+      "value": "EFHOD5aotMgzz/gMBWcI8Uj5fZSpbeLvh75JBBvl+dYCAAAAAAAAAA=="
     },
-    "previous_transaction": "EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC",
+    "previous_transaction": "5MUYYRfWP6KkG4XD47HZGrKkSPEh4XqZqyebm25Mk9Le",
     "storage_rebate": "1406000",
     "json": {
-      "value": "2",
-      "id": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86"
+      "id": "0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6",
+      "value": "2"
     }
   }
 }

@@ -1,22 +1,20 @@
 {
-  "validated_at": "2026-10-28T18:36:31.730994+00:00",
+  "validated_at": "2026-10-28T23:03:16.480806+00:00",
   "status": "passed",
   "network": "Sui Testnet",
   "chain_id": "69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
   "cli": "sui 1.83.0-16d2dc1e05ed",
   "counts": {
     "local_move_tests": 7,
-    "successful_signed_testnet_executions": 20,
+    "successful_signed_testnet_executions": 17,
     "persistent_failed_executions": 2,
     "input_owner_rejections": 3,
     "wrapped_lookup_rejections": 2,
     "successful_native_object_reads": 8,
-    "receipt_selector_cases": 11,
-    "checks": 126
+    "receipt_selector_cases": 7,
+    "checks": 109
   },
   "positive_execution_labels": [
-    "alice-materialize-gas",
-    "bob-materialize-gas",
     "publish",
     "owned-create",
     "owned-alice-update",
@@ -32,7 +30,6 @@
     "case-update-inside",
     "case-unpack",
     "party-create",
-    "prepare-party-gas",
     "party-update-a",
     "party-update-b"
   ],
@@ -52,7 +49,7 @@
     "case_when_wrapped": "5",
     "unwrapped_notebook": "7",
     "party": {
-      "current": "4",
+      "current": "3",
       "start": "1"
     }
   },
@@ -62,43 +59,23 @@
       "passed": true
     },
     {
-      "check": "local_move_tests_owned",
+      "check": "local_tests_owned",
       "passed": true
     },
     {
-      "check": "local_move_tests_registry",
+      "check": "local_tests_registry",
       "passed": true
     },
     {
-      "check": "local_move_tests_rules",
+      "check": "local_tests_rules",
       "passed": true
     },
     {
-      "check": "local_move_tests_case",
+      "check": "local_tests_case",
       "passed": true
     },
     {
-      "check": "local_move_tests_party_counter",
-      "passed": true
-    },
-    {
-      "check": "resolved_manifest_retry",
-      "passed": true
-    },
-    {
-      "check": "testnet_guard_alice-materialize-gas",
-      "passed": true
-    },
-    {
-      "check": "successful_execution_alice-materialize-gas",
-      "passed": true
-    },
-    {
-      "check": "testnet_guard_bob-materialize-gas",
-      "passed": true
-    },
-    {
-      "check": "successful_execution_bob-materialize-gas",
+      "check": "local_tests_party_counter",
       "passed": true
     },
     {
@@ -110,11 +87,19 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_publish",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_owned-create",
       "passed": true
     },
     {
       "check": "successful_execution_owned-create",
+      "passed": true
+    },
+    {
+      "check": "automatic_gas_owned-create",
       "passed": true
     },
     {
@@ -126,6 +111,10 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_owned-alice-update",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_owned-transfer",
       "passed": true
     },
@@ -134,11 +123,7 @@
       "passed": true
     },
     {
-      "check": "testnet_guard_owned-alice-rejected",
-      "passed": true
-    },
-    {
-      "check": "testnet_guard_owned-bob-rejected",
+      "check": "automatic_gas_owned-transfer",
       "passed": true
     },
     {
@@ -150,11 +135,19 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_cap-transfer",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_owned-bob-update",
       "passed": true
     },
     {
       "check": "successful_execution_owned-bob-update",
+      "passed": true
+    },
+    {
+      "check": "automatic_gas_owned-bob-update",
       "passed": true
     },
     {
@@ -166,11 +159,19 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_registry-create",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_registry-alice-add",
       "passed": true
     },
     {
       "check": "successful_execution_registry-alice-add",
+      "passed": true
+    },
+    {
+      "check": "automatic_gas_registry-alice-add",
       "passed": true
     },
     {
@@ -182,7 +183,7 @@
       "passed": true
     },
     {
-      "check": "testnet_guard_registry-bob-reset-rejected",
+      "check": "automatic_gas_registry-bob-add",
       "passed": true
     },
     {
@@ -194,6 +195,10 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_rules-create",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_rules-bob-read",
       "passed": true
     },
@@ -202,7 +207,7 @@
       "passed": true
     },
     {
-      "check": "testnet_guard_rules-bob-mutation-rejected",
+      "check": "automatic_gas_rules-bob-read",
       "passed": true
     },
     {
@@ -214,7 +219,7 @@
       "passed": true
     },
     {
-      "check": "testnet_guard_wrapped-direct-update-rejected",
+      "check": "automatic_gas_case-pack",
       "passed": true
     },
     {
@@ -226,11 +231,19 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_case-update-inside",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_case-unpack",
       "passed": true
     },
     {
       "check": "successful_execution_case-unpack",
+      "passed": true
+    },
+    {
+      "check": "automatic_gas_case-unpack",
       "passed": true
     },
     {
@@ -242,15 +255,7 @@
       "passed": true
     },
     {
-      "check": "testnet_guard_party-bob-rejected",
-      "passed": true
-    },
-    {
-      "check": "testnet_guard_prepare-party-gas",
-      "passed": true
-    },
-    {
-      "check": "successful_execution_prepare-party-gas",
+      "check": "automatic_gas_party-create",
       "passed": true
     },
     {
@@ -262,6 +267,10 @@
       "passed": true
     },
     {
+      "check": "automatic_gas_party-update-a",
+      "passed": true
+    },
+    {
       "check": "testnet_guard_party-update-b",
       "passed": true
     },
@@ -270,43 +279,163 @@
       "passed": true
     },
     {
-      "check": "notebook_original_creation",
+      "check": "automatic_gas_party-update-b",
       "passed": true
     },
     {
-      "check": "owned_before_alice_9",
+      "check": "negative_testnet_guard_owned-alice-rejected",
       "passed": true
     },
     {
-      "check": "owned_after_bob_11",
+      "check": "expected_failure_owned-alice-rejected",
       "passed": true
     },
     {
-      "check": "capability_bob_bound_to_notebook",
+      "check": "negative_automatic_gas_owned-alice-rejected",
       "passed": true
     },
     {
-      "check": "shared_owner_and_application_admin",
+      "check": "negative_testnet_guard_owned-bob-rejected",
       "passed": true
     },
     {
-      "check": "shared_start_vs_current_versions",
-      "passed": true,
-      "detail": {
-        "current": "4",
-        "start": "1"
-      }
-    },
-    {
-      "check": "immutable_rules",
+      "check": "expected_failure_owned-bob-rejected",
       "passed": true
     },
     {
-      "check": "case_parent_owned_by_bob",
+      "check": "negative_automatic_gas_owned-bob-rejected",
       "passed": true
     },
     {
-      "check": "wrapped_uid_and_value_11",
+      "check": "negative_testnet_guard_registry-bob-reset-rejected",
+      "passed": true
+    },
+    {
+      "check": "expected_failure_registry-bob-reset-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_automatic_gas_registry-bob-reset-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_testnet_guard_rules-bob-mutation-rejected",
+      "passed": true
+    },
+    {
+      "check": "expected_failure_rules-bob-mutation-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_automatic_gas_rules-bob-mutation-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_testnet_guard_wrapped-direct-update-rejected",
+      "passed": true
+    },
+    {
+      "check": "expected_failure_wrapped-direct-update-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_automatic_gas_wrapped-direct-update-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_testnet_guard_party-bob-rejected",
+      "passed": true
+    },
+    {
+      "check": "expected_failure_party-bob-rejected",
+      "passed": true
+    },
+    {
+      "check": "negative_automatic_gas_party-bob-rejected",
+      "passed": true
+    },
+    {
+      "check": "owner_admission_owned-alice-rejected",
+      "passed": true
+    },
+    {
+      "check": "owner_admission_owned-bob-rejected",
+      "passed": true
+    },
+    {
+      "check": "owner_admission_party-bob-rejected",
+      "passed": true
+    },
+    {
+      "check": "committed_failure_registry-failed-receipt",
+      "passed": true
+    },
+    {
+      "check": "failed_execution_automatic_gas_registry-failed-receipt",
+      "passed": true
+    },
+    {
+      "check": "committed_failure_rules-failed-receipt",
+      "passed": true
+    },
+    {
+      "check": "failed_execution_automatic_gas_rules-failed-receipt",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_owned_before",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_owned",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_capability",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_shared",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_immutable",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_wrapped",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_unwrapped",
+      "passed": true
+    },
+    {
+      "check": "native_read_identity_party",
+      "passed": true
+    },
+    {
+      "check": "initial_owner_and_value",
+      "passed": true
+    },
+    {
+      "check": "transferred_owner_and_value",
+      "passed": true
+    },
+    {
+      "check": "capability_binding",
+      "passed": true
+    },
+    {
+      "check": "shared_state",
+      "passed": true
+    },
+    {
+      "check": "immutable_state",
+      "passed": true
+    },
+    {
+      "check": "wrapped_state",
       "passed": true
     },
     {
@@ -314,299 +443,52 @@
       "passed": true
     },
     {
-      "check": "wrapped_observation_precedes_unpack",
+      "check": "wrapped_direct_lookup_rejected",
       "passed": true
     },
     {
-      "check": "unwrapped_same_uid_bob_value_12",
+      "check": "unwrapped_identity_and_value",
       "passed": true
     },
     {
-      "check": "pack_effects_records_wrapped_notebook",
+      "check": "party_access_and_value",
       "passed": true
     },
     {
-      "check": "unpack_deletes_case",
+      "check": "party_distinct_digests",
       "passed": true
     },
     {
-      "check": "input_owner_boundary_owned-alice-rejected",
+      "check": "party_both_launched_before_wait",
       "passed": true
     },
     {
-      "check": "input_owner_boundary_owned-bob-rejected",
+      "check": "receipt_selector_package",
       "passed": true
     },
     {
-      "check": "input_owner_boundary_party-bob-rejected",
+      "check": "receipt_selector_::owned::Notebook",
       "passed": true
     },
     {
-      "check": "wrapped_direct_resolution_boundary",
+      "check": "receipt_selector_::owned::NotebookCap",
       "passed": true
     },
     {
-      "check": "persistent_failure_registry-failed-receipt",
+      "check": "receipt_selector_::registry::Registry",
       "passed": true
     },
     {
-      "check": "registry_reset_abort_zero",
+      "check": "receipt_selector_::rules::Rules",
       "passed": true
     },
     {
-      "check": "persistent_failure_rules-failed-receipt",
+      "check": "receipt_selector_::case::Case",
       "passed": true
     },
     {
-      "check": "immutable_argument_zero",
-      "passed": true
-    },
-    {
-      "check": "party_owner_alice_value_2",
-      "passed": true
-    },
-    {
-      "check": "party_start_vs_current_versions",
-      "passed": true,
-      "detail": {
-        "current": "4",
-        "start": "1"
-      }
-    },
-    {
-      "check": "party_input_party-update-a",
-      "passed": true
-    },
-    {
-      "check": "party_gas_party-update-a",
-      "passed": true
-    },
-    {
-      "check": "party_launch_flag_party-update-a",
-      "passed": true
-    },
-    {
-      "check": "party_input_party-update-b",
-      "passed": true
-    },
-    {
-      "check": "party_gas_party-update-b",
-      "passed": true
-    },
-    {
-      "check": "party_launch_flag_party-update-b",
-      "passed": true
-    },
-    {
-      "check": "party_distinct_gas",
-      "passed": true
-    },
-    {
-      "check": "both_processes_launched_before_results_collected",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_publish_package",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_owned-create_::owned::Notebook",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_owned-create_::owned::NotebookCap",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_registry-create_::registry::Registry",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_rules-create_::rules::Rules",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_case-pack_::case::Case",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_party-create_::party_counter::Counter",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_alice-materialize-gas_::coin::Coin<0x2::sui::SUI>",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_bob-materialize-gas_::coin::Coin<0x2::sui::SUI>",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_prepare-party-gas_::coin::Coin<0x2::sui::SUI>",
-      "passed": true
-    },
-    {
-      "check": "receipt_selector_prepare-party-gas_::coin::Coin<0x2::sui::SUI>",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_alice-materialize-gas",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_bob-materialize-gas",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_publish",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_owned-create",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_owned-alice-update",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_owned-transfer",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_cap-transfer",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_owned-bob-update",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_registry-create",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_registry-alice-add",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_registry-bob-add",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_rules-create",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_rules-bob-read",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_case-pack",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_case-update-inside",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_case-unpack",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_party-create",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_prepare-party-gas",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_party-update-a",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_party-update-b",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_registry-failed-receipt",
-      "passed": true
-    },
-    {
-      "check": "receipt_status_print_rules-failed-receipt",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_owned_before",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_owned",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_capability",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_shared",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_immutable",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_wrapped",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_unwrapped",
-      "passed": true
-    },
-    {
-      "check": "native_reader_print_party",
+      "check": "receipt_selector_::party_counter::Counter",
       "passed": true
     }
-  ],
-  "explorer_transactions": {
-    "alice-materialize-gas": "https://suiscan.xyz/testnet/tx/GDy73tszN3smoGoPWoLxXxhofj81PuwiDs9cS1sYEepb",
-    "bob-materialize-gas": "https://suiscan.xyz/testnet/tx/CE9R3UzajKQQDb8Ej9hipcewsUtz3195zvgqModBSLpU",
-    "publish": "https://suiscan.xyz/testnet/tx/9ztdJjZ7mifDspETYXPN8G85jVG9C8Z5EMavEyaqa2MN",
-    "owned-create": "https://suiscan.xyz/testnet/tx/8DPSi8L4MK4Jo4ydwvm5iUAkgVMUZP5HvZgn1fEv6m8E",
-    "owned-alice-update": "https://suiscan.xyz/testnet/tx/4c4RHDFWZUySiCExUErEAN7CFrQyuzXfbeQ4WeFyRfkp",
-    "owned-transfer": "https://suiscan.xyz/testnet/tx/Bip94cy5XY9GzbDVwXt21Rs6aPzvQ519GM87E7i2WZPe",
-    "cap-transfer": "https://suiscan.xyz/testnet/tx/7QnRHaRni4swxPs33GQs29ztj1dHtK5PAu7gDEt4Bmde",
-    "owned-bob-update": "https://suiscan.xyz/testnet/tx/EmxXD3avUTMudWwpdKDn7tdfP7ETXcw2QVmrkczAtzhM",
-    "registry-create": "https://suiscan.xyz/testnet/tx/35zWTXvKhVQCrvyerQkcZBqex7vyt728qcS2Qv9UyBfH",
-    "registry-alice-add": "https://suiscan.xyz/testnet/tx/BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP",
-    "registry-bob-add": "https://suiscan.xyz/testnet/tx/9NkcvwHHSnt1A3FDYRwsEqbeZrWSy6aygt7uCMDGi5r4",
-    "rules-create": "https://suiscan.xyz/testnet/tx/3M5HYrk6LiTCmTsyJf7MPtMRvjR89C3Fr2CsGBcC9uJC",
-    "rules-bob-read": "https://suiscan.xyz/testnet/tx/A3uwACCX174eivECamMorGxFH2RZnNEmAJqm38CXmkP1",
-    "case-pack": "https://suiscan.xyz/testnet/tx/GqFQmdBL9zpHvHHGQ4bdsHiUVZNMdv4hr9wybLwpHf9A",
-    "case-update-inside": "https://suiscan.xyz/testnet/tx/8QRF7oSCUmY8CA5wbdtBYkPmSRKwj7skkP81qq91Q3TF",
-    "case-unpack": "https://suiscan.xyz/testnet/tx/CVdaroEYLsTi5c8ii6zFBBNUAUy3XEXTejCR7nGMxAV2",
-    "party-create": "https://suiscan.xyz/testnet/tx/3MDiE3KAYdhaYjsAvTf5EEHRDkRQBGJgcn4YeEHrTc2q",
-    "prepare-party-gas": "https://suiscan.xyz/testnet/tx/oezyKHjY1Lcyt9SPfGbBKCPmwvaVtHKC3Aq3g2yGwEF",
-    "party-update-a": "https://suiscan.xyz/testnet/tx/6AhankWo3fc9ZEC5auK3TsMPCmAyH1QpVHHBQEEcsU6g",
-    "party-update-b": "https://suiscan.xyz/testnet/tx/EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC",
-    "registry-failed-receipt": "https://suiscan.xyz/testnet/tx/B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa",
-    "rules-failed-receipt": "https://suiscan.xyz/testnet/tx/G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC"
-  },
-  "explorer_objects": {
-    "package": "https://suiscan.xyz/testnet/object/0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f",
-    "notebook": "https://suiscan.xyz/testnet/object/0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
-    "capability": "https://suiscan.xyz/testnet/object/0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
-    "registry": "https://suiscan.xyz/testnet/object/0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
-    "rules": "https://suiscan.xyz/testnet/object/0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62",
-    "case": "https://suiscan.xyz/testnet/object/0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff",
-    "party": "https://suiscan.xyz/testnet/object/0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86"
-  },
-  "limits": [
-    "Validation reads recorded public responses and receipts. Explorer rendering is verified separately in the browser.",
-    "Owner-admission and wrapped lookup rejections have no committed transaction receipt.",
-    "Both CLI processes were launched before collecting either result. This is not a parallel-write or latency benchmark."
-  ],
-  "resolved_setup_attempt": "The first build rejected a custom override of builtin Testnet. Final manifest omits that override and the repeated build and all seven tests passed."
+  ]
 }

@@ -2,26 +2,26 @@
   "object": {
     "bcs": {
       "name": "Object",
-      "value": "AABf21q7ereX/t0RR2ijEbTjHjRDBV8r3T0laYrbT70pDwVvd25lZAhOb3RlYm9vawABAgAAAAAAAAAomPU790VwOusqad/YHXKac/Fop62t57pHns8SzjVAalkJAAAAAAAAAACfgFWbmWo3XDQamQaiwQ/IJVXD2cNkYQXePcAM6BRUlyA1jkEpH5jCBYH76FGwSBkl1MLOO2EGzwm9enWfw/FQBWCkFAAAAAAA"
+      "value": "AAAgqMYB/7tFEj7+PWXpYfC6WrBSgnjI/t80Eniws+GkvwVvd25lZAhOb3RlYm9vawABAgAAAAAAAAAoRTNyH20balbD6C6iavk4Awak6nxPoRIXUzyLFqb6AFAJAAAAAAAAAACfgFWbmWo3XDQamQaiwQ/IJVXD2cNkYQXePcAM6BRUlyDyh7WhxVXtq/3Gz8DFEcmbwaG78QKYkxOKozpPgTThS2CkFAAAAAAA"
     },
-    "object_id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+    "object_id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
     "version": "2",
-    "digest": "FK3KVS4uiLbXnQN1nN1du735xr4Cjsz5mmku5Ja5WsFg",
+    "digest": "5syATH7MtssMfn6UzYZFp9KcKY2mWoauWcW3fs4CbC7D",
     "owner": {
       "kind": "ADDRESS",
       "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
     },
-    "object_type": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook",
+    "object_type": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook",
     "has_public_transfer": true,
     "contents": {
-      "name": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook",
-      "value": "mPU790VwOusqad/YHXKac/Fop62t57pHns8SzjVAalkJAAAAAAAAAA=="
+      "name": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook",
+      "value": "RTNyH20balbD6C6iavk4Awak6nxPoRIXUzyLFqb6AFAJAAAAAAAAAA=="
     },
-    "previous_transaction": "4c4RHDFWZUySiCExUErEAN7CFrQyuzXfbeQ4WeFyRfkp",
+    "previous_transaction": "HKjgjS8DsgXMfRhJHPrngLUKi5tarS3Nuw31gxL6f56z",
     "storage_rebate": "1352800",
     "json": {
-      "value": "9",
-      "id": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59"
+      "id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
+      "value": "9"
     }
   }
 }

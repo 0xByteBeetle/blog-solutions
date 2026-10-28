@@ -1,0 +1,18 @@
+{
+  "alice": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+  "bob": "0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0",
+  "chain_id": "69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
+  "alice_gas": "0xe5e67319047bef21b0d942e02bc0968fbc7c80cec27686b9acff8da03ff8e202",
+  "bob_gas": "0x411b95bdb6b123426d000122767435bd7de49cd4a89fe05d1d6b6b93a5258a7b",
+  "package": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f",
+  "notebook": "0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59",
+  "capability": "0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
+  "registry": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+  "registry_failed_receipt_digest": "B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa",
+  "rules": "0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62",
+  "rules_failed_receipt_digest": "G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC",
+  "case": "0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff",
+  "party": "0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
+  "party_gas_a": "0x7779f2ffdeeb31af4d996f4b0161bc685759cf9ee376c23350f1a84c0fba5bf2",
+  "party_gas_b": "0xfb1aca80d7e3c5b7ec736413eec7a7f9180eb912b9ab1d595884b85522beb371"
+}

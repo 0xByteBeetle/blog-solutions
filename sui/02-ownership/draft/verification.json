@@ -1,44 +1,46 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "destination": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
-  "state": "unpublished draft saved and reloaded in Chrome, then reloaded in the in-app browser",
+  "state": "unpublished draft saved and reloaded in Chrome",
   "network": "Sui Testnet",
   "cli": "sui 1.83.0-16d2dc1e05ed",
   "local_move_tests_passed": 7,
-  "successful_testnet_executions": 20,
+  "successful_testnet_executions": 17,
   "persistent_failed_testnet_executions": 2,
   "input_owner_rejections": 3,
   "wrapped_lookup_rejections": 2,
+  "automatic_gas": "All 19 committed execution receipts have gasData.payment == [].",
   "main_sections": 9,
-  "native_code_blocks": 90,
+  "native_code_blocks": 84,
   "legacy_code_blocks": 0,
   "code_text_exact": true,
-  "missing_authored_paragraphs": 0,
+  "source_files_match_executed_files": true,
   "ordinary_quoted_introduction": true,
   "divider_after_introduction": true,
   "real_testnet_screenshots": 3,
   "images_loaded_with_alt_text": true,
   "explorer_links": 20,
-  "saved_body_sha256": "fbb2738e1c3f381b3c1278993a250dd13c47fcca69adc2b75e87dd362663c621",
+  "saved_body_sha256": "f27ffcd4d012b77471f935613ea63040d32035ac8f1dd934190b4ff7247aaeaa",
   "evidence": "../models/evidence/testnet/testnet-validation.json",
   "reader_commands": "../models/evidence/reader-commands.json",
-  "capture_notes": "Shared and party screenshots show actual native RPC responses from fullnode.testnet.sui.io:443. Suiscan Case screenshot was captured at version 5 before the update and unpack transactions. No local-chain screenshot remains in this draft.",
-  "language_notes": "All Python and Bash selections checked after reload. Move has no supported dedicated highlighter. Plain Text was selected, but Substack returns some such blocks as Auto-detect after reload. Text stays exact.",
+  "capture_notes": "Shared and party screenshots are fresh native public RPC responses. The fresh Case explorer screenshot was captured at version 5 before unpacking. The party counter is version 3, start version 1, value 2.",
+  "language_notes": "Bash and Python blocks retain their language selections. Move has no dedicated supported highlighter. Plain Text was selected for all five sources, but after reload Substack returns four as Auto-detect and one as Rust. All source text remains exact.",
+  "preserved_manual_changes": "The latest live draft was the edit baseline. Existing opening, simplified native CLI setup, ownership taxonomy and all unmodified explanatory paragraphs were preserved. Approved cuts, missing helper/dependencies and fresh evidence were applied with targeted UI edits.",
   "images": [
     {
       "alt": "Native public Testnet registry response showing SHARED ownership with start version 1 and current version 4, plus Alice as application admin and entries 2.",
       "loaded": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!a-WN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F52b91c57-59db-4837-8316-b4947782e747_1050x455.png"
+      "src": "https://substackcdn.com/image/fetch/$s_!ri0S!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9000497a-d2b6-482a-b3b6-9cf22d4004b7_1050x462.png"
     },
     {
       "alt": "Suiscan Testnet page captured before unpacking: Case version 5 is owned by Bob and contains the original notebook ID with value 11 in its Fields view.",
       "loaded": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!syPb!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcbf7b163-37e0-4d25-a61e-3c67970bbb2e_1340x1000.png"
+      "src": "https://substackcdn.com/image/fetch/$s_!eq5e!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd288b12-2bcf-4b09-81ba-f1a29bd202a2_1350x770.jpeg"
     },
     {
-      "alt": "Native public Testnet response for the party counter, showing CONSENSUS_ADDRESS ownership by Alice, start version 1, current version 4, and value 2 after both updates.",
+      "alt": "Native public Testnet response for the party counter, showing CONSENSUS_ADDRESS ownership by Alice, start version 1, current version 3, and value 2 after both updates.",
       "loaded": true,
-      "src": "https://substackcdn.com/image/fetch/$s_!JA4d!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F465e2233-a466-4cf9-a962-559781c5e60a_1050x455.png"
+      "src": "https://substackcdn.com/image/fetch/$s_!3HP4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa36c7a61-9615-4b13-8ca4-4d03ac1abd6d_1050x462.jpeg"
     }
   ]
 }

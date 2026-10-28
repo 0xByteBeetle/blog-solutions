@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-10-28T18:18:00.678Z",
+  "endpoint": "fullnode.testnet.sui.io:443",
+  "transport": "TLS gRPC with server reflection",
+  "chain": "testnet",
+  "chain_id": "69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
+  "epoch": "1266",
+  "protocol_version": "139",
+  "server": "sui-node/1.83.0-16d2dc1e05ed",
+  "feature_flags": {
+    "enable_party_transfer": true,
+    "enable_address_balance_gas_payments": true,
+    "address_balance_gas_reject_gas_coin_arg": false
+  },
+  "faucet": {
+    "base_url": "https://faucet.testnet.sui.io",
+    "challenge_path": "/v3/challenge",
+    "payout_path": "/v3/gas",
+    "payout_storage": "address balance",
+    "observed_amount_mist": "1000000000",
+    "observed_difficulty": "3000",
+    "observed_window_seconds": 60
+  },
+  "official_sources": [
+    "https://docs.sui.io/develop/sui-architecture/networks",
+    "https://faucet.sui.io/how-to-use/",
+    "https://faucet.sui.io/pow-spec/",
+    "https://docs.sui.io/onchain-finance/asset-custody/address-balances/using-address-balances",
+    "https://github.com/MystenLabs/sui/releases/tag/testnet-v1.83.0",
+    "https://github.com/MystenLabs/sui/blob/testnet-v1.83.0/crates/sui/src/client_ptb/parser.rs#L714"
+  ]
+}

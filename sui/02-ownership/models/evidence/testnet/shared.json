@@ -2,27 +2,27 @@
   "object": {
     "bcs": {
       "name": "Object",
-      "value": "AABf21q7ereX/t0RR2ijEbTjHjRDBV8r3T0laYrbT70pDwhyZWdpc3RyeQhSZWdpc3RyeQAABAAAAAAAAABIy81/OzEt6WO5zTIr0KML0HOL4VmmDqnJRtDFGPu5VioCAAAAAAAAAJ+AVZuZajdcNBqZBqLBD8glVcPZw2RhBd49wAzoFFSXAgEAAAAAAAAAIJai9hrC15Kkqu2q6nay4FWaQM38uUUKR8wAziLc6ZOlcLMYAAAAAAA="
+      "value": "AAAgqMYB/7tFEj7+PWXpYfC6WrBSgnjI/t80Eniws+GkvwhyZWdpc3RyeQhSZWdpc3RyeQAABAAAAAAAAABID81KWItHXaSizidzHhYQ1r/mY3BSS9wurAoJ/bdAFyUCAAAAAAAAAJ+AVZuZajdcNBqZBqLBD8glVcPZw2RhBd49wAzoFFSXAgEAAAAAAAAAIOWHSutrkyQIBsjD/DA5uQI8zFnNqUFEodmldFi1LHkNcLMYAAAAAAA="
     },
-    "object_id": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+    "object_id": "0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
     "version": "4",
-    "digest": "BkGniStjeatt1fvAnX64zNsNNyFreNsR5omuaphnEaAS",
+    "digest": "4uVq2h4XM9SB9UkhNywGihBnhk2WYDE2sXLq1gkxmJWb",
     "owner": {
       "kind": "SHARED",
       "version": "1"
     },
-    "object_type": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::Registry",
+    "object_type": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::registry::Registry",
     "has_public_transfer": false,
     "contents": {
-      "name": "0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::Registry",
-      "value": "y81/OzEt6WO5zTIr0KML0HOL4VmmDqnJRtDFGPu5VioCAAAAAAAAAJ+AVZuZajdcNBqZBqLBD8glVcPZw2RhBd49wAzoFFSX"
+      "name": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::registry::Registry",
+      "value": "D81KWItHXaSizidzHhYQ1r/mY3BSS9wurAoJ/bdAFyUCAAAAAAAAAJ+AVZuZajdcNBqZBqLBD8glVcPZw2RhBd49wAzoFFSX"
     },
-    "previous_transaction": "B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa",
+    "previous_transaction": "GSz1wpk89aW1Hqgt4g1y2UwNGXPWoVD2muDLGdnj8gUU",
     "storage_rebate": "1618800",
     "json": {
-      "entries": "2",
-      "id": "0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
-      "admin": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      "admin": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "id": "0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
+      "entries": "2"
     }
   }
 }

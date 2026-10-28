@@ -22,8 +22,9 @@
       },
       "balance": {
         "coinType": "0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
-        "balance": "2000000000",
-        "addressBalance": "2000000000"
+        "balance": "1953452279",
+        "addressBalance": "1458428856",
+        "coinBalance": "495023423"
       },
       "coins": []
     }

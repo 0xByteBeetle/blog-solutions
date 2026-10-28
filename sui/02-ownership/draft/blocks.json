@@ -1,62 +1,34 @@
 [
   {
-    "text": "mkdir -p sui-ownership\ncd sui-ownership\nmkdir -p .tools/bin .private/network .local/move-cache move/sources client evidence\ncurl -fL https://github.com/MystenLabs/sui/releases/download/testnet-v1.83.0/sui-testnet-v1.83.0-macos-arm64.tgz -o .tools/sui.tgz\nprintf '%s  %s\\n' 3bdb5300231bc77efc926d8314457cb24e79223c07373a5f3d76b4d8c6025f65 .tools/sui.tgz | shasum -a 256 -c -\ntar -xzf .tools/sui.tgz -C .tools/bin ./sui\nexport PATH=\"$PWD/.tools/bin:$PATH\"\nsui --version",
+    "text": "mkdir -p sui-ownership\ncd sui-ownership\n\nmkdir -p .tools/bin move/sources client evidence\n\ncurl -fL https://github.com/MystenLabs/sui/releases/download/testnet-v1.83.0/sui-testnet-v1.83.0-macos-arm64.tgz -o .tools/sui.tgz\ntar -xzf .tools/sui.tgz -C .tools/bin ./sui\nexport PATH=\"$PWD/.tools/bin:$PATH\"\n\nsui --version",
     "language": "Bash"
   },
   {
-    "text": ".tools/sui.tgz: OK\nsui 1.83.0-16d2dc1e05ed",
+    "text": "sui 1.83.0-16d2dc1e05ed",
     "language": "Plain Text"
   },
   {
-    "text": "umask 077\nexport SUI_CONFIG_DIR=\"$PWD/.private/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nexport RUST_LOG=off\nexport SUI_GRPC_ENDPOINT=fullnode.testnet.sui.io:443\nprintf '[]\\n' > \"$SUI_CONFIG_DIR/sui.keystore\"\ncat > \"$SUI_CONFIG_DIR/client.yaml\" <<EOF\nkeystore:\n  File: $SUI_CONFIG_DIR/sui.keystore\nenvs:\n  - alias: testnet\n    rpc: \"https://fullnode.testnet.sui.io:443\"\n    ws: null\n    basic_auth: null\nactive_env: testnet\nactive_address: null\nEOF\nsui client new-address ed25519 alice --json > .private/alice-address.json\nsui client new-address ed25519 bob --json > .private/bob-address.json\nALICE=$(python3 -c 'import json;print(json.load(open(\".private/alice-address.json\"))[\"address\"])')\nBOB=$(python3 -c 'import json;print(json.load(open(\".private/bob-address.json\"))[\"address\"])')\nsui client switch --env testnet --address \"$ALICE\" --json > evidence/selected-network.json\nCHAIN_ID=$(sui client chain-identifier --json | python3 -c 'import json,sys;print(json.load(sys.stdin)[\"base58\"])')\nprintf 'ALICE=%s\\nBOB=%s\\nCHAIN_ID=%s\\n' \"$ALICE\" \"$BOB\" \"$CHAIN_ID\"",
+    "text": "sui client --yes new-address ed25519 alice\nsui client new-address ed25519 bob\n\nsui client switch --env testnet --address alice\nALICE=$(sui client active-address)\n\nsui client switch --address bob\nBOB=$(sui client active-address)\n\nsui client switch --address alice\nprintf 'ALICE=%s\\nBOB=%s\\n' \"$ALICE\" \"$BOB\"",
     "language": "Bash"
   },
   {
-    "text": "ALICE=0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\nBOB=0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\nCHAIN_ID=69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD",
+    "text": "ALICE=0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\nBOB=0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0",
     "language": "Plain Text"
   },
   {
-    "text": "sui client faucet --address \"$ALICE\" --url https://faucet.testnet.sui.io > evidence/faucet-alice.txt\ncat evidence/faucet-alice.txt\nsui client faucet --address \"$BOB\" --url https://faucet.testnet.sui.io > evidence/faucet-bob.txt\ncat evidence/faucet-bob.txt",
+    "text": "sui client faucet --address \"$ALICE\" --url https://faucet.testnet.sui.io\n\nsui client faucet --address \"$BOB\" --url https://faucet.testnet.sui.io",
     "language": "Bash"
   },
   {
-    "text": "Request successful. The faucet sent 1 SUI to the address balance of 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497 in transaction 7L16J4khwPr1fH6EFj1QQnvbiFfXDmXWqscTyfVp4zga.\nRequest successful. The faucet sent 1 SUI to the address balance of 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0 in transaction 4eHui9RBXBkqQdWs45TqWaAbjFkkkGEvgj3NywUJyzBd.",
+    "text": "Request successful. The faucet sent 1 SUI to the address balance of 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497 in transaction 7L16J4khwPr1fH6EFj1QQnvbiFfXDmXWqscTyfVp4zga.\n\nRequest successful. The faucet sent 1 SUI to the address balance of 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0 in transaction 4eHui9RBXBkqQdWs45TqWaAbjFkkkGEvgj3NywUJyzBd.",
     "language": "Plain Text"
   },
   {
-    "text": "sui client ptb --move-call 0x2::coin::redeem_funds '<0x2::sui::SUI>' 'withdrawal(500000000)' --assign coin --transfer-objects '[coin]' \"@$ALICE\" --sender \"@$ALICE\" --gas-budget 50000000 --json > evidence/alice-materialize-gas.json\nsui client ptb --move-call 0x2::coin::redeem_funds '<0x2::sui::SUI>' 'withdrawal(500000000)' --assign coin --transfer-objects '[coin]' \"@$BOB\" --sender \"@$BOB\" --gas-budget 50000000 --json > evidence/bob-materialize-gas.json",
+    "text": "sui move new sui_ownership --path move\nls -1 move",
     "language": "Bash"
   },
   {
-    "text": "import argparse\nimport json\nfrom pathlib import Path\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"receipt\")\nparser.add_argument(\"selector\", nargs=\"?\", default=\"status\")\nparser.add_argument(\"index\", nargs=\"?\", type=int, default=0)\nargs = parser.parse_args()\ndata = json.loads(Path(args.receipt).read_text())\nif args.selector == \"status\":\n    print(\"Status:\", data[\"effects\"][\"status\"][\"status\"])\n    print(\"Digest:\", data[\"digest\"])\nelif args.selector == \"package\":\n    print(next(x[\"packageId\"] for x in data[\"objectChanges\"] if x[\"type\"] == \"published\"))\nelse:\n    matches = [x[\"objectId\"] for x in data[\"objectChanges\"]\n               if x[\"type\"] == \"created\"\n               and x.get(\"objectType\", \"\").endswith(args.selector)]\n    print(matches[args.index])",
-    "language": "Python"
-  },
-  {
-    "text": "python3 client/receipt.py evidence/alice-materialize-gas.json",
-    "language": "Bash"
-  },
-  {
-    "text": "Status: success\nDigest: GDy73tszN3smoGoPWoLxXxhofj81PuwiDs9cS1sYEepb",
-    "language": "Plain Text"
-  },
-  {
-    "text": "python3 client/receipt.py evidence/bob-materialize-gas.json\nALICE_GAS=$(python3 client/receipt.py evidence/alice-materialize-gas.json '::coin::Coin<0x2::sui::SUI>')\nBOB_GAS=$(python3 client/receipt.py evidence/bob-materialize-gas.json '::coin::Coin<0x2::sui::SUI>')\nprintf 'ALICE_GAS=%s\\nBOB_GAS=%s\\n' \"$ALICE_GAS\" \"$BOB_GAS\"",
-    "language": "Bash"
-  },
-  {
-    "text": "Status: success\nDigest: CE9R3UzajKQQDb8Ej9hipcewsUtz3195zvgqModBSLpU\nALICE_GAS=0xe5e67319047bef21b0d942e02bc0968fbc7c80cec27686b9acff8da03ff8e202\nBOB_GAS=0x411b95bdb6b123426d000122767435bd7de49cd4a89fe05d1d6b6b93a5258a7b",
-    "language": "Plain Text"
-  },
-  {
-    "text": "cat > move/Move.toml <<EOF\n[package]\nname = \"sui_ownership\"\nedition = \"2024\"\n\nEOF",
-    "language": "Bash"
-  },
-  {
-    "text": "python3 -m venv .venv\nsource .venv/bin/activate\npython3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2\npython3 -c 'from importlib.metadata import version; print(\"grpcio:\",version(\"grpcio\")); print(\"grpcio-reflection:\",version(\"grpcio-reflection\")); print(\"protobuf:\",version(\"protobuf\"))'",
-    "language": "Bash"
-  },
-  {
-    "text": "grpcio: 1.84.1\ngrpcio-reflection: 1.84.1\nprotobuf: 7.36.2",
+    "text": "Move.toml\nsources\ntests",
     "language": "Plain Text"
   },
   {
@@ -124,11 +96,15 @@
     "language": "Bash"
   },
   {
+    "text": "import argparse\nimport json\nfrom pathlib import Path\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"receipt\")\nparser.add_argument(\"selector\", nargs=\"?\", default=\"status\")\nparser.add_argument(\"index\", nargs=\"?\", type=int, default=0)\nargs = parser.parse_args()\ndata = json.loads(Path(args.receipt).read_text())\nif args.selector == \"status\":\n    print(\"Status:\", data[\"effects\"][\"status\"][\"status\"])\n    print(\"Digest:\", data[\"digest\"])\nelif args.selector == \"package\":\n    print(next(x[\"packageId\"] for x in data[\"objectChanges\"] if x[\"type\"] == \"published\"))\nelse:\n    matches = [x[\"objectId\"] for x in data[\"objectChanges\"]\n               if x[\"type\"] == \"created\"\n               and x.get(\"objectType\", \"\").endswith(args.selector)]\n    print(matches[args.index])",
+    "language": "Python"
+  },
+  {
     "text": "python3 client/receipt.py evidence/publish.json",
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: 9ztdJjZ7mifDspETYXPN8G85jVG9C8Z5EMavEyaqa2MN",
+    "text": "Status: success\nDigest: 9hLA4w6XbkqkAwJt6XX1uafsDqu59BXDtYMinEfRE4T3",
     "language": "Plain Text"
   },
   {
@@ -136,7 +112,7 @@
     "language": "Bash"
   },
   {
-    "text": "PACKAGE=0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f",
+    "text": "PACKAGE=0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf",
     "language": "Plain Text"
   },
   {
@@ -144,7 +120,7 @@
     "language": "Bash"
   },
   {
-    "text": "NOTEBOOK=0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\nCAPABILITY=0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb",
+    "text": "NOTEBOOK=0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\nCAPABILITY=0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293",
     "language": "Plain Text"
   },
   {
@@ -152,7 +128,15 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: 4c4RHDFWZUySiCExUErEAN7CFrQyuzXfbeQ4WeFyRfkp",
+    "text": "Status: success\nDigest: HKjgjS8DsgXMfRhJHPrngLUKi5tarS3Nuw31gxL6f56z",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 -m venv .venv\nsource .venv/bin/activate\npython3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2",
+    "language": "Bash"
+  },
+  {
+    "text": "Successfully installed grpcio-1.84.1 grpcio-reflection-1.84.1 protobuf-7.36.2 typing-extensions-4.16.0",
     "language": "Plain Text"
   },
   {
@@ -164,7 +148,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\nVersion: 2\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook\nOwner: {\"address\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\",\n  \"value\": \"9\"\n}\nSaved: evidence/owned_before.json",
+    "text": "Object ID: 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\nVersion: 2\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook\nOwner: {\"address\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\",\n  \"value\": \"9\"\n}\nSaved: evidence/owned_before.json",
     "language": "Plain Text"
   },
   {
@@ -172,23 +156,23 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: Bip94cy5XY9GzbDVwXt21Rs6aPzvQ519GM87E7i2WZPe",
+    "text": "Status: success\nDigest: CDm9AcLC2KsC6WYRGahNATWHB3Pa2gZHvMzaxvSFukov",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$ALICE\" --gas-budget 50000000 --gas \"$ALICE_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$ALICE\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59 is owned by account address 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0, but given owner/signer address is 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\"",
+    "text": "Gas selection failed\n\nCaused by:\n    code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050 is owned by account address 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0, but given owner/signer address is 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\"",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$BOB\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xe87fe80d12e51fcfc3eb573401c77015340d89e951b9a07072677fee559ae2fb is owned by account address 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497, but given owner/signer address is 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\"",
+    "text": "Gas selection failed\n\nCaused by:\n    code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293 is owned by account address 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497, but given owner/signer address is 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\"",
     "language": "Plain Text"
   },
   {
@@ -196,7 +180,7 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: 7QnRHaRni4swxPs33GQs29ztj1dHtK5PAu7gDEt4Bmde\nStatus: success\nDigest: EmxXD3avUTMudWwpdKDn7tdfP7ETXcw2QVmrkczAtzhM",
+    "text": "Status: success\nDigest: 7CVpmyQuHZCfboyZ7giKUJjn6YkrQgxHUfmhmhZuiNZ8\nStatus: success\nDigest: 9vN7rMVaBUcNyzsdu22p5YZ9Xe4bQdX7JmTY6avoKeej",
     "language": "Plain Text"
   },
   {
@@ -204,7 +188,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\nVersion: 4\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\",\n  \"value\": \"11\"\n}\nSaved: evidence/owned.json",
+    "text": "Object ID: 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\nVersion: 4\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\",\n  \"value\": \"11\"\n}\nSaved: evidence/owned.json",
     "language": "Plain Text"
   },
   {
@@ -212,7 +196,7 @@
     "language": "Bash"
   },
   {
-    "text": "REGISTRY=0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a",
+    "text": "REGISTRY=0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
     "language": "Plain Text"
   },
   {
@@ -220,15 +204,15 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: BC91Pax5NsVoYTdvPrZAioF9v2ehFodzuTQYgUJ1uNxP\nStatus: success\nDigest: 9NkcvwHHSnt1A3FDYRwsEqbeZrWSy6aygt7uCMDGi5r4",
+    "text": "Status: success\nDigest: 3iMSEAacuQRDKzY97tDS6KdAgDCXhkMzxroG6ADYbL7U\nStatus: success\nDigest: 6o1czPoWBDJbxLX5TUi7TR3STHD4ai77CzR8qndH6N1o",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module registry --function reset --args \"$REGISTRY\" --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module registry --function reset --args \"$REGISTRY\" --sender \"$BOB\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "Error executing transaction 'B92H9tammBG3zTXMsAfDsGN1F5KFzw61U61Pa4FC8Bsa': 1st command aborted within function '0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::reset' at instruction 11 with code 0",
+    "text": "Error executing transaction 'GSz1wpk89aW1Hqgt4g1y2UwNGXPWoVD2muDLGdnj8gUU': 1st command aborted within function '0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::registry::reset' at instruction 11 with code 0",
     "language": "Plain Text"
   },
   {
@@ -236,7 +220,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a\nVersion: 4\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::registry::Registry\nOwner: {\"kind\": \"SHARED\", \"version\": \"1\"}\nMove value: {\n  \"admin\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\",\n  \"entries\": \"2\",\n  \"id\": \"0xcbcd7f3b312de963b9cd322bd0a30bd0738be159a60ea9c946d0c518fbb9562a\"\n}\nSaved: evidence/shared.json",
+    "text": "Object ID: 0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725\nVersion: 4\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::registry::Registry\nOwner: {\"kind\": \"SHARED\", \"version\": \"1\"}\nMove value: {\n  \"admin\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\",\n  \"entries\": \"2\",\n  \"id\": \"0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725\"\n}\nSaved: evidence/shared.json",
     "language": "Plain Text"
   },
   {
@@ -244,7 +228,7 @@
     "language": "Bash"
   },
   {
-    "text": "RULES=0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62",
+    "text": "RULES=0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e",
     "language": "Plain Text"
   },
   {
@@ -252,15 +236,15 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: A3uwACCX174eivECamMorGxFH2RZnNEmAJqm38CXmkP1",
+    "text": "Status: success\nDigest: 5sV1tfAofeomH9CtHbUt7yEQ52gyPJopH5i23oDb7qzp",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module rules --function set_limit --args \"$RULES\" 20 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module rules --function set_limit --args \"$RULES\" 20 --sender \"$BOB\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "Error executing transaction 'G4SaV6Td2KNVXuM3KDQrLvtyAnUbVcevzFDTN9TBwqKC': CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0",
+    "text": "Error executing transaction 'HQoijmMqg6CqtxE76sy63dng7RAawte77UDs5kj8MN3u': CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0",
     "language": "Plain Text"
   },
   {
@@ -268,7 +252,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62\nVersion: 1\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::rules::Rules\nOwner: {\"kind\": \"IMMUTABLE\"}\nMove value: {\n  \"id\": \"0xd1f41a6d82879734fe544e61630e82cf996c4db0f35954af8f4577d46f3c9c62\",\n  \"limit\": \"10\"\n}\nSaved: evidence/immutable.json",
+    "text": "Object ID: 0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e\nVersion: 1\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules\nOwner: {\"kind\": \"IMMUTABLE\"}\nMove value: {\n  \"id\": \"0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e\",\n  \"limit\": \"10\"\n}\nSaved: evidence/immutable.json",
     "language": "Plain Text"
   },
   {
@@ -276,7 +260,7 @@
     "language": "Bash"
   },
   {
-    "text": "CASE=0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff",
+    "text": "CASE=0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c",
     "language": "Plain Text"
   },
   {
@@ -284,7 +268,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff\nVersion: 5\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::case::Case\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0xbdc1708caf256e195af197c3fdee57b8b7940f4553c5df3e28510cd0aa0a37ff\",\n  \"notebook\": {\n    \"id\": \"0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\",\n    \"value\": \"11\"\n  }\n}\nSaved: evidence/wrapped.json",
+    "text": "Object ID: 0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c\nVersion: 5\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::case::Case\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c\",\n  \"notebook\": {\n    \"id\": \"0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\",\n    \"value\": \"11\"\n  }\n}\nSaved: evidence/wrapped.json",
     "language": "Plain Text"
   },
   {
@@ -292,15 +276,15 @@
     "language": "Bash"
   },
   {
-    "text": "GetObject failed: NOT_FOUND Object 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59 not found\nSaved: evidence/wrapped_child.json",
+    "text": "GetObject failed: NOT_FOUND Object 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050 not found\nSaved: evidence/wrapped_child.json",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 12 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 12 --sender \"$BOB\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "code: 'Some requested entity was not found', message: \"Object 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59 not found\"",
+    "text": "code: 'Some requested entity was not found', message: \"Object 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050 not found\"",
     "language": "Plain Text"
   },
   {
@@ -308,7 +292,7 @@
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: 8QRF7oSCUmY8CA5wbdtBYkPmSRKwj7skkP81qq91Q3TF\nStatus: success\nDigest: CVdaroEYLsTi5c8ii6zFBBNUAUy3XEXTejCR7nGMxAV2",
+    "text": "Status: success\nDigest: 5Pm3C7o8hRVmhcFtTVA6nXA42tE6w3fEfYRKnyRA2uo9\nStatus: success\nDigest: 4zZpHJuMkrAmJ7NckTpo8BPsAMwjYax3RyhTXGDnjycB",
     "language": "Plain Text"
   },
   {
@@ -316,7 +300,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\nVersion: 7\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::owned::Notebook\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x98f53bf745703aeb2a69dfd81d729a73f168a7adade7ba479ecf12ce35406a59\",\n  \"value\": \"12\"\n}\nSaved: evidence/unwrapped.json",
+    "text": "Object ID: 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\nVersion: 7\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook\nOwner: {\"address\": \"0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050\",\n  \"value\": \"12\"\n}\nSaved: evidence/unwrapped.json",
     "language": "Plain Text"
   },
   {
@@ -324,31 +308,23 @@
     "language": "Bash"
   },
   {
-    "text": "PARTY=0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86",
+    "text": "PARTY=0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$BOB\" --gas-budget 50000000 --json",
     "language": "Bash"
   },
   {
-    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86 is owned by account address 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497, but given owner/signer address is 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\"",
+    "text": "Gas selection failed\n\nCaused by:\n    code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6 is owned by account address 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497, but given owner/signer address is 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0\"",
     "language": "Plain Text"
   },
   {
-    "text": "sui client gas \"$ALICE\" --json > evidence/alice-gas-before-split.json\nALICE_GAS=$(python3 -c 'import json;print(json.load(open(\"evidence/alice-gas-before-split.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nsui client ptb --split-coins gas '[100000000,100000000]' --assign parts --transfer-objects '[parts.0,parts.1]' \"@$ALICE\" --sender \"@$ALICE\" --gas-coin \"@$ALICE_GAS\" --gas-budget 50000000 --json > evidence/prepare-party-gas.json\nGAS_A=$(python3 client/receipt.py evidence/prepare-party-gas.json '::coin::Coin<0x2::sui::SUI>' 0)\nGAS_B=$(python3 client/receipt.py evidence/prepare-party-gas.json '::coin::Coin<0x2::sui::SUI>' 1)\nprintf 'GAS_A=%s\\nGAS_B=%s\\n' \"$GAS_A\" \"$GAS_B\"",
+    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/party-update-a.json &\nPID_A=$!\nsui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/party-update-b.json &\nPID_B=$!\nwait \"$PID_A\"\nwait \"$PID_B\"\npython3 client/receipt.py evidence/party-update-a.json\npython3 client/receipt.py evidence/party-update-b.json",
     "language": "Bash"
   },
   {
-    "text": "GAS_A=0x7779f2ffdeeb31af4d996f4b0161bc685759cf9ee376c23350f1a84c0fba5bf2\nGAS_B=0xfb1aca80d7e3c5b7ec736413eec7a7f9180eb912b9ab1d595884b85522beb371",
-    "language": "Plain Text"
-  },
-  {
-    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas \"$GAS_A\" --gas-budget 50000000 --json > evidence/party-update-a.json &\nPID_A=$!\nsui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas \"$GAS_B\" --gas-budget 50000000 --json > evidence/party-update-b.json &\nPID_B=$!\nwait \"$PID_A\"\nwait \"$PID_B\"\npython3 client/receipt.py evidence/party-update-a.json\npython3 client/receipt.py evidence/party-update-b.json",
-    "language": "Bash"
-  },
-  {
-    "text": "Status: success\nDigest: 6AhankWo3fc9ZEC5auK3TsMPCmAyH1QpVHHBQEEcsU6g\nStatus: success\nDigest: EVZvGNGg8GzuUymvqJzPJE86yppDgLyTwaEyYFBZWkKC",
+    "text": "Status: success\nDigest: HcdjXwXxTPW9zDA7sfto55pEWJCY9ko5RbBYzLfQyE5j\nStatus: success\nDigest: 5MUYYRfWP6KkG4XD47HZGrKkSPEh4XqZqyebm25Mk9Le",
     "language": "Plain Text"
   },
   {
@@ -356,7 +332,7 @@
     "language": "Bash"
   },
   {
-    "text": "Object ID: 0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86\nVersion: 4\nType: 0x5fdb5abb7ab797fedd114768a311b4e31e3443055f2bdd3d25698adb4fbd290f::party_counter::Counter\nOwner: {\"address\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\", \"kind\": \"CONSENSUS_ADDRESS\", \"version\": \"1\"}\nMove value: {\n  \"id\": \"0x671abd69e62f58404b8de99a69f839fbbb47fbcc572eca5c237057eb17f8fe86\",\n  \"value\": \"2\"\n}\nSaved: evidence/party.json",
+    "text": "Object ID: 0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6\nVersion: 3\nType: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::party_counter::Counter\nOwner: {\"address\": \"0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497\", \"kind\": \"CONSENSUS_ADDRESS\", \"version\": \"1\"}\nMove value: {\n  \"id\": \"0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6\",\n  \"value\": \"2\"\n}\nSaved: evidence/party.json",
     "language": "Plain Text"
   }
 ]
