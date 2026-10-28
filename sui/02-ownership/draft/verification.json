@@ -1,21 +1,43 @@
 {
   "date": "2026-10-28",
   "destination": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
-  "state": "unpublished draft, saved and reloaded",
+  "state": "unpublished draft, saved and reloaded in Chrome and opened in the in-app browser",
   "main_sections": 9,
-  "native_code_blocks": 54,
+  "native_code_blocks": 84,
+  "legacy_code_blocks": 0,
   "code_text_exact": true,
-  "original_prose_preserved": true,
-  "real_screenshots": 2,
+  "missing_authored_paragraphs": 0,
   "ordinary_quoted_introduction": true,
   "divider_after_introduction": true,
-  "move_tests_passed": 4,
-  "owner_failures": "two signed local full-node input rejections before Move",
-  "final_value": 11,
-  "evidence_source": "evidence/cli-manifest.json and evidence/client-manifest.json",
-  "capture_notes": "Source screenshot from pinned GitHub implementation. RPC screenshot from actual grpcui v1.5.4 application reading the running local node. Local screenshots uploaded through clipboard. No terminal output recreated as an image.",
-  "extension_prose_words": 1155,
-  "compiler_forgery_control": "EC04001 restricted visibility, expected exit 1",
-  "receipt_inspector": "29-line stdlib inspection of original saved Alice update receipt, exact actual output retained",
-  "original_evidence": "All original 47 code blocks and both images preserved"
+  "real_screenshots": 3,
+  "images_have_alt_text": true,
+  "move_tests_passed": 7,
+  "network": "fresh disposable localnet",
+  "model_evidence": "../models/evidence/verification.json",
+  "reader_commands": "../models/evidence/reader-commands.json",
+  "saved_body_sha256": "58b9b0fcdc399110089dace55c15299d76892bf87cd61139c420b5808c1311c8",
+  "source_checks": "Five Move modules and two Python files match the printed native source blocks",
+  "review": "Independent ownership/capability and wrapped/party reviews found no substantive corrections",
+  "language_notes": "Python and shell selected explicitly. Move has no native highlighter. Plain Text was selected, but Substack returns some Plain Text blocks as Auto-detect after reload and infers Rust on one Move source. Text is unchanged.",
+  "capture_notes": "Actual grpcui v1.5.4 responses from the running local node. The Case screenshot explicitly requests historical version 13 from this run. No terminal recreation or generated images.",
+  "images": [
+    {
+      "alt": "Native Sui GetObject response for the shared registry showing current version 10, SHARED start version 7, Alice in the application admin field, and entries 2.",
+      "complete": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!8Gdi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4121519-6632-4205-bcf7-5b06e3283ca9_1000x365.png",
+      "width": 1038
+    },
+    {
+      "alt": "Native Sui GetObject response for Case version 13 showing the original notebook ID nested inside the case with value 11.",
+      "complete": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!TgaZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3d18e98d-53fe-461d-92ae-d805dbbef8eb_1000x350.png",
+      "width": 1038
+    },
+    {
+      "alt": "Native Sui GetObject response for the party counter showing current version 13, owner kind CONSENSUS_ADDRESS, Alice as owner, start version 10, and value 2.",
+      "complete": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!89fa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2a46d6cf-52e3-46c3-8779-3bfd133e9bd7_1000x365.png",
+      "width": 1038
+    }
+  ]
 }

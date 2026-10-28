@@ -1,0 +1,24 @@
+{
+  "party": {
+    "claim": "Public transfer APIs currently support single-owner parties. The framework abstraction also models richer permissions, but the current API limits the reader experiment. Multiple inflight submissions are not parallel conflicting writes.",
+    "docs": "https://docs.sui.io/develop/objects/object-ownership/party",
+    "pinned_framework_revision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+    "pinned_checks": "transfer.move lines77-92 assert party.is_single_owner(); party.move lines50-53 grants all permissions to one address."
+  },
+  "wrapped": {
+    "claim": "A wrapped object is nested in its container and lacks a standalone live object input while wrapped. Wrapping is not a Wrapped runtime owner variant.",
+    "docs": "https://docs.sui.io/develop/objects/object-ownership/wrapped"
+  },
+  "sequencing": {
+    "claim": "Current lifecycle docs say all transactions sequence through Mysticeti. Avoid blanket owned bypasses consensus or measured latency rankings inferred from the ownership docs.",
+    "docs": "https://docs.sui.io/develop/transactions/transaction-lifecycle"
+  },
+  "owner_version": {
+    "claim": "For a shared owner, owner.version corresponds to its initial shared version. For a consensus-address owner, it is start-version metadata, separate from the top-level current object version.",
+    "docs": "https://mystenlabs.github.io/sui/sui_types/object/enum.Owner.html#variant.ConsensusAddressOwner",
+    "probe": "Clock sharedowner.version1 and top-levelcurrentversion5248 were observed by this reader."
+  },
+  "privacy": {
+    "claim": "Access checks for Move input borrowing do not make object data private from an unsigned public RPC reader. Qualify read as transaction input access when discussing Party or address ownership."
+  }
+}

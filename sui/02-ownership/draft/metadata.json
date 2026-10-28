@@ -1,7 +1,7 @@
 {
-  "title": "Understanding Sui Part 2: Ownership and Capability Checks",
-  "subtitle": "How ownership and capability checks combine in one handover",
+  "title": "Understanding Sui Part 2: Choosing an Object Ownership Model",
+  "subtitle": "Five ownership forms, tested in Move and inspected through native gRPC.",
   "url": "https://andreyobruchkov1996.substack.com/publish/post/222510085",
   "main_sections": 9,
-  "code_blocks": 54
+  "code_blocks": 84
 }

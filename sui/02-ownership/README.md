@@ -1,4 +1,10 @@
-# Sui Part 2: address ownership and capability handover
+# Sui Part 2: choosing an object ownership model
+
+The current five-form article reference is in [models/](models/README.md), covering address-owned, shared, immutable, wrapped, and party objects with actual local evidence. Its [Substack draft](https://andreyobruchkov1996.substack.com/publish/post/222510085) contains all reader-facing material inline.
+
+## Archived notebook and capability investigation
+
+The earlier single-model lab below is retained as author reference. Its sources, commands, and recorded observations describe that earlier investigation.
 
 Author reference for the [unpublished Substack draft](https://andreyobruchkov1996.substack.com/publish/post/222510085). All reader material belongs inline in the article, including source files, setup commands, run commands, and actual outputs. The article does not require readers to clone this repository.
 

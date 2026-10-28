@@ -1,56 +1,52 @@
 <blockquote>
-<p>In the first Sui article, we separated an object’s Move value from the runtime record around it. We inspected identity, ownership, versions, and stored data. That gives us the vocabulary for a more practical question: when an object changes owners, which permissions move with it?</p>
-<p>It is tempting to say that the owner controls the object and leave the explanation there. A real application can require more than ownership. Our notebook has an integer value, and its setter also requires a separate capability. The notebook and that capability are two independently owned objects.</p>
-<p>We will give both objects to Alice, transfer only the notebook to Bob, and try the same update from both accounts. Then we will transfer the matching capability and repeat the call. Move tests, actual local-node rejections, and Python reads will let us follow the permission through each state.</p>
-<p>The entire experiment runs on a disposable local Sui network. We will use Move for the rule, the Sui CLI for local transactions, and Python for native gRPC inspection. The goal is to understand one mechanism deeply: how access to existing address-owned inputs combines with a capability check inside a Move function.</p>
+<p>A personal notebook, a public registry, and a permanent set of rules can all be Sui objects. They need different access patterns. One user should control the notebook, several users should contribute to the registry, and everyone should be able to use the rules without changing that particular version of them.</p>
+<p>The first article introduced objects and the runtime records around their Move values. We will now use that model to choose an ownership form. Address-owned, shared, immutable, wrapped, and party objects each change how state can enter an operation and which checks the application must provide.</p>
+<p>We will build small Move modules, compile them, and run seven local tests. Then we will publish the package once to a disposable local network, use two fresh accounts to exercise the access rules, and inspect the resulting records with Python through native gRPC. Each example includes a useful restriction as well as a successful operation.</p>
 </blockquote><hr>
-<h2>Two Objects and One Update</h2>
-<p>Imagine that Alice gives Bob a notebook but keeps the separate object that authorizes changes to it. Bob now owns the notebook. Alice still owns its capability. Can either account change the notebook’s value? To answer that, we need to follow the objects into the setter rather than interpret “owner” as an unlimited application role.</p>
-<p>Our <code>set_value</code> function accepts <code>&amp;mut Notebook</code>, <code>&amp;NotebookCap</code>, and a new integer. The mutable reference lets the function change the notebook. The immutable reference lets it inspect the capability without changing its application fields. These references exist during execution. A client reading an object ID from an API has not obtained a Move reference.</p>
-<p>For the address-owned objects in this experiment, Sui first checks whether the transaction sender may supply each existing object as an input. Once the inputs are accepted, the setter compares the notebook’s ID with the notebook ID recorded inside the capability. Those checks answer separate questions: can this sender supply both objects, and do these two objects form an allowed pair? See <a href="https://docs.sui.io/develop/objects/object-ownership/address-owned">address-owned objects</a> and the <a href="https://move-book.com/programmability/capability/">capability pattern</a>.</p>
-<p>There are three identifiers to keep straight. <code>Notebook.id</code> identifies the notebook. <code>NotebookCap.id</code> identifies the capability object itself. <code>NotebookCap.notebook</code> records which notebook that capability authorizes. The third field is an ID value inside the capability, not a third object and not an ownership declaration.</p><p>Follow those identifiers into a call. When we write <code>--args "$NOTEBOOK" "$CAPABILITY" 9</code>, the first two arguments tell the CLI which existing objects to use. The third supplies a new integer. We do not send a replacement notebook record with a self-declared owner. Sui checks the existing objects against the transaction sender before our setter can use them.</p><p>During execution, the function receives temporary references to the admitted objects. The <code>&amp;mut</code> parameter permits changes to the notebook’s value, while the <code>&amp;</code> parameter permits inspection of the capability. That borrowing relationship belongs to the execution. A Python dictionary containing the same fields remains an observation in a client process. Copying it does not copy the stored object or produce another reference that Move will accept. We will trace the actual call inputs in the saved receipt below.</p>
-<p>Neither struct will contain an owner field. Address ownership belongs to Sui’s surrounding object record. Moving the notebook to Bob changes that record. It does not automatically rewrite the separate capability’s fields or move the capability with it. We will inspect both records after each important step.</p>
-<h2>Start a Disposable Local Network</h2>
-<p>We need two accounts whose keys we control, because the experiment intentionally attempts calls from each side of a handover. A fresh local network gives us prefunded development accounts and reproducible rules without using public-network assets. Its object IDs and account addresses will differ on your machine. Keep the variables generated below rather than copying the IDs from my output.</p>
-<p>The commands below target macOS on Apple Silicon with Bash or Zsh, Git, curl, and Python 3.13 available. Git is used when the Move toolchain fetches its framework sources. The CLI is pinned to the same official <code>mainnet-v1.82.3</code> release used for the first article. That release label selects the toolchain. Our configuration selects a new local network. Other platforms should use their corresponding asset from the <a href="https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.82.3">official release</a>.</p>
-<p>In terminal one, create the working directory and install the pinned CLI locally:</p>
+<h2>What Ownership Actually Controls</h2>
+<p>An object read and an object input are different things. A data service can return an address-owned notebook’s public fields to someone who cannot use it in a transaction. Our Python reader will not possess either account’s signing key. The signed CLI calls will use the local accounts created for the experiment.</p>
+<p>A Move function asks for a value or a reference such as <code>&amp;Notebook</code> or <code>&amp;mut Notebook</code>. The surrounding ownership state helps determine whether the requested stored object can enter that call. The function can then apply additional rules, such as checking a capability or comparing the sender with an administrator field. A public function and a public object read do not settle all of those questions.</p>
+<p>We will compare the five forms listed in the <a href="https://docs.sui.io/develop/objects/object-ownership/">ownership documentation</a>. They are useful teaching categories, but they are not five mutually exclusive values in one owner field. An address-owned case can contain a wrapped notebook. The case has an owner record, while the notebook is nested inside its Move value.</p>
+<p>The examples belong to one small application: personal notebooks, a shared registration count, fixed rules, a notebook case, and a service counter. Each needs a different relationship between access and mutation. We will build the source files in that order, then publish the complete package once and compare their behavior on the node.</p>
+<h2>One Local Setup for All Five Experiments</h2>
+<p>These commands target macOS on Apple Silicon with Bash or Zsh, Git, curl, and Python 3.13 available. Use the official <a href="https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.82.3">Sui mainnet-v1.82.3 release</a> for the pinned CLI. The release name selects the toolchain. The configuration below selects a fresh local network. Other platforms need their corresponding official release asset.</p>
 <p>Run:</p>
 <pre>mkdir -p sui-ownership
 cd sui-ownership
-mkdir -p .tools/bin .local/network move/sources move/tests client evidence
+mkdir -p .tools/bin .local/network move/sources client evidence
 curl -fL https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-macos-arm64.tgz -o .tools/sui.tgz
 printf &#x27;%s  %s\n&#x27; 861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9 .tools/sui.tgz | shasum -a 256 -c -
-tar -xzf .tools/sui.tgz -C .tools/bin
+tar -xzf .tools/sui.tgz -C .tools/bin ./sui
 export PATH=&quot;$PWD/.tools/bin:$PATH&quot;
 sui --version</pre>
-<p>Output: Checksum and version lines from the verified archive. Download progress is omitted.</p>
+<p>Output: Checksum and version lines from the verified official archive. Download progress is omitted.</p>
 <pre>.tools/sui.tgz: OK
 sui 1.82.3-bf4073918ed3</pre>
-<p>If this CLI is already installed, you can reuse it after checking its version. The project paths below are absolute before we enter the Move directory, so the CLI configuration and framework cache remain the same in both directories.</p>
+<p>In terminal one, create and start the disposable network:</p>
 <p>Run:</p>
 <pre>export SUI_CONFIG_DIR=&quot;$PWD/.local/network&quot;
 export MOVE_HOME=&quot;$PWD/.local/move-cache&quot;
+export RUST_LOG=off
 sui genesis --working-dir &quot;$SUI_CONFIG_DIR&quot; --with-faucet --committee-size 1 --epoch-duration-ms 86400000
 sui start --network.config &quot;$SUI_CONFIG_DIR&quot; --with-faucet --fullnode-rpc-port 9000</pre>
-<p>The genesis command creates the local network configuration, keystore, and prefunded accounts. The start command stays running in terminal one. Leave it running for the remaining steps. Use a new working directory for this experiment, and keep its generated keystore private. Port 9000 must be available.</p>
-<p>Open terminal two in the same <code>sui-ownership</code> directory. All remaining commands run there unless a command explicitly enters <code>move</code>. Select the first two generated accounts as Alice and Bob:</p>
+<p>Genesis creates the configuration, keystore, and prefunded local accounts. It is silent on success. The last command keeps running. Leave this terminal open and keep the generated keystore private. Use an available port 9000 and a fresh working directory for this run.</p>
+<p>Open terminal two in the same <code>sui-ownership</code> directory. All remaining commands run from that root. Select two generated accounts and obtain this local chain’s identifier:</p>
 <p>Run:</p>
 <pre>export PATH=&quot;$PWD/.tools/bin:$PATH&quot;
 export SUI_CONFIG_DIR=&quot;$PWD/.local/network&quot;
 export MOVE_HOME=&quot;$PWD/.local/move-cache&quot;
+export RUST_LOG=off
 export SUI_GRPC_ENDPOINT=127.0.0.1:9000
 sui client addresses --json &gt; evidence/addresses.json
 ALICE=$(python3 -c &#x27;import json; print(json.load(open(&quot;evidence/addresses.json&quot;))[&quot;addresses&quot;][0][1])&#x27;)
 BOB=$(python3 -c &#x27;import json; print(json.load(open(&quot;evidence/addresses.json&quot;))[&quot;addresses&quot;][1][1])&#x27;)
-CHAIN_ID=$(sui client chain-identifier --json | python3 -c &#x27;import json, sys; print(json.load(sys.stdin)[&quot;base58&quot;])&#x27;)
+CHAIN_ID=$(sui client chain-identifier --json | python3 -c &#x27;import json,sys; print(json.load(sys.stdin)[&quot;base58&quot;])&#x27;)
 printf &#x27;ALICE=%s\nBOB=%s\nCHAIN_ID=%s\n&#x27; &quot;$ALICE&quot; &quot;$BOB&quot; &quot;$CHAIN_ID&quot;</pre>
 <p>Output:</p>
-<pre>ALICE=0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-BOB=0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30
-CHAIN_ID=5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae</pre>
-<p>The short Python commands only extract fields from CLI JSON. They install nothing and handle no secret keys. Alice and Bob are labels for two fresh local accounts, not fixed addresses supplied by the module.</p>
-<h2>Compile the Rule and Exercise It Locally</h2>
-<p>Let’s create <code>move/Move.toml</code> using a shell heredoc. It inserts the chain identifier returned by our running node:</p>
+<pre>ALICE=0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520
+BOB=0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05
+CHAIN_ID=Hj5zCy4vEHoy6WA6Kow4p9BxyYzYypTy4HckJSEtvXDn</pre>
+<p>Create the package manifest. The unquoted heredoc expands your local chain identifier:</p>
 <p>Run:</p>
 <pre>cat &gt; move/Move.toml &lt;&lt;EOF
 [package]
@@ -60,9 +56,21 @@ edition = &quot;2024&quot;
 [environments]
 localnet = &quot;$CHAIN_ID&quot;
 EOF</pre>
-<p>The package name supplies its automatic named address. Publication assigns the onchain package address. The localnet environment connects this package configuration with our generated chain. The pinned CLI supplies its framework dependencies, and the first build fetches those sources if they are not cached.</p>
-<p>Let’s create a file named <code>move/sources/notebook.move</code>:</p>
-<pre>module sui_ownership::notebook;
+<p>The package name supplies its automatic named address. The pinned CLI resolves the framework dependencies, fetching sources during the first build if needed. Your generated addresses, package IDs, object IDs, and versions will differ from the captured values. Keep the variables obtained from your own receipts.</p>
+<p>Run:</p>
+<pre>python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2
+python3 -c &#x27;from importlib.metadata import version; print(&quot;grpcio:&quot;,version(&quot;grpcio&quot;)); print(&quot;grpcio-reflection:&quot;,version(&quot;grpcio-reflection&quot;)); print(&quot;protobuf:&quot;,version(&quot;protobuf&quot;))&#x27; </pre>
+<p>Output: Installed versions used for the Python captures. Package-manager progress is omitted.</p>
+<pre>grpcio: 1.84.1
+grpcio-reflection: 1.84.1
+protobuf: 7.36.2</pre>
+<p>The next five files each include focused unit tests. A test marked <code>expected_failure</code> passes when the specified abort occurs. These tests check local Move behavior. The later node experiment checks actual ownership admission and stored records. <code>--no-lint</code> suppresses lint messages in the test output without disabling those checks.</p>
+<h2>Address-Owned Objects: Custody and Application Permission</h2>
+<p>Choose an address-owned object when one account should supply that state to transactions. A personal notebook, a ticket, and a capability are natural examples. Other people can inspect their public records through a data service, but that observation does not grant access to the existing objects as transaction inputs. See <a href="https://docs.sui.io/develop/objects/object-ownership/address-owned">address-owned objects</a>.</p><p>Our notebook keeps an integer value. Its separate capability records the notebook ID that it authorizes. The constructor creates two fresh identities and binds the capability to the new notebook. Calling the constructor again produces another pair, rather than a replacement grant for an existing notebook.</p><p>The setter requires <code>&amp;mut Notebook</code> and <code>&amp;NotebookCap</code>. For the ordinary account-owned inputs used here, Sui checks that the sender may supply both objects. The function then checks that the capability refers to this notebook. Custody determines which objects can enter the call, while the ID assertion determines which pair permits the update.</p><p><code>create_owned</code> transfers both objects to the transaction sender. The structs contain no owner address field. Their address ownership lives in the surrounding runtime records, which we will inspect after publication.</p>
+<p>Let’s create a file named <code>move/sources/owned.move</code>:</p>
+<pre>module sui_ownership::owned;
 
 const EWrongNotebook: u64 = 0;
 
@@ -77,523 +85,631 @@ public struct NotebookCap has key, store {
 }
 
 public fun create(value: u64, ctx: &amp;mut TxContext): (Notebook, NotebookCap) {
-    let notebook = Notebook { id: object::new(ctx), value };
-    let cap = NotebookCap {
-        id: object::new(ctx),
-        notebook: object::id(&amp;notebook),
-    };
-    (notebook, cap)
+    let note = Notebook { id: object::new(ctx), value };
+    let cap = NotebookCap { id: object::new(ctx), notebook: object::id(&amp;note) };
+    (note, cap)
 }
 
+#[allow(lint(self_transfer))]
 public fun create_owned(value: u64, ctx: &amp;mut TxContext) {
-    let (notebook, cap) = create(value, ctx);
-    transfer::transfer(notebook, ctx.sender());
+    let (note, cap) = create(value, ctx);
+    transfer::transfer(note, ctx.sender());
     transfer::transfer(cap, ctx.sender());
 }
 
-public fun value(notebook: &amp;Notebook): u64 {
-    notebook.value
-}
+public fun value(note: &amp;Notebook): u64 { note.value }
 
-public fun set_value(notebook: &amp;mut Notebook, cap: &amp;NotebookCap, value: u64) {
-    assert!(object::id(notebook) == cap.notebook, EWrongNotebook);
-    notebook.value = value;
+public fun set_value(note: &amp;mut Notebook, cap: &amp;NotebookCap, value: u64) {
+    assert!(object::id(note) == cap.notebook, EWrongNotebook);
+    note.value = value;
 }
 
 #[test_only]
-public fun destroy_for_testing(notebook: Notebook, cap: NotebookCap) {
-    let Notebook { id, value: _ } = notebook;
+public fun destroy_for_testing(note: Notebook, cap: NotebookCap) {
+    let Notebook { id, value: _ } = note;
     object::delete(id);
     let NotebookCap { id, notebook: _ } = cap;
     object::delete(id);
-}</pre>
-<p>Run:</p>
-<pre>cd move
-sui move build
-cd ..</pre>
-<p>Output:</p>
-<pre>INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_ownership
-warning[WSL06002]: non-composable transfer to sender
-   ┌─ ./sources/notebook.move:26:5
-   │
-24 │ public fun create_owned(value: u64, ctx: &amp;mut TxContext) {
-   │            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
-25 │     let (notebook, cap) = create(value, ctx);
-26 │     transfer::transfer(notebook, ctx.sender());
-   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   │     │                            │
-   │     │                            Transaction sender address coming from here
-   │     Transfer of an object to transaction sender address
-   │
-   = This warning can be suppressed with &#x27;#[allow(lint(self_transfer))]&#x27; applied to the &#x27;module&#x27; or module member (&#x27;const&#x27;, &#x27;fun&#x27;, or &#x27;struct&#x27;)
-
-warning[WSL06002]: non-composable transfer to sender
-   ┌─ ./sources/notebook.move:27:5
-   │
-24 │ public fun create_owned(value: u64, ctx: &amp;mut TxContext) {
-   │            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
-   ·
-27 │     transfer::transfer(cap, ctx.sender());
-   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   │     │                       │
-   │     │                       Transaction sender address coming from here
-   │     Transfer of an object to transaction sender address
-   │
-   = This warning can be suppressed with &#x27;#[allow(lint(self_transfer))]&#x27; applied to the &#x27;module&#x27; or module member (&#x27;const&#x27;, &#x27;fun&#x27;, or &#x27;struct&#x27;)
-
-Please report feedback on the linter warnings at https://forums.sui.io</pre>
-<p>The build succeeds. Its two lint warnings concern the convenience wrapper <code>create_owned</code>, which sends objects directly to the sender. Returning objects gives callers more flexibility in a programmable transaction. We retain that composable <code>create</code> function and add the wrapper only to make this small CLI experiment straightforward.</p>
-<p>The constructor creates a fresh UID for each object, then copies the notebook’s ID into <code>cap.notebook</code>. The capability’s own UID remains different. This is where the relationship is established. The setter later checks that relationship with <code>assert!</code>, using abort code <code>0</code> when it fails.</p>
-<p>The word <code>Cap</code> has no special enforcement behavior. Our module gives the object its meaning by creating the binding and requiring it in <code>set_value</code>. Other modules can name the public type, but they cannot directly construct this struct or rewrite its private fields. Public constructors and exposed operations therefore matter as much as the type’s name. See <a href="https://move-book.com/reference/structs/">Move structs and field access</a>.</p>
-<p>Both types have <code>key, store</code>. Their owners can transfer them independently through Sui’s public transfer operation. This is why the split ownership state we are about to create is permitted. Our capability protects this setter. It does not require every transfer of the notebook to include the capability. See <a href="https://docs.sui.io/references/framework/sui_sui/transfer">the transfer module</a>.</p>
-<p>Before publishing, we can test the handover and the relationship check locally. The scenario framework models a sequence of senders and object inventories. Its Alice and Bob use the short fixture addresses <code>@0xA</code> and <code>@0xB</code>, independent of our generated local accounts. Two tests deliberately request an object absent from the simulated sender’s inventory. A separate test supplies a correctly typed capability created for another notebook.</p>
-<p>Let’s create a file named <code>move/tests/handover_tests.move</code>:</p>
-<pre>#[test_only]
-module sui_ownership::handover_tests;
-
-use sui::test_scenario;
-use sui_ownership::notebook::{Self, Notebook, NotebookCap};
-
-const ALICE: address = @0xA;
-const BOB: address = @0xB;
-
-#[test]
-fun test_complete_handover() {
-    let mut scenario = test_scenario::begin(ALICE);
-    notebook::create_owned(7, scenario.ctx());
-    scenario.next_tx(ALICE);
-    let mut note = scenario.take_from_sender&lt;Notebook&gt;();
-    let cap = scenario.take_from_sender&lt;NotebookCap&gt;();
-    let original_id = object::id(&amp;note);
-    notebook::set_value(&amp;mut note, &amp;cap, 9);
-    scenario.return_to_sender(cap);
-    transfer::public_transfer(note, BOB);
-    scenario.next_tx(BOB);
-    assert!(scenario.has_most_recent_for_sender&lt;Notebook&gt;(), 1);
-    assert!(!scenario.has_most_recent_for_sender&lt;NotebookCap&gt;(), 2);
-    scenario.next_tx(ALICE);
-    assert!(!scenario.has_most_recent_for_sender&lt;Notebook&gt;(), 3);
-    let cap = scenario.take_from_sender&lt;NotebookCap&gt;();
-    transfer::public_transfer(cap, BOB);
-    scenario.next_tx(BOB);
-    let mut note = scenario.take_from_sender&lt;Notebook&gt;();
-    let cap = scenario.take_from_sender&lt;NotebookCap&gt;();
-    assert!(object::id(&amp;note) == original_id, 4);
-    notebook::set_value(&amp;mut note, &amp;cap, 11);
-    assert!(notebook::value(&amp;note) == 11, 5);
-    scenario.return_to_sender(note);
-    scenario.return_to_sender(cap);
-    scenario.end();
 }
 
 #[test]
-#[expected_failure(abort_code = 3, location = sui::test_scenario)]
-fun test_bob_cannot_take_alices_capability() {
-    let mut scenario = test_scenario::begin(ALICE);
-    notebook::create_owned(7, scenario.ctx());
-    scenario.next_tx(ALICE);
-    let note = scenario.take_from_sender&lt;Notebook&gt;();
-    transfer::public_transfer(note, BOB);
-    scenario.next_tx(BOB);
-    let cap = scenario.take_from_sender&lt;NotebookCap&gt;();
-    scenario.return_to_sender(cap);
-    scenario.end();
-}
-
-#[test]
-#[expected_failure(abort_code = 3, location = sui::test_scenario)]
-fun test_alice_cannot_take_bobs_notebook() {
-    let mut scenario = test_scenario::begin(ALICE);
-    notebook::create_owned(7, scenario.ctx());
-    scenario.next_tx(ALICE);
-    let note = scenario.take_from_sender&lt;Notebook&gt;();
-    transfer::public_transfer(note, BOB);
-    scenario.next_tx(ALICE);
-    let note = scenario.take_from_sender&lt;Notebook&gt;();
-    scenario.return_to_sender(note);
-    scenario.end();
-}
-
-#[test]
-#[expected_failure(abort_code = 0, location = sui_ownership::notebook)]
-fun test_matching_type_can_have_wrong_binding() {
+fun matching_cap_updates_value() {
     let mut ctx = tx_context::dummy();
-    let (mut note, cap) = notebook::create(7, &amp;mut ctx);
-    let (other, other_cap) = notebook::create(7, &amp;mut ctx);
-    notebook::set_value(&amp;mut note, &amp;other_cap, 11);
-    notebook::destroy_for_testing(note, cap);
-    notebook::destroy_for_testing(other, other_cap);
+    let (mut note, cap) = create(7, &amp;mut ctx);
+    set_value(&amp;mut note, &amp;cap, 9);
+    assert!(value(&amp;note) == 9, 1);
+    destroy_for_testing(note, cap);
+}
+
+#[test]
+#[expected_failure(abort_code = 0, location = sui_ownership::owned)]
+fun another_notebooks_cap_is_rejected() {
+    let mut ctx = tx_context::dummy();
+    let (mut note, cap) = create(7, &amp;mut ctx);
+    let (other, other_cap) = create(7, &amp;mut ctx);
+    set_value(&amp;mut note, &amp;other_cap, 9);
+    destroy_for_testing(note, cap);
+    destroy_for_testing(other, other_cap);
 }</pre>
 <p>Run:</p>
-<pre>cd move
-sui move test
-cd ..</pre>
+<pre>sui move test --path move --no-lint owned</pre>
 <p>Output:</p>
 <pre>INCLUDING DEPENDENCY MoveStdlib
 INCLUDING DEPENDENCY Sui
 BUILDING sui_ownership
 Running Move unit tests
-[ PASS    ] sui_ownership::handover_tests::test_alice_cannot_take_bobs_notebook
-[ PASS    ] sui_ownership::handover_tests::test_bob_cannot_take_alices_capability
-[ PASS    ] sui_ownership::handover_tests::test_complete_handover
-[ PASS    ] sui_ownership::handover_tests::test_matching_type_can_have_wrong_binding
-Test result: OK. Total tests: 4; passed: 4; failed: 0</pre>
-<p>All four tests pass. For tests annotated <code>expected_failure</code>, “PASS” means the specified abort occurred. It does not mean the attempted update succeeded. The two inventory tests expect framework abort code <code>3</code>. The wrong-binding test expects abort code <code>0</code> in our notebook module.</p>
-<p>Notice that the wrong-binding test can create two valid pairs, then deliberately mix one notebook with the other capability. The Move argument types match, but the application relationship does not. That is the reason for the ID assertion. A type check alone cannot tell which notebook a particular capability was issued for.</p>
-<p>These are local Move tests. A scenario inventory failure is not a validator error or a submitted transaction. The network experiment below will exercise the address ownership check through an actual local full node, using ordinary account-owned inputs. See <a href="https://move-book.com/testing/test-scenario/">the scenario testing model</a>.</p><h2>Why a Public ID Cannot Forge a Capability</h2><p>Our Python readers will expose both object IDs and the capability’s notebook binding. Nothing in that binding is a password. If the fields are public chain data, what prevents Bob from creating another <code>NotebookCap</code>, putting the known notebook ID inside it, and passing his new object to the setter?</p><p>The defining module controls construction of the struct. <code>public struct</code> lets another module name <code>NotebookCap</code>, including in function signatures. It does not let that module pack the struct’s fields into a new value. This restriction applies even between two modules in the same package. See <a href="https://move-book.com/reference/structs/#visibility">Move struct visibility</a>.</p><p>We can test that rule without publishing anything. From the lab root, make a separate failure fixture and copy the already shown manifest and notebook module into it:</p><p>Run:</p><pre>mkdir -p failures/forge-cap/sources
-cp move/Move.toml failures/forge-cap/Move.toml
-cp move/sources/notebook.move failures/forge-cap/sources/notebook.move</pre><p>Let’s create a file named <code>failures/forge-cap/sources/forgery_failure.move</code>:</p><pre>module sui_ownership::forgery_failure;
+[ PASS    ] sui_ownership::owned::another_notebooks_cap_is_rejected
+[ PASS    ] sui_ownership::owned::matching_cap_updates_value
+Test result: OK. Total tests: 2; passed: 2; failed: 0</pre>
+<p>The first unit test changes a notebook from 7 to 9 using its matching capability. The second deliberately supplies another notebook’s capability and expects abort code 0. Its passing result means that the expected rejection occurred. These tests exercise the module’s binding rule with locally constructed values. The later node experiment checks actual account ownership.</p><p>This design makes the transfer policy visible. Both types have <code>store</code>, so their owners can transfer them separately. The capability guards this setter, and an application that intends a complete update handover must account for both objects. If several accounts instead need ongoing access to one mutable record, a shared object gives us a different starting point.</p>
+<h2>Shared Objects: Public Inputs with Explicit Application Rules</h2>
+<p>Choose a shared object when multiple users must interact with the same mutable state without transferring it between them. A registration service needs one count of accepted entries, just as a marketplace needs common state for its participants. Our small registry stores that count so we can isolate access rules from the rest of an application.</p><p><code>create</code> builds a fresh <code>Registry</code> and calls <code>share_object</code>. Any address can then reference it in a transaction. The module exposes <code>add_entry</code> as an operation open to everyone, so both Alice and Bob should be able to increment the count. Shared availability alone does not authorize every operation a module could expose. See <a href="https://docs.sui.io/develop/objects/object-ownership/shared">shared objects and access control</a>.</p><p>The <code>admin</code> field introduces a second rule. It records the creator’s address, and <code>reset</code> compares it with the transaction sender obtained from <code>TxContext</code>. That field is application data, not the object’s runtime owner. The object remains shared when Alice is its administrator.</p><p>This distinction lets one object support public contributions and restricted administration. The source must make each operation’s policy explicit. A shared reference allows the call to present the object, while the function determines whether the requested action is permitted.</p>
+<p>Let’s create a file named <code>move/sources/registry.move</code>:</p>
+<pre>module sui_ownership::registry;
 
-use sui_ownership::notebook::NotebookCap;
+const ENotAdmin: u64 = 0;
 
-public fun forge(notebook_id: ID, ctx: &amp;mut TxContext): NotebookCap {
-    NotebookCap {
+public struct Registry has key {
+    id: UID,
+    entries: u64,
+    admin: address,
+}
+
+public fun create(ctx: &amp;mut TxContext) {
+    transfer::share_object(Registry {
         id: object::new(ctx),
-        notebook: notebook_id,
-    }
-}</pre><p>Run:</p><pre>RUST_LOG=off sui move build --path failures/forge-cap --no-lint</pre><p>Output: This deliberate compiler failure exits with status 1. Terminal color codes are omitted.</p><pre>INCLUDING DEPENDENCY MoveStdlib
+        entries: 0,
+        admin: ctx.sender(),
+    });
+}
+
+public fun add_entry(registry: &amp;mut Registry) {
+    registry.entries = registry.entries + 1;
+}
+
+public fun reset(registry: &amp;mut Registry, ctx: &amp;TxContext) {
+    assert!(ctx.sender() == registry.admin, ENotAdmin);
+    registry.entries = 0;
+}
+
+public fun entries(registry: &amp;Registry): u64 { registry.entries }
+
+#[test]
+fun public_updates_and_admin_reset() {
+    let mut ctx = tx_context::dummy();
+    let mut registry = Registry {
+        id: object::new(&amp;mut ctx), entries: 0, admin: ctx.sender(),
+    };
+    add_entry(&amp;mut registry);
+    add_entry(&amp;mut registry);
+    assert!(entries(&amp;registry) == 2, 1);
+    reset(&amp;mut registry, &amp;ctx);
+    assert!(entries(&amp;registry) == 0, 2);
+    let Registry { id, entries: _, admin: _ } = registry;
+    object::delete(id);
+}
+
+#[test]
+#[expected_failure(abort_code = 0, location = sui_ownership::registry)]
+fun another_address_cannot_reset() {
+    let mut ctx = tx_context::dummy();
+    let mut registry = Registry {
+        id: object::new(&amp;mut ctx), entries: 2, admin: @0xA,
+    };
+    reset(&amp;mut registry, &amp;ctx);
+    let Registry { id, entries: _, admin: _ } = registry;
+    object::delete(id);
+}</pre>
+<p>Run:</p>
+<pre>sui move test --path move --no-lint registry</pre>
+<p>Output:</p>
+<pre>INCLUDING DEPENDENCY MoveStdlib
 INCLUDING DEPENDENCY Sui
 BUILDING sui_ownership
-error[EC04001]: restricted visibility
-   ┌─ ./sources/forgery_failure.move:6:5
-   │  
- 6 │ ╭     NotebookCap {
- 7 │ │         id: object::new(ctx),
- 8 │ │         notebook: notebook_id,
- 9 │ │     }
-   │ ╰─────^ Struct &#x27;sui_ownership::notebook::NotebookCap&#x27; can only be instantiated within its defining module &#x27;sui_ownership::notebook&#x27;
-   │  
-   ┌─ ./sources/notebook.move:10:15
-   │
-10 │ public struct NotebookCap has key, store {
-   │               ----------- Struct defined in module &#x27;sui_ownership::notebook&#x27;
+Running Move unit tests
+[ PASS    ] sui_ownership::registry::another_address_cannot_reset
+[ PASS    ] sui_ownership::registry::public_updates_and_admin_reset
+Test result: OK. Total tests: 2; passed: 2; failed: 0</pre>
+<p>The positive unit test adds two entries and lets the matching administrator reset the count to zero. The negative test gives the registry a different administrator and expects abort code 0. Together they exercise the two function policies. They use local values, so we will separately inspect the published shared object and call it from two actual local accounts.</p><p>Shared state also creates a common place for conflicting writes. Two transactions modifying this counter must have an ordered result. Sharing does not make those writes independent or mean they execute simultaneously. Use a common shared record when the application needs that relationship. Separate personal records can remain address-owned when there is no reason for every user to update the same object.</p>
+<h2>Immutable Objects: Permanent Reference Data</h2>
+<p>Choose an immutable object for reference data that must remain fixed once published, such as a permanent rule set or a particular configuration snapshot. Our <code>Rules</code> object contains a limit. Everyone should be able to supply it as a read-only input, and no account should be able to revise that instance afterward.</p><p><code>freeze_object</code> takes the object by value and makes it immutable. This is a permanent state change: the frozen object cannot subsequently be mutated, transferred, or deleted. Our constructor freezes the freshly created rules immediately. The resulting runtime record has the immutable ownership form, rather than an administrator address. See <a href="https://docs.sui.io/develop/objects/object-ownership/immutable">immutable objects</a>.</p><p>An immutable object can enter a Move call as <code>&amp;Rules</code>. It cannot satisfy an argument requiring <code>&amp;mut Rules</code> or a by-value <code>Rules</code>. This is stronger than a function merely choosing to borrow an ordinary mutable object immutably for one call. Freezing constrains every later use of this stored instance.</p><p>We include <code>set_limit</code> as a deliberate probe. The function’s source is valid, and it would update a mutable <code>Rules</code> value. After our constructor freezes an instance, the runtime must prevent that instance from being supplied to the mutable parameter. The function’s visibility cannot undo the object’s immutable state.</p>
+<p>Let’s create a file named <code>move/sources/rules.move</code>:</p>
+<pre>module sui_ownership::rules;
 
-Failed to build Move modules: Compilation error.</pre><p>The diagnostic points to the attempt to construct <code>NotebookCap</code> in <code>forgery_failure</code>. Creating a fresh UID does not grant that module permission to instantiate someone else’s struct. This failure happens during compilation. It is separate from the node rejecting a sender who does not own an input, and from <code>EWrongNotebook</code> rejecting a mismatched pair during execution.</p><p>The original <code>move</code> package remains usable because the invalid source lives under <code>failures/forge-cap</code>. The <code>--no-lint</code> flag removes the previously discussed transfer-to-sender warnings from this output. It leaves the compiler’s visibility check enabled. <code>RUST_LOG=off</code> silences tool logging.</p><p>There is a subtler question here. Our legitimate <code>create</code> function is public, so Bob is allowed to ask the notebook module to create objects. However, that function accepts an initial value and a transaction context. It does not accept an existing notebook ID. Each call creates a fresh notebook identity and binds the newly issued capability to that identity. Repeating <code>create(7, ctx)</code> gives Bob another notebook with value 7, not a replacement grant for Alice’s notebook.</p><p>The constructor and the setter therefore work together. The constructor establishes which notebook a capability refers to. The setter checks that relationship whenever the capability is used. The wrong-binding unit test deliberately crosses two legitimate pairs to show why the second check is still necessary. A valid capability of this type is not universal authority over every notebook.</p>
-<h2>Establish Alice’s Successful Update</h2>
-<p>Publish the package from Alice’s account, then extract the assigned package ID from the publication result. Saving the complete JSON keeps the underlying receipt available while we print only the fields needed for this investigation.</p>
+public struct Rules has key, store {
+    id: UID,
+    limit: u64,
+}
+
+public fun create(limit: u64, ctx: &amp;mut TxContext) {
+    transfer::freeze_object(Rules { id: object::new(ctx), limit });
+}
+
+public fun read_limit(rules: &amp;Rules): u64 { rules.limit }
+
+public fun set_limit(rules: &amp;mut Rules, limit: u64) {
+    rules.limit = limit;
+}
+
+#[test]
+fun read_then_freeze() {
+    let mut ctx = tx_context::dummy();
+    let rules = Rules { id: object::new(&amp;mut ctx), limit: 10 };
+    assert!(read_limit(&amp;rules) == 10, 0);
+    transfer::freeze_object(rules);
+}</pre>
 <p>Run:</p>
-<pre>sui client publish move --sender &quot;$ALICE&quot; --gas-budget 100000000 --json &gt; evidence/publish.json
-PACKAGE=$(python3 -c &#x27;import json; print(next(x[&quot;packageId&quot;] for x in json.load(open(&quot;evidence/publish.json&quot;))[&quot;objectChanges&quot;] if x[&quot;type&quot;] == &quot;published&quot;))&#x27;)
-printf &#x27;PACKAGE=%s\n&#x27; &quot;$PACKAGE&quot;</pre>
+<pre>sui move test --path move --no-lint rules</pre>
 <p>Output:</p>
-<pre>PACKAGE=0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404</pre>
-<p>Create a notebook with value <code>7</code>. The wrapper sends the notebook and its new capability to Alice. Extract both IDs by their complete Move type suffixes:</p>
+<pre>INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::rules::read_then_freeze
+Test result: OK. Total tests: 1; passed: 1; failed: 0</pre>
+<p>The unit test constructs rules with limit 10, checks the read function, and then freezes the value. Its assertion occurs before freezing. It does not test a later account’s access or attempt mutation after freezing. Those behaviors are exercised against the actual node in the publication experiment.</p><p>A configuration that must change later needs another design. Creating a new rules object gives it a different identity, and existing transactions or objects referring to the old rules do not automatically switch to the new one. Immutable objects suit applications that deliberately preserve a specific rule set. For mutable common configuration, shared state with an explicit administrator check addresses a different requirement.</p>
+<h2>Wrapped Objects: Access Through a Case</h2>
+<p>A notebook can belong to an account while remaining an independently addressable object. Wrapping changes that relationship. Our <code>Case</code> stores the notebook itself in a field. The case has its own UID, and the notebook keeps its UID inside the case. While wrapped, that notebook is no longer a separate live object that a transaction can supply by ID. Access goes through the case. See <a href="https://docs.sui.io/develop/objects/object-ownership/wrapped">wrapped objects</a>.</p>
+<p>This fits an application where an item should move or be accessed together with its container. Examples include equipment inside a character, a document inside a case, or an asset held by a request object whose module exposes specific release operations. The wrapper's fields and functions define how the contained value can be reached. Choosing wrapping therefore changes the application's operations as well as its data layout.</p>
+<p>We will reuse the notebook from the address-owned experiment. Bob keeps its matching capability separately and puts the notebook into a new case. This lets us test whether the capability's ID binding survives containment. It also gives us a useful distinction to inspect later: the case has an ordinary address owner, but a direct current-object read using the notebook's ID will fail while the notebook is inside it.</p>
+<p>Let’s create a file named <code>move/sources/case.move</code>:</p>
+<pre>module sui_ownership::case;
+
+use sui_ownership::owned::{Self, Notebook, NotebookCap};
+
+public struct Case has key, store {
+    id: UID,
+    notebook: Notebook,
+}
+
+#[allow(lint(self_transfer))]
+public fun pack(notebook: Notebook, ctx: &amp;mut TxContext) {
+    transfer::transfer(Case { id: object::new(ctx), notebook }, ctx.sender());
+}
+
+public fun note_id(case: &amp;Case): ID {
+    object::id(&amp;case.notebook)
+}
+
+public fun set_inside(case: &amp;mut Case, cap: &amp;NotebookCap, value: u64) {
+    owned::set_value(&amp;mut case.notebook, cap, value);
+}
+
+#[allow(lint(self_transfer))]
+public fun unpack(case: Case, ctx: &amp;mut TxContext) {
+    let Case { id, notebook } = case;
+    object::delete(id);
+    transfer::public_transfer(notebook, ctx.sender());
+}
+
+#[test]
+fun wrapped_notebook_keeps_identity() {
+    let mut ctx = tx_context::dummy();
+    let (notebook, cap) = owned::create(7, &amp;mut ctx);
+    let original_id = object::id(&amp;notebook);
+    let mut case = Case { id: object::new(&amp;mut ctx), notebook };
+    assert!(note_id(&amp;case) == original_id, 1);
+    set_inside(&amp;mut case, &amp;cap, 9);
+    let Case { id, notebook } = case;
+    object::delete(id);
+    assert!(object::id(&amp;notebook) == original_id, 2);
+    assert!(owned::value(&amp;notebook) == 9, 3);
+    owned::destroy_for_testing(notebook, cap);
+}</pre>
 <p>Run:</p>
-<pre>sui client call --package &quot;$PACKAGE&quot; --module notebook --function create_owned --args 7 --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/create.json
-NOTEBOOK=$(python3 -c &#x27;import json; print(next(x[&quot;objectId&quot;] for x in json.load(open(&quot;evidence/create.json&quot;))[&quot;objectChanges&quot;] if x[&quot;type&quot;] == &quot;created&quot; and x.get(&quot;objectType&quot;, &quot;&quot;).endswith(&quot;::notebook::Notebook&quot;)))&#x27;)
-CAPABILITY=$(python3 -c &#x27;import json; print(next(x[&quot;objectId&quot;] for x in json.load(open(&quot;evidence/create.json&quot;))[&quot;objectChanges&quot;] if x[&quot;type&quot;] == &quot;created&quot; and x.get(&quot;objectType&quot;, &quot;&quot;).endswith(&quot;::notebook::NotebookCap&quot;)))&#x27;)
-printf &#x27;NOTEBOOK=%s\nCAPABILITY=%s\n&#x27; &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot;</pre>
+<pre>sui move test --path move --no-lint case</pre>
 <p>Output:</p>
-<pre>NOTEBOOK=0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-CAPABILITY=0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e</pre>
-<p>Alice owns both inputs and has the matching pair. Make the successful baseline update from <code>7</code> to <code>9</code>:</p>
+<pre>INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::case::wrapped_notebook_keeps_identity
+Test result: OK. Total tests: 1; passed: 1; failed: 0</pre>
+<p><code>pack</code> takes the notebook by value and places it inside a newly created <code>Case</code>. <code>set_inside</code> obtains a mutable reference to that field and passes it, together with the separately supplied capability, to the original setter. Wrapping does not remove the notebook module's binding check. Bob must be able to supply the case and the capability, and the capability must still identify the contained notebook.</p>
+<p><code>unpack</code> consumes the case, extracts the notebook, deletes the case UID, and transfers the notebook to the sender. The unit test checks the notebook's identity and setter behavior in local Move values.</p>
+<p>There is no separate <code>Wrapped</code> runtime owner value to look for in that notebook response. Containment is the reason the notebook lacks its own live record at this stage. Our known pack operation and the case's nested data establish that explanation. A missing response by itself would not establish why an arbitrary object was unavailable.</p>
+<p>Keep this distinct from <a href="https://docs.sui.io/develop/objects/transfers/transfer-to-object">transferring an object to another object's ID</a>. That mechanism uses an object-owned record and receiving operations. Our case uses a nested Move field, and its functions extract or borrow that field directly.</p>
+<h2>Party Objects: Restricted Access with Consensus-Managed Versions</h2>
+<p>Consider a counter maintained by one service account. Other accounts should not update it, but the service would like to launch another update before an earlier request has completed. A party object provides restricted ownership with consensus-managed version assignment. Its access rule and its input versioning mechanism are separate decisions.</p>
+<p>The public API we are using supports a single-owner party. <code>party::single_owner</code> gives that address the permissions, and <code>public_party_transfer</code> places the object in this ownership form. We will create Alice's counter that way. The existence of a permission structure does not make this example a multi-member group. See <a href="https://docs.sui.io/develop/objects/object-ownership/party">party objects and current limitations</a>.</p>
+<p>The counter deliberately has no separately supplied capability. Its ordinary updates rely on the party owner's authority. Adding an address-owned capability to every call would introduce another input whose state must be coordinated. We want the later experiment to isolate the counter's behavior, so Alice will launch two updates with distinct gas coins and wait for both results afterward.</p>
+<p>Let’s create a file named <code>move/sources/party_counter.move</code>:</p>
+<pre>module sui_ownership::party_counter;
+
+use sui::party;
+
+public struct Counter has key, store {
+    id: UID,
+    value: u64,
+}
+
+public fun create(ctx: &amp;mut TxContext) {
+    let counter = Counter { id: object::new(ctx), value: 0 };
+    transfer::public_party_transfer(counter, party::single_owner(ctx.sender()));
+}
+
+public fun increment(counter: &amp;mut Counter) {
+    counter.value = counter.value + 1;
+}
+
+public fun value(counter: &amp;Counter): u64 {
+    counter.value
+}
+
+#[test]
+fun repeated_updates_change_value() {
+    let mut ctx = tx_context::dummy();
+    let mut counter = Counter { id: object::new(&amp;mut ctx), value: 0 };
+    increment(&amp;mut counter);
+    increment(&amp;mut counter);
+    assert!(value(&amp;counter) == 2, 1);
+    let Counter { id, value: _ } = counter;
+    object::delete(id);
+}</pre>
 <p>Run:</p>
-<pre>sui client call --package &quot;$PACKAGE&quot; --module notebook --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 9 --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/alice-update.json
-python3 -c &#x27;import json; x=json.load(open(&quot;evidence/alice-update.json&quot;)); print(&quot;Status:&quot;, x[&quot;effects&quot;][&quot;status&quot;][&quot;status&quot;]); print(&quot;Digest:&quot;, x[&quot;digest&quot;])&#x27; </pre>
+<pre>sui move test --path move --no-lint party_counter</pre>
 <p>Output:</p>
-<pre>Status: success
-Digest: 2rw7Put45TCHTqe4Xxm89kW4pTVvNzcxn5bXUspZ24ht</pre>
-<h3>What the Saved Call Actually Supplies</h3><p>Before querying the output state, inspect the successful call we just saved. Its transaction inputs show how the two object IDs and the integer reach <code>set_value</code>. This program reads <code>evidence/alice-update.json</code> locally and needs only Python’s standard library.</p><p>Let’s create a file named <code>client/inspect_call_inputs.py</code>:</p><pre>import json
+<pre>INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::party_counter::repeated_updates_change_value
+Test result: OK. Total tests: 1; passed: 1; failed: 0</pre>
+<p><code>increment</code> is a public Move function and contains no sender comparison. That does not give Bob access to Alice's counter. Sui still checks whether the sender may supply the party object. Our later Bob attempt is rejected by the local node's input checks, while both of Alice's submitted updates succeed and leave the counter at <code>2</code>.</p>
+<p>The local unit test establishes that two function calls increment the value correctly. It does not test concurrent submission or ownership admission. Those observations come from the separate node experiment. Launching both commands before waiting demonstrates multiple inflight requests. The conflicting counter writes still execute in consensus order, so the successful results do not establish parallel execution of those writes.</p>
+
+
+<h2>Verify the Choices on a Running Node</h2>
+<p>All five source files are now present. Publish the package once from Alice’s account:</p>
+<p>Run:</p>
+<pre>sui client publish move --sender &quot;$ALICE&quot; --gas-budget 100000000 --json &gt; evidence/publish.json</pre>
+<p>The CLI writes complete receipts to our evidence directory. A small local reader will extract created IDs and print execution status without hiding any transaction construction:</p>
+<p>Let’s create a file named <code>client/receipt.py</code>:</p>
+<pre>import argparse
+import json
 from pathlib import Path
 
-receipt = json.loads(Path(&quot;evidence/alice-update.json&quot;).read_text())
-data = receipt[&quot;transaction&quot;][&quot;data&quot;]
-transaction = data[&quot;transaction&quot;]
-assert transaction[&quot;kind&quot;] == &quot;ProgrammableTransaction&quot;
-assert len(transaction[&quot;transactions&quot;]) == 1
-call = transaction[&quot;transactions&quot;][0][&quot;MoveCall&quot;]
-assert (call[&quot;module&quot;], call[&quot;function&quot;]) == (&quot;notebook&quot;, &quot;set_value&quot;)
-assert call[&quot;arguments&quot;] == [{&quot;Input&quot;: 0}, {&quot;Input&quot;: 1}, {&quot;Input&quot;: 2}]
-print(&quot;Recorded sender:&quot;, data[&quot;sender&quot;])
-print(&quot;Called function:&quot;, f&quot;{call[&#x27;package&#x27;]}::{call[&#x27;module&#x27;]}::{call[&#x27;function&#x27;]}&quot;)
-for position, role in enumerate((&quot;notebook&quot;, &quot;capability&quot;, &quot;new value&quot;)):
-    index = call[&quot;arguments&quot;][position][&quot;Input&quot;]
-    item = transaction[&quot;inputs&quot;][index]
-    print(f&quot;Move argument {position} ({role}) -&gt; Input {index}&quot;)
-    if position &lt; 2:
-        assert (item[&quot;type&quot;], item[&quot;objectType&quot;]) == (&quot;object&quot;, &quot;immOrOwnedObject&quot;)
-        print(&quot;  Object ID:&quot;, item[&quot;objectId&quot;])
-        print(&quot;  Input version:&quot;, item[&quot;version&quot;])
-    else:
-        assert item[&quot;type&quot;] == &quot;pure&quot;
-        raw = bytes(item[&quot;value&quot;])
-        assert len(raw) == 8
-        value = int.from_bytes(raw, &quot;little&quot;)
-        assert value == 9
-        print(&quot;  Decoded u64:&quot;, value)
-print(&quot;PASS: the receipt maps two object inputs and one value into set_value&quot;)</pre><p>Run:</p><pre>python3 client/inspect_call_inputs.py</pre><p>Output:</p><pre>Recorded sender: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-Called function: 0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404::notebook::set_value
-Move argument 0 (notebook) -&gt; Input 0
-  Object ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-  Input version: 3
-Move argument 1 (capability) -&gt; Input 1
-  Object ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
-  Input version: 3
-Move argument 2 (new value) -&gt; Input 2
-  Decoded u64: 9
-PASS: the receipt maps two object inputs and one value into set_value</pre><p>The Move call refers to three input positions. Argument 0 selects the notebook object, argument 1 selects the capability object, and argument 2 selects the new value. The first two inputs identify existing object versions. The integer is a pure value, represented here as eight bytes that our small decoder reads as <code>9</code>. It has no separate object owner record.</p><p>The CLI category <code>immOrOwnedObject</code> describes the object input representation. It is not the Move struct’s type and does not prove that the sender owns it. The objects must still satisfy the function’s types and Sui’s input rules. Our program’s role labels come from the <code>set_value</code> signature shown earlier.</p><p>Both recorded input versions are <code>3</code>. The following state read will observe version <code>4</code>, after this successful update. We are looking at two stages of the same operation: the existing states supplied to it and the resulting states read afterward. This receipt inspection reports what the saved record contains. It does not independently verify the transaction’s signature.</p><p>A success receipt tells us the local chain executed the call. We can now inspect the resulting objects through a separate read path. Python will use Sui’s native gRPC <code>LedgerService</code>, including server reflection to discover the protobuf request and response types. Reflection avoids generated binding files in this small lab. It requires an endpoint that exposes reflection, as this local node does. See <a href="https://docs.sui.io/develop/accessing-data/grpc-overview">Sui gRPC access</a>.</p>
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;receipt&quot;)
+parser.add_argument(&quot;selector&quot;, nargs=&quot;?&quot;, default=&quot;status&quot;)
+parser.add_argument(&quot;index&quot;, nargs=&quot;?&quot;, type=int, default=0)
+args = parser.parse_args()
+data = json.loads(Path(args.receipt).read_text())
+if args.selector == &quot;status&quot;:
+    print(&quot;Status:&quot;, data[&quot;effects&quot;][&quot;status&quot;][&quot;status&quot;])
+    print(&quot;Digest:&quot;, data[&quot;digest&quot;])
+elif args.selector == &quot;package&quot;:
+    print(next(x[&quot;packageId&quot;] for x in data[&quot;objectChanges&quot;] if x[&quot;type&quot;] == &quot;published&quot;))
+else:
+    matches = [x[&quot;objectId&quot;] for x in data[&quot;objectChanges&quot;]
+               if x[&quot;type&quot;] == &quot;created&quot;
+               and x.get(&quot;objectType&quot;, &quot;&quot;).endswith(args.selector)]
+    print(matches[args.index])</pre>
 <p>Run:</p>
-<pre>python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2
-python3 -c &#x27;from importlib.metadata import version; print(&quot;grpcio:&quot;, version(&quot;grpcio&quot;)); print(&quot;grpcio-reflection:&quot;, version(&quot;grpcio-reflection&quot;)); print(&quot;protobuf:&quot;, version(&quot;protobuf&quot;))&#x27;</pre>
-<p>Output: Installed package versions. Package-manager progress is omitted.</p>
-<pre>grpcio: 1.84.1
-grpcio-reflection: 1.84.1
-protobuf: 7.36.2</pre>
-<p>These are the exact Python package versions used for the captured results. The virtual environment must remain active for the Python commands below. The helper uses plaintext only for loopback development endpoints and normal TLS for other hosts.</p>
-<p>Let’s create a file named <code>client/rpc.py</code>:</p>
-<pre>import os
+<pre>python3 client/receipt.py evidence/publish.json</pre>
+<p>Output:</p>
+<pre>Status: success
+Digest: 4vr5M599dJLg933xJ5MEhf3bqa3qJdd9WZHgPCBkCYen</pre>
+<p>Run:</p>
+<pre>PACKAGE=$(python3 client/receipt.py evidence/publish.json package)
+printf &#x27;PACKAGE=%s\n&#x27; &quot;$PACKAGE&quot;</pre>
+<p>Output:</p>
+<pre>PACKAGE=0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce</pre>
+<p>The optional selector is either <code>package</code> or a created object’s type suffix. The last optional integer selects a matching created object when a receipt contains more than one. The default prints status and digest. The following commands run in order, with intentional failures identified explicitly.</p>
+<h3>Address-owned: transfer the notebook, then its grant</h3>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module owned --function create_owned --args 7 --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/owned-create.json
+NOTEBOOK=$(python3 client/receipt.py evidence/owned-create.json &#x27;::owned::Notebook&#x27;)
+CAPABILITY=$(python3 client/receipt.py evidence/owned-create.json &#x27;::owned::NotebookCap&#x27;)
+printf &#x27;NOTEBOOK=%s\nCAPABILITY=%s\n&#x27; &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot;</pre>
+<p>Output:</p>
+<pre>NOTEBOOK=0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451
+CAPABILITY=0xa586b60da2e7298880a5b0b26c27e0eadf5acf94181b2d102114e35c53387024</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module owned --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 9 --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/owned-alice-update.json
+python3 client/receipt.py evidence/owned-alice-update.json</pre>
+<p>Output:</p>
+<pre>Status: success
+Digest: 7opEYpFuDvR8eabfHpp4hDYpPQT9F2vRRfyoUWzGk3bn</pre>
+<p>For the state reads, use Sui’s native <code>LedgerService.GetObject</code>. Server reflection supplies the protobuf descriptors on this local node. The reader saves the complete response and prints the fields we need. It uses plaintext only for loopback development endpoints and normal TLS for remote endpoints. See <a href="https://docs.sui.io/develop/accessing-data/grpc-overview">gRPC access</a>.</p>
+<p>Let’s create a file named <code>client/read_object.py</code>:</p>
+<pre>import argparse
+import json
+import os
+import sys
+from pathlib import Path
+
 import grpc
 from google.protobuf import descriptor_pool, json_format, message_factory
 from grpc_reflection.v1alpha.proto_reflection_descriptor_database import (
     ProtoReflectionDescriptorDatabase,
 )
 
-endpoint = os.environ.get(&quot;SUI_GRPC_ENDPOINT&quot;, &quot;127.0.0.1:9000&quot;)
-service_name = &quot;sui.rpc.v2.LedgerService&quot;
-
-
-def rpc(method_name, **fields):
-    host = endpoint.rsplit(&quot;:&quot;, 1)[0]
-    if host in {&quot;localhost&quot;, &quot;127.0.0.1&quot;, &quot;[::1]&quot;}:
-        channel = grpc.insecure_channel(endpoint)
-    else:
-        channel = grpc.secure_channel(endpoint, grpc.ssl_channel_credentials())
-    with channel:
-        pool = descriptor_pool.DescriptorPool(ProtoReflectionDescriptorDatabase(channel))
-        method = pool.FindServiceByName(service_name).methods_by_name[method_name]
-        request_type = message_factory.GetMessageClass(method.input_type)
-        response_type = message_factory.GetMessageClass(method.output_type)
-        call = channel.unary_unary(
-            f&quot;/{service_name}/{method_name}&quot;,
-            request_serializer=request_type.SerializeToString,
-            response_deserializer=response_type.FromString,
-        )
-        response = call(request_type(**fields), timeout=30)
-        return json_format.MessageToDict(response, preserving_proto_field_name=True)
-
-
-if __name__ == &quot;__main__&quot;:
-    info = rpc(&quot;GetServiceInfo&quot;)
-    print(&quot;RPC endpoint:&quot;, endpoint)
-    print(&quot;Chain identifier:&quot;, info[&quot;chain_id&quot;])
-    print(&quot;Service checkpoint:&quot;, info[&quot;checkpoint_height&quot;])</pre>
-<p>Run:</p>
-<pre>python3 client/rpc.py</pre>
-<p>Output:</p>
-<pre>RPC endpoint: 127.0.0.1:9000
-Chain identifier: 5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae
-Service checkpoint: 305</pre>
-<p>The helper looks up the RPC method’s input and output descriptors, constructs a protobuf request, and invokes that method on the node. The checkpoint line confirms that we reached a running data service. It is unrelated to the notebook’s object version and will continue to advance while the node runs.</p>
-<p>Let’s create a file named <code>client/01_inspect_owned.py</code>:</p>
-<pre>import argparse
-import json
-from pathlib import Path
-from rpc import rpc
-
 parser = argparse.ArgumentParser()
-parser.add_argument(&quot;notebook_id&quot;)
-parser.add_argument(&quot;capability_id&quot;)
+parser.add_argument(&quot;object_id&quot;)
 parser.add_argument(&quot;label&quot;)
 args = parser.parse_args()
 if not args.label.isidentifier():
-    parser.error(&quot;Use a simple label such as baseline, partial, or complete&quot;)
-responses = {
-    name: rpc(&quot;GetObject&quot;, object_id=object_id, read_mask={&quot;paths&quot;: [&quot;*&quot;]})
-    for name, object_id in ((&quot;notebook&quot;, args.notebook_id), (&quot;capability&quot;, args.capability_id))
-}
-note = responses[&quot;notebook&quot;][&quot;object&quot;]
-cap = responses[&quot;capability&quot;][&quot;object&quot;]
-bound_id = cap[&quot;json&quot;][&quot;notebook&quot;]
-assert bound_id == note[&quot;object_id&quot;]
-assert note[&quot;owner&quot;][&quot;kind&quot;] == cap[&quot;owner&quot;][&quot;kind&quot;] == &quot;ADDRESS&quot;
+    parser.error(&quot;Use a simple label such as owned, shared, or wrapped_child&quot;)
+endpoint = os.environ.get(&quot;SUI_GRPC_ENDPOINT&quot;, &quot;127.0.0.1:9000&quot;)
+host = endpoint.rsplit(&quot;:&quot;, 1)[0]
+channel = (
+    grpc.insecure_channel(endpoint)
+    if host in {&quot;localhost&quot;, &quot;127.0.0.1&quot;, &quot;[::1]&quot;}
+    else grpc.secure_channel(endpoint, grpc.ssl_channel_credentials())
+)
+service = &quot;sui.rpc.v2.LedgerService&quot;
+try:
+    with channel:
+        pool = descriptor_pool.DescriptorPool(ProtoReflectionDescriptorDatabase(channel))
+        method = pool.FindServiceByName(service).methods_by_name[&quot;GetObject&quot;]
+        request_type = message_factory.GetMessageClass(method.input_type)
+        response_type = message_factory.GetMessageClass(method.output_type)
+        call = channel.unary_unary(
+            f&quot;/{service}/GetObject&quot;,
+            request_serializer=request_type.SerializeToString,
+            response_deserializer=response_type.FromString,
+        )
+        response = call(
+            request_type(object_id=args.object_id, read_mask={&quot;paths&quot;: [&quot;*&quot;]}), timeout=30
+        )
+        result = json_format.MessageToDict(response, preserving_proto_field_name=True)
+except grpc.RpcError as error:
+    result = {&quot;error&quot;: {&quot;code&quot;: error.code().name, &quot;details&quot;: error.details()}}
 Path(&quot;evidence&quot;).mkdir(exist_ok=True)
 path = Path(&quot;evidence&quot;) / f&quot;{args.label}.json&quot;
-path.write_text(json.dumps(responses, indent=2) + &quot;\n&quot;)
-print(&quot;Snapshot:&quot;, args.label)
-print(&quot;Notebook ID:&quot;, note[&quot;object_id&quot;])
-print(&quot;Notebook version:&quot;, note[&quot;version&quot;])
-print(&quot;Notebook owner:&quot;, note[&quot;owner&quot;][&quot;address&quot;])
-print(&quot;Notebook value:&quot;, note[&quot;json&quot;][&quot;value&quot;])
-print(&quot;Capability ID:&quot;, cap[&quot;object_id&quot;])
-print(&quot;Capability version:&quot;, cap[&quot;version&quot;])
-print(&quot;Capability owner:&quot;, cap[&quot;owner&quot;][&quot;address&quot;])
-print(&quot;Capability notebook:&quot;, bound_id)
-print(&quot;Binding matches:&quot;, bound_id == note[&quot;object_id&quot;])
-print(&quot;Same address owns both:&quot;, note[&quot;owner&quot;] == cap[&quot;owner&quot;])
+path.write_text(json.dumps(result, indent=2) + &quot;\n&quot;)
+if &quot;error&quot; in result:
+    print(&quot;GetObject failed:&quot;, result[&quot;error&quot;][&quot;code&quot;], result[&quot;error&quot;][&quot;details&quot;])
+    print(&quot;Saved:&quot;, path)
+    sys.exit(1)
+obj = result[&quot;object&quot;]
+print(&quot;Object ID:&quot;, obj[&quot;object_id&quot;])
+print(&quot;Version:&quot;, obj[&quot;version&quot;])
+print(&quot;Type:&quot;, obj[&quot;object_type&quot;])
+print(&quot;Owner:&quot;, json.dumps(obj[&quot;owner&quot;], sort_keys=True))
+print(&quot;Move value:&quot;, json.dumps(obj[&quot;json&quot;], indent=2, sort_keys=True))
 print(&quot;Saved:&quot;, path)</pre>
 <p>Run:</p>
-<pre>python3 client/01_inspect_owned.py &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; baseline</pre>
+<pre>python3 client/read_object.py &quot;$NOTEBOOK&quot; owned_before</pre>
 <p>Output:</p>
-<pre>Snapshot: baseline
-Notebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Notebook version: 4
-Notebook owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-Notebook value: 9
-Capability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
-Capability version: 4
-Capability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-Capability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Binding matches: True
-Same address owns both: True
-Saved: evidence/baseline.json</pre>
-<p>Both runtime owner records name Alice, the notebook value is <code>9</code>, and the capability’s stored notebook ID equals the notebook’s object ID. The capability has its own different object ID. These observations agree with the constructor and the successful setter call.</p>
-<p>The two <code>GetObject</code> requests are separate reads. We pause mutations while capturing each label. The word “Snapshot” in the output names our saved pair of observations. It does not claim an atomic historical snapshot, a consensus proof, or permission to use either object. The full native responses are retained in <code>evidence/baseline.json</code>.</p>
-<p>Both objects are version <code>4</code> in this capture. In this toolchain, the capability’s runtime version advanced during Alice’s successful call even though the function borrowed it with <code>&amp;NotebookCap</code> and left its Move fields unchanged. We will track stable identity and binding separately from runtime versions. An immutable Move borrow is not a promise that the surrounding object record stays byte-for-byte identical across a transaction.</p>
-<h2>Transfer Only the Notebook</h2>
-<p>Alice now transfers the notebook to Bob and leaves the capability where it is. The transfer is an operation on the notebook object. It does not call our setter and does not inspect <code>cap.notebook</code>.</p>
+<pre>Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451
+Version: 4
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook
+Owner: {&quot;address&quot;: &quot;0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520&quot;, &quot;kind&quot;: &quot;ADDRESS&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451&quot;,
+  &quot;value&quot;: &quot;9&quot;
+}
+Saved: evidence/owned_before.json</pre>
+<p>This public read names Alice as owner and shows value 9. The code sends an object ID and read mask, not a signature or a Move reference. Keep the virtual environment active for each later read.</p>
 <p>Run:</p>
-<pre>sui client transfer --to &quot;$BOB&quot; --object-id &quot;$NOTEBOOK&quot; --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/transfer-notebook.json
-python3 -c &#x27;import json; x=json.load(open(&quot;evidence/transfer-notebook.json&quot;)); print(&quot;Status:&quot;, x[&quot;effects&quot;][&quot;status&quot;][&quot;status&quot;]); print(&quot;Digest:&quot;, x[&quot;digest&quot;])&#x27; </pre>
-<p>Output:</p>
-<pre>Status: success
-Digest: E1NJGs4H8pXxkQSxUFnxYpjCHPvSUechM1RWFCb9kcLr</pre>
-<p>Read both objects again using the same IDs:</p>
-<p>Run:</p>
-<pre>python3 client/01_inspect_owned.py &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; partial</pre>
-<p>Output:</p>
-<pre>Snapshot: partial
-Notebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Notebook version: 5
-Notebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30
-Notebook value: 9
-Capability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
-Capability version: 4
-Capability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-Capability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Binding matches: True
-Same address owns both: False
-Saved: evidence/partial.json</pre>
-<p>The notebook now belongs to Bob. Its value is still <code>9</code>, and its identity is unchanged. The capability still belongs to Alice, and its <code>notebook</code> field still identifies this notebook. The binding remains valid while custody is split.</p>
-<p>This is the point where “the owner can update it” becomes incomplete. Bob can supply the notebook as his input, but the setter asks for another existing object too. Alice has that capability, but she no longer owns the notebook. The application has created a permitted state in which neither ordinary account-owned call has all the required inputs.</p>
-<p>The immutable reference in <code>&amp;NotebookCap</code> does not remove this problem. It describes how the setter may use the capability after Sui admits the input. Bob can publicly read the capability’s ID and fields. Those bytes do not give him authority to supply Alice’s address-owned object in his own transaction.</p><p>This also explains why sending Bob the capability’s JSON would not complete the handover. He could reconstruct every displayed field and still lack the address-owned input. Our transaction has one sender for these ordinary nongas inputs. Alice retaining one object and Bob retaining the other does not combine their authority inside Bob’s call. The second transfer changes that concrete condition by making both required inputs available to Bob.</p>
-<h2>Find the Check That Rejects Each Account</h2>
-<p>We will attempt to set the value to <code>10</code> from each account. First select one local gas coin for each sender. Supplying it explicitly keeps the experiment from stopping in the CLI’s automatic gas-selection simulation, which can perform input checks before the signed submission path.</p>
-<p>Run:</p>
-<pre>sui client gas &quot;$ALICE&quot; --json &gt; evidence/alice-gas.json
+<pre>sui client transfer --to &quot;$BOB&quot; --object-id &quot;$NOTEBOOK&quot; --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/owned-transfer.json
+python3 client/receipt.py evidence/owned-transfer.json
+sui client gas &quot;$ALICE&quot; --json &gt; evidence/alice-gas.json
 sui client gas &quot;$BOB&quot; --json &gt; evidence/bob-gas.json
-ALICE_GAS=$(python3 -c &#x27;import json; print(json.load(open(&quot;evidence/alice-gas.json&quot;))[&quot;gasCoins&quot;][0][&quot;gasCoinId&quot;])&#x27;)
-BOB_GAS=$(python3 -c &#x27;import json; print(json.load(open(&quot;evidence/bob-gas.json&quot;))[&quot;gasCoins&quot;][0][&quot;gasCoinId&quot;])&#x27;)
+ALICE_GAS=$(python3 -c &#x27;import json;print(json.load(open(&quot;evidence/alice-gas.json&quot;))[&quot;gasCoins&quot;][0][&quot;gasCoinId&quot;])&#x27;)
+BOB_GAS=$(python3 -c &#x27;import json;print(json.load(open(&quot;evidence/bob-gas.json&quot;))[&quot;gasCoins&quot;][0][&quot;gasCoinId&quot;])&#x27;)
 printf &#x27;ALICE_GAS=%s\nBOB_GAS=%s\n&#x27; &quot;$ALICE_GAS&quot; &quot;$BOB_GAS&quot;</pre>
 <p>Output:</p>
-<pre>ALICE_GAS=0x04cc9af7470c81ac5de46e4baad115c68e866d0681ffce9dabd4e06637b6b2a6
-BOB_GAS=0x54e8455b1dd75ab643d0a5f1a81d6b94c114877453b06d08f0218fdc4f4340a0</pre>
-<p>Bob has the notebook but tries to supply Alice’s capability:</p>
+<pre>Status: success
+Digest: 9zVwqTfPTzPGC5qo37Kb8XTPm3Zcrgsc8Pbio3WoGKUW
+ALICE_GAS=0x45927b76fdc0cc9d557b61b5a4882d31f99c9b833a05e8de63681500e1c4710c
+BOB_GAS=0x127df8b19a476f1215e488ec0fbcb6ae45cbd32ed340b36d999074d9441c27ef</pre>
+<p>Explicit gas coins keep the deliberate failures from first stopping in automatic gas-selection simulation. Alice still has the capability but no longer has the notebook:</p>
 <p>Run:</p>
-<pre>sui client call --package &quot;$PACKAGE&quot; --module notebook --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 10 --sender &quot;$BOB&quot; --gas &quot;$BOB_GAS&quot; --gas-budget 50000000 --json</pre>
-<p>Output: Leading diagnostic. Repeated RPC details are omitted. This command intentionally exits with status 1.</p>
-<pre>code: &#x27;Client specified an invalid argument&#x27;, message: &quot;Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e is owned by account address 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c, but given owner/signer address is 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30&quot;</pre>
-<p>The object named in Bob’s diagnostic is the capability. Its stored owner is Alice, while the supplied sender is Bob. The local node rejects that input. Move has not yet reached our notebook-ID assertion, even though we already know the binding matches.</p>
-<p>Alice retains the capability but tries to supply Bob’s notebook:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module owned --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 10 --sender &quot;$ALICE&quot; --gas-budget 50000000 --gas &quot;$ALICE_GAS&quot; --json</pre>
+<p>Output: Expected exit 1. Leading diagnostic, with repeated RPC details omitted.</p>
+<pre>code: &#x27;Client specified an invalid argument&#x27;, message: &quot;Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 is owned by account address 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05, but given owner/signer address is 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520&quot;</pre>
+<p>Bob has the notebook but still lacks the capability:</p>
 <p>Run:</p>
-<pre>sui client call --package &quot;$PACKAGE&quot; --module notebook --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 10 --sender &quot;$ALICE&quot; --gas &quot;$ALICE_GAS&quot; --gas-budget 50000000 --json</pre>
-<p>Output: Leading diagnostic. Repeated RPC details are omitted. This command intentionally exits with status 1.</p>
-<pre>code: &#x27;Client specified an invalid argument&#x27;, message: &quot;Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a is owned by account address 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30, but given owner/signer address is 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c&quot;</pre>
-<p>This diagnostic names the notebook instead. Its owner is Bob, while the sender is Alice. Keeping the capability did not give Alice a way to borrow Bob’s address-owned notebook into this ordinary call.</p>
-<p>The phrase “not signed by the correct sender” can be misleading if read without the addresses that follow it. In this pinned implementation, an address-owner mismatch is reported using <code>IncorrectUserSignature</code>. It does not mean our experiment generated malformed cryptographic signatures. Each attempt used the requested local account’s key, and the rejected condition was that this sender did not own one of the inputs.</p>
-<p>The <a href="https://github.com/MystenLabs/sui/blob/mainnet-v1.82.3/crates/sui-transaction-checks/src/lib.rs#L467">input-checking implementation</a> selects the transaction sender as the expected owner of ordinary nongas inputs. In <a href="https://github.com/MystenLabs/sui/blob/mainnet-v1.82.3/crates/sui-transaction-checks/src/lib.rs#L558"><code>check_one_object</code></a>, the <code>Owner::AddressOwner</code> branch compares that expected address with the object’s actual owner. The screenshot shows that comparison in the exact release used for the lab.</p>
-<p><img src="images/input-owner-check.png" alt="Sui 1.82.3 source compares the expected sender with an address-owned input’s actual owner." /></p>
-<p><em>Actual source view from Sui mainnet-v1.82.3. The address-owner branch constructs IncorrectUserSignature when the expected owner differs from the stored owner. The source explains the diagnostic. The CLI outputs above are the execution evidence.</em></p>
-<p>Both calls reached the local full node’s RPC admission path and returned an input-checking error. They did not produce a committed failed execution or reach <code>set_value</code>. That is different from the local wrong-binding test, where Move enters our function and aborts at <code>EWrongNotebook</code>.</p>
-<p>Read the records once more before transferring anything else:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module owned --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 10 --sender &quot;$BOB&quot; --gas-budget 50000000 --gas &quot;$BOB_GAS&quot; --json</pre>
+<p>Output: Expected exit 1. Leading diagnostic, with repeated RPC details omitted.</p>
+<pre>code: &#x27;Client specified an invalid argument&#x27;, message: &quot;Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xa586b60da2e7298880a5b0b26c27e0eadf5acf94181b2d102114e35c53387024 is owned by account address 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520, but given owner/signer address is 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05&quot;</pre>
+<p>The local full node rejects the unavailable input in each attempt before our setter runs. The error names the actual object owner and the supplied sender. In this implementation the owner mismatch uses <code>IncorrectUserSignature</code>, which does not imply malformed cryptography. The <a href="https://github.com/MystenLabs/sui/blob/mainnet-v1.82.3/crates/sui-transaction-checks/src/lib.rs#L558">address-owner check</a> explains that diagnostic.</p>
 <p>Run:</p>
-<pre>python3 client/01_inspect_owned.py &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; rejected</pre>
-<p>Output:</p>
-<pre>Snapshot: rejected
-Notebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Notebook version: 5
-Notebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30
-Notebook value: 9
-Capability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
-Capability version: 4
-Capability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c
-Capability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Binding matches: True
-Same address owns both: False
-Saved: evidence/rejected.json</pre>
-<p>The queried notebook and capability records are unchanged after both rejected attempts. The notebook is still Bob’s value-9 object and the capability is still Alice’s. Our final comparison will check the complete parsed responses against the preceding capture rather than relying only on the displayed value.</p>
-<h2>Complete the Handover and Compare the Records</h2>
-<p>Alice can still transfer the capability she owns. Sending that object to Bob completes the custody required by this setter’s address-owned input model. It preserves the stored notebook binding rather than issuing a new grant.</p>
-<p>Run:</p>
-<pre>sui client transfer --to &quot;$BOB&quot; --object-id &quot;$CAPABILITY&quot; --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/transfer-capability.json
-python3 -c &#x27;import json; x=json.load(open(&quot;evidence/transfer-capability.json&quot;)); print(&quot;Status:&quot;, x[&quot;effects&quot;][&quot;status&quot;][&quot;status&quot;]); print(&quot;Digest:&quot;, x[&quot;digest&quot;])&#x27; </pre>
+<pre>sui client transfer --to &quot;$BOB&quot; --object-id &quot;$CAPABILITY&quot; --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/cap-transfer.json
+python3 client/receipt.py evidence/cap-transfer.json
+sui client call --package &quot;$PACKAGE&quot; --module owned --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 11 --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/owned-bob-update.json
+python3 client/receipt.py evidence/owned-bob-update.json</pre>
 <p>Output:</p>
 <pre>Status: success
-Digest: EgKaJDCDRiWd22x9oArB41KuEnwRJXDXxw6QAbH7Xjkn</pre>
-<p>Bob now supplies both objects and sets the value to <code>11</code>:</p>
+Digest: Co7CAghtaMPDm2UMtLQ2J9VzMnHxZTQP1wkxzrFJzVKk
+Status: success
+Digest: ASdgva2WzTWnhL5h4DREEigKHouz4nVtVcxR98oJLPwi</pre>
 <p>Run:</p>
-<pre>sui client call --package &quot;$PACKAGE&quot; --module notebook --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 11 --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/bob-update.json
-python3 -c &#x27;import json; x=json.load(open(&quot;evidence/bob-update.json&quot;)); print(&quot;Status:&quot;, x[&quot;effects&quot;][&quot;status&quot;][&quot;status&quot;]); print(&quot;Digest:&quot;, x[&quot;digest&quot;])&#x27; </pre>
+<pre>python3 client/read_object.py &quot;$NOTEBOOK&quot; owned</pre>
+<p>Output:</p>
+<pre>Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451
+Version: 7
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook
+Owner: {&quot;address&quot;: &quot;0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05&quot;, &quot;kind&quot;: &quot;ADDRESS&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451&quot;,
+  &quot;value&quot;: &quot;11&quot;
+}
+Saved: evidence/owned.json</pre>
+<p>The notebook is now Bob’s value-11 object. Moving the matching capability supplied the missing input. The capability’s notebook binding and the notebook’s ID stayed unchanged.</p>
+<h3>Shared: public additions and a rejected reset</h3>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module registry --function create --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/registry-create.json
+REGISTRY=$(python3 client/receipt.py evidence/registry-create.json &#x27;::registry::Registry&#x27;)
+printf &#x27;REGISTRY=%s\n&#x27; &quot;$REGISTRY&quot;</pre>
+<p>Output:</p>
+<pre>REGISTRY=0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module registry --function add_entry --args &quot;$REGISTRY&quot; --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/registry-alice-add.json
+python3 client/receipt.py evidence/registry-alice-add.json
+sui client call --package &quot;$PACKAGE&quot; --module registry --function add_entry --args &quot;$REGISTRY&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/registry-bob-add.json
+python3 client/receipt.py evidence/registry-bob-add.json</pre>
 <p>Output:</p>
 <pre>Status: success
-Digest: CKHHx63vwqAGVuKKrxUNqxNPMP5UXrZotNUdRXBM5mgv</pre>
-<p>The ownership checks can now admit both inputs, and the matching notebook ID satisfies the module’s assertion. Inspect the resulting state:</p>
+Digest: AgFKGDAqePj42Yo5JxyNTkW2DUMKcNrQMzdWKCe4WXo3
+Status: success
+Digest: AALXiFQ1uqCfrApznG8zqXarwbfPVH7MKBeoDi7MKaDf</pre>
 <p>Run:</p>
-<pre>python3 client/01_inspect_owned.py &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; complete</pre>
-<p>Output:</p>
-<pre>Snapshot: complete
-Notebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Notebook version: 7
-Notebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30
-Notebook value: 11
-Capability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e
-Capability version: 7
-Capability owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30
-Capability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a
-Binding matches: True
-Same address owns both: True
-Saved: evidence/complete.json</pre>
-<p>Both owner records name Bob, the capability remains bound to the same notebook, and the notebook value is <code>11</code>. These are the same two object identities we began with. Our captured versions are now <code>7</code>. We do not use a remembered increment rule to predict versions, and we do not treat the notebook’s version as a permission field.</p>
-<p>The screenshot below shows a separate GetObject read in the gRPCUI application connected to our local node. Its owner address is Bob’s, and its Move value is 11. This is a real node response, displayed with a smaller field mask for readability.</p>
-<p><img src="images/notebook-final-rpc.png" alt="Actual local Sui response showing the same notebook at version 7, owned by Bob, with value 11." /></p>
-<p><em>Actual local-node response in gRPCUI. The notebook has the same ID, version 7, Bob’s owner address, and value 11. The Python output above remains the copyable record of both objects.</em></p>
-<p>Let’s compare the saved responses locally. This program makes no chain calls. It checks the observations already recorded by the inspector, including the pair saved immediately after the rejected attempts.</p>
-<p>Let’s create a file named <code>client/02_compare_handover.py</code>:</p>
-<pre>import argparse
-import json
-from pathlib import Path
-
-parser = argparse.ArgumentParser()
-parser.add_argument(&quot;snapshots&quot;, nargs=4, metavar=&quot;FILE&quot;)
-args = parser.parse_args()
-states = [json.loads(Path(path).read_text()) for path in args.snapshots]
-assert states[1] == states[2]
-states = [states[0], states[1], states[3]]
-notes = [state[&quot;notebook&quot;][&quot;object&quot;] for state in states]
-caps = [state[&quot;capability&quot;][&quot;object&quot;] for state in states]
-assert len({note[&quot;object_id&quot;] for note in notes}) == 1
-assert len({cap[&quot;object_id&quot;] for cap in caps}) == 1
-assert all(cap[&quot;json&quot;][&quot;notebook&quot;] == note[&quot;object_id&quot;] for note, cap in zip(notes, caps))
-assert notes[0][&quot;owner&quot;] == caps[0][&quot;owner&quot;]
-assert notes[1][&quot;owner&quot;] != caps[1][&quot;owner&quot;]
-assert notes[2][&quot;owner&quot;] == caps[2][&quot;owner&quot;]
-assert caps[0][&quot;owner&quot;] == caps[1][&quot;owner&quot;]
-assert notes[1][&quot;owner&quot;] == notes[2][&quot;owner&quot;]
-assert notes[0][&quot;json&quot;][&quot;value&quot;] == notes[1][&quot;json&quot;][&quot;value&quot;]
-assert notes[2][&quot;json&quot;][&quot;value&quot;] != notes[1][&quot;json&quot;][&quot;value&quot;]
-for label, note, cap in zip((&quot;baseline&quot;, &quot;partial&quot;, &quot;complete&quot;), notes, caps):
-    print(f&quot;{label}: value={note[&#x27;json&#x27;][&#x27;value&#x27;]}, same owner={note[&#x27;owner&#x27;] == cap[&#x27;owner&#x27;]}&quot;)
-print(&quot;PASS: notebook identity, capability identity, and their binding stayed unchanged&quot;)
-print(&quot;PASS: only the notebook moved first, then the capability followed&quot;)
-print(&quot;PASS: both object records stayed unchanged after the rejected attempts&quot;)</pre>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module registry --function reset --args &quot;$REGISTRY&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --gas &quot;$BOB_GAS&quot; --json</pre>
+<p>Output: Expected exit 1.</p>
+<pre>Error executing transaction &#x27;2oAZXBFPPJzZ7Af3MgrM9qMoAvAsyiU9Ua9dWLHyqpb5&#x27;: 1st command aborted within function &#x27;0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::registry::reset&#x27; at instruction 11 with code 0</pre>
+<p>Bob can supply the shared registry, so this call reaches <code>reset</code> and aborts at the administrator check. The recorded failed transaction confirms <code>MoveAbort</code> in that function with code 0. It leaves the entry count at 2:</p>
 <p>Run:</p>
-<pre>python3 client/02_compare_handover.py evidence/baseline.json evidence/partial.json evidence/rejected.json evidence/complete.json</pre>
+<pre>python3 client/read_object.py &quot;$REGISTRY&quot; shared</pre>
 <p>Output:</p>
-<pre>baseline: value=9, same owner=True
-partial: value=9, same owner=False
-complete: value=11, same owner=True
-PASS: notebook identity, capability identity, and their binding stayed unchanged
-PASS: only the notebook moved first, then the capability followed
-PASS: both object records stayed unchanged after the rejected attempts</pre>
-<p>The successful updates changed the application value from <code>7</code> to <code>9</code>, then to <code>11</code>. The notebook-only transfer changed custody while preserving value <code>9</code>. The rejected attempts left both inspected object records unchanged. Through all of these observations, the object IDs and capability binding stayed stable.</p>
-<p>The local comparison cross-checks those state relationships. It cannot prove a general security property from four API captures. The module source, local tests, actual input rejections, and successful receipts each answer a different part of the question. Together they make the cause of this particular handover visible.</p><h3>What the Handover Says About the Permission Design</h3><p>Look back at <code>set_value</code> after Bob’s successful update. It contains no Alice address, no creator field, and no comparison with the account that originally called <code>create_owned</code>. The grant is associated with the notebook’s identity. Sui’s current owner records determine who can supply the two objects. The same function accepts Bob after the handover without a special “change administrator” branch.</p><p>The capability is also reusable. The setter borrows it with <code>&amp;NotebookCap</code> rather than consuming it by value. Its binding remains available for later updates, subject to the input rules each time. In the code we compiled, there is no expiry field, use counter, or revocation registry. Those would be additional application rules that a module must represent and check. Calling this object a capability does not add them automatically.</p><p>Recovery deserves the same source-level attention. This module exposes no function that issues another capability for an existing notebook. Its public constructor creates a different notebook and matching grant. If no one can authorize use of the address holding the original capability, the notebook can remain visible through a public read while this setter is unavailable through our ordinary owned-input flow. Losing a signing key does not remove the onchain object or cause its known ID to become a replacement credential.</p><p>The <code>destroy_for_testing</code> function cannot serve as a production repair path either. It is marked <code>#[test_only]</code>. When reviewing a capability design, follow the actual constructors and public operations: how is the grant issued, which object does it authorize, does an operation borrow or consume it, and can the intended users keep supplying all required inputs? Our notebook is small enough that each answer can be traced directly to its source and observed handover.</p>
-<h2>Summary</h2>
-<p>We followed one update permission through three custody states. Alice could update while she owned the notebook and matching capability. After the notebook moved to Bob, Alice could not supply the notebook and Bob could not supply the capability. Once the capability followed, Bob’s update succeeded.</p><p>We also traced the call’s input positions and rejected an attempt to fabricate the capability in another module. Knowing an object’s publicly readable data, creating a valid object of the required type, supplying it as an owned input, and satisfying the notebook binding are distinct steps in this permission model.</p>
-<ul><li><strong>Alice owns both:</strong> Alice’s update succeeds.</li><li><strong>Bob owns the notebook, Alice owns the capability:</strong> Bob’s capability input is rejected. Alice’s notebook input is rejected.</li><li><strong>Bob owns both:</strong> Bob’s update succeeds.</li></ul>
-<p>These results describe the ordinary address-owned objects used in this lab. The wrong-binding Move test adds another condition: even when two inputs have the right types, the capability must refer to the notebook being changed. Ownership determines whether the sender can supply these objects. Our module determines whether their relationship permits the update.</p>
-<p>That distinction is useful when designing a handover. This notebook’s setter requires the asset and its matching grant together. Retaining the grant while transferring the asset creates a split that blocks this update from both accounts. If an application intends a previous owner to retain administrative powers, it must deliberately provide an access model and operations that support that policy.</p>
-<p>The capability guards <code>set_value</code>, while each owner can independently transfer these <code>store</code> objects. Reading a public capability does not grant its use as an address-owned input, and naming a type <code>NotebookCap</code> does not create a permission check by itself. The enforced rule comes from the combination of Sui’s input ownership checks and the assertion we wrote in Move.</p>
-<p>We can now inspect an ownership change and ask precise questions: which existing objects does the operation require, who may supply them, and what relationship does the function check after admission? The next focused question is transfer policy itself: which parts of an object’s movement can its defining module restrict?</p>
+<pre>Object ID: 0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082
+Version: 10
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::registry::Registry
+Owner: {&quot;kind&quot;: &quot;SHARED&quot;, &quot;version&quot;: &quot;7&quot;}
+Move value: {
+  &quot;admin&quot;: &quot;0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520&quot;,
+  &quot;entries&quot;: &quot;2&quot;,
+  &quot;id&quot;: &quot;0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082&quot;
+}
+Saved: evidence/shared.json</pre>
+<figure><img src="images/shared-owner.png" alt="Native Sui GetObject response for the shared registry showing current version 10, SHARED start version 7, Alice in the application admin field, and entries 2."></figure>
+<p><em>Actual native RPC response from the local registry. SHARED is runtime metadata. The admin address and entry count are application fields inside its Move value.</em></p>
+<p>The top-level version is 10. The owner record’s version 7 identifies when shared access began. Those fields serve different roles. We are comparing access and state, rather than treating every version field as the current object version.</p>
+<h3>Immutable: a usable read reference, an invalid mutable reference</h3>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module rules --function create --args 10 --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/rules-create.json
+RULES=$(python3 client/receipt.py evidence/rules-create.json &#x27;::rules::Rules&#x27;)
+printf &#x27;RULES=%s\n&#x27; &quot;$RULES&quot;</pre>
+<p>Output:</p>
+<pre>RULES=0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module rules --function read_limit --args &quot;$RULES&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/rules-bob-read.json
+python3 client/receipt.py evidence/rules-bob-read.json</pre>
+<p>Output:</p>
+<pre>Status: success
+Digest: 6SMESy9SdaT67rE4errKN2c3FR85aG7gv4aa1xSz69zx</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module rules --function set_limit --args &quot;$RULES&quot; 20 --sender &quot;$BOB&quot; --gas-budget 50000000 --gas &quot;$BOB_GAS&quot; --json</pre>
+<p>Output: Expected exit 1.</p>
+<pre>Error executing transaction &#x27;31447BLoJhfRcJfQAAooc8BL4bBnqmZiLX1LEdPosUk6&#x27;: CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0</pre>
+<p>Bob’s signed read call succeeded. The mutation attempt produced an execution argument error, <code>InvalidObjectByMutRef</code>, because argument 0 cannot provide a mutable reference. This is different from an application assertion rejecting Bob after receiving a mutable object.</p>
+<p>Run:</p>
+<pre>python3 client/read_object.py &quot;$RULES&quot; immutable</pre>
+<p>Output:</p>
+<pre>Object ID: 0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5
+Version: 9
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::rules::Rules
+Owner: {&quot;kind&quot;: &quot;IMMUTABLE&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5&quot;,
+  &quot;limit&quot;: &quot;10&quot;
+}
+Saved: evidence/immutable.json</pre>
+<p>The rules remain at limit 10. The owner kind is IMMUTABLE and has no account owner address. Publishing a new function that accepts <code>&amp;mut Rules</code> would not make this frozen instance mutable again.</p>
+<h3>Wrapped: inspect the container and restore the same notebook</h3>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module case --function pack --args &quot;$NOTEBOOK&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/case-pack.json
+CASE=$(python3 client/receipt.py evidence/case-pack.json &#x27;::case::Case&#x27;)
+printf &#x27;CASE=%s\n&#x27; &quot;$CASE&quot;</pre>
+<p>Output:</p>
+<pre>CASE=0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d</pre>
+<p>Run:</p>
+<pre>python3 client/read_object.py &quot;$CASE&quot; wrapped</pre>
+<p>Output:</p>
+<pre>Object ID: 0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d
+Version: 13
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::case::Case
+Owner: {&quot;address&quot;: &quot;0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05&quot;, &quot;kind&quot;: &quot;ADDRESS&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d&quot;,
+  &quot;notebook&quot;: {
+    &quot;id&quot;: &quot;0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451&quot;,
+    &quot;value&quot;: &quot;11&quot;
+  }
+}
+Saved: evidence/wrapped.json</pre>
+<figure><img src="images/wrapped-case.png" alt="Native Sui GetObject response for Case version 13 showing the original notebook ID nested inside the case with value 11."></figure>
+<p><em>Native GetObject response for Case version 13 from this local run. The notebook’s original ID and value 11 appear inside the case’s Move value.</em></p>
+<p>Run:</p>
+<pre>python3 client/read_object.py &quot;$NOTEBOOK&quot; wrapped_child</pre>
+<p>Output: This read exits with status 1.</p>
+<pre>GetObject failed: NOT_FOUND Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 not found
+Saved: evidence/wrapped_child.json</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module owned --function set_value --args &quot;$NOTEBOOK&quot; &quot;$CAPABILITY&quot; 12 --sender &quot;$BOB&quot; --gas-budget 50000000 --gas &quot;$BOB_GAS&quot; --json</pre>
+<p>Output: Expected exit 1. Leading diagnostic, with repeated RPC details omitted.</p>
+<pre>code: &#x27;Some requested entity was not found&#x27;, message: &quot;Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 not found&quot;</pre>
+<p>The direct call fails during object resolution. This is not the notebook module rejecting a mismatched capability. The notebook is currently contained inside the case, so it is unavailable as the independent object input requested by this call. Our pack operation and the parent’s nested data establish why this known ID is unavailable.</p>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module case --function set_inside --args &quot;$CASE&quot; &quot;$CAPABILITY&quot; 12 --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/case-update-inside.json
+python3 client/receipt.py evidence/case-update-inside.json
+sui client call --package &quot;$PACKAGE&quot; --module case --function unpack --args &quot;$CASE&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --json &gt; evidence/case-unpack.json
+python3 client/receipt.py evidence/case-unpack.json</pre>
+<p>Output:</p>
+<pre>Status: success
+Digest: CepZHcD1chQwgmqdjT2pVf9dJbmqwMUECGDBzQAVc2eY
+Status: success
+Digest: 8LDLTtcApYQnHczkaoJCffoeXAadY6hGcD9zYYHtJVxp</pre>
+<p>Run:</p>
+<pre>python3 client/read_object.py &quot;$NOTEBOOK&quot; unwrapped</pre>
+<p>Output:</p>
+<pre>Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451
+Version: 15
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook
+Owner: {&quot;address&quot;: &quot;0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05&quot;, &quot;kind&quot;: &quot;ADDRESS&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451&quot;,
+  &quot;value&quot;: &quot;12&quot;
+}
+Saved: evidence/unwrapped.json</pre>
+<p>Borrowing through <code>Case.notebook</code> allowed the module to update the contained value. Unpacking then deleted the case UID and returned the notebook to Bob. The notebook reappeared under its original ID with value 12. It did not need a replacement identity.</p>
+<h3>Party: one permitted owner and two inflight updates</h3>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module party_counter --function create --sender &quot;$ALICE&quot; --gas-budget 50000000 --json &gt; evidence/party-create.json
+PARTY=$(python3 client/receipt.py evidence/party-create.json &#x27;::party_counter::Counter&#x27;)
+printf &#x27;PARTY=%s\n&#x27; &quot;$PARTY&quot;</pre>
+<p>Output:</p>
+<pre>PARTY=0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module party_counter --function increment --args &quot;$PARTY&quot; --sender &quot;$BOB&quot; --gas-budget 50000000 --gas &quot;$BOB_GAS&quot; --json</pre>
+<p>Output: Expected exit 1. Leading diagnostic, with repeated RPC details omitted.</p>
+<pre>code: &#x27;Client specified an invalid argument&#x27;, message: &quot;Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217 is owned by account address 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520, but given owner/signer address is 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05&quot;</pre>
+<p>Bob’s input-owner check fails. For Alice’s two updates, prepare distinct gas coins so the commands do not compete for the same address-owned gas input. This local setup transaction splits two 1-SUI coins from Alice’s gas coin. The CLI’s PTB syntax uses <code>@</code> before address and object-ID literals:</p>
+<p>Run:</p>
+<pre>sui client gas &quot;$ALICE&quot; --json &gt; evidence/alice-gas-before-split.json
+ALICE_GAS=$(python3 -c &#x27;import json;print(json.load(open(&quot;evidence/alice-gas-before-split.json&quot;))[&quot;gasCoins&quot;][0][&quot;gasCoinId&quot;])&#x27;)
+sui client ptb --split-coins gas &#x27;[1000000000,1000000000]&#x27; --assign parts --transfer-objects &#x27;[parts.0,parts.1]&#x27; &quot;@$ALICE&quot; --sender &quot;@$ALICE&quot; --gas-coin &quot;@$ALICE_GAS&quot; --gas-budget 50000000 --json &gt; evidence/prepare-party-gas.json
+GAS_A=$(python3 client/receipt.py evidence/prepare-party-gas.json &#x27;::coin::Coin&lt;0x2::sui::SUI&gt;&#x27; 0)
+GAS_B=$(python3 client/receipt.py evidence/prepare-party-gas.json &#x27;::coin::Coin&lt;0x2::sui::SUI&gt;&#x27; 1)
+printf &#x27;GAS_A=%s\nGAS_B=%s\n&#x27; &quot;$GAS_A&quot; &quot;$GAS_B&quot;</pre>
+<p>Output:</p>
+<pre>GAS_A=0xcdf4720e52bc98cdde01251e9ad9c2ddb94903f92615397a072fdd72e03f90d9
+GAS_B=0xf3ede01eec0aa2e575bc38b0a76a660807215aefa0e6d93f155615c02c9daad0</pre>
+<p>Run:</p>
+<pre>sui client call --package &quot;$PACKAGE&quot; --module party_counter --function increment --args &quot;$PARTY&quot; --sender &quot;$ALICE&quot; --gas &quot;$GAS_A&quot; --gas-budget 50000000 --json &gt; evidence/party-update-a.json &amp;
+PID_A=$!
+sui client call --package &quot;$PACKAGE&quot; --module party_counter --function increment --args &quot;$PARTY&quot; --sender &quot;$ALICE&quot; --gas &quot;$GAS_B&quot; --gas-budget 50000000 --json &gt; evidence/party-update-b.json &amp;
+PID_B=$!
+wait &quot;$PID_A&quot;
+wait &quot;$PID_B&quot;
+python3 client/receipt.py evidence/party-update-a.json
+python3 client/receipt.py evidence/party-update-b.json</pre>
+<p>Output:</p>
+<pre>Status: success
+Digest: CNh2wwr9d963NCkq8UZAN9ddJMKyuWvghBPpmcaYgqNh
+Status: success
+Digest: Dat1fQyjenUPNc9S5BFrJiyc4XccD47MKoyeKqAyz7a</pre>
+<p>Run:</p>
+<pre>python3 client/read_object.py &quot;$PARTY&quot; party</pre>
+<p>Output:</p>
+<pre>Object ID: 0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217
+Version: 13
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::party_counter::Counter
+Owner: {&quot;address&quot;: &quot;0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520&quot;, &quot;kind&quot;: &quot;CONSENSUS_ADDRESS&quot;, &quot;version&quot;: &quot;10&quot;}
+Move value: {
+  &quot;id&quot;: &quot;0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217&quot;,
+  &quot;value&quot;: &quot;2&quot;
+}
+Saved: evidence/party.json</pre>
+<figure><img src="images/party-owner.png" alt="Native Sui GetObject response for the party counter showing current version 13, owner kind CONSENSUS_ADDRESS, Alice as owner, start version 10, and value 2."></figure>
+<p><em>Actual local party-counter response. The current object version is 13. CONSENSUS_ADDRESS identifies Alice as the permitted owner, and owner.version 10 is its consensus start version.</em></p>
+<p>The two CLI processes were launched before either wait. Both updates succeeded and the counter reached 2. The conflicting writes still have an ordered execution. This experiment demonstrates accepted inflight requests, not parallel execution or a latency benchmark.</p>
+<p>Both transaction records encode the counter as <code>sharedObject</code> with <code>initialSharedVersion: 10</code>. The owner record remains <code>CONSENSUS_ADDRESS</code> with Alice’s address. That input representation does not grant Bob public shared access. For this owner kind, <code>owner.version</code> is the consensus start version, while the top-level version identifies the returned state. See the <a href="https://mystenlabs.github.io/sui/sui_rpc_api/proto/sui/rpc/v2/struct.Owner.html">native owner definition</a>.</p>
+<h2>Summary: Choose the Access Pattern per Object</h2>
+<p>An application can use several ownership forms at once. Our notebook and its capability began as account-owned inputs. The registry accepted contributions from both accounts while its Move code restricted reset. The frozen rules accepted read-only use. The case contained the notebook until an explicit release operation restored independent access. The party counter kept one permitted owner while consensus managed its input versions.</p>
+<ul><li><strong>Choose address-owned</strong> when one account should supply that object, and add capabilities or other module checks for the operations that need them.</li><li><strong>Choose shared</strong> when several users need access to the same mutable state. Define privileged operations explicitly and account for conflicting writes.</li><li><strong>Choose immutable</strong> when users must rely on one fixed instance of reference data.</li><li><strong>Choose wrapping</strong> when the contained value should be accessed through a container’s operations.</li><li><strong>Choose party</strong> when restricted ownership and consensus-managed version assignment suit the submission pattern. The public API used here supports a single-owner party.</li></ul>
+<p>These choices are not freely interchangeable toggles. <code>share_object</code> currently requires an object created in the same transaction, and sharing is permanent. Freezing is also irreversible. Our examples deliberately create fresh shared and immutable objects, then separately demonstrate transfer, wrapping, unwrapping, and party construction. The <a href="https://docs.sui.io/references/framework/sui_sui/transfer">transfer APIs</a> define those restrictions.</p>
+<p>The failures also identify different enforcement points. An owner mismatch can prevent an object from entering a call. A shared object can enter and still fail a Move authorization check. An immutable object cannot satisfy a mutable reference. A wrapped child is unavailable as an independent live input. Reading those outcomes beside the source and owner records makes the choice concrete: decide who needs to supply the state, how it may change, and which operations the module must authorize.</p>

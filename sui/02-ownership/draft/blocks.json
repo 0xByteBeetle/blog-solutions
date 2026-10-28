@@ -1,6 +1,6 @@
 [
   {
-    "text": "mkdir -p sui-ownership\ncd sui-ownership\nmkdir -p .tools/bin .local/network move/sources move/tests client evidence\ncurl -fL https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-macos-arm64.tgz -o .tools/sui.tgz\nprintf '%s  %s\\n' 861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9 .tools/sui.tgz | shasum -a 256 -c -\ntar -xzf .tools/sui.tgz -C .tools/bin\nexport PATH=\"$PWD/.tools/bin:$PATH\"\nsui --version",
+    "text": "mkdir -p sui-ownership\ncd sui-ownership\nmkdir -p .tools/bin .local/network move/sources client evidence\ncurl -fL https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-macos-arm64.tgz -o .tools/sui.tgz\nprintf '%s  %s\\n' 861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9 .tools/sui.tgz | shasum -a 256 -c -\ntar -xzf .tools/sui.tgz -C .tools/bin ./sui\nexport PATH=\"$PWD/.tools/bin:$PATH\"\nsui --version",
     "language": "Bash"
   },
   {
@@ -8,15 +8,15 @@
     "language": "Plain Text"
   },
   {
-    "text": "export SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nsui genesis --working-dir \"$SUI_CONFIG_DIR\" --with-faucet --committee-size 1 --epoch-duration-ms 86400000\nsui start --network.config \"$SUI_CONFIG_DIR\" --with-faucet --fullnode-rpc-port 9000",
+    "text": "export SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nexport RUST_LOG=off\nsui genesis --working-dir \"$SUI_CONFIG_DIR\" --with-faucet --committee-size 1 --epoch-duration-ms 86400000\nsui start --network.config \"$SUI_CONFIG_DIR\" --with-faucet --fullnode-rpc-port 9000",
     "language": "Bash"
   },
   {
-    "text": "export PATH=\"$PWD/.tools/bin:$PATH\"\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nexport SUI_GRPC_ENDPOINT=127.0.0.1:9000\nsui client addresses --json > evidence/addresses.json\nALICE=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][0][1])')\nBOB=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][1][1])')\nCHAIN_ID=$(sui client chain-identifier --json | python3 -c 'import json, sys; print(json.load(sys.stdin)[\"base58\"])')\nprintf 'ALICE=%s\\nBOB=%s\\nCHAIN_ID=%s\\n' \"$ALICE\" \"$BOB\" \"$CHAIN_ID\"",
+    "text": "export PATH=\"$PWD/.tools/bin:$PATH\"\nexport SUI_CONFIG_DIR=\"$PWD/.local/network\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nexport RUST_LOG=off\nexport SUI_GRPC_ENDPOINT=127.0.0.1:9000\nsui client addresses --json > evidence/addresses.json\nALICE=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][0][1])')\nBOB=$(python3 -c 'import json; print(json.load(open(\"evidence/addresses.json\"))[\"addresses\"][1][1])')\nCHAIN_ID=$(sui client chain-identifier --json | python3 -c 'import json,sys; print(json.load(sys.stdin)[\"base58\"])')\nprintf 'ALICE=%s\\nBOB=%s\\nCHAIN_ID=%s\\n' \"$ALICE\" \"$BOB\" \"$CHAIN_ID\"",
     "language": "Bash"
   },
   {
-    "text": "ALICE=0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nBOB=0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nCHAIN_ID=5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae",
+    "text": "ALICE=0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520\nBOB=0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\nCHAIN_ID=Hj5zCy4vEHoy6WA6Kow4p9BxyYzYypTy4HckJSEtvXDn",
     "language": "Plain Text"
   },
   {
@@ -24,83 +24,7 @@
     "language": "Bash"
   },
   {
-    "text": "module sui_ownership::notebook;\n\nconst EWrongNotebook: u64 = 0;\n\npublic struct Notebook has key, store {\n    id: UID,\n    value: u64,\n}\n\npublic struct NotebookCap has key, store {\n    id: UID,\n    notebook: ID,\n}\n\npublic fun create(value: u64, ctx: &mut TxContext): (Notebook, NotebookCap) {\n    let notebook = Notebook { id: object::new(ctx), value };\n    let cap = NotebookCap {\n        id: object::new(ctx),\n        notebook: object::id(&notebook),\n    };\n    (notebook, cap)\n}\n\npublic fun create_owned(value: u64, ctx: &mut TxContext) {\n    let (notebook, cap) = create(value, ctx);\n    transfer::transfer(notebook, ctx.sender());\n    transfer::transfer(cap, ctx.sender());\n}\n\npublic fun value(notebook: &Notebook): u64 {\n    notebook.value\n}\n\npublic fun set_value(notebook: &mut Notebook, cap: &NotebookCap, value: u64) {\n    assert!(object::id(notebook) == cap.notebook, EWrongNotebook);\n    notebook.value = value;\n}\n\n#[test_only]\npublic fun destroy_for_testing(notebook: Notebook, cap: NotebookCap) {\n    let Notebook { id, value: _ } = notebook;\n    object::delete(id);\n    let NotebookCap { id, notebook: _ } = cap;\n    object::delete(id);\n}",
-    "language": "Plain Text"
-  },
-  {
-    "text": "cd move\nsui move build\ncd ..",
-    "language": "Bash"
-  },
-  {
-    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nwarning[WSL06002]: non-composable transfer to sender\n   \u250c\u2500 ./sources/notebook.move:26:5\n   \u2502\n24 \u2502 public fun create_owned(value: u64, ctx: &mut TxContext) {\n   \u2502            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.\n25 \u2502     let (notebook, cap) = create(value, ctx);\n26 \u2502     transfer::transfer(notebook, ctx.sender());\n   \u2502     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   \u2502     \u2502                            \u2502\n   \u2502     \u2502                            Transaction sender address coming from here\n   \u2502     Transfer of an object to transaction sender address\n   \u2502\n   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')\n\nwarning[WSL06002]: non-composable transfer to sender\n   \u250c\u2500 ./sources/notebook.move:27:5\n   \u2502\n24 \u2502 public fun create_owned(value: u64, ctx: &mut TxContext) {\n   \u2502            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.\n   \u00b7\n27 \u2502     transfer::transfer(cap, ctx.sender());\n   \u2502     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   \u2502     \u2502                       \u2502\n   \u2502     \u2502                       Transaction sender address coming from here\n   \u2502     Transfer of an object to transaction sender address\n   \u2502\n   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')\n\nPlease report feedback on the linter warnings at https://forums.sui.io",
-    "language": "Plain Text"
-  },
-  {
-    "text": "#[test_only]\nmodule sui_ownership::handover_tests;\n\nuse sui::test_scenario;\nuse sui_ownership::notebook::{Self, Notebook, NotebookCap};\n\nconst ALICE: address = @0xA;\nconst BOB: address = @0xB;\n\n#[test]\nfun test_complete_handover() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let mut note = scenario.take_from_sender<Notebook>();\n    let cap = scenario.take_from_sender<NotebookCap>();\n    let original_id = object::id(&note);\n    notebook::set_value(&mut note, &cap, 9);\n    scenario.return_to_sender(cap);\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(BOB);\n    assert!(scenario.has_most_recent_for_sender<Notebook>(), 1);\n    assert!(!scenario.has_most_recent_for_sender<NotebookCap>(), 2);\n    scenario.next_tx(ALICE);\n    assert!(!scenario.has_most_recent_for_sender<Notebook>(), 3);\n    let cap = scenario.take_from_sender<NotebookCap>();\n    transfer::public_transfer(cap, BOB);\n    scenario.next_tx(BOB);\n    let mut note = scenario.take_from_sender<Notebook>();\n    let cap = scenario.take_from_sender<NotebookCap>();\n    assert!(object::id(&note) == original_id, 4);\n    notebook::set_value(&mut note, &cap, 11);\n    assert!(notebook::value(&note) == 11, 5);\n    scenario.return_to_sender(note);\n    scenario.return_to_sender(cap);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 3, location = sui::test_scenario)]\nfun test_bob_cannot_take_alices_capability() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(BOB);\n    let cap = scenario.take_from_sender<NotebookCap>();\n    scenario.return_to_sender(cap);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 3, location = sui::test_scenario)]\nfun test_alice_cannot_take_bobs_notebook() {\n    let mut scenario = test_scenario::begin(ALICE);\n    notebook::create_owned(7, scenario.ctx());\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    transfer::public_transfer(note, BOB);\n    scenario.next_tx(ALICE);\n    let note = scenario.take_from_sender<Notebook>();\n    scenario.return_to_sender(note);\n    scenario.end();\n}\n\n#[test]\n#[expected_failure(abort_code = 0, location = sui_ownership::notebook)]\nfun test_matching_type_can_have_wrong_binding() {\n    let mut ctx = tx_context::dummy();\n    let (mut note, cap) = notebook::create(7, &mut ctx);\n    let (other, other_cap) = notebook::create(7, &mut ctx);\n    notebook::set_value(&mut note, &other_cap, 11);\n    notebook::destroy_for_testing(note, cap);\n    notebook::destroy_for_testing(other, other_cap);\n}",
-    "language": "Plain Text"
-  },
-  {
-    "text": "cd move\nsui move test\ncd ..",
-    "language": "Bash"
-  },
-  {
-    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::handover_tests::test_alice_cannot_take_bobs_notebook\n[ PASS    ] sui_ownership::handover_tests::test_bob_cannot_take_alices_capability\n[ PASS    ] sui_ownership::handover_tests::test_complete_handover\n[ PASS    ] sui_ownership::handover_tests::test_matching_type_can_have_wrong_binding\nTest result: OK. Total tests: 4; passed: 4; failed: 0",
-    "language": "Plain Text"
-  },
-  {
-    "text": "mkdir -p failures/forge-cap/sources\ncp move/Move.toml failures/forge-cap/Move.toml\ncp move/sources/notebook.move failures/forge-cap/sources/notebook.move",
-    "language": "Bash"
-  },
-  {
-    "text": "module sui_ownership::forgery_failure;\n\nuse sui_ownership::notebook::NotebookCap;\n\npublic fun forge(notebook_id: ID, ctx: &mut TxContext): NotebookCap {\n    NotebookCap {\n        id: object::new(ctx),\n        notebook: notebook_id,\n    }\n}",
-    "language": "Plain Text"
-  },
-  {
-    "text": "RUST_LOG=off sui move build --path failures/forge-cap --no-lint",
-    "language": "Bash"
-  },
-  {
-    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nerror[EC04001]: restricted visibility\n   \u250c\u2500 ./sources/forgery_failure.move:6:5\n   \u2502  \n 6 \u2502 \u256d     NotebookCap {\n 7 \u2502 \u2502         id: object::new(ctx),\n 8 \u2502 \u2502         notebook: notebook_id,\n 9 \u2502 \u2502     }\n   \u2502 \u2570\u2500\u2500\u2500\u2500\u2500^ Struct 'sui_ownership::notebook::NotebookCap' can only be instantiated within its defining module 'sui_ownership::notebook'\n   \u2502  \n   \u250c\u2500 ./sources/notebook.move:10:15\n   \u2502\n10 \u2502 public struct NotebookCap has key, store {\n   \u2502               ----------- Struct defined in module 'sui_ownership::notebook'\n\nFailed to build Move modules: Compilation error.",
-    "language": "Plain Text"
-  },
-  {
-    "text": "sui client publish move --sender \"$ALICE\" --gas-budget 100000000 --json > evidence/publish.json\nPACKAGE=$(python3 -c 'import json; print(next(x[\"packageId\"] for x in json.load(open(\"evidence/publish.json\"))[\"objectChanges\"] if x[\"type\"] == \"published\"))')\nprintf 'PACKAGE=%s\\n' \"$PACKAGE\"",
-    "language": "Bash"
-  },
-  {
-    "text": "PACKAGE=0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404",
-    "language": "Plain Text"
-  },
-  {
-    "text": "sui client call --package \"$PACKAGE\" --module notebook --function create_owned --args 7 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/create.json\nNOTEBOOK=$(python3 -c 'import json; print(next(x[\"objectId\"] for x in json.load(open(\"evidence/create.json\"))[\"objectChanges\"] if x[\"type\"] == \"created\" and x.get(\"objectType\", \"\").endswith(\"::notebook::Notebook\")))')\nCAPABILITY=$(python3 -c 'import json; print(next(x[\"objectId\"] for x in json.load(open(\"evidence/create.json\"))[\"objectChanges\"] if x[\"type\"] == \"created\" and x.get(\"objectType\", \"\").endswith(\"::notebook::NotebookCap\")))')\nprintf 'NOTEBOOK=%s\\nCAPABILITY=%s\\n' \"$NOTEBOOK\" \"$CAPABILITY\"",
-    "language": "Bash"
-  },
-  {
-    "text": "NOTEBOOK=0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nCAPABILITY=0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e",
-    "language": "Plain Text"
-  },
-  {
-    "text": "sui client call --package \"$PACKAGE\" --module notebook --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 9 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/alice-update.json\npython3 -c 'import json; x=json.load(open(\"evidence/alice-update.json\")); print(\"Status:\", x[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", x[\"digest\"])' ",
-    "language": "Bash"
-  },
-  {
-    "text": "Status: success\nDigest: 2rw7Put45TCHTqe4Xxm89kW4pTVvNzcxn5bXUspZ24ht",
-    "language": "Plain Text"
-  },
-  {
-    "text": "import json\nfrom pathlib import Path\n\nreceipt = json.loads(Path(\"evidence/alice-update.json\").read_text())\ndata = receipt[\"transaction\"][\"data\"]\ntransaction = data[\"transaction\"]\nassert transaction[\"kind\"] == \"ProgrammableTransaction\"\nassert len(transaction[\"transactions\"]) == 1\ncall = transaction[\"transactions\"][0][\"MoveCall\"]\nassert (call[\"module\"], call[\"function\"]) == (\"notebook\", \"set_value\")\nassert call[\"arguments\"] == [{\"Input\": 0}, {\"Input\": 1}, {\"Input\": 2}]\nprint(\"Recorded sender:\", data[\"sender\"])\nprint(\"Called function:\", f\"{call['package']}::{call['module']}::{call['function']}\")\nfor position, role in enumerate((\"notebook\", \"capability\", \"new value\")):\n    index = call[\"arguments\"][position][\"Input\"]\n    item = transaction[\"inputs\"][index]\n    print(f\"Move argument {position} ({role}) -> Input {index}\")\n    if position < 2:\n        assert (item[\"type\"], item[\"objectType\"]) == (\"object\", \"immOrOwnedObject\")\n        print(\"  Object ID:\", item[\"objectId\"])\n        print(\"  Input version:\", item[\"version\"])\n    else:\n        assert item[\"type\"] == \"pure\"\n        raw = bytes(item[\"value\"])\n        assert len(raw) == 8\n        value = int.from_bytes(raw, \"little\")\n        assert value == 9\n        print(\"  Decoded u64:\", value)\nprint(\"PASS: the receipt maps two object inputs and one value into set_value\")",
-    "language": "Python"
-  },
-  {
-    "text": "python3 client/inspect_call_inputs.py",
-    "language": "Bash"
-  },
-  {
-    "text": "Recorded sender: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCalled function: 0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404::notebook::set_value\nMove argument 0 (notebook) -> Input 0\n  Object ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\n  Input version: 3\nMove argument 1 (capability) -> Input 1\n  Object ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\n  Input version: 3\nMove argument 2 (new value) -> Input 2\n  Decoded u64: 9\nPASS: the receipt maps two object inputs and one value into set_value",
-    "language": "Plain Text"
-  },
-  {
-    "text": "python3 -m venv .venv\nsource .venv/bin/activate\npython3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2\npython3 -c 'from importlib.metadata import version; print(\"grpcio:\", version(\"grpcio\")); print(\"grpcio-reflection:\", version(\"grpcio-reflection\")); print(\"protobuf:\", version(\"protobuf\"))'",
+    "text": "python3 -m venv .venv\nsource .venv/bin/activate\npython3 -m pip install grpcio==1.84.1 grpcio-reflection==1.84.1 protobuf==7.36.2\npython3 -c 'from importlib.metadata import version; print(\"grpcio:\",version(\"grpcio\")); print(\"grpcio-reflection:\",version(\"grpcio-reflection\")); print(\"protobuf:\",version(\"protobuf\"))' ",
     "language": "Bash"
   },
   {
@@ -108,111 +32,307 @@
     "language": "Plain Text"
   },
   {
-    "text": "import os\nimport grpc\nfrom google.protobuf import descriptor_pool, json_format, message_factory\nfrom grpc_reflection.v1alpha.proto_reflection_descriptor_database import (\n    ProtoReflectionDescriptorDatabase,\n)\n\nendpoint = os.environ.get(\"SUI_GRPC_ENDPOINT\", \"127.0.0.1:9000\")\nservice_name = \"sui.rpc.v2.LedgerService\"\n\n\ndef rpc(method_name, **fields):\n    host = endpoint.rsplit(\":\", 1)[0]\n    if host in {\"localhost\", \"127.0.0.1\", \"[::1]\"}:\n        channel = grpc.insecure_channel(endpoint)\n    else:\n        channel = grpc.secure_channel(endpoint, grpc.ssl_channel_credentials())\n    with channel:\n        pool = descriptor_pool.DescriptorPool(ProtoReflectionDescriptorDatabase(channel))\n        method = pool.FindServiceByName(service_name).methods_by_name[method_name]\n        request_type = message_factory.GetMessageClass(method.input_type)\n        response_type = message_factory.GetMessageClass(method.output_type)\n        call = channel.unary_unary(\n            f\"/{service_name}/{method_name}\",\n            request_serializer=request_type.SerializeToString,\n            response_deserializer=response_type.FromString,\n        )\n        response = call(request_type(**fields), timeout=30)\n        return json_format.MessageToDict(response, preserving_proto_field_name=True)\n\n\nif __name__ == \"__main__\":\n    info = rpc(\"GetServiceInfo\")\n    print(\"RPC endpoint:\", endpoint)\n    print(\"Chain identifier:\", info[\"chain_id\"])\n    print(\"Service checkpoint:\", info[\"checkpoint_height\"])",
+    "text": "module sui_ownership::owned;\n\nconst EWrongNotebook: u64 = 0;\n\npublic struct Notebook has key, store {\n    id: UID,\n    value: u64,\n}\n\npublic struct NotebookCap has key, store {\n    id: UID,\n    notebook: ID,\n}\n\npublic fun create(value: u64, ctx: &mut TxContext): (Notebook, NotebookCap) {\n    let note = Notebook { id: object::new(ctx), value };\n    let cap = NotebookCap { id: object::new(ctx), notebook: object::id(&note) };\n    (note, cap)\n}\n\n#[allow(lint(self_transfer))]\npublic fun create_owned(value: u64, ctx: &mut TxContext) {\n    let (note, cap) = create(value, ctx);\n    transfer::transfer(note, ctx.sender());\n    transfer::transfer(cap, ctx.sender());\n}\n\npublic fun value(note: &Notebook): u64 { note.value }\n\npublic fun set_value(note: &mut Notebook, cap: &NotebookCap, value: u64) {\n    assert!(object::id(note) == cap.notebook, EWrongNotebook);\n    note.value = value;\n}\n\n#[test_only]\npublic fun destroy_for_testing(note: Notebook, cap: NotebookCap) {\n    let Notebook { id, value: _ } = note;\n    object::delete(id);\n    let NotebookCap { id, notebook: _ } = cap;\n    object::delete(id);\n}\n\n#[test]\nfun matching_cap_updates_value() {\n    let mut ctx = tx_context::dummy();\n    let (mut note, cap) = create(7, &mut ctx);\n    set_value(&mut note, &cap, 9);\n    assert!(value(&note) == 9, 1);\n    destroy_for_testing(note, cap);\n}\n\n#[test]\n#[expected_failure(abort_code = 0, location = sui_ownership::owned)]\nfun another_notebooks_cap_is_rejected() {\n    let mut ctx = tx_context::dummy();\n    let (mut note, cap) = create(7, &mut ctx);\n    let (other, other_cap) = create(7, &mut ctx);\n    set_value(&mut note, &other_cap, 9);\n    destroy_for_testing(note, cap);\n    destroy_for_testing(other, other_cap);\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui move test --path move --no-lint owned",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::owned::another_notebooks_cap_is_rejected\n[ PASS    ] sui_ownership::owned::matching_cap_updates_value\nTest result: OK. Total tests: 2; passed: 2; failed: 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "module sui_ownership::registry;\n\nconst ENotAdmin: u64 = 0;\n\npublic struct Registry has key {\n    id: UID,\n    entries: u64,\n    admin: address,\n}\n\npublic fun create(ctx: &mut TxContext) {\n    transfer::share_object(Registry {\n        id: object::new(ctx),\n        entries: 0,\n        admin: ctx.sender(),\n    });\n}\n\npublic fun add_entry(registry: &mut Registry) {\n    registry.entries = registry.entries + 1;\n}\n\npublic fun reset(registry: &mut Registry, ctx: &TxContext) {\n    assert!(ctx.sender() == registry.admin, ENotAdmin);\n    registry.entries = 0;\n}\n\npublic fun entries(registry: &Registry): u64 { registry.entries }\n\n#[test]\nfun public_updates_and_admin_reset() {\n    let mut ctx = tx_context::dummy();\n    let mut registry = Registry {\n        id: object::new(&mut ctx), entries: 0, admin: ctx.sender(),\n    };\n    add_entry(&mut registry);\n    add_entry(&mut registry);\n    assert!(entries(&registry) == 2, 1);\n    reset(&mut registry, &ctx);\n    assert!(entries(&registry) == 0, 2);\n    let Registry { id, entries: _, admin: _ } = registry;\n    object::delete(id);\n}\n\n#[test]\n#[expected_failure(abort_code = 0, location = sui_ownership::registry)]\nfun another_address_cannot_reset() {\n    let mut ctx = tx_context::dummy();\n    let mut registry = Registry {\n        id: object::new(&mut ctx), entries: 2, admin: @0xA,\n    };\n    reset(&mut registry, &ctx);\n    let Registry { id, entries: _, admin: _ } = registry;\n    object::delete(id);\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui move test --path move --no-lint registry",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::registry::another_address_cannot_reset\n[ PASS    ] sui_ownership::registry::public_updates_and_admin_reset\nTest result: OK. Total tests: 2; passed: 2; failed: 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "module sui_ownership::rules;\n\npublic struct Rules has key, store {\n    id: UID,\n    limit: u64,\n}\n\npublic fun create(limit: u64, ctx: &mut TxContext) {\n    transfer::freeze_object(Rules { id: object::new(ctx), limit });\n}\n\npublic fun read_limit(rules: &Rules): u64 { rules.limit }\n\npublic fun set_limit(rules: &mut Rules, limit: u64) {\n    rules.limit = limit;\n}\n\n#[test]\nfun read_then_freeze() {\n    let mut ctx = tx_context::dummy();\n    let rules = Rules { id: object::new(&mut ctx), limit: 10 };\n    assert!(read_limit(&rules) == 10, 0);\n    transfer::freeze_object(rules);\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui move test --path move --no-lint rules",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::rules::read_then_freeze\nTest result: OK. Total tests: 1; passed: 1; failed: 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "module sui_ownership::case;\n\nuse sui_ownership::owned::{Self, Notebook, NotebookCap};\n\npublic struct Case has key, store {\n    id: UID,\n    notebook: Notebook,\n}\n\n#[allow(lint(self_transfer))]\npublic fun pack(notebook: Notebook, ctx: &mut TxContext) {\n    transfer::transfer(Case { id: object::new(ctx), notebook }, ctx.sender());\n}\n\npublic fun note_id(case: &Case): ID {\n    object::id(&case.notebook)\n}\n\npublic fun set_inside(case: &mut Case, cap: &NotebookCap, value: u64) {\n    owned::set_value(&mut case.notebook, cap, value);\n}\n\n#[allow(lint(self_transfer))]\npublic fun unpack(case: Case, ctx: &mut TxContext) {\n    let Case { id, notebook } = case;\n    object::delete(id);\n    transfer::public_transfer(notebook, ctx.sender());\n}\n\n#[test]\nfun wrapped_notebook_keeps_identity() {\n    let mut ctx = tx_context::dummy();\n    let (notebook, cap) = owned::create(7, &mut ctx);\n    let original_id = object::id(&notebook);\n    let mut case = Case { id: object::new(&mut ctx), notebook };\n    assert!(note_id(&case) == original_id, 1);\n    set_inside(&mut case, &cap, 9);\n    let Case { id, notebook } = case;\n    object::delete(id);\n    assert!(object::id(&notebook) == original_id, 2);\n    assert!(owned::value(&notebook) == 9, 3);\n    owned::destroy_for_testing(notebook, cap);\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui move test --path move --no-lint case",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::case::wrapped_notebook_keeps_identity\nTest result: OK. Total tests: 1; passed: 1; failed: 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "module sui_ownership::party_counter;\n\nuse sui::party;\n\npublic struct Counter has key, store {\n    id: UID,\n    value: u64,\n}\n\npublic fun create(ctx: &mut TxContext) {\n    let counter = Counter { id: object::new(ctx), value: 0 };\n    transfer::public_party_transfer(counter, party::single_owner(ctx.sender()));\n}\n\npublic fun increment(counter: &mut Counter) {\n    counter.value = counter.value + 1;\n}\n\npublic fun value(counter: &Counter): u64 {\n    counter.value\n}\n\n#[test]\nfun repeated_updates_change_value() {\n    let mut ctx = tx_context::dummy();\n    let mut counter = Counter { id: object::new(&mut ctx), value: 0 };\n    increment(&mut counter);\n    increment(&mut counter);\n    assert!(value(&counter) == 2, 1);\n    let Counter { id, value: _ } = counter;\n    object::delete(id);\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui move test --path move --no-lint party_counter",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nRunning Move unit tests\n[ PASS    ] sui_ownership::party_counter::repeated_updates_change_value\nTest result: OK. Total tests: 1; passed: 1; failed: 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client publish move --sender \"$ALICE\" --gas-budget 100000000 --json > evidence/publish.json",
+    "language": "Bash"
+  },
+  {
+    "text": "import argparse\nimport json\nfrom pathlib import Path\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"receipt\")\nparser.add_argument(\"selector\", nargs=\"?\", default=\"status\")\nparser.add_argument(\"index\", nargs=\"?\", type=int, default=0)\nargs = parser.parse_args()\ndata = json.loads(Path(args.receipt).read_text())\nif args.selector == \"status\":\n    print(\"Status:\", data[\"effects\"][\"status\"][\"status\"])\n    print(\"Digest:\", data[\"digest\"])\nelif args.selector == \"package\":\n    print(next(x[\"packageId\"] for x in data[\"objectChanges\"] if x[\"type\"] == \"published\"))\nelse:\n    matches = [x[\"objectId\"] for x in data[\"objectChanges\"]\n               if x[\"type\"] == \"created\"\n               and x.get(\"objectType\", \"\").endswith(args.selector)]\n    print(matches[args.index])",
     "language": "Python"
   },
   {
-    "text": "python3 client/rpc.py",
+    "text": "python3 client/receipt.py evidence/publish.json",
     "language": "Bash"
   },
   {
-    "text": "RPC endpoint: 127.0.0.1:9000\nChain identifier: 5xmhnG4ka4fxZh4EFVL3UsRvSoNG8WKWahRmGpUgvpae\nService checkpoint: 305",
+    "text": "Status: success\nDigest: 4vr5M599dJLg933xJ5MEhf3bqa3qJdd9WZHgPCBkCYen",
     "language": "Plain Text"
   },
   {
-    "text": "import argparse\nimport json\nfrom pathlib import Path\nfrom rpc import rpc\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"notebook_id\")\nparser.add_argument(\"capability_id\")\nparser.add_argument(\"label\")\nargs = parser.parse_args()\nif not args.label.isidentifier():\n    parser.error(\"Use a simple label such as baseline, partial, or complete\")\nresponses = {\n    name: rpc(\"GetObject\", object_id=object_id, read_mask={\"paths\": [\"*\"]})\n    for name, object_id in ((\"notebook\", args.notebook_id), (\"capability\", args.capability_id))\n}\nnote = responses[\"notebook\"][\"object\"]\ncap = responses[\"capability\"][\"object\"]\nbound_id = cap[\"json\"][\"notebook\"]\nassert bound_id == note[\"object_id\"]\nassert note[\"owner\"][\"kind\"] == cap[\"owner\"][\"kind\"] == \"ADDRESS\"\nPath(\"evidence\").mkdir(exist_ok=True)\npath = Path(\"evidence\") / f\"{args.label}.json\"\npath.write_text(json.dumps(responses, indent=2) + \"\\n\")\nprint(\"Snapshot:\", args.label)\nprint(\"Notebook ID:\", note[\"object_id\"])\nprint(\"Notebook version:\", note[\"version\"])\nprint(\"Notebook owner:\", note[\"owner\"][\"address\"])\nprint(\"Notebook value:\", note[\"json\"][\"value\"])\nprint(\"Capability ID:\", cap[\"object_id\"])\nprint(\"Capability version:\", cap[\"version\"])\nprint(\"Capability owner:\", cap[\"owner\"][\"address\"])\nprint(\"Capability notebook:\", bound_id)\nprint(\"Binding matches:\", bound_id == note[\"object_id\"])\nprint(\"Same address owns both:\", note[\"owner\"] == cap[\"owner\"])\nprint(\"Saved:\", path)",
+    "text": "PACKAGE=$(python3 client/receipt.py evidence/publish.json package)\nprintf 'PACKAGE=%s\\n' \"$PACKAGE\"",
+    "language": "Bash"
+  },
+  {
+    "text": "PACKAGE=0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function create_owned --args 7 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/owned-create.json\nNOTEBOOK=$(python3 client/receipt.py evidence/owned-create.json '::owned::Notebook')\nCAPABILITY=$(python3 client/receipt.py evidence/owned-create.json '::owned::NotebookCap')\nprintf 'NOTEBOOK=%s\\nCAPABILITY=%s\\n' \"$NOTEBOOK\" \"$CAPABILITY\"",
+    "language": "Bash"
+  },
+  {
+    "text": "NOTEBOOK=0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\nCAPABILITY=0xa586b60da2e7298880a5b0b26c27e0eadf5acf94181b2d102114e35c53387024",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 9 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/owned-alice-update.json\npython3 client/receipt.py evidence/owned-alice-update.json",
+    "language": "Bash"
+  },
+  {
+    "text": "Status: success\nDigest: 7opEYpFuDvR8eabfHpp4hDYpPQT9F2vRRfyoUWzGk3bn",
+    "language": "Plain Text"
+  },
+  {
+    "text": "import argparse\nimport json\nimport os\nimport sys\nfrom pathlib import Path\n\nimport grpc\nfrom google.protobuf import descriptor_pool, json_format, message_factory\nfrom grpc_reflection.v1alpha.proto_reflection_descriptor_database import (\n    ProtoReflectionDescriptorDatabase,\n)\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"object_id\")\nparser.add_argument(\"label\")\nargs = parser.parse_args()\nif not args.label.isidentifier():\n    parser.error(\"Use a simple label such as owned, shared, or wrapped_child\")\nendpoint = os.environ.get(\"SUI_GRPC_ENDPOINT\", \"127.0.0.1:9000\")\nhost = endpoint.rsplit(\":\", 1)[0]\nchannel = (\n    grpc.insecure_channel(endpoint)\n    if host in {\"localhost\", \"127.0.0.1\", \"[::1]\"}\n    else grpc.secure_channel(endpoint, grpc.ssl_channel_credentials())\n)\nservice = \"sui.rpc.v2.LedgerService\"\ntry:\n    with channel:\n        pool = descriptor_pool.DescriptorPool(ProtoReflectionDescriptorDatabase(channel))\n        method = pool.FindServiceByName(service).methods_by_name[\"GetObject\"]\n        request_type = message_factory.GetMessageClass(method.input_type)\n        response_type = message_factory.GetMessageClass(method.output_type)\n        call = channel.unary_unary(\n            f\"/{service}/GetObject\",\n            request_serializer=request_type.SerializeToString,\n            response_deserializer=response_type.FromString,\n        )\n        response = call(\n            request_type(object_id=args.object_id, read_mask={\"paths\": [\"*\"]}), timeout=30\n        )\n        result = json_format.MessageToDict(response, preserving_proto_field_name=True)\nexcept grpc.RpcError as error:\n    result = {\"error\": {\"code\": error.code().name, \"details\": error.details()}}\nPath(\"evidence\").mkdir(exist_ok=True)\npath = Path(\"evidence\") / f\"{args.label}.json\"\npath.write_text(json.dumps(result, indent=2) + \"\\n\")\nif \"error\" in result:\n    print(\"GetObject failed:\", result[\"error\"][\"code\"], result[\"error\"][\"details\"])\n    print(\"Saved:\", path)\n    sys.exit(1)\nobj = result[\"object\"]\nprint(\"Object ID:\", obj[\"object_id\"])\nprint(\"Version:\", obj[\"version\"])\nprint(\"Type:\", obj[\"object_type\"])\nprint(\"Owner:\", json.dumps(obj[\"owner\"], sort_keys=True))\nprint(\"Move value:\", json.dumps(obj[\"json\"], indent=2, sort_keys=True))\nprint(\"Saved:\", path)",
     "language": "Python"
   },
   {
-    "text": "python3 client/01_inspect_owned.py \"$NOTEBOOK\" \"$CAPABILITY\" baseline",
+    "text": "python3 client/read_object.py \"$NOTEBOOK\" owned_before",
     "language": "Bash"
   },
   {
-    "text": "Snapshot: baseline\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 4\nNotebook owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: True\nSaved: evidence/baseline.json",
+    "text": "Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\nVersion: 4\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook\nOwner: {\"address\": \"0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\",\n  \"value\": \"9\"\n}\nSaved: evidence/owned_before.json",
     "language": "Plain Text"
   },
   {
-    "text": "sui client transfer --to \"$BOB\" --object-id \"$NOTEBOOK\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/transfer-notebook.json\npython3 -c 'import json; x=json.load(open(\"evidence/transfer-notebook.json\")); print(\"Status:\", x[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", x[\"digest\"])' ",
+    "text": "sui client transfer --to \"$BOB\" --object-id \"$NOTEBOOK\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/owned-transfer.json\npython3 client/receipt.py evidence/owned-transfer.json\nsui client gas \"$ALICE\" --json > evidence/alice-gas.json\nsui client gas \"$BOB\" --json > evidence/bob-gas.json\nALICE_GAS=$(python3 -c 'import json;print(json.load(open(\"evidence/alice-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nBOB_GAS=$(python3 -c 'import json;print(json.load(open(\"evidence/bob-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nprintf 'ALICE_GAS=%s\\nBOB_GAS=%s\\n' \"$ALICE_GAS\" \"$BOB_GAS\"",
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: E1NJGs4H8pXxkQSxUFnxYpjCHPvSUechM1RWFCb9kcLr",
+    "text": "Status: success\nDigest: 9zVwqTfPTzPGC5qo37Kb8XTPm3Zcrgsc8Pbio3WoGKUW\nALICE_GAS=0x45927b76fdc0cc9d557b61b5a4882d31f99c9b833a05e8de63681500e1c4710c\nBOB_GAS=0x127df8b19a476f1215e488ec0fbcb6ae45cbd32ed340b36d999074d9441c27ef",
     "language": "Plain Text"
   },
   {
-    "text": "python3 client/01_inspect_owned.py \"$NOTEBOOK\" \"$CAPABILITY\" partial",
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$ALICE\" --gas-budget 50000000 --gas \"$ALICE_GAS\" --json",
     "language": "Bash"
   },
   {
-    "text": "Snapshot: partial\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 5\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: False\nSaved: evidence/partial.json",
+    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 is owned by account address 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05, but given owner/signer address is 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520\"",
     "language": "Plain Text"
   },
   {
-    "text": "sui client gas \"$ALICE\" --json > evidence/alice-gas.json\nsui client gas \"$BOB\" --json > evidence/bob-gas.json\nALICE_GAS=$(python3 -c 'import json; print(json.load(open(\"evidence/alice-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nBOB_GAS=$(python3 -c 'import json; print(json.load(open(\"evidence/bob-gas.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nprintf 'ALICE_GAS=%s\\nBOB_GAS=%s\\n' \"$ALICE_GAS\" \"$BOB_GAS\"",
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
     "language": "Bash"
   },
   {
-    "text": "ALICE_GAS=0x04cc9af7470c81ac5de46e4baad115c68e866d0681ffce9dabd4e06637b6b2a6\nBOB_GAS=0x54e8455b1dd75ab643d0a5f1a81d6b94c114877453b06d08f0218fdc4f4340a0",
+    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xa586b60da2e7298880a5b0b26c27e0eadf5acf94181b2d102114e35c53387024 is owned by account address 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520, but given owner/signer address is 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\"",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module notebook --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$BOB\" --gas \"$BOB_GAS\" --gas-budget 50000000 --json",
+    "text": "sui client transfer --to \"$BOB\" --object-id \"$CAPABILITY\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/cap-transfer.json\npython3 client/receipt.py evidence/cap-transfer.json\nsui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 11 --sender \"$BOB\" --gas-budget 50000000 --json > evidence/owned-bob-update.json\npython3 client/receipt.py evidence/owned-bob-update.json",
     "language": "Bash"
   },
   {
-    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e is owned by account address 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c, but given owner/signer address is 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\"",
+    "text": "Status: success\nDigest: Co7CAghtaMPDm2UMtLQ2J9VzMnHxZTQP1wkxzrFJzVKk\nStatus: success\nDigest: ASdgva2WzTWnhL5h4DREEigKHouz4nVtVcxR98oJLPwi",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module notebook --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 10 --sender \"$ALICE\" --gas \"$ALICE_GAS\" --gas-budget 50000000 --json",
+    "text": "python3 client/read_object.py \"$NOTEBOOK\" owned",
     "language": "Bash"
   },
   {
-    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a is owned by account address 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30, but given owner/signer address is 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\"",
+    "text": "Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\nVersion: 7\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook\nOwner: {\"address\": \"0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\",\n  \"value\": \"11\"\n}\nSaved: evidence/owned.json",
     "language": "Plain Text"
   },
   {
-    "text": "python3 client/01_inspect_owned.py \"$NOTEBOOK\" \"$CAPABILITY\" rejected",
+    "text": "sui client call --package \"$PACKAGE\" --module registry --function create --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/registry-create.json\nREGISTRY=$(python3 client/receipt.py evidence/registry-create.json '::registry::Registry')\nprintf 'REGISTRY=%s\\n' \"$REGISTRY\"",
     "language": "Bash"
   },
   {
-    "text": "Snapshot: rejected\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 5\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 9\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 4\nCapability owner: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: False\nSaved: evidence/rejected.json",
+    "text": "REGISTRY=0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082",
     "language": "Plain Text"
   },
   {
-    "text": "sui client transfer --to \"$BOB\" --object-id \"$CAPABILITY\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/transfer-capability.json\npython3 -c 'import json; x=json.load(open(\"evidence/transfer-capability.json\")); print(\"Status:\", x[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", x[\"digest\"])' ",
+    "text": "sui client call --package \"$PACKAGE\" --module registry --function add_entry --args \"$REGISTRY\" --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/registry-alice-add.json\npython3 client/receipt.py evidence/registry-alice-add.json\nsui client call --package \"$PACKAGE\" --module registry --function add_entry --args \"$REGISTRY\" --sender \"$BOB\" --gas-budget 50000000 --json > evidence/registry-bob-add.json\npython3 client/receipt.py evidence/registry-bob-add.json",
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: EgKaJDCDRiWd22x9oArB41KuEnwRJXDXxw6QAbH7Xjkn",
+    "text": "Status: success\nDigest: AgFKGDAqePj42Yo5JxyNTkW2DUMKcNrQMzdWKCe4WXo3\nStatus: success\nDigest: AALXiFQ1uqCfrApznG8zqXarwbfPVH7MKBeoDi7MKaDf",
     "language": "Plain Text"
   },
   {
-    "text": "sui client call --package \"$PACKAGE\" --module notebook --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 11 --sender \"$BOB\" --gas-budget 50000000 --json > evidence/bob-update.json\npython3 -c 'import json; x=json.load(open(\"evidence/bob-update.json\")); print(\"Status:\", x[\"effects\"][\"status\"][\"status\"]); print(\"Digest:\", x[\"digest\"])' ",
+    "text": "sui client call --package \"$PACKAGE\" --module registry --function reset --args \"$REGISTRY\" --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
     "language": "Bash"
   },
   {
-    "text": "Status: success\nDigest: CKHHx63vwqAGVuKKrxUNqxNPMP5UXrZotNUdRXBM5mgv",
+    "text": "Error executing transaction '2oAZXBFPPJzZ7Af3MgrM9qMoAvAsyiU9Ua9dWLHyqpb5': 1st command aborted within function '0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::registry::reset' at instruction 11 with code 0",
     "language": "Plain Text"
   },
   {
-    "text": "python3 client/01_inspect_owned.py \"$NOTEBOOK\" \"$CAPABILITY\" complete",
+    "text": "python3 client/read_object.py \"$REGISTRY\" shared",
     "language": "Bash"
   },
   {
-    "text": "Snapshot: complete\nNotebook ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nNotebook version: 7\nNotebook owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nNotebook value: 11\nCapability ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\nCapability version: 7\nCapability owner: 0x5ee5b5a057b14be4f7acf5d7727effd569a25d42e5664e00cb455465dc6a0b30\nCapability notebook: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\nBinding matches: True\nSame address owns both: True\nSaved: evidence/complete.json",
+    "text": "Object ID: 0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082\nVersion: 10\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::registry::Registry\nOwner: {\"kind\": \"SHARED\", \"version\": \"7\"}\nMove value: {\n  \"admin\": \"0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520\",\n  \"entries\": \"2\",\n  \"id\": \"0xbf6db209a6bdc6c5738e83909e15f6eafd834ea88cce93198b5a1b268390c082\"\n}\nSaved: evidence/shared.json",
     "language": "Plain Text"
   },
   {
-    "text": "import argparse\nimport json\nfrom pathlib import Path\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"snapshots\", nargs=4, metavar=\"FILE\")\nargs = parser.parse_args()\nstates = [json.loads(Path(path).read_text()) for path in args.snapshots]\nassert states[1] == states[2]\nstates = [states[0], states[1], states[3]]\nnotes = [state[\"notebook\"][\"object\"] for state in states]\ncaps = [state[\"capability\"][\"object\"] for state in states]\nassert len({note[\"object_id\"] for note in notes}) == 1\nassert len({cap[\"object_id\"] for cap in caps}) == 1\nassert all(cap[\"json\"][\"notebook\"] == note[\"object_id\"] for note, cap in zip(notes, caps))\nassert notes[0][\"owner\"] == caps[0][\"owner\"]\nassert notes[1][\"owner\"] != caps[1][\"owner\"]\nassert notes[2][\"owner\"] == caps[2][\"owner\"]\nassert caps[0][\"owner\"] == caps[1][\"owner\"]\nassert notes[1][\"owner\"] == notes[2][\"owner\"]\nassert notes[0][\"json\"][\"value\"] == notes[1][\"json\"][\"value\"]\nassert notes[2][\"json\"][\"value\"] != notes[1][\"json\"][\"value\"]\nfor label, note, cap in zip((\"baseline\", \"partial\", \"complete\"), notes, caps):\n    print(f\"{label}: value={note['json']['value']}, same owner={note['owner'] == cap['owner']}\")\nprint(\"PASS: notebook identity, capability identity, and their binding stayed unchanged\")\nprint(\"PASS: only the notebook moved first, then the capability followed\")\nprint(\"PASS: both object records stayed unchanged after the rejected attempts\")",
-    "language": "Python"
-  },
-  {
-    "text": "python3 client/02_compare_handover.py evidence/baseline.json evidence/partial.json evidence/rejected.json evidence/complete.json",
+    "text": "sui client call --package \"$PACKAGE\" --module rules --function create --args 10 --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/rules-create.json\nRULES=$(python3 client/receipt.py evidence/rules-create.json '::rules::Rules')\nprintf 'RULES=%s\\n' \"$RULES\"",
     "language": "Bash"
   },
   {
-    "text": "baseline: value=9, same owner=True\npartial: value=9, same owner=False\ncomplete: value=11, same owner=True\nPASS: notebook identity, capability identity, and their binding stayed unchanged\nPASS: only the notebook moved first, then the capability followed\nPASS: both object records stayed unchanged after the rejected attempts",
+    "text": "RULES=0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module rules --function read_limit --args \"$RULES\" --sender \"$BOB\" --gas-budget 50000000 --json > evidence/rules-bob-read.json\npython3 client/receipt.py evidence/rules-bob-read.json",
+    "language": "Bash"
+  },
+  {
+    "text": "Status: success\nDigest: 6SMESy9SdaT67rE4errKN2c3FR85aG7gv4aa1xSz69zx",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module rules --function set_limit --args \"$RULES\" 20 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "language": "Bash"
+  },
+  {
+    "text": "Error executing transaction '31447BLoJhfRcJfQAAooc8BL4bBnqmZiLX1LEdPosUk6': CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 client/read_object.py \"$RULES\" immutable",
+    "language": "Bash"
+  },
+  {
+    "text": "Object ID: 0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5\nVersion: 9\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::rules::Rules\nOwner: {\"kind\": \"IMMUTABLE\"}\nMove value: {\n  \"id\": \"0x3888e87ec4c908e4a586423cc1f9a47718a0505a8336aa8ba806b8c639e943d5\",\n  \"limit\": \"10\"\n}\nSaved: evidence/immutable.json",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module case --function pack --args \"$NOTEBOOK\" --sender \"$BOB\" --gas-budget 50000000 --json > evidence/case-pack.json\nCASE=$(python3 client/receipt.py evidence/case-pack.json '::case::Case')\nprintf 'CASE=%s\\n' \"$CASE\"",
+    "language": "Bash"
+  },
+  {
+    "text": "CASE=0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 client/read_object.py \"$CASE\" wrapped",
+    "language": "Bash"
+  },
+  {
+    "text": "Object ID: 0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d\nVersion: 13\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::case::Case\nOwner: {\"address\": \"0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d\",\n  \"notebook\": {\n    \"id\": \"0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\",\n    \"value\": \"11\"\n  }\n}\nSaved: evidence/wrapped.json",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 client/read_object.py \"$NOTEBOOK\" wrapped_child",
+    "language": "Bash"
+  },
+  {
+    "text": "GetObject failed: NOT_FOUND Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 not found\nSaved: evidence/wrapped_child.json",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module owned --function set_value --args \"$NOTEBOOK\" \"$CAPABILITY\" 12 --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "language": "Bash"
+  },
+  {
+    "text": "code: 'Some requested entity was not found', message: \"Object 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451 not found\"",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module case --function set_inside --args \"$CASE\" \"$CAPABILITY\" 12 --sender \"$BOB\" --gas-budget 50000000 --json > evidence/case-update-inside.json\npython3 client/receipt.py evidence/case-update-inside.json\nsui client call --package \"$PACKAGE\" --module case --function unpack --args \"$CASE\" --sender \"$BOB\" --gas-budget 50000000 --json > evidence/case-unpack.json\npython3 client/receipt.py evidence/case-unpack.json",
+    "language": "Bash"
+  },
+  {
+    "text": "Status: success\nDigest: CepZHcD1chQwgmqdjT2pVf9dJbmqwMUECGDBzQAVc2eY\nStatus: success\nDigest: 8LDLTtcApYQnHczkaoJCffoeXAadY6hGcD9zYYHtJVxp",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 client/read_object.py \"$NOTEBOOK\" unwrapped",
+    "language": "Bash"
+  },
+  {
+    "text": "Object ID: 0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\nVersion: 15\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook\nOwner: {\"address\": \"0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\", \"kind\": \"ADDRESS\"}\nMove value: {\n  \"id\": \"0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451\",\n  \"value\": \"12\"\n}\nSaved: evidence/unwrapped.json",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function create --sender \"$ALICE\" --gas-budget 50000000 --json > evidence/party-create.json\nPARTY=$(python3 client/receipt.py evidence/party-create.json '::party_counter::Counter')\nprintf 'PARTY=%s\\n' \"$PARTY\"",
+    "language": "Bash"
+  },
+  {
+    "text": "PARTY=0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$BOB\" --gas-budget 50000000 --gas \"$BOB_GAS\" --json",
+    "language": "Bash"
+  },
+  {
+    "text": "code: 'Client specified an invalid argument', message: \"Error checking transaction input objects: Transaction was not signed by the correct sender: Object 0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217 is owned by account address 0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520, but given owner/signer address is 0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05\"",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client gas \"$ALICE\" --json > evidence/alice-gas-before-split.json\nALICE_GAS=$(python3 -c 'import json;print(json.load(open(\"evidence/alice-gas-before-split.json\"))[\"gasCoins\"][0][\"gasCoinId\"])')\nsui client ptb --split-coins gas '[1000000000,1000000000]' --assign parts --transfer-objects '[parts.0,parts.1]' \"@$ALICE\" --sender \"@$ALICE\" --gas-coin \"@$ALICE_GAS\" --gas-budget 50000000 --json > evidence/prepare-party-gas.json\nGAS_A=$(python3 client/receipt.py evidence/prepare-party-gas.json '::coin::Coin<0x2::sui::SUI>' 0)\nGAS_B=$(python3 client/receipt.py evidence/prepare-party-gas.json '::coin::Coin<0x2::sui::SUI>' 1)\nprintf 'GAS_A=%s\\nGAS_B=%s\\n' \"$GAS_A\" \"$GAS_B\"",
+    "language": "Bash"
+  },
+  {
+    "text": "GAS_A=0xcdf4720e52bc98cdde01251e9ad9c2ddb94903f92615397a072fdd72e03f90d9\nGAS_B=0xf3ede01eec0aa2e575bc38b0a76a660807215aefa0e6d93f155615c02c9daad0",
+    "language": "Plain Text"
+  },
+  {
+    "text": "sui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas \"$GAS_A\" --gas-budget 50000000 --json > evidence/party-update-a.json &\nPID_A=$!\nsui client call --package \"$PACKAGE\" --module party_counter --function increment --args \"$PARTY\" --sender \"$ALICE\" --gas \"$GAS_B\" --gas-budget 50000000 --json > evidence/party-update-b.json &\nPID_B=$!\nwait \"$PID_A\"\nwait \"$PID_B\"\npython3 client/receipt.py evidence/party-update-a.json\npython3 client/receipt.py evidence/party-update-b.json",
+    "language": "Bash"
+  },
+  {
+    "text": "Status: success\nDigest: CNh2wwr9d963NCkq8UZAN9ddJMKyuWvghBPpmcaYgqNh\nStatus: success\nDigest: Dat1fQyjenUPNc9S5BFrJiyc4XccD47MKoyeKqAyz7a",
+    "language": "Plain Text"
+  },
+  {
+    "text": "python3 client/read_object.py \"$PARTY\" party",
+    "language": "Bash"
+  },
+  {
+    "text": "Object ID: 0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217\nVersion: 13\nType: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::party_counter::Counter\nOwner: {\"address\": \"0x5a36dfc356c2e9c5fb4003daee6107b14fdf06e4a10ba1b0c5f24d8268ddc520\", \"kind\": \"CONSENSUS_ADDRESS\", \"version\": \"10\"}\nMove value: {\n  \"id\": \"0xf623a64044ee25c3befa4ef2bd1d0069ae7d56ee1edea8a8bbdef24cf3b9d217\",\n  \"value\": \"2\"\n}\nSaved: evidence/party.json",
     "language": "Plain Text"
   }
 ]

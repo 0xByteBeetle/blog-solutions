@@ -1,0 +1,6 @@
+[package]
+name = "sui_ownership"
+edition = "2024"
+
+[environments]
+localnet = "Hj5zCy4vEHoy6WA6Kow4p9BxyYzYypTy4HckJSEtvXDn"

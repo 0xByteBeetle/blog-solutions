@@ -1,0 +1,1 @@
+Error executing transaction '31447BLoJhfRcJfQAAooc8BL4bBnqmZiLX1LEdPosUk6': CommandArgumentError { arg_idx: 0, kind: InvalidObjectByMutRef } in command 0

@@ -1,0 +1,12 @@
+Object ID: 0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d
+Version: 13
+Type: 0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::case::Case
+Owner: {"address": "0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05", "kind": "ADDRESS"}
+Move value: {
+  "id": "0x4e31a433410ce5928a7ab841ef68702db5d86d2c6a7606828bdd4899c4019d6d",
+  "notebook": {
+    "id": "0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451",
+    "value": "11"
+  }
+}
+Saved: evidence/wrapped.json

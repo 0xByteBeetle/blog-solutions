@@ -1,0 +1,27 @@
+{
+  "object": {
+    "bcs": {
+      "name": "Object",
+      "value": "AAB1JxfyeksO1A3tjfEMsfAxTNR9HYW+xv63fIUCfgARzgVvd25lZAhOb3RlYm9vawABDwAAAAAAAAAoWK5CcP/nLFYbl9cjPlPzPZOTsd2uDRDjkl4xXy4axFEMAAAAAAAAAABxQ9z9ObwxOolwRwOIixk/FZvAg1EpJoXyxlmHJ3JLBSBs7cqvjUncPW7+0Af0Jl3mgfU6Sfjbks7lvVFSQWK1rWCkFAAAAAAA"
+    },
+    "object_id": "0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451",
+    "version": "15",
+    "digest": "GZ4X9Vy3pjepPigPMPbCjmY2JUMpDR6pGGBdsjwVUUg1",
+    "owner": {
+      "kind": "ADDRESS",
+      "address": "0x7143dcfd39bc313a89704703888b193f159bc08351292685f2c6598727724b05"
+    },
+    "object_type": "0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook",
+    "has_public_transfer": true,
+    "contents": {
+      "name": "0x752717f27a4b0ed40ded8df10cb1f0314cd47d1d85bec6feb77c85027e0011ce::owned::Notebook",
+      "value": "WK5CcP/nLFYbl9cjPlPzPZOTsd2uDRDjkl4xXy4axFEMAAAAAAAAAA=="
+    },
+    "previous_transaction": "8LDLTtcApYQnHczkaoJCffoeXAadY6hGcD9zYYHtJVxp",
+    "storage_rebate": "1352800",
+    "json": {
+      "value": "12",
+      "id": "0x58ae4270ffe72c561b97d7233e53f33d9393b1ddae0d10e3925e315f2e1ac451"
+    }
+  }
+}
