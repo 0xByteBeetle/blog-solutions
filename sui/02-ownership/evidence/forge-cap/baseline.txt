@@ -1,0 +1,34 @@
+2026-10-28T16:27:12.808157Z  WARN sui_package_alt::sui_flavor: Failed to query protocol version: Failed to query protocol config. Falling back to protocol version 139.
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+warning[WSL06002]: non-composable transfer to sender
+   ┌─ ./sources/notebook.move:26:5
+   │
+24 │ public fun create_owned(value: u64, ctx: &mut TxContext) {
+   │            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+25 │     let (notebook, cap) = create(value, ctx);
+26 │     transfer::transfer(notebook, ctx.sender());
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   │     │                            │
+   │     │                            Transaction sender address coming from here
+   │     Transfer of an object to transaction sender address
+   │
+   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+warning[WSL06002]: non-composable transfer to sender
+   ┌─ ./sources/notebook.move:27:5
+   │
+24 │ public fun create_owned(value: u64, ctx: &mut TxContext) {
+   │            ------------ Returning an object from a function, allows a caller to use the object and enables composability via programmable transactions.
+   ·
+27 │     transfer::transfer(cap, ctx.sender());
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   │     │                       │
+   │     │                       Transaction sender address coming from here
+   │     Transfer of an object to transaction sender address
+   │
+   = This warning can be suppressed with '#[allow(lint(self_transfer))]' applied to the 'module' or module member ('const', 'fun', or 'struct')
+
+Please report feedback on the linter warnings at https://forums.sui.io
+

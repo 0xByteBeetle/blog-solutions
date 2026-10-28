@@ -1,0 +1,18 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+error[EC04001]: restricted visibility
+   ┌─ ./sources/forgery_failure.move:6:5
+   │  
+ 6 │ ╭     NotebookCap {
+ 7 │ │         id: object::new(ctx),
+ 8 │ │         notebook: notebook_id,
+ 9 │ │     }
+   │ ╰─────^ Struct 'sui_ownership::notebook::NotebookCap' can only be instantiated within its defining module 'sui_ownership::notebook'
+   │  
+   ┌─ ./sources/notebook.move:10:15
+   │
+10 │ public struct NotebookCap has key, store {
+   │               ----------- Struct defined in module 'sui_ownership::notebook'
+
+Failed to build Move modules: Compilation error.

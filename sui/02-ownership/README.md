@@ -14,6 +14,8 @@ The example follows one notebook and its separate capability. Alice initially ow
 | `client/rpc.py` | Native gRPC calls using runtime protobuf reflection |
 | `client/01_inspect_owned.py` | Read two objects and save a labeled observation |
 | `client/02_compare_handover.py` | Compare four saved observations locally |
+| `client/inspect_call_inputs.py` | Inspect object inputs, input versions, and the pure value in the saved successful call |
+| `failures/forge-cap/sources/forgery_failure.move` | Deliberate compiler rejection for constructing NotebookCap outside its defining module |
 | `evidence/recorded-client/` | Original object observations and Python output |
 | `evidence/recorded-cli/` | Public transaction receipts, input errors, compiler output, test output, and recorded manifest/lock |
 | `evidence/cli-manifest.json` | Complete source and 14 CLI steps with captured outputs and boundary notes |
@@ -157,3 +159,26 @@ The Python reads are two sequential `GetObject` calls per stage. Mutations were 
 The two signed failures are full-node input-validation rejections for ordinary address-owned inputs. They are distinct from the local `test_scenario` inventory failures and the notebook module's binding-guard abort. A `NotebookCap` of the correct type can still refer to the wrong notebook, which is why the module also checks the object ID.
 
 The example concerns these two address-owned objects and this function signature. Reading their public records does not grant Move references. Matching owners is a custody observation, not a general proof that every possible operation is authorized. Broader ownership forms and other input paths belong in separate articles.
+
+## Additional construction and receipt controls
+
+The expanded draft traces the saved successful call locally and tests whether a foreign module can fabricate the capability. No new node transaction was required.
+
+After the original Alice update has generated `evidence/alice-update.json`, run:
+
+```bash
+python3 client/inspect_call_inputs.py
+```
+
+For an offline replay, copy `evidence/recorded-cli/alice-update.json` to `evidence/alice-update.json` first. This program reports recorded transaction fields without verifying a signature or contacting a node. Input versions are 3, while the following baseline state query observes version 4.
+
+The foreign module is an intentionally invalid fixture. With `move/Move.toml` already generated for the local lab, prepare its supporting files and build it separately:
+
+```bash
+mkdir -p failures/forge-cap/sources
+cp move/Move.toml failures/forge-cap/Move.toml
+cp move/sources/notebook.move failures/forge-cap/sources/notebook.move
+RUST_LOG=off sui move build --path failures/forge-cap --no-lint
+```
+
+Expected exit status is 1 with EC04001 restricted visibility. The original Move package remains valid. The failure source is fully printed in the Substack draft, and no reader-facing source is hidden behind this repository. Clean compiler evidence is preserved in `evidence/forge-cap/`, and the receipt inspector source and output are preserved in `evidence/call-inputs-manifest.json`. The source path in the compiler manifest is relative to the lab root, and its baseline output is retained alongside the manifest.

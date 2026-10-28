@@ -25,3 +25,8 @@ evidence/complete.json
 *.keystore
 *.key
 .env
+
+failures/forge-cap/build/
+failures/forge-cap/Move.toml
+failures/forge-cap/Move.lock
+failures/forge-cap/sources/notebook.move

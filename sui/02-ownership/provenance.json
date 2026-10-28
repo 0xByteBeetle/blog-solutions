@@ -293,6 +293,42 @@
       "source": "sui-part2-owned-lab/evidence/reader-syntax.json",
       "sha256": "f9d87d78387e9475bf8a767cafd938d0f9e05010899156804edba672786db4ec",
       "transformation": "none"
+    },
+    {
+      "file": "client/inspect_call_inputs.py",
+      "source": "sui-part2-expansion-client/client/inspect_call_inputs.py",
+      "sha256": "e9cd88c485c743a4ca045e9af5c3d24b81f6e47142b98f297b3c228588a7b872",
+      "transformation": "none"
+    },
+    {
+      "file": "failures/forge-cap/sources/forgery_failure.move",
+      "source": "sui-part2-expansion-lab/failures/forge-cap/sources/forgery_failure.move",
+      "sha256": "f737d7c83d1d95a45f993f5c7f73742eb5e318a8a2ee1f9d8fce69b1730e3f01",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/forge-cap/baseline.txt",
+      "source": "sui-part2-expansion-lab/evidence/baseline.txt",
+      "sha256": "27424991417ee66090f2d742ddc12df9f38867a02083a3869b195ac3f1f15517",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/forge-cap/forgery-failure.txt",
+      "source": "sui-part2-expansion-lab/evidence/forgery-failure.txt",
+      "sha256": "05a6b0d61775e75415c29913928b1f7902e4091a57490bdaf4d7d4c13a67c3ce",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/forge-cap/manifest.json",
+      "source": "sui-part2-expansion-lab/manifest.json",
+      "sha256": "b1032539e9748b6351adc26b415469058a00a39c69db89f9cba8156ef5d37012",
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/call-inputs-manifest.json",
+      "source": "sui-part2-expansion-client/manifest.json",
+      "sha256": "ef7c667dcf8c80a616eb2f87ee5392bc5b22942039bb6b6ed148b20f3e2158be",
+      "transformation": "none"
     }
   ],
   "generated_files": {
@@ -304,5 +340,6 @@
     "The two signed wrong-owner commands were rejected during input validation. They did not produce Move abort effects.",
     "Move expected-failure tests exercise test_scenario inventory checks or the application binding guard as labeled in the source.",
     "The author reused an existing virtual environment and official framework cache. The visible setup supplies fresh-environment commands. Generated Move.lock was not copied before the original build."
-  ]
+  ],
+  "extension_note": "Requested expansion adds two local controls. No original notebook semantics or previously captured node observations changed."
 }

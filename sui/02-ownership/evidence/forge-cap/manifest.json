@@ -1,0 +1,25 @@
+{
+  "purpose": "A different module in the same package cannot construct NotebookCap directly, even with an ID value and fresh UID.",
+  "cli": "sui 1.82.3-bf4073918ed3",
+  "source": {
+    "filename": "failures/forge-cap/sources/forgery_failure.move",
+    "code": "module sui_ownership::forgery_failure;\n\nuse sui_ownership::notebook::NotebookCap;\n\npublic fun forge(notebook_id: ID, ctx: &mut TxContext): NotebookCap {\n    NotebookCap {\n        id: object::new(ctx),\n        notebook: notebook_id,\n    }\n}\n",
+    "sha256": "f737d7c83d1d95a45f993f5c7f73742eb5e318a8a2ee1f9d8fce69b1730e3f01"
+  },
+  "reader_setup": "mkdir -p failures/forge-cap/sources\ncp move/Move.toml failures/forge-cap/Move.toml\ncp move/sources/notebook.move failures/forge-cap/sources/notebook.move",
+  "reader_command": "RUST_LOG=off sui move build --path failures/forge-cap --no-lint",
+  "exit_code": 1,
+  "output": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nerror[EC04001]: restricted visibility\n   \u250c\u2500 ./sources/forgery_failure.move:6:5\n   \u2502  \n 6 \u2502 \u256d     NotebookCap {\n 7 \u2502 \u2502         id: object::new(ctx),\n 8 \u2502 \u2502         notebook: notebook_id,\n 9 \u2502 \u2502     }\n   \u2502 \u2570\u2500\u2500\u2500\u2500\u2500^ Struct 'sui_ownership::notebook::NotebookCap' can only be instantiated within its defining module 'sui_ownership::notebook'\n   \u2502  \n   \u250c\u2500 ./sources/notebook.move:10:15\n   \u2502\n10 \u2502 public struct NotebookCap has key, store {\n   \u2502               ----------- Struct defined in module 'sui_ownership::notebook'\n\nFailed to build Move modules: Compilation error.\n",
+  "output_formatting": "ANSI color control bytes removed. Text and line structure otherwise unchanged. NO_COLOR=1 was set in the author environment but the diagnostic still contained ANSI escapes.",
+  "baseline": {
+    "source": "Exact earlier notebook.move, no forgery module",
+    "command": "sui move build --path failures/forge-cap",
+    "exit_code": 0,
+    "output_file": "evidence/baseline.txt"
+  },
+  "author_environment": "Build-only client configuration with an empty keystore. MOVE_HOME points to the previously verified framework cache. RPC endpoint was not running, compiler used protocol139 fallback; RUST_LOG=off suppresses the unrelated protocol lookup log. No transaction or wallet signing was performed.",
+  "reader_environment": "Run from the existing article lab root, using its already configured CLI and Move cache. The shown cp commands reuse only files already printed in full earlier in the article. The original move package is untouched.",
+  "flags": "--no-lint removes the two already-discussed self-transfer lints from this deliberate compiler failure. It does not disable type or visibility checks. RUST_LOG=off affects runtime logging, not the compiler diagnostic.",
+  "interpretation": "public struct allows modules to name the type in signatures, but instantiation remains restricted to its defining module. Module visibility is narrower than package membership. A public ID value and the ability to create a UID do not let another module create a NotebookCap. This is a compiler rejection, not an ownership-admission error or EWrongNotebook runtime abort.",
+  "allowed_constructor_note": "The legitimate public create function returns a new notebook and capability bound to that newly created notebook. It does not accept an existing target notebook ID to mint arbitrary replacement authority."
+}

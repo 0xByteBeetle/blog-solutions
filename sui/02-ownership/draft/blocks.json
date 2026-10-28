@@ -48,6 +48,22 @@
     "language": "Plain Text"
   },
   {
+    "text": "mkdir -p failures/forge-cap/sources\ncp move/Move.toml failures/forge-cap/Move.toml\ncp move/sources/notebook.move failures/forge-cap/sources/notebook.move",
+    "language": "Bash"
+  },
+  {
+    "text": "module sui_ownership::forgery_failure;\n\nuse sui_ownership::notebook::NotebookCap;\n\npublic fun forge(notebook_id: ID, ctx: &mut TxContext): NotebookCap {\n    NotebookCap {\n        id: object::new(ctx),\n        notebook: notebook_id,\n    }\n}",
+    "language": "Plain Text"
+  },
+  {
+    "text": "RUST_LOG=off sui move build --path failures/forge-cap --no-lint",
+    "language": "Bash"
+  },
+  {
+    "text": "INCLUDING DEPENDENCY MoveStdlib\nINCLUDING DEPENDENCY Sui\nBUILDING sui_ownership\nerror[EC04001]: restricted visibility\n   \u250c\u2500 ./sources/forgery_failure.move:6:5\n   \u2502  \n 6 \u2502 \u256d     NotebookCap {\n 7 \u2502 \u2502         id: object::new(ctx),\n 8 \u2502 \u2502         notebook: notebook_id,\n 9 \u2502 \u2502     }\n   \u2502 \u2570\u2500\u2500\u2500\u2500\u2500^ Struct 'sui_ownership::notebook::NotebookCap' can only be instantiated within its defining module 'sui_ownership::notebook'\n   \u2502  \n   \u250c\u2500 ./sources/notebook.move:10:15\n   \u2502\n10 \u2502 public struct NotebookCap has key, store {\n   \u2502               ----------- Struct defined in module 'sui_ownership::notebook'\n\nFailed to build Move modules: Compilation error.",
+    "language": "Plain Text"
+  },
+  {
     "text": "sui client publish move --sender \"$ALICE\" --gas-budget 100000000 --json > evidence/publish.json\nPACKAGE=$(python3 -c 'import json; print(next(x[\"packageId\"] for x in json.load(open(\"evidence/publish.json\"))[\"objectChanges\"] if x[\"type\"] == \"published\"))')\nprintf 'PACKAGE=%s\\n' \"$PACKAGE\"",
     "language": "Bash"
   },
@@ -69,6 +85,18 @@
   },
   {
     "text": "Status: success\nDigest: 2rw7Put45TCHTqe4Xxm89kW4pTVvNzcxn5bXUspZ24ht",
+    "language": "Plain Text"
+  },
+  {
+    "text": "import json\nfrom pathlib import Path\n\nreceipt = json.loads(Path(\"evidence/alice-update.json\").read_text())\ndata = receipt[\"transaction\"][\"data\"]\ntransaction = data[\"transaction\"]\nassert transaction[\"kind\"] == \"ProgrammableTransaction\"\nassert len(transaction[\"transactions\"]) == 1\ncall = transaction[\"transactions\"][0][\"MoveCall\"]\nassert (call[\"module\"], call[\"function\"]) == (\"notebook\", \"set_value\")\nassert call[\"arguments\"] == [{\"Input\": 0}, {\"Input\": 1}, {\"Input\": 2}]\nprint(\"Recorded sender:\", data[\"sender\"])\nprint(\"Called function:\", f\"{call['package']}::{call['module']}::{call['function']}\")\nfor position, role in enumerate((\"notebook\", \"capability\", \"new value\")):\n    index = call[\"arguments\"][position][\"Input\"]\n    item = transaction[\"inputs\"][index]\n    print(f\"Move argument {position} ({role}) -> Input {index}\")\n    if position < 2:\n        assert (item[\"type\"], item[\"objectType\"]) == (\"object\", \"immOrOwnedObject\")\n        print(\"  Object ID:\", item[\"objectId\"])\n        print(\"  Input version:\", item[\"version\"])\n    else:\n        assert item[\"type\"] == \"pure\"\n        raw = bytes(item[\"value\"])\n        assert len(raw) == 8\n        value = int.from_bytes(raw, \"little\")\n        assert value == 9\n        print(\"  Decoded u64:\", value)\nprint(\"PASS: the receipt maps two object inputs and one value into set_value\")",
+    "language": "Python"
+  },
+  {
+    "text": "python3 client/inspect_call_inputs.py",
+    "language": "Bash"
+  },
+  {
+    "text": "Recorded sender: 0x410f18714ece8ff57f0b404e729c4fc5904162e4ef9ade903622c79b8c69b59c\nCalled function: 0x13f61d9ea7dc58ca444270a895ec3397f258d854fbe0b918e8d40007b1faa404::notebook::set_value\nMove argument 0 (notebook) -> Input 0\n  Object ID: 0x2079f7e0f21b745b0d1fc535b1e308d16c1f69d00279914f0d5be512f762b96a\n  Input version: 3\nMove argument 1 (capability) -> Input 1\n  Object ID: 0x771e136870215090aae27ff652126cdea91409666423d9dd8d0cf12b4cf8809e\n  Input version: 3\nMove argument 2 (new value) -> Input 2\n  Decoded u64: 9\nPASS: the receipt maps two object inputs and one value into set_value",
     "language": "Plain Text"
   },
   {
