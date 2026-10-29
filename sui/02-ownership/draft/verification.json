@@ -20,12 +20,12 @@
   "real_testnet_screenshots": 3,
   "images_loaded_with_alt_text": true,
   "explorer_links": 20,
-  "saved_body_sha256": "f27ffcd4d012b77471f935613ea63040d32035ac8f1dd934190b4ff7247aaeaa",
+  "saved_body_sha256": "9cddd07b3283184f286af954b8c54cac4516fd3226fbdbe52f26d8b977fa4c6b",
   "evidence": "../models/evidence/testnet/testnet-validation.json",
   "reader_commands": "../models/evidence/reader-commands.json",
   "capture_notes": "Shared and party screenshots are fresh native public RPC responses. The fresh Case explorer screenshot was captured at version 5 before unpacking. The party counter is version 3, start version 1, value 2.",
-  "language_notes": "Bash and Python blocks retain their language selections. Move has no dedicated supported highlighter. Plain Text was selected for all five sources, but after reload Substack returns four as Auto-detect and one as Rust. All source text remains exact.",
-  "preserved_manual_changes": "The latest live draft was the edit baseline. Existing opening, simplified native CLI setup, ownership taxonomy and all unmodified explanatory paragraphs were preserved. Approved cuts, missing helper/dependencies and fresh evidence were applied with targeted UI edits.",
+  "language_notes": "Move has no dedicated supported highlighter. Saved Move labels in source order: Go, Auto-detect, Rust, Auto-detect, Auto-detect. All source text remains exact.",
+  "preserved_manual_changes": "The latest live draft was the edit baseline. The owned-object section now introduces the notebook's purpose, shows the code and Run/Output, then explains create, set_value and create_owned before interpreting the tests. All 84 code texts and unrelated manual edits were preserved.",
   "images": [
     {
       "alt": "Native public Testnet registry response showing SHARED ownership with start version 1 and current version 4, plus Alice as application admin and entries 2.",

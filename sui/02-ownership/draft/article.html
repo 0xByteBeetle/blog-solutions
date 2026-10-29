@@ -54,10 +54,8 @@ ls -1 move</pre>
 sources
 tests</pre>
 <h2>Address-Owned Objects: Custody and Application Permission</h2>
-<p>Choose an address-owned object when one account should supply that state to transactions. A personal notebook, a ticket, and a capability are natural examples. Other people can inspect their public records through a data service, but that observation does not grant access to the existing objects as transaction inputs. See <a target="_blank" rel="noopener noreferrer nofollow" href="https://docs.sui.io/develop/objects/object-ownership/address-owned">address-owned objects</a>.</p>
-<p>Our notebook keeps an integer value. Its separate capability records the notebook ID that it authorizes. The constructor creates two fresh identities and binds the capability to the new notebook. Calling the constructor again produces another pair, rather than a replacement grant for an existing notebook.</p>
-<p>The setter requires <code>&amp;mut Notebook</code> and <code>&amp;NotebookCap</code>. For the ordinary account-owned inputs used here, Sui checks that the sender may supply both objects. The function then checks that the capability refers to this notebook. Custody determines which objects can enter the call, while the ID assertion determines which pair permits the update.</p>
-<p><code>create_owned</code> transfers both objects to the transaction sender. The structs contain no owner address field. Their address ownership lives in the surrounding runtime records, which we will inspect after publication.</p>
+<p>Choose an address-owned object when one account should supply that state to transactions. <strong>For example: A personal notebook, a ticket, and a capability are natural examples</strong>. Other people can inspect their public records through a data service, but that observation does not grant access to the existing objects as transaction inputs. See <a target="_blank" rel="noopener noreferrer nofollow" href="https://docs.sui.io/develop/objects/object-ownership/address-owned">address-owned objects</a>.</p>
+<p>We’ll use a notebook and a separate object that grants permission to update it.</p>
 <p>Let’s create a file named <code>move/sources/owned.move</code>:</p>
 <pre>module sui_ownership::owned;
 
@@ -130,6 +128,9 @@ Running Move unit tests
 [ PASS    ] sui_ownership::owned::another_notebooks_cap_is_rejected
 [ PASS    ] sui_ownership::owned::matching_cap_updates_value
 Test result: OK. Total tests: 2; passed: 2; failed: 0</pre>
+<p><code>Notebook</code> holds the integer value. Its separate <code>NotebookCap</code> records the ID of the notebook it authorizes. The <code>create</code> function gives both objects fresh identities and binds the capability to the new notebook. Calling it again produces another pair.</p>
+<p>The setter requires <code>&amp;mut Notebook</code> and <code>&amp;NotebookCap</code>. For the ordinary account-owned inputs used here, Sui checks that the sender may supply both objects. The function then checks that the capability refers to this notebook. Custody determines which objects can enter the call, while the ID assertion determines which pair permits the update.</p>
+<p><code>create_owned</code> transfers both objects to the transaction sender. The structs contain no owner address field. Their address ownership lives in the surrounding runtime records, which we will inspect after publication.</p>
 <p>The first unit test changes a notebook from 7 to 9 using its matching capability. The second deliberately supplies another notebook’s capability and expects abort code 0. Its passing result means that the expected rejection occurred. These tests exercise the module’s binding rule with locally constructed values. The later node experiment checks actual account ownership.</p>
 <p>This design makes the transfer policy visible. Both types have <code>store</code>, so their owners can transfer them separately. The capability guards this setter, and an application that intends a complete update handover must account for both objects. If several accounts instead need ongoing access to one mutable record, a shared object gives us a different starting point.</p>
 <h2>Shared Objects: Public Inputs with Explicit Application Rules</h2>
