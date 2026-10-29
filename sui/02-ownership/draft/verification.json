@@ -20,12 +20,13 @@
   "real_testnet_screenshots": 3,
   "images_loaded_with_alt_text": true,
   "explorer_links": 20,
-  "saved_body_sha256": "9cddd07b3283184f286af954b8c54cac4516fd3226fbdbe52f26d8b977fa4c6b",
+  "saved_body_sha256": "beea147ea40669a20b3b2ef61c147d4bcecd69aa2df9c0a3557aee6efe2219f1",
   "evidence": "../models/evidence/testnet/testnet-validation.json",
   "reader_commands": "../models/evidence/reader-commands.json",
   "capture_notes": "Shared and party screenshots are fresh native public RPC responses. The fresh Case explorer screenshot was captured at version 5 before unpacking. The party counter is version 3, start version 1, value 2.",
   "language_notes": "Move has no dedicated supported highlighter. Saved Move labels in source order: Go, Auto-detect, Rust, Auto-detect, Auto-detect. All source text remains exact.",
   "preserved_manual_changes": "The latest live draft was the edit baseline. The owned-object section now introduces the notebook's purpose, shows the code and Run/Output, then explains create, set_value and create_owned before interpreting the tests. All 84 code texts and unrelated manual edits were preserved.",
+  "editorial_update": "Expanded the owned-object explanation with the Rust input-validation call path, stored owner comparison, read-only reference admission, and the separate capability-ID assertion. Linked implementation and Move struct-visibility rules. No code or transaction evidence changed.",
   "images": [
     {
       "alt": "Native public Testnet registry response showing SHARED ownership with start version 1 and current version 4, plus Alice as application admin and entries 2.",
