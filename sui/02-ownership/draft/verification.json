@@ -18,16 +18,28 @@
   "ordinary_quoted_introduction": true,
   "divider_after_introduction": true,
   "real_testnet_screenshots": 3,
-  "images_loaded_with_alt_text": true,
+  "additional_manual_images": 2,
+  "images_loaded": true,
+  "images_loaded_with_alt_text": false,
   "explorer_links": 20,
-  "saved_body_sha256": "beea147ea40669a20b3b2ef61c147d4bcecd69aa2df9c0a3557aee6efe2219f1",
+  "saved_body_sha256": "9e3e5dc407e8c044fbecac55bc7c52818bf29c620b2355b357acc69e3659ecce",
   "evidence": "../models/evidence/testnet/testnet-validation.json",
   "reader_commands": "../models/evidence/reader-commands.json",
   "capture_notes": "Shared and party screenshots are fresh native public RPC responses. The fresh Case explorer screenshot was captured at version 5 before unpacking. The party counter is version 3, start version 1, value 2.",
-  "language_notes": "Move has no dedicated supported highlighter. Saved Move labels in source order: Go, Auto-detect, Rust, Auto-detect, Auto-detect. All source text remains exact.",
-  "preserved_manual_changes": "The latest live draft was the edit baseline. The owned-object section now introduces the notebook's purpose, shows the code and Run/Output, then explains create, set_value and create_owned before interpreting the tests. All 84 code texts and unrelated manual edits were preserved.",
-  "editorial_update": "Expanded the owned-object explanation with the Rust input-validation call path, stored owner comparison, read-only reference admission, and the separate capability-ID assertion. Linked implementation and Move struct-visibility rules. No code or transaction evidence changed.",
+  "language_notes": "Move has no dedicated supported highlighter. Saved Move labels in source order: Go, Go, Rust, Auto-detect, Auto-detect. All source text remains exact.",
+  "preserved_manual_changes": "The latest live draft was the edit baseline. All 84 code texts, source filenames, Run/Output pairs, links, evidence and unrelated manual edits were preserved.",
+  "editorial_update": "Moved code-specific explanations in Shared, Immutable, Wrapped and Party sections after their source and test Output. Kept concepts and use cases before source. Moved the native Python reader mechanism after its first Output and the wrapped-object response interpretation beside the actual NOT_FOUND observation. No code or transaction evidence changed.",
   "images": [
+    {
+      "alt": "",
+      "loaded": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!NhBq!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe30ab2ca-610a-4535-a04c-a6cc87dc5da6_1286x990.png"
+    },
+    {
+      "alt": "",
+      "loaded": true,
+      "src": "https://substackcdn.com/image/fetch/$s_!0uUs!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9f07c54b-5bf4-4123-a238-649868b04a0b_1286x614.png"
+    },
     {
       "alt": "Native public Testnet registry response showing SHARED ownership with start version 1 and current version 4, plus Alice as application admin and entries 2.",
       "loaded": true,
