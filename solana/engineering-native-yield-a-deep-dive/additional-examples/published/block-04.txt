@@ -1,2 +1,0 @@
-
-spl-token display <YOUR_MINT_ADDRESS>

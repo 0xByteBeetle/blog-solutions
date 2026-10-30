@@ -1,9 +1,0 @@
-{
-  "command": "python3 local_cli.py\nexport PATH=\"$PWD/.tools/bin:$PATH\"\nexport SUI_CONFIG_DIR=\"$PWD/.local/sui-config\"\nexport MOVE_HOME=\"$PWD/.local/move-cache\"\nexport NO_COLOR=1\nsui --version",
-  "working_directory": "sui/01-foundations",
-  "stdout": "Keyless Sui configuration: .local/sui-config\nMove dependency cache: .local/move-cache\nSigning keys: 0\nsui 1.82.3-bf4073918ed3\n",
-  "stderr": "",
-  "output": "Keyless Sui configuration: .local/sui-config\nMove dependency cache: .local/move-cache\nSigning keys: 0\nsui 1.82.3-bf4073918ed3",
-  "exit_code": 0,
-  "signing_keys": 0
-}

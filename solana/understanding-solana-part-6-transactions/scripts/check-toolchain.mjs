@@ -2,14 +2,10 @@
 import {spawnSync} from 'node:child_process';
 
 const tools = {
-  forge: {args: ['--version'], expected: /^forge Version:/m},
-  anvil: {args: ['--version'], expected: /^anvil Version:/m},
-  cast: {args: ['--version'], expected: /^cast Version:/m},
-  go: {args: ['version'], expected: /^go version go\d/m},
-  anchor: {args: ['--version'], expected: /^anchor-cli 0\.31\.1(?:\s|$)/m},
-  'solana-keygen': {args: ['--version'], expected: /^solana-keygen \d/m},
-  'solana-test-validator': {args: ['--version'], expected: /^solana-test-validator \d/m},
-  cargo: {args: ['--version'], expected: /^cargo \d/m},
+ anchor: {args:['--version'],expected:/^anchor-cli 0\.31\.1(?:\s|$)/m},
+ cargo: {args:['--version'],expected:/^cargo \d/m},
+ 'solana-keygen': {args:['--version'],expected:/^solana-keygen 3\.1\.9(?:\s|$)/m},
+ 'solana-test-validator': {args:['--version'],expected:/^solana-test-validator 3\.1\.9(?:\s|$)/m},
 };
 
 export function requireToolchain(names, execute = spawnSync) {

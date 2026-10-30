@@ -1,5 +1,0 @@
-# create token account for someone
-spl-token create-account <MINT_ADDRESS> --owner <SOME_WALLET> --fee-payer ~/.config/solana/id.json
-
-# mint 100 tokens to someone's Token Account
-spl-token mint <MINT_ADDRESS> 100 <SOME_WALLET_TOKEN_ACCOUNT> 

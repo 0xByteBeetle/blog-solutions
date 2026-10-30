@@ -1,7 +1,0 @@
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_ownership
-Running Move unit tests
-[ PASS    ] sui_ownership::registry::another_address_cannot_reset
-[ PASS    ] sui_ownership::registry::public_updates_and_admin_reset
-Test result: OK. Total tests: 2; passed: 2; failed: 0

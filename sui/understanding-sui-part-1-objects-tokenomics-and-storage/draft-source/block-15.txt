@@ -1,8 +1,0 @@
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_foundations
-Running Move unit tests
-[ PASS    ] sui_foundations::notebook_tests::test_create_and_update
-[ PASS    ] sui_foundations::notebook_tests::test_distinct_ids
-[ PASS    ] sui_foundations::notebook_tests::test_wrong_capability
-Test result: OK. Total tests: 3; passed: 3; failed: 0

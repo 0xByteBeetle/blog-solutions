@@ -1,5 +1,0 @@
-Extensions
-  Interest-bearing:
-    Current rate: 1000bps
-    Average rate: 500bps
-    Rate authority: L6h2ugreR3oNmKtBCpcsMPSLg3BwLR31fSPB1iU76mp

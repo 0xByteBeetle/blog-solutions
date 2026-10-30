@@ -1,0 +1,13 @@
+// Supplemental article-local dependency closure; author Go source is unchanged.
+module transactiontypes
+
+go 1.23.10
+
+require github.com/ethereum/go-ethereum v1.16.1
+
+require (
+	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
+	github.com/holiman/uint256 v1.3.2 // indirect
+	golang.org/x/crypto v0.40.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
+)

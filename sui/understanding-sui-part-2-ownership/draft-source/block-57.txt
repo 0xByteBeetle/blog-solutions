@@ -1,6 +1,0 @@
-sui client call --package "$PACKAGE" --module case --function pack --args "$NOTEBOOK" --sender "$BOB" --gas-budget 50000000 --json > evidence/case-pack.json
-CASE=$(python3 client/receipt.py evidence/case-pack.json '::case::Case')
-
-# CASE=0xeff1f3dda73922c61ff16a0a90877032c3efaf386ef7b57a6f09e19cc5cc362c
-
-python3 client/read_object.py "$CASE" wrapped

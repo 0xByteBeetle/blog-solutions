@@ -1,0 +1,8 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+libs = []
+solc_version = "0.8.30"
+remappings = ["forge-std/=./.local/forge-std/src/"]
+allow_paths = ["./.local/forge-std/src"]

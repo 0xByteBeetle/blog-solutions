@@ -1,38 +1,20 @@
-# Architecting High-Performance Solana Programs: The Zero-Copy Deep Dive
+# Zero-copy account layout
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+Requires Node 22+, Anchor **0.31.1**, Agave/Solana **3.1.9**, Rust/Cargo and SBF build tools. On the recorded Node 22.6 environment, set `NODE_OPTIONS=--experimental-require-module` for the Web3/UUID dependency. Install pinned JS dependencies with `npm ci --ignore-scripts`.
 
-[Article-local setup and requirements](SETUP.md)
+Use the local runner, not the historical Anchor provider/wallet settings. `--execute-local` creates disposable keys; even build-only is not credential-free. Runtime tests use a fresh loopback validator on 19899 (with 19901–20000 free), reject public-provider/external-wallet overrides and never use your normal wallet. Source files are copied to a temporary workspace; local program IDs/config are substituted there only.
 
-Article status: **source-restored**.
+`published/` contains the printed zero-copy program; `original/` is the materially different repository example. `layout/` is the small standalone layout check. They are not three copies of one program.
 
-## Recovered source
+```sh
+npm test
+node scripts/run-local.mjs zero-copy --execute-local
+node scripts/run-local.mjs zero-copy-original --execute-local
+(cd layout && cargo test --locked)
+```
 
-- [solana/architecting-high-performance-solana/projects/zero-copy-original](projects/zero-copy-original)
-- [solana/architecting-high-performance-solana/projects/zero-copy](projects/zero-copy)
+Add `--build-only` to either local runner to compile without a validator. Layout tests check size, alignment, field offsets and bytes; local Anchor tests check account initialization. They do not establish production-safe authority constraints.
 
-  Run: `node scripts/run-original-anchor.mjs zero-copy`
-- [solana/architecting-high-performance-solana/projects/zero-copy-layout](projects/zero-copy-layout)
-
-  Run: `cargo test --manifest-path solana/architecting-high-performance-solana/projects/zero-copy-layout/Cargo.toml -- --nocapture`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | struct-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | test-program | [published source](projects/zero-copy-layout/src/lib.rs) |
-| [3](published.md#block-3) | instruction-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [4](published.md#block-4) | intentional-failure | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [5](published.md#block-5) | program | [published source](projects/zero-copy/programs/zero_copy_deep_dive/src/lib.rs) |
-| [6](published.md#block-6) | integration-test | [published source](projects/zero-copy/tests/published.ts) |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/architecting-high-performance-solana/supplementary/fundamentals](supplementary/fundamentals)
+Anchor configuration is supplemental local-only setup: the checked-in wallet path deliberately does not exist. The runner creates and disposes its own keys and overrides the temporary config; no default/personal wallet is read.

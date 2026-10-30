@@ -1,5 +1,0 @@
-.venv/
-.local/
-move/build/
-__pycache__/
-*.pyc

@@ -1,4 +1,0 @@
-mkdir -p sui-foundations
-cd sui-foundations
-mkdir -p move/sources move/tests move/negative/copy_object/sources client evidence
-cd move

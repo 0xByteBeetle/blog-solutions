@@ -1,1 +1,0 @@
-spl-token burn <SOMEONE_TOKEN_ACCOUNT> 50

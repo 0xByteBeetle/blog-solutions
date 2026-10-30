@@ -1,1 +1,0 @@
-spl-token thaw <SOME_TOKEN_ACCOUNT>

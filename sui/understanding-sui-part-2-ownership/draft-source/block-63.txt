@@ -1,4 +1,0 @@
-sui client call --package "$PACKAGE" --module case --function set_inside --args "$CASE" "$CAPABILITY" 12 --sender "$BOB" --gas-budget 50000000 --json > evidence/case-update-inside.json
-python3 client/receipt.py evidence/case-update-inside.json
-sui client call --package "$PACKAGE" --module case --function unpack --args "$CASE" --sender "$BOB" --gas-budget 50000000 --json > evidence/case-unpack.json
-python3 client/receipt.py evidence/case-unpack.json

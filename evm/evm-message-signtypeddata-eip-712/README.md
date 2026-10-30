@@ -1,43 +1,31 @@
 # EVM Message — SignTypedData EIP-712 Secure Off-Chain Signatures for Real-World Ethereum Apps Explained
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/evm-message-signtypeddata-eip-712) · [Published examples](published.md)
+[Read the article](https://andreyobruchkov1996.substack.com/p/evm-message-signtypeddata-eip-712).
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+The article code is preserved; build configuration and focused tests are supplemental. Run commands from this folder.
 
-[Article-local setup and requirements](SETUP.md)
+Install the dependencies actually imported by these examples (Node.js/npm and Git):
 
-Article status: **source-restored**.
+```sh
+node setup.mjs
+```
 
-## Recovered source
+### permit-verifier
 
-- [evm/evm-message-signtypeddata-eip-712/projects/transaction-types](projects/transaction-types)
-- [evm/evm-message-signtypeddata-eip-712/projects/permit-verifier](projects/permit-verifier)
+Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.30.
 
-## Recorded checks
+```sh
+cd permit-verifier
+forge build
+```
 
-- [evm/evm-message-signtypeddata-eip-712/projects/permit-verifier: build-checked](../../verification/restored-evm-builds.json) (2026-10-30)
+### transaction-types
 
-  Checked with: `forge build`
-- [evm/evm-message-signtypeddata-eip-712/projects/transaction-types: build-checked](../../verification/restored-evm-builds.json) (2026-10-30)
+Go 1.23.10 or compatible. Dependencies are pinned by go.mod/go.sum.
 
-  Checked with: `go test -run ^$ ./...`
+```sh
+cd transaction-types
+go test -run '^$' ./...
+```
 
-These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | struct-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | pseudocode | Reference/command/output preserved; no standalone program implied |
-| [3](published.md#block-3) | program | [published source](projects/permit-verifier/src/PermitVerifier.sol), [published source](projects/transaction-types/eip712/verifier.sol); [original repo variant](projects/transaction-types/eip712/verifier.sol) |
-| [4](published.md#block-4) | program-with-omitted-imports | Preserved excerpt; runnable implementation scope remains to be reviewed; [original repo variant](projects/transaction-types/eip712/eip712.go) |
-| [5](published.md#block-5) | illustrative-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [evm/evm-message-signtypeddata-eip-712/supplementary/go/signing](supplementary/go/signing)
+**Do not run the transaction/signing entrypoints as tests.** They contain historical network addresses; the original account helper creates key files and prints private keys. The command above compiles only. Use a separately reviewed disposable local setup before execution; never use a funded/personal wallet. Keep the `transaction-types` directory name because the original helper uses it to resolve paths.

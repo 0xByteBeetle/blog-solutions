@@ -1,9 +1,0 @@
-{
-  "article": "https://andreyobruchkov1996.substack.com/p/ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc",
-  "requiredFiles": [
-    "supplementary/foundry/foundry.toml",
-    "supplementary/go/go.mod",
-    "supplementary/go/go.sum"
-  ],
-  "note": "Existing project manifests/setup required for article-local reproduction. Presence is not build/runtime verification; conceptual articles may have none."
-}

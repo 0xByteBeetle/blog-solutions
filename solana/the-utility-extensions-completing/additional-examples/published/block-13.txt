@@ -1,2 +1,0 @@
-# The sender must explicitly attach the memo for the transaction to succeed
-spl-token transfer <MINT_ADDRESS> 50 <ALICE_TOKEN_ACCOUNT_ADDRESS> --with-memo "Invoice payment for Q3 RPC node hosting"

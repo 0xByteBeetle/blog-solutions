@@ -1,24 +1,13 @@
-# Hyperliquid: Beyond Generic VMs: The Architecture Internals Part 1
+# Part 1: account types
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/hyperliquid-beyond-generic-vms-the) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/hyperliquid-beyond-generic-vms-the)
 
-Live native blocks preserved. Offline tests, SDK checks, public-network execution and article completion remain separate.
+`src/lib.rs` preserves the printed Rust types. Cargo configuration and tests are supplemental. `fixtures/clearinghouse.json` is the complete printed Part 2 response, retained here only because the Rust deserialization tests require it; unrelated spot fixtures are not copied.
 
-[Article-local setup and requirements](SETUP.md)
+Requires Rust/Cargo; dependencies are pinned in Cargo.toml and Cargo.lock. From this directory:
 
-Article status: **source-restored**.
+```sh
+cargo test --locked
+```
 
-## Recovered source
-
-- [hyperliquid/hyperliquid-beyond-generic-vms-the/projects/account-shapes](projects/account-shapes)
-
-  Run: `python3 -m unittest discover -s hyperliquid/hyperliquid-beyond-generic-vms-the/projects/account-shapes/tests -v`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | source | [published source](projects/account-shapes/src/lib.rs) |
-| [2](published.md#block-2) | illustrative-action | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+Three host tests cover response round-tripping, numeric-versus-string rejection, and required/unsigned timestamp fields. No API, wallet, or blockchain runtime is used. The moved package has not yet been rerun with Rust on this cloud host.

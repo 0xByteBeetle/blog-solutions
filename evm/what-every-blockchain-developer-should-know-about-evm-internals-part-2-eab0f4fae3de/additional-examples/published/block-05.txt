@@ -1,5 +1,0 @@
-contract Example {
-    fallback() external payable {
-        // triggered on unknown function calls or empty calldata if no `receive()`
-    }
-}

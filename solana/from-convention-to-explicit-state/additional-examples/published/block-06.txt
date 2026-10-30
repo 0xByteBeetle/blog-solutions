@@ -1,2 +1,0 @@
-spl-token display <MINT-ADDRESS> \
-  --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb 

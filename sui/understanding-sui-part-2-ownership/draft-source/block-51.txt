@@ -1,7 +1,0 @@
-sui client call --package "$PACKAGE" --module rules --function create --args 10 --sender "$ALICE" --gas-budget 50000000 --json > evidence/rules-create.json
-RULES=$(python3 client/receipt.py evidence/rules-create.json '::rules::Rules')
-
-# RULES=0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e
-
-sui client call --package "$PACKAGE" --module rules --function read_limit --args "$RULES" --sender "$BOB" --gas-budget 50000000 --json > evidence/rules-bob-read.json
-python3 client/receipt.py evidence/rules-bob-read.json

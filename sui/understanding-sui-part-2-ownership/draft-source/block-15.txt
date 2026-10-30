@@ -1,1 +1,0 @@
-sui move test --path move --no-lint rules

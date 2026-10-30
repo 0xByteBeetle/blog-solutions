@@ -1,4 +1,0 @@
-grpcio==1.84.1
-grpcio-reflection==1.84.1
-protobuf==7.36.2
-typing_extensions==4.16.0

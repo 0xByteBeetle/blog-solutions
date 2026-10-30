@@ -1,9 +1,0 @@
-{
-  "command": "wc -c build/sui_foundations/bytecode_modules/notebook.mv",
-  "argv": [
-    "wc",
-    "-c",
-    "build/sui_foundations/bytecode_modules/notebook.mv"
-  ],
-  "exit_code": 0
-}

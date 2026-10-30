@@ -1,32 +1,17 @@
-# ABI Encoding Deep Dive: How Solidity Turns Your Data into Bytes
+# ABI encoding: a struct with a dynamic string
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity) · [Published examples](published.md)
+Companion to [ABI Encoding Deep Dive](https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity).
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+`src/Storage.sol` is unchanged author source (published block 1). The configuration and tests are supplemental. No npm packages, forge-std, wallet, or RPC is needed.
 
-[Article-local setup and requirements](SETUP.md)
+Requires Foundry and Solidity 0.8.12. From this directory:
 
-Article status: **source-restored**.
+```sh
+forge test -vv
+```
 
-## Recovered source
+Foundry downloads the pinned compiler on first use if absent. With the compiler already cached, `forge test --offline -vv` requires no network.
 
-- [evm/abi-encoding-deep-dive-how-solidity/projects/storage](projects/storage)
+Four tests cover the empty initial value, tuple calldata and return encoding/decoding, long/empty strings and uint256 boundaries, and rejection of missing tuple calldata. They execute locally in Foundry's EVM. They do not validate every explanatory/calldata block in the article.
 
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | program | [published source](projects/storage/src/Storage.sol) |
-| [2](published.md#block-2) | abi-json | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [3](published.md#block-3) | worked-selector | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [4](published.md#block-4) | encoded-calldata | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [5](published.md#block-5) | decoding-fragment-and-values | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [evm/abi-encoding-deep-dive-how-solidity/supplementary/foundry/src/Internals.sol](supplementary/foundry/src/Internals.sol)
-- [evm/abi-encoding-deep-dive-how-solidity/supplementary/foundry/src/Tracing.sol](supplementary/foundry/src/Tracing.sol)
+Verified: Foundry 1.4.4, solc 0.8.12; all four tests passed.

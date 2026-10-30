@@ -1,7 +1,0 @@
-{
-  "path": "build/sui_foundations/bytecode_modules/notebook.mv",
-  "size_bytes": 422,
-  "sha256": "47036b656e02133e9794fb73ab06d9d33f32496ea4633a0cfafdba5ecba76219",
-  "move_bytecode_version": 7,
-  "test_only_destructor_absent": true
-}

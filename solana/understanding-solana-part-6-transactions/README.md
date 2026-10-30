@@ -1,51 +1,19 @@
-# Understanding Solana – Part 6: Transactions, Messages, and Address Lookup Tables in Practice
+# Versioned transactions and address lookup tables
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+Requires Node 22+, Anchor **0.31.1**, Agave/Solana **3.1.9**, Rust/Cargo and SBF build tools. On the recorded Node 22.6 environment, set `NODE_OPTIONS=--experimental-require-module` for the Web3/UUID dependency. Install pinned JS dependencies with `npm ci --ignore-scripts`.
 
-[Article-local setup and requirements](SETUP.md)
+Use the local runner, not the historical Anchor provider/wallet settings. `--execute-local` creates disposable keys; even build-only is not credential-free. Runtime tests use a fresh loopback validator on 19899 (with 19901–20000 free), reject public-provider/external-wallet overrides and never use your normal wallet. Source files are copied to a temporary workspace; local program IDs/config are substituted there only.
 
-Article status: **source-restored**.
+`programs/` and `scripts/client.ts` contain the printed implementation. `scripts/client-alt-ready.ts` is the explicit supplemental correction: wait for confirmed ALT contents/context, use minContextSlot, and preserve the RPC default rebroadcast policy. No duplicate historical workspace is needed.
 
-## Authorized corrections
+```sh
+npm test
+node scripts/run-local.mjs --execute-local --build-only
+node scripts/run-local.mjs --execute-local --regression --alt-ready
+```
 
-- [solana/understanding-solana-part-6-transactions/projects/wallet-token-balances-original/scripts/client-alt-ready.ts](projects/wallet-token-balances-original/scripts/client-alt-ready.ts)
+The regression creates local token fixtures, verifies balances and exercises ALT extension/use. Without `--alt-ready`, the original client remains selected and may reproduce its cold-ALT failure. `--prepared-alt` is a separate prepopulated-ALT experiment, not proof that cold extension works. The runner creates an IDL filename alias only in the temporary build output. Never run the original clients against their historical addresses blindly.
 
-  Authorized ALT-readiness variant. Waits for usable entries and consistent confirmed RPC context; original client and Rust program remain unchanged.
-
-  Run: `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready`
-
-## Recovered source
-
-- [solana/understanding-solana-part-6-transactions/projects/wallet-token-balances](projects/wallet-token-balances)
-- [solana/understanding-solana-part-6-transactions/projects/wallet-token-balances-original](projects/wallet-token-balances-original)
-
-  Run: `node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only`
-- [solana/understanding-solana-part-6-transactions/additional-examples](additional-examples)
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | program | [published source](projects/wallet-token-balances/lib.rs); [original repo variant](projects/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs) |
-| [2](published.md#block-2) | command | Reference/command/output preserved; no standalone program implied |
-| [3](published.md#block-3) | command | Reference/command/output preserved; no standalone program implied |
-| [4](published.md#block-4) | client-setup | [published source](projects/wallet-token-balances/setup.ts); [original repo variant](projects/wallet-token-balances-original/scripts/create_alts.ts) |
-| [5](published.md#block-5) | client-program | [published source](projects/wallet-token-balances/client.ts); [original repo variant](projects/wallet-token-balances-original/scripts/client.ts) |
-| [6](published.md#block-6) | command | Reference/command/output preserved; no standalone program implied |
-| [7](published.md#block-7) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [8](published.md#block-8) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [9](published.md#block-9) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [10](published.md#block-10) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [11](published.md#block-11) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [12](published.md#block-12) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [13](published.md#block-13) | client-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/understanding-solana-part-6-transactions/supplementary/fundamentals](supplementary/fundamentals)
+Anchor configuration is supplemental local-only setup: the checked-in wallet path deliberately does not exist. The runner creates and disposes its own keys and overrides the temporary config; no default/personal wallet is read.

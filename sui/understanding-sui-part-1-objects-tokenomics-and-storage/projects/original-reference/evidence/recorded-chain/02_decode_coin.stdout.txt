@@ -1,6 +1,0 @@
-UID bytes [0:32]: 846dbd2afd7d7531e7feea369cfecd2586359a7315324ccfffaeea649071362f
-Balance bytes [32:40]: 8096980000000000
-Decoded object ID: 0x846dbd2afd7d7531e7feea369cfecd2586359a7315324ccfffaeea649071362f
-Decoded balance: 10000000 MIST
-PASS: decoded values match both the object metadata and Move JSON
-Truncated input rejected locally: Expected 40 Move value bytes, received 39

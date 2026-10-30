@@ -1,5 +1,0 @@
-# Bob creates his token account
-spl-token create-account <YOUR_MINT_ADDRESS> --owner bob.json
-
-# Bob generates his ElGamal keypair and appends it to his account
-spl-token configure-confidential-transfer-account <YOUR_MINT_ADDRESS> --owner bob.json

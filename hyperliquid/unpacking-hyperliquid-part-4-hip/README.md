@@ -1,51 +1,21 @@
-# Unpacking Hyperliquid Part 4: HIP-3, Builder-Deployed Perpetuals, and the New Market Trust Boundary
+# Part 4: HIP-3 payloads and CLI examples
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip)
 
-Live native blocks preserved. Offline tests, SDK checks, public-network execution and article completion remain separate.
+`published/` contains eleven unchanged printed code excerpts, not eleven standalone programs. TypeScript files are type notation, including an undefined HaltTrading reference. Python fragments omit imports/context. The supplemental `offline.py` supplies Decimal/json and allows only reviewed payload blocks 6/11; tests supply synthetic clients for blocks 4/7/10/20. Credential/submission blocks 8/9 cannot run through this harness.
 
-[Article-local setup and requirements](SETUP.md)
+Requires Python 3.10+; standard library only for these commands, run here:
 
-Article status: **source-restored**.
+```sh
+python3 offline.py 6
+python3 offline.py 11
+python3 -m unittest discover -s tests -v
+python3 -m unittest discover -s original-cli/tests -v
+python3 original-cli/02_preview_actions.py
+```
 
-## Recovered source
+`original-cli/` is the materially different, complete [author repository variant](https://github.com/bounty-wiz/HyperLiquidBlogPost4/tree/cdd5e21b6e22229f83661f125cabb68ded9d1061): shared helpers, imports, CLI argument handling and confirmations omitted from the printed excerpts. Original files remain unchanged. Its SDK requirement is pinned to 0.24.0; offline tests and script02 do not require SDK installation.
 
-- [hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-original](projects/hip3-original)
+**Not offline commands:** original script01 reads public APIs; script03 performs live preflight even without execute and can submit registration; script04 imports the SDK and can submit oracle updates. Printed blocks8/9 prepare credentials/sign/submit. Do not execute these as tests. No keys, API calls or submissions are needed for the commands above.
 
-  Run: `python3 -m unittest discover -s hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-original/tests -v`
-- [hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-published](projects/hip3-published)
-
-  Run: `python3 -m unittest discover -s hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-published/tests -v`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | lifecycle-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | type-notation | [published source](projects/hip3-published/published/block-02.ts) |
-| [3](published.md#block-3) | type-notation | [published source](projects/hip3-published/published/block-03.ts) |
-| [4](published.md#block-4) | source-fragment | [published source](projects/hip3-published/published/block-04.py) |
-| [5](published.md#block-5) | formula | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [6](published.md#block-6) | source-fragment | [published source](projects/hip3-published/published/block-06.py) |
-| [7](published.md#block-7) | source-fragment | [published source](projects/hip3-published/published/block-07.py) |
-| [8](published.md#block-8) | source-fragment | [published source](projects/hip3-published/published/block-08.py) |
-| [9](published.md#block-9) | source-fragment | [published source](projects/hip3-published/published/block-09.py) |
-| [10](published.md#block-10) | source-fragment | [published source](projects/hip3-published/published/block-10.py) |
-| [11](published.md#block-11) | source-fragment | [published source](projects/hip3-published/published/block-11.py) |
-| [12](published.md#block-12) | command | Reference/command/output preserved; no standalone program implied |
-| [13](published.md#block-13) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [14](published.md#block-14) | command | Reference/command/output preserved; no standalone program implied |
-| [15](published.md#block-15) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [16](published.md#block-16) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [17](published.md#block-17) | command | Reference/command/output preserved; no standalone program implied |
-| [18](published.md#block-18) | lifecycle-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [19](published.md#block-19) | type-notation | [published source](projects/hip3-published/published/block-19.ts) |
-| [20](published.md#block-20) | source-fragment | [published source](projects/hip3-published/published/block-20.py) |
-| [21](published.md#block-21) | formula | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [22](published.md#block-22) | formula | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [23](published.md#block-23) | namespace-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [24](published.md#block-24) | formula | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [25](published.md#block-25) | formula | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [26](published.md#block-26) | lifecycle-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+The separate supplemental `original-cli/finite_builders.py` rejects nonfinite prices before calling original builders; originals remain permissive and are not silently rewired. Tests distinguish this correction from preserved original behavior. Offline payload validity does not establish live acceptance, eligibility, collateral, registration or oracle operation.
