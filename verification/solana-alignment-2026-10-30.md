@@ -42,7 +42,9 @@ Two exact metadata client extractions and their hashes/links were added to the c
   eight are zero-copy blocks2,3,5,6 and Borsh blocks2,3,9,11. The export visibly
   drops Rust angle-bracket generic types (e.g. Context<T>, size_of::<T>) and other
   HTML-like content. Negative comparison is not proof of author/source drift.
-  Live Substack freshness remains unverified; export is not an exact source.
+  The later live browser audit verified all 16 Solana pages / 156 blocks exactly
+  against saved text on October 30, 15:30–15:36 UTC. The export remains lossy;
+  the dated browser evidence is `live-source-freshness-2026-10-30.json`.
 - All per-block statuses and file paths are in
   [machine-readable inventory](solana-alignment-2026-10-30.json). Only code/block
   metadata is stored here; no full article prose copied.

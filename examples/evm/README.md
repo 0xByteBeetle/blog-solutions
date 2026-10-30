@@ -108,7 +108,8 @@ Build cache hits after compilation within this same review are recorded verbatim
 corrected rejection; both corrected Go RLP packages pass native boundary tests.
 32-bit Go binaries compiled but could not execute on this host (`exec format
 error`); 32-bit behavior remains unverified. These narrow checks are not full
-protocol/security certification or live article freshness verification.
+protocol/security certification. Separately, the [dated live-source audit](../../verification/live-source-freshness-2026-10-30.json)
+confirms exact EVM/Solana saved-block text at its capture time.
 
 Initial setup hit a read-only default npm/XDG cache, then succeeded using
 workspace-local caches. For similarly restricted workspaces, set `HOME`,

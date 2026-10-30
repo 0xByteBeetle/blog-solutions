@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "scope": "All cataloged EVM articles; committed snapshots, not fresh live Substack content.",
+  "scope": "All 37 EVM article snapshots; exact live block text subsequently verified at the dated browser capture. Source mapping is not semantic/runtime proof.",
   "comparisonRule": "Full published block token sequence occurs in mapped file, with literal contents and token boundaries preserved, typographic quotes normalized, and comment whitespace collapsed. This is a conservative lexical comparison, not parsing or semantic/runtime verification. Three explicitly reviewed ABI raw-string mappings permit JSON syntax whitespace changes, preserving JSON string contents. Legacy broad whitespace comparison is recorded separately and does not determine pass/fail.",
   "articles": [
     {
@@ -2542,5 +2542,6 @@
       "conclusion": "Declared implementation links checked; remaining fragments/output/variants and runtime coverage require individual review."
     }
   ],
-  "failures": []
+  "failures": [],
+  "liveSourceEvidence": "verification/live-source-freshness-2026-10-30.json"
 }

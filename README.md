@@ -8,8 +8,9 @@ The repository is undergoing a source-preserving repair. All 58 cataloged posts 
 
 Current chain guides: [EVM](examples/evm/README.md), [Solana](examples/solana/README.md),
 and [Hyperliquid](examples/hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
-with offline/mock companions. EVM/Solana saved-block live freshness is being checked
-separately; a hash-preserving snapshot is not by itself current live-source proof.
+with offline/mock companions. All 37 EVM and 16 Solana pages were also checked live on October 30: their
+494 native blocks match saved text exactly. [Dated evidence](verification/live-source-freshness-2026-10-30.json)
+proves source text at that capture time, not technical correctness or execution.
 
 See the current chain guides above for fresh results and remaining gates. The
 [September baseline](verification/REMAINING.md) is retained as historical evidence,
@@ -29,7 +30,8 @@ node scripts/check-catalog.mjs
 node scripts/check-evm-alignment.mjs
 node scripts/check-solana-alignment.mjs
 node scripts/check-hyperliquid-alignment.mjs
-node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/solana-alignment.test.mjs scripts/hyperliquid-alignment.test.mjs scripts/toolchain.test.mjs
+node scripts/check-live-source-freshness.mjs
+node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/solana-alignment.test.mjs scripts/hyperliquid-alignment.test.mjs scripts/live-source-freshness.test.mjs scripts/toolchain.test.mjs
 ```
 
 Install pinned reproduction libraries before running the Solidity checks. Node.js 22+, Go, Rust, and Foundry must already be installed:

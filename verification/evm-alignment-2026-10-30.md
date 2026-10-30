@@ -73,9 +73,9 @@ The snippets parse these raw strings as JSON ABI data. The source recovery prett
 
 ## Source freshness and publication discrepancies
 
-The committed snapshots were captured in September. The October 29 authenticated handover export is useful corroboration but loses indentation, block boundaries, and some angle-bracket text. Direct live Substack retrieval was unavailable in this environment, so this audit does not certify current live text.
+The committed snapshots were captured in September. The October 29 authenticated handover export is useful corroboration but loses indentation, block boundaries, and some angle-bracket text. Direct cloud retrieval was initially unavailable. A later authorized browser audit checked all 37 live EVM pages (338 blocks) on October 30, 15:30–15:36 UTC: exact block counts and ordered raw-text hashes match the saved snapshots. See `live-source-freshness-2026-10-30.json`; this closes source-text freshness at capture, not semantic/runtime correctness.
 
-In `proxies-and-upgradability`, exported text omits `<PRIVATE-KEY-FROM-ANVIL>` in block 5 and `<YOUR-PRIVATE-KEY>` in blocks 7 and 10. This is consistent with lossy extraction and is not enough evidence to alter preserved sources. Block 10 also uses `http://localhost:8545` in the export versus `http://127.0.0.1:8545` in the snapshot. Both are loopback endpoints, but this remains a textual discrepancy requiring a live source check. No attempt was made to repair the snapshot from lossy text.
+In `proxies-and-upgradability`, exported text omits `<PRIVATE-KEY-FROM-ANVIL>` in block 5 and `<YOUR-PRIVATE-KEY>` in blocks 7 and 10. This is consistent with lossy extraction and is not enough evidence to alter preserved sources. Block 10 also uses `http://localhost:8545` in the export versus `http://127.0.0.1:8545` in the snapshot. Both are loopback endpoints. The later live audit matches the saved snapshot exactly, resolving this discrepancy as an export difference rather than live-source drift. No attempt was made to repair the snapshot from lossy text.
 
 The existing [review findings](REVIEW-FINDINGS.md) still record the ABI selector typo and diamond inspection-command discrepancy. They were not recalculated in this environment and remain explicit editorial decisions rather than silent code changes.
 
@@ -105,7 +105,7 @@ source separately. All4 Solidity tests pass (original UUPS reinitialization
 reproduction, guarded reinitialization rejection/upgrade, storage value/revert
 assertions); both corrected RLP packages pass native vectors and boundary tests.
 32-bit compilation succeeded but test execution is unsupported on this host.
-No public-network program ran; live article freshness remains unverified.
+No public-network program ran. The separate live browser audit subsequently verified exact saved-versus-live block text at capture.
 
 The first Solidity build attempt failed because inherited XDG cache paths were
 read-only, then succeeded with workspace-local caches. Original historical
