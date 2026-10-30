@@ -19,6 +19,8 @@ Verify that published blocks and recovered files have not drifted:
 
 ```sh
 node scripts/check-catalog.mjs
+node scripts/check-evm-alignment.mjs
+node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs
 ```
 
 Install pinned reproduction libraries before running the Solidity checks. Node.js 22+, Go, Rust, and Foundry must already be installed:
@@ -57,6 +59,9 @@ The runner changes only the temporary environment, not the committed program or 
 Do not run network scripts or copy commands blindly. Published examples may contain historic addresses, public RPC endpoints, placeholders, or intentional failures. Original transaction scripts load or generate test keys and may submit transactions; they are not part of the default verification runner. No wallet/key files from original projects are included.
 
 ## Source rule
+
+This is a code companion, not a mirror of the blog. Keep full article prose on Substack/Medium. The `articles/*/published.md` files preserve only displayed code, commands and relevant output with provenance; they are not full article copies. Per-article READMEs describe setup, source mapping and verification limits. Temporary full-text research belongs outside the tracked repository.
+
 
 The author's published code and confirmed original files are authoritative. Do not replace them with equivalent-looking implementations, rename APIs, alter memory layouts, or invent missing helpers. Keep required environment repairs explicit. An unresolved dependency or missing helper must remain marked unresolved until its source or an approved change is available.
 

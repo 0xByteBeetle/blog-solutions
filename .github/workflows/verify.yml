@@ -24,6 +24,8 @@ jobs:
       - run: node scripts/setup-restored.mjs
       - run: node scripts/check-catalog.mjs
       - run: node --test scripts/source-integrity.test.mjs
+      - run: node scripts/check-evm-alignment.mjs
+      - run: node --test scripts/evm-alignment.test.mjs
       - run: node scripts/verify-restored-builds.mjs
       - run: node scripts/verify-restored-evm.mjs
 
