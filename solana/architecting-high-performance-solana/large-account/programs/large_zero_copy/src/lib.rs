@@ -33,7 +33,7 @@ pub const SPACE: usize = 8 + std::mem::size_of::<LargeMarket>(); // 16,448 > 10,
 #[derive(Accounts)]
 pub struct Initialize<'info> {
     // Client must allocate and assign ownership in a separate System Program transaction.
-    #[account(zero, constraint = market.to_account_info().data_len() == SPACE @ LargeError::WrongSize)]
+    #[account(zero, signer, constraint = market.to_account_info().data_len() == SPACE @ LargeError::WrongSize)]
     pub market: AccountLoader<'info, LargeMarket>,
     pub authority: Signer<'info>,
 }
