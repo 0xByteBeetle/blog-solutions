@@ -1,0 +1,2 @@
+sui move build --disassemble
+sed -n '/public value(/,/^}/p' build/sui_foundations/disassembly/notebook.mvb

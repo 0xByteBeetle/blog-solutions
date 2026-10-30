@@ -1,0 +1,3 @@
+Request successful. The faucet sent 1 SUI to the address balance of 0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497 in transaction 7L16J4khwPr1fH6EFj1QQnvbiFfXDmXWqscTyfVp4zga.
+
+Request successful. The faucet sent 1 SUI to the address balance of 0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0 in transaction 4eHui9RBXBkqQdWs45TqWaAbjFkkkGEvgj3NywUJyzBd.

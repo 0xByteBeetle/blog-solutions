@@ -1,0 +1,34 @@
+{
+  "data": {
+    "transaction": {
+      "digest": "FT6BDcF3pzwzWUBoNJYiUmbKGu7H1bitHrz5XSDG4jNF",
+      "gasInput": {
+        "gasBudget": "20000000",
+        "gasPrice": "1000"
+      },
+      "effects": {
+        "status": "SUCCESS",
+        "balanceChangesJson": [
+          {
+            "address": "0x0be16ad0f831bfb346361b5f12658d85847f3481bd915fe785a77a1d34efaf91",
+            "coinType": "0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+            "amount": "-11000198"
+          },
+          {
+            "address": "0x504366012fb19e3a09b1a22541d54c1e44c9334a65e43316cd0d2e58afba4b73",
+            "coinType": "0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI",
+            "amount": "10000000"
+          }
+        ],
+        "gasEffects": {
+          "gasSummary": {
+            "computationCost": 1000000,
+            "storageCost": 1976000,
+            "storageRebate": 1975802,
+            "nonRefundableStorageFee": 198
+          }
+        }
+      }
+    }
+  }
+}

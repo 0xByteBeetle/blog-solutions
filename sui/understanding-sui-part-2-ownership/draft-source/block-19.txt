@@ -1,0 +1,6 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+Running Move unit tests
+[ PASS    ] sui_ownership::case::wrapped_notebook_keeps_identity
+Test result: OK. Total tests: 1; passed: 1; failed: 0

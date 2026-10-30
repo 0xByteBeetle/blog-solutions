@@ -1,0 +1,1 @@
+sui move build --path negative/copy_object

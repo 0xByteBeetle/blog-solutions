@@ -1,0 +1,1 @@
+python3 client/read_object.py "$PARTY" party

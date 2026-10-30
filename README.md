@@ -7,7 +7,7 @@ Start with the [article index](ARTICLES.md). Each article has its published code
 The repository is undergoing a source-preserving repair. All 58 cataloged posts and 573 displayed code/output blocks are preserved. This does **not** mean all 58 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
 Current chain guides: [EVM](evm/README.md), [Solana](solana/README.md),
-and [Hyperliquid](hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
+[Hyperliquid](hyperliquid/README.md), and separately [Sui unpublished draft companions](sui/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
 with offline/mock companions. All 37 EVM and 16 Solana pages were also checked live on October 30: their
 494 native blocks match saved text exactly. [Dated evidence](verification/live-source-freshness-2026-10-30.json)
 proves source text at that capture time, not technical correctness or execution.

@@ -1,0 +1,3 @@
+curl -sSfL https://raw.githubusercontent.com/MystenLabs/suiup/main/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+suiup install sui@mainnet-1.82.3

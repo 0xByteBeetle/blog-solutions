@@ -1,0 +1,49 @@
+{
+  "captured_at_utc": "2026-10-24T13:10:36.014381+00:00",
+  "python": "3.13.7",
+  "network": "testnet",
+  "read_only": true,
+  "chain_mutations": false,
+  "scripts": [
+    {
+      "filename": "01_read_object.py",
+      "exit_code": 0,
+      "stderr_empty": true
+    },
+    {
+      "filename": "02_decode_coin.py",
+      "exit_code": 0,
+      "stderr_empty": true
+    },
+    {
+      "filename": "03_read_storage_costs.py",
+      "exit_code": 0,
+      "stderr_empty": true
+    }
+  ],
+  "checks": {
+    "object_id_matches_move_uid": true,
+    "payload_length_40": true,
+    "full_object_bcs_length_126": true,
+    "decoded_balance_matches_json": true,
+    "truncated_39_byte_payload_rejected_locally": true,
+    "producing_transaction_matches_object_provenance": true,
+    "execution_success_observed": true,
+    "net_gas_within_budget": true,
+    "net_gas_matches_transfer_sui_balance_changes": true
+  },
+  "observations": {
+    "checkpoint": 398677944,
+    "object_version": 3,
+    "coin_balance_mist": "10000000",
+    "object_storage_rebate_mist": "988000",
+    "gas_budget_mist": "20000000",
+    "computation_cost_mist": "1000000",
+    "storage_cost_mist": "1976000",
+    "storage_rebate_mist": "1975802",
+    "non_refundable_storage_fee_mist": "198",
+    "net_gas_mist": "1000198",
+    "sum_sui_balance_changes_mist": "-1000198"
+  },
+  "tls": "Verified system CA bundle when present, otherwise Python default trust. No hidden environment settings."
+}

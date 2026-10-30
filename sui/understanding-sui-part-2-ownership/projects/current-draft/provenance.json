@@ -1,0 +1,68 @@
+{
+  "draftId": 222510085,
+  "status": "draft-not-published",
+  "files": [
+    {
+      "block": 24,
+      "path": "client/receipt.py",
+      "sha256": "e76ff387a2afed58036ea565ef3a5868e294c6aec963222493e01752cd160d8e",
+      "kind": "exact-current-draft-source",
+      "differenceFromBranch432209b": "blank lines and final newline only"
+    },
+    {
+      "block": 32,
+      "path": "client/read_object.py",
+      "sha256": "5886aa3335bb9e5b5bda9eda0c746f3277d2b8f39f8a8d7fade299ef449e9248",
+      "kind": "exact-current-draft-source",
+      "differenceFromBranch432209b": "blank lines and final newline only"
+    },
+    {
+      "block": 8,
+      "path": "move/sources/owned.move",
+      "sha256": "9663a4e754dc64a99a8a4dc15ae7799bfb6ffaf7b589a8426270f8f6f11d7ea5",
+      "sourceBlockSha256": "60f2eb3cea38f737232e4561658933155388d951f213872a22fa993362562579",
+      "kind": "exact-current-draft-substring",
+      "change": "Original reference file has one trailing LF beyond the exact native block; source text unchanged"
+    },
+    {
+      "block": 11,
+      "path": "move/sources/registry.move",
+      "sha256": "503d72b095ea437b1269db793492f185b19db84228052ee0096344b5db5dc886",
+      "sourceBlockSha256": "208609d07dbe29d40dc610600762aae181be3cdd1a9fad3de7cd7baf70bae557",
+      "kind": "exact-current-draft-substring",
+      "change": "Original reference file has one trailing LF beyond the exact native block; source text unchanged"
+    },
+    {
+      "block": 14,
+      "path": "move/sources/rules.move",
+      "sha256": "1f02927c321429cfc9d4b5ff964778fe6bd8d9f0769427872c090edde1f2d70f",
+      "sourceBlockSha256": "286b5b3bb7a8a581f3d9db5a48a08c2d93eca3f170b3a6ff8e134211a94b7aff",
+      "kind": "exact-current-draft-substring",
+      "change": "Original reference file has one trailing LF beyond the exact native block; source text unchanged"
+    },
+    {
+      "block": 17,
+      "path": "move/sources/case.move",
+      "sha256": "5c9b74f14e6dd5d17fa649a3fb25aee6138e0ee7169f3eb9db3396a119c4105d",
+      "sourceBlockSha256": "021e4af9aff02ac90f835f204f9d9203fc20ac78575f4e817b8b510f9fdb663e",
+      "kind": "exact-current-draft-substring",
+      "change": "Original reference file has one trailing LF beyond the exact native block; source text unchanged"
+    },
+    {
+      "block": 20,
+      "path": "move/sources/party_counter.move",
+      "sha256": "b6192115465103579e611dd16ea6d0b0eaeae9bbb206b531fcf0a968ec11bc30",
+      "sourceBlockSha256": "1adc87124d10db50b54470a8ecd983ef99d7282f9c62196b73474a5879e3719f",
+      "kind": "exact-current-draft-substring",
+      "change": "Original reference file has one trailing LF beyond the exact native block; source text unchanged"
+    }
+  ],
+  "supplementalBoundary": "Manifests not printed in draft, lock/setup helpers and tests are supplemental; originals preserved separately. Recorded dependency locks are not proof of a fresh build.",
+  "supplementalLock": {
+    "path": "move/Move.lock",
+    "source": "projects/original-reference/evidence/testnet/Move.lock",
+    "sha256": "fc3e5ead81678dd57ffac489eea9a0e16e2ac12336e6ab59ae77ba757a4d8d80",
+    "frameworkRevision": "719fb2960ccfbf9f4d33041f8ea5146d30671696",
+    "status": "Exact recorded lock reused; fresh build compatibility pending"
+  }
+}

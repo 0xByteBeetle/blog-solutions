@@ -1,0 +1,9 @@
+Object ID: 0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e
+Version: 1
+Type: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules
+Owner: {"kind": "IMMUTABLE"}
+Move value: {
+  "id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e",
+  "limit": "10"
+}
+Saved: evidence/immutable.json

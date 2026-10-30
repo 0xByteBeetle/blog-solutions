@@ -1,0 +1,17 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING copy_object_failure
+error[EC05001]: ability constraint not satisfied
+   ┌─ ./sources/bad_copy.move:4:9
+   │
+ 4 │     id: UID,
+   │         ^^^
+   │         │
+   │         Invalid field type. The struct was declared with the ability 'copy' so all fields require the ability 'copy'
+   │         The type 'sui::object::UID' does not have the ability 'copy'
+   │
+   ┌─ /Users/andreyobruchkov/clones/temp_blog_area/sui-move-foundations-lab/toolchain/move-cache/git/https___github_com_MystenLabs_sui_git_719fb2960ccfbf9f4d33041f8ea5146d30671696/crates/sui-framework/packages/sui-framework/sources/object.move:84:15
+   │
+84 │ public struct UID has store {
+   │               --- To satisfy the constraint, the 'copy' ability would need to be added here
+

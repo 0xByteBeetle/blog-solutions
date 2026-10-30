@@ -1,0 +1,218 @@
+{
+  "draftId": 221819065,
+  "contentStatus": "unpublished-draft",
+  "sourceUrl": "https://andreyobruchkov1996.substack.com/publish/post/221819065",
+  "capturedAtUtc": "2026-10-30T15:43:07.147Z",
+  "blocks": [
+    {
+      "index": 1,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-01.txt",
+      "sha256": "2339fea935783dcf553cba55e73e76db0492374ca646f75bb8fbfbac7240f08f"
+    },
+    {
+      "index": 2,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-02.txt",
+      "sha256": "f309a46c096fb4a41c8a8c5f1c51d5e784f6b165092ee816ffd88a0722a8b185"
+    },
+    {
+      "index": 3,
+      "kind": "recorded-output",
+      "path": "draft-source/block-03.txt",
+      "sha256": "9201fc8008368c64b13a1878a0ace4026e9a10ba84f4a258ec84866616a52046"
+    },
+    {
+      "index": 4,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-04.txt",
+      "sha256": "71e8d6c944776152dc44fddadb6cf43420a24ffeade99a6ef10f38699f6bb137"
+    },
+    {
+      "index": 5,
+      "kind": "configuration",
+      "path": "draft-source/block-05.txt",
+      "sha256": "cae24fb6102e2c76a32f248f435132eb38271b49144c2f1b130e6c2aa6912364"
+    },
+    {
+      "index": 6,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-06.txt",
+      "sha256": "eed19012b8a07a8c55c478ce836554b16dec683c3b1d125c8ad9111c3de10667"
+    },
+    {
+      "index": 7,
+      "kind": "recorded-output",
+      "path": "draft-source/block-07.txt",
+      "sha256": "3c41417922f0c72af008c08f74ae943f1b99b24888f012fd7e6520ef5c285d68"
+    },
+    {
+      "index": 8,
+      "kind": "source",
+      "path": "draft-source/block-08.txt",
+      "sha256": "dfbb24ec48f62db748cde91635b6fd19b74e26c0b5c6ce5c1bd0c590b2d9bc7d"
+    },
+    {
+      "index": 9,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-09.txt",
+      "sha256": "eed19012b8a07a8c55c478ce836554b16dec683c3b1d125c8ad9111c3de10667"
+    },
+    {
+      "index": 10,
+      "kind": "recorded-output",
+      "path": "draft-source/block-10.txt",
+      "sha256": "3c41417922f0c72af008c08f74ae943f1b99b24888f012fd7e6520ef5c285d68"
+    },
+    {
+      "index": 11,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-11.txt",
+      "sha256": "6fc98ac116218c990aedb4ba2a8137f2e88e7b552e8923be885649810709a181"
+    },
+    {
+      "index": 12,
+      "kind": "recorded-output",
+      "path": "draft-source/block-12.txt",
+      "sha256": "0cd8d23cd158c6fbcb787d830c8511feb62d5ed049f51950fe5682830060dc14"
+    },
+    {
+      "index": 13,
+      "kind": "source",
+      "path": "draft-source/block-13.txt",
+      "sha256": "d41e417ebd4a1c0705e2d40a6cca8d1d08e6ede1238ce6766e7bde6dc37faca8"
+    },
+    {
+      "index": 14,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-14.txt",
+      "sha256": "27ba4fcae2e31fc27d6c9553b959ff3d8e2d4d22a84b174493a9b37d71726a0e"
+    },
+    {
+      "index": 15,
+      "kind": "recorded-output",
+      "path": "draft-source/block-15.txt",
+      "sha256": "bb35f961f8f18ee072ada23567337b5a6099becf5b132186a9563335a1ec4f04"
+    },
+    {
+      "index": 16,
+      "kind": "configuration",
+      "path": "draft-source/block-16.txt",
+      "sha256": "f306b5d64676e78f552569f2ff1bbed5e8a42ba96c051b1e80b6b198180b5280"
+    },
+    {
+      "index": 17,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-17.txt",
+      "sha256": "6d22263077b089318b9483bd62f6f51923fc303bdac9093715aff6d8b8117e53"
+    },
+    {
+      "index": 18,
+      "kind": "recorded-output",
+      "path": "draft-source/block-18.txt",
+      "sha256": "a810d9a0c5ac018c26565ff76d4a7f19b1762b6e7e3c58bb9f0c41ffa85d20f0"
+    },
+    {
+      "index": 19,
+      "kind": "source",
+      "path": "draft-source/block-19.txt",
+      "sha256": "a52f6c3b53cbdc83f1e4e437b65dd4eeef2108ac9aa2c936ad2a2161be5c5d8a"
+    },
+    {
+      "index": 20,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-20.txt",
+      "sha256": "6d22263077b089318b9483bd62f6f51923fc303bdac9093715aff6d8b8117e53"
+    },
+    {
+      "index": 21,
+      "kind": "recorded-output",
+      "path": "draft-source/block-21.txt",
+      "sha256": "2474c8f5b0681a9c89ad94a95b7fd16fa44a3530150e73b987c163c595aae682"
+    },
+    {
+      "index": 22,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-22.txt",
+      "sha256": "046d08a01e49f026d8529b42203dbd1e3ff75b428b9eb42d34f2ba5b12c2f72b"
+    },
+    {
+      "index": 23,
+      "kind": "recorded-output",
+      "path": "draft-source/block-23.txt",
+      "sha256": "fa1a9ddb4329510a53f5799b2c13ebd42e2c66a4cb6401bb5e7a0bb75371d80e"
+    },
+    {
+      "index": 24,
+      "kind": "source",
+      "path": "draft-source/block-24.txt",
+      "sha256": "f07de110365238ddee27af9051e4c1a9a6ae77300a20589220bf6d69ca1c6f37"
+    },
+    {
+      "index": 25,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-25.txt",
+      "sha256": "3ea341e8cb14affa5e74761f6dc620408deea73aa895f3d8ae47c7ed55dc99ca"
+    },
+    {
+      "index": 26,
+      "kind": "recorded-output",
+      "path": "draft-source/block-26.txt",
+      "sha256": "feca1102b451f71d1468e446ea5878d05a5609638a7971435001f0b6f192e6b1"
+    },
+    {
+      "index": 27,
+      "kind": "source",
+      "path": "draft-source/block-27.txt",
+      "sha256": "ff689fc09af7eb79c9bf6c372c794cf87c46a35b79dd3c4933e6eccaaa4451d6"
+    },
+    {
+      "index": 28,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-28.txt",
+      "sha256": "296ead5632a6b0ba9cf812ef9b7aef218bc7e1a403ecf20e0ca42d777725e352"
+    },
+    {
+      "index": 29,
+      "kind": "recorded-output",
+      "path": "draft-source/block-29.txt",
+      "sha256": "baa04c66d28d9c5854b828894e81601b629abcf9ca42c7512c57faffa2c8d014"
+    },
+    {
+      "index": 30,
+      "kind": "source",
+      "path": "draft-source/block-30.txt",
+      "sha256": "ed0ad34f3c143b67cc50217641bb3fcc94f848ed72a58ac067b546b3815bffe2"
+    },
+    {
+      "index": 31,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-31.txt",
+      "sha256": "7fba432a4420714bd961f39514caa192b80445576a6397c5dfbbd935c420e330"
+    },
+    {
+      "index": 32,
+      "kind": "recorded-output",
+      "path": "draft-source/block-32.txt",
+      "sha256": "c4ad25eb09442df8c26688e77358260762ae92d6c34b9c9cf7fa51f2fde42b2c"
+    },
+    {
+      "index": 33,
+      "kind": "source",
+      "path": "draft-source/block-33.txt",
+      "sha256": "1b68c2bdb0166742a62501b88e82bc94821ece8ead86fb8bf3ffdcc4c91be797"
+    },
+    {
+      "index": 34,
+      "kind": "command-or-command-sequence",
+      "path": "draft-source/block-34.txt",
+      "sha256": "92177359d5389f749554e2cad8ec06b67f417478e20bf9a39f596f882bebd31b"
+    },
+    {
+      "index": 35,
+      "kind": "recorded-output",
+      "path": "draft-source/block-35.txt",
+      "sha256": "bb0e1acc5d67ae8e6707364b9ee5b9f23459644bb9efcef7c7c25eceb3b51aec"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+sui client --yes new-address ed25519 alice
+sui client new-address ed25519 bob
+
+sui client switch --env testnet --address alice
+ALICE=$(sui client active-address)
+
+sui client switch --address bob
+BOB=$(sui client active-address)
+
+sui client switch --address alice
+
+# Output: 
+# ALICE=0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497
+# BOB=0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0

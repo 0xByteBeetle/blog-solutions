@@ -1,0 +1,1 @@
+sui client call --package "$PACKAGE" --module registry --function reset --args "$REGISTRY" --sender "$BOB" --gas-budget 50000000 --json

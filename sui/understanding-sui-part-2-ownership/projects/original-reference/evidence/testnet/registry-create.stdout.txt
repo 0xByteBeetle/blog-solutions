@@ -1,0 +1,106 @@
+{
+  "digest": "8mUEBoL8rAbcbcM3CxCWwE8SwTftA6XwsCUsMzU6tk5k",
+  "transaction": {
+    "data": {
+      "messageVersion": "v1",
+      "transaction": {
+        "kind": "ProgrammableTransaction",
+        "inputs": [],
+        "transactions": [
+          {
+            "MoveCall": {
+              "package": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf",
+              "module": "registry",
+              "function": "create"
+            }
+          }
+        ]
+      },
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "gasData": {
+        "payment": [],
+        "owner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "price": "1000",
+        "budget": "50000000"
+      }
+    },
+    "txSignatures": [
+      "AAghT6uOpdbmYoHPm6bS2XjQ4T2HZ/avVUp0YXACVUV0nEB4HO2jdarlxfDuKdL7xRu7nm1HUhlLSm04bGRL3As15IldYhfxcg/P0lryPVeYWVoETEnVG0TjQK/YNwCQlQ=="
+    ]
+  },
+  "effects": {
+    "messageVersion": "v1",
+    "status": {
+      "status": "success"
+    },
+    "executedEpoch": "1267",
+    "gasUsed": {
+      "computationCost": "1000000",
+      "storageCost": "1618800",
+      "storageRebate": "0",
+      "nonRefundableStorageFee": "0"
+    },
+    "transactionDigest": "8mUEBoL8rAbcbcM3CxCWwE8SwTftA6XwsCUsMzU6tk5k",
+    "created": [
+      {
+        "owner": {
+          "Shared": {
+            "initial_shared_version": 1
+          }
+        },
+        "reference": {
+          "objectId": "0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
+          "version": 1,
+          "digest": "DJZ77mFX7k9yfWR3ZnP55qqRsMz3vaRAsockFbqpwYnP"
+        }
+      }
+    ],
+    "accumulatorEvents": [
+      {
+        "accumulatorObj": "0xf5c8fcdf82d93e49a04558fafd900583a13e93cf124b3a910d992bf14ac0ca58",
+        "address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+        "ty": "0x2::balance::Balance<0x2::sui::SUI>",
+        "operation": "split",
+        "value": {
+          "integer": 2618800
+        }
+      }
+    ],
+    "gasObject": {
+      "owner": {
+        "AddressOwner": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "reference": {
+        "objectId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0,
+        "digest": "11111111111111111111111111111111"
+      }
+    }
+  },
+  "objectChanges": [
+    {
+      "type": "created",
+      "sender": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497",
+      "owner": {
+        "Shared": {
+          "initial_shared_version": 1
+        }
+      },
+      "objectType": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::registry::Registry",
+      "objectId": "0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725",
+      "version": "1",
+      "digest": "DJZ77mFX7k9yfWR3ZnP55qqRsMz3vaRAsockFbqpwYnP"
+    }
+  ],
+  "balanceChanges": [
+    {
+      "owner": {
+        "AddressOwner": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497"
+      },
+      "coinType": "0x2::sui::SUI",
+      "amount": "-2618800"
+    }
+  ],
+  "timestampMs": "1793228424869",
+  "checkpoint": "400319718"
+}
