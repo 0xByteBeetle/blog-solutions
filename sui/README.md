@@ -4,10 +4,12 @@ These two drafts are **not** part of the 58 published articles. The original sou
 
 | Draft | Article-local code/setup | Current evidence |
 |---|---|---|
-| Foundations, 221819065 | [Part 1](understanding-sui-part-1-objects-tokenomics-and-storage/) | 35 exact native blocks; 9 offline tests; fresh Move checks pending existing Sui 1.82.3 |
+| Foundations, 221819065 | [Part 1](understanding-sui-part-1-objects-tokenomics-and-storage/) | 35 exact native blocks; 9 offline tests; fresh Sui 1.82.3 build, 3 Move tests and intended copy-ability compiler rejection passed |
 | Ownership, 222510085 | [Part 2](understanding-sui-part-2-ownership/) | 72 exact native blocks; 15 offline tests; fresh Move checks require recorded Sui 1.83.0 |
 
 All 107 blocks were captured read-only on October 30, 2026. Six Python files match their current draft blocks exactly; ten Move/config files preserve their source text with recorded final-newline differences. Supplemental wrappers/tests are identified separately. Historical receipts and 109 passing receipt-consistency checks establish fixture consistency, not fresh transactions or consensus behavior. Real gRPC reflection/transport and live object retention have not been verified. No public-network transactions, personal wallets, or funding are part of default tests.
+
+[Fresh Mac evidence, October 30](../verification/mac-sui-drafts-2026-10-30.md) records the Foundations checks, all 24 offline tests, cleanup, and Ownership's missing Sui 1.83.0 runtime gate. No toolchain was installed.
 
 Run all offline checks from the repository root:
 

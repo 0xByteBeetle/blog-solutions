@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/verify.py",
+    "--sui",
+    "/Users/andreyobruchkov/.local/bin/sui"
+  ],
+  "exit": 0,
+  "timedOut": false,
+  "seconds": 15.196
+}

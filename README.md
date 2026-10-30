@@ -18,6 +18,8 @@ including the separately corrected Solana ALT and transfer-hook tests.
 
 [Mac validation after migration](verification/mac-topology-validation-2026-10-30.md) records fresh article-path builds, 27 passing Anchor integration checks, three passing nonconfidential Token-2022 CLI scenarios, and the preserved source failures. Confidential proof execution remains blocked.
 
+[Sui draft Mac verification](verification/mac-sui-drafts-2026-10-30.md) records 24 offline checks and Foundations' Sui 1.82.3 build, three Move tests and intended compiler rejection. Ownership still requires the absent Sui 1.83.0 binary; these unpublished drafts are separate from published article coverage.
+
 ## Layout
 
 ```text

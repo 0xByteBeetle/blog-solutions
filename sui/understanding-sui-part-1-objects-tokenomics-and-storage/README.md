@@ -11,3 +11,5 @@ Both projects are inside this article folder; no sibling article is required. Th
 Python checks are offline unless a read-only network client is explicitly selected. No wallet, faucet, publish, transfer or transaction commands are run by the supplemental offline checks. Move build/test checks require the documented existing CLI and separate fresh verification; historical passes do not prove this checkpoint.
 
 Read the project's setup before running commands. Sui Testnet transaction examples retained as source/history are **not** part of an automatic/default test route.
+
+[Fresh Mac verification on October 30, 2026](../../verification/mac-sui-drafts-2026-10-30.md): existing Sui 1.82.3 built the current Move package, passed all three named Move tests and rejected the intended copy-ability fixture. Nine offline Python tests also passed. The run used an empty isolated keystore and no chain operations; original source and Move locks are unchanged.

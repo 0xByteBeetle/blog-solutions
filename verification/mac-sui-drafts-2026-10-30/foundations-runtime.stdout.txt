@@ -1,0 +1,7 @@
+sui --version -> 0
+sui move build -> 0
+Compiled artifact: move/build/sui_foundations/bytecode_modules/notebook.mv 422 bytes
+sui move test -> 0
+sui move build --path negative/copy_object -> 1
+PASS: build, local tests, artifact, and intended compiler rejection
+No chain read, key creation, package publication, or transaction submission

@@ -1,0 +1,73 @@
+[
+  {
+    "name": "sui-integrity",
+    "command": [
+      "python3",
+      "scripts/check-sui-drafts.py"
+    ],
+    "exit": 0,
+    "seconds": 0.098
+  },
+  {
+    "name": "foundations-offline",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/tests",
+      "-v"
+    ],
+    "exit": 0,
+    "seconds": 0.186
+  },
+  {
+    "name": "ownership-offline",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "sui/understanding-sui-part-2-ownership/projects/current-draft/tests",
+      "-v"
+    ],
+    "exit": 0,
+    "seconds": 1.628
+  },
+  {
+    "name": "catalog",
+    "command": [
+      "node",
+      "scripts/check-catalog.mjs"
+    ],
+    "exit": 0,
+    "seconds": 0.08
+  },
+  {
+    "name": "topology",
+    "command": [
+      "node",
+      "scripts/check-topology.mjs"
+    ],
+    "exit": 0,
+    "seconds": 0.094
+  },
+  {
+    "name": "root-tests",
+    "command": [
+      "node",
+      "--test",
+      "scripts/evm-alignment.test.mjs",
+      "scripts/hyperliquid-alignment.test.mjs",
+      "scripts/live-source-freshness.test.mjs",
+      "scripts/solana-alignment.test.mjs",
+      "scripts/source-integrity.test.mjs",
+      "scripts/toolchain.test.mjs",
+      "scripts/topology.test.mjs"
+    ],
+    "exit": 0,
+    "seconds": 0.897
+  }
+]

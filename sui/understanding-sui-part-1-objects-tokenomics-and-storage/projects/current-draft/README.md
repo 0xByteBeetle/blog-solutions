@@ -56,9 +56,9 @@ the saved response locally. The fourth requires both historical object versions;
 its explicit failure is preserved. Real network commands were **not run** here.
 
 The five exact Move/config source blocks already match branch
-`432209b5b8e592631e3931b5e9ed5a9b38aef3bb`. Their separate build/test checks are
-historical and must be rerun with the appropriate Sui toolchain before claiming
-a fresh Move pass. Existing installer/verifier helpers differ from the current
+`432209b5b8e592631e3931b5e9ed5a9b38aef3bb`. Historical checks are preserved separately;
+the [October 30 Mac run](../../../../verification/mac-sui-drafts-2026-10-30.md)
+freshly built and tested this current package with Sui 1.82.3. Existing installer/verifier helpers differ from the current
 draft's suiup setup and must be labeled supplemental, not exact draft blocks.
 
 Run Python normally, **not with -O or PYTHONOPTIMIZE**: the exact draft clients use assertions for consistency checks. Optimization disables those checks.
@@ -75,4 +75,6 @@ This original supplemental helper checks the pinned version, builds, asserts the
 three named Move tests, and requires the intended copy-ability compiler failure.
 It uses an isolated empty keystore and no transaction commands. Initial Move
 framework dependency resolution may need GitHub access; cached dependencies are
-needed if network access is forbidden. No fresh Move execution is claimed here.
+needed if network access is forbidden. On October 30, the existing Mac CLI passed
+the build, all three named Move tests and the intended copy-ability rejection;
+the [dated evidence](../../../../verification/mac-sui-drafts-2026-10-30.md) includes full outputs and cleanup. Real gRPC and chain execution remain unverified.
