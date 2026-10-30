@@ -48,6 +48,8 @@ python3 abi_words.py
 forge test --match-test testArticleWordsAndReturnData -vv
 ```
 
-This supplemental worked input, `42` / `"Alice"`, uses the preserved 0.8.12 Storage ABI. The five literal words are: outer tuple offset `0x20`, number `0x2a`, string offset `0x40` relative to the tuple, byte length `5`, and UTF-8 `416c696365` padded to 32 bytes. `store((uint256,string))` has selector `0xddd356b3`; append the 160-byte body to obtain 164-byte calldata. The script compares these manually written words with Cast and an actual local contract call.
+The article’s worked input, `123456789` / `"bob"`, uses the preserved 0.8.12 Storage ABI. The five literal words are: outer tuple offset `0x20`, number `0x075bcd15`, string offset `0x40` relative to the tuple, byte length `3`, and UTF-8 `626f62` padded to 32 bytes. `store((uint256,string))` has selector `0xddd356b3`; append the 160-byte body to obtain 164-byte calldata. The script compares these manually written words with Cast and an actual local contract call.
 
-`retrieve()` returns a single dynamic struct: its return body includes the outer tuple offset and has no function selector. Decode it as that struct, not as two top-level outputs. The tests also show that a different selector cannot invoke `store`. This documents verified ABI behavior without changing the published contract or claiming that every prose example was corrected.
+`retrieve()` returns a single dynamic struct: its return body includes the outer tuple offset and has no function selector. Decode it as that struct, not as two top-level outputs. The tests also show that a different selector cannot invoke `store`. These independently written words reproduce the known article example without changing the published contract.
+
+The article’s Function Selector prose says `0xddd456b3`, while its final calldata correctly uses `0xddd356b3`. Keccak of `store((uint256,string))` begins `ddd356b3`; the test uses that correct selector and rejects the prose typo.

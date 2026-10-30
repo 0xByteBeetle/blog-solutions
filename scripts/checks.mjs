@@ -192,8 +192,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -202,8 +200,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -219,8 +215,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -229,8 +223,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -239,8 +231,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -249,8 +239,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -259,8 +247,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
