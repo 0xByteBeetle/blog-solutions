@@ -27,8 +27,11 @@ jobs:
       - run: node scripts/check-catalog.mjs
       - run: node --test scripts/source-integrity.test.mjs
       - run: node scripts/check-evm-alignment.mjs
+      - run: node scripts/check-solana-alignment.mjs
+      - run: node --test scripts/solana-alignment.test.mjs
       - run: node --test scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
       - run: node scripts/verify-restored-builds.mjs
+      - run: cargo test --locked --manifest-path examples/solana/borsh-proposal/Cargo.toml -p borsh_deep_dive --test allocation
       - run: node scripts/verify-restored-evm.mjs
       - run: go test -count=1 ./...
         working-directory: examples/evm/corrections/rlp
@@ -76,3 +79,7 @@ jobs:
         working-directory: solana/metadata
       - run: npm run check
         working-directory: solana/metadata
+      - run: npm ci --ignore-scripts
+        working-directory: examples/solana/metadata-published
+      - run: npm run check
+        working-directory: examples/solana/metadata-published

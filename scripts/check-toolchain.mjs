@@ -6,6 +6,9 @@ const tools = {
   anvil: {args: ['--version'], expected: /^anvil Version:/m},
   cast: {args: ['--version'], expected: /^cast Version:/m},
   go: {args: ['version'], expected: /^go version go\d/m},
+  anchor: {args: ['--version'], expected: /^anchor-cli 0\.31\.1(?:\s|$)/m},
+  'solana-keygen': {args: ['--version'], expected: /^solana-keygen \d/m},
+  'solana-test-validator': {args: ['--version'], expected: /^solana-test-validator \d/m},
   cargo: {args: ['--version'], expected: /^cargo \d/m},
 };
 

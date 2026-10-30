@@ -20,6 +20,7 @@ Verify that published blocks and recovered files have not drifted:
 ```sh
 node scripts/check-catalog.mjs
 node scripts/check-evm-alignment.mjs
+node scripts/check-solana-alignment.mjs
 node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
 ```
 

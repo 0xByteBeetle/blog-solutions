@@ -1,0 +1,19 @@
+{
+  "name": "@0xbytebeetle/published-metadata-clients",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "3.4.0",
+    "@metaplex-foundation/umi": "1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "1.5.1",
+    "@metaplex-foundation/umi-public-keys": "1.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  }
+}

@@ -17,3 +17,16 @@ test('a different program named go is not a Go compiler', () => {
 test('missing tools are reported before any reproduction work', () => {
   assert.throws(() => requireToolchain(['forge'], () => ({status: null, error: new Error('spawnSync forge ENOENT')})), /forge ENOENT/);
 });
+
+test('Anchor reproduction requires the declared 0.31.1 CLI before creating local keys', () => {
+  assert.throws(() => requireToolchain(['anchor'], () => ({status: 0, stdout: 'anchor-cli 0.32.0'})), /toolchain is unavailable/);
+  requireToolchain(['anchor'], () => ({status: 0, stdout: 'anchor-cli 0.31.1'}));
+});
+
+test('Solana preflight uses version checks only', () => {
+  const names = ['solana-keygen', 'solana-test-validator'];
+  requireToolchain(names, (name, args) => {
+    assert.deepEqual(args, ['--version']);
+    return {status: 0, stdout: `${name} 2.1.21`};
+  });
+});

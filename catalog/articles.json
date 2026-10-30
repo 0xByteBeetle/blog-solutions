@@ -985,6 +985,11 @@
       {
         "path": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "description": "Exact published blocks; see per-article source and runtime status."
+      },
+      {
+        "path": "examples/solana/metadata-published",
+        "description": "Exact preserved client blocks with supplemental dependency setup; type-check only, public-network execution not verified.",
+        "command": "npm ci --ignore-scripts && npm run check"
       }
     ],
     "verification": {
@@ -1034,7 +1039,9 @@
         "kind": "client-program",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
-        "implementations": []
+        "implementations": [
+          "examples/solana/metadata-published/metadata.ts"
+        ]
       },
       {
         "index": 5,
@@ -1042,7 +1049,9 @@
         "kind": "client-program",
         "snapshot": "articles/solana/where-token-metadata-lives-on-solana/published.md",
         "status": "preserved",
-        "implementations": []
+        "implementations": [
+          "examples/solana/metadata-published/read.ts"
+        ]
       }
     ]
   },
