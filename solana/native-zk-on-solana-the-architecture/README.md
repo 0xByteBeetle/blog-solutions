@@ -14,4 +14,3 @@ bash run.sh --preflight
 These scripts are supplemental runnable setup for this article, not a second generic workshop. Preflight checks flags/versions only. Execution creates disposable local keys/accounts and a fresh loopback validator; no default wallet, external RPC or public-network fallback is used. Choose an unused port with `WORKSHOP_RPC_PORT`; keys/logs remain under ignored `.local/`.
 
 After a passing preflight, `--execute-local` still exits 3 before starting a validator. Do not source `scenario.sh` directly. Enabling it requires a proof-enabled compatible local runtime and successful deposit/apply/transfer/withdraw validation, not just changing the version gate.
-
