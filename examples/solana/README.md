@@ -113,13 +113,14 @@ authority and deliberate-failure setup before runnable coverage can be claimed.
 
 ## Separate host-boundary tests added after the source review
 
-These do not change original implementations. At this documentation checkpoint,
-execution of the new tests is **not yet verified** (see any later execution report).
+These do not change original implementations. All six tests passed on macOS
+arm64 with Rust/Cargo 1.92.0 on 2026-10-30. See the
+[host-check report](../../verification/solana-host-checks-2026-10-30.json).
 
 - `zero-copy-layout/tests/layout.rs`: four supplemental host tests for size 24,
   alignment 8, field offsets, byte map and zero padding.
 - `borsh-proposal/programs/borsh_deep_dive/tests/allocation.rs`: two host tests for
-  the 54-byte Borsh fixture layout and dynamic-input sizing boundaries.
+  the 52-byte Borsh fixture layout and dynamic-input sizing boundaries.
 
 Each tests directory has its own README/commands and coverage limits. No wallet
 or validator is needed for these host tests, but Rust/Cargo and dependencies are.

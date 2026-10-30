@@ -1,6 +1,6 @@
 # Supplemental fixture-allocation checks
 
-The preserved program explicitly allocates **54 bytes** for its teaching fixture:
+The preserved program explicitly allocates **52 bytes** (`8 + 2 + 6 + 36`) for its teaching fixture:
 `Some(true)`, title `"GM"`, and one voter. It accepts dynamic instruction arguments,
 but that allocation is not sufficient for every possible title/voter input. This
 is a fixture limitation, not a claim that the article promises a general allocator.
@@ -27,5 +27,8 @@ Do not run the original Anchor/TypeScript transaction test as a host unit test:
 it expects generated IDL/types, a local validator and a funded disposable wallet.
 No keys or transactions are required by these new serialization checks.
 
-**2026-10-30: not run** — Rust/Cargo are absent from the audit environment. No
-Rust compilation, serialization test pass, or on-chain behavior is claimed.
+**2026-10-30: 2 host tests passed** on macOS arm64 with Rust/Cargo 1.92.0,
+using the locked dependencies offline. The first run exposed incorrect expected
+sizes in the supplemental boundary test; those assertions and the 54-byte
+documentation typo were corrected against the unchanged 52-byte fixture and
+the field-sizing formula above. No on-chain behavior is claimed.

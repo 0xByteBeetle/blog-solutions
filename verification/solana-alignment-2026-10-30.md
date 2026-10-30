@@ -96,6 +96,27 @@ whitespace, template contents, token joins/operators and scoped lifetime repair.
 Run `node scripts/check-solana-alignment.mjs` and
 `node --test scripts/solana-alignment.test.mjs` from repository root.
 
-Supplemental Rust host tests now assert zero-copy layout and Borsh fixture capacity;
-they remain not run until a Rust/Cargo runtime is available. Runner toolchain
-preflight now checks Anchor0.31.1 and required binaries before generating keys.
+Supplemental Rust host tests assert zero-copy layout and Borsh fixture capacity.
+The cloud source-review checkpoint did not run them. Runner toolchain preflight
+checks Anchor0.31.1 and required binaries before generating keys.
+
+## Mac host verification follow-through
+
+The transferred source checkpoint `8c4076d20f135d95e4fb71ea20a9b297bf176be0`
+matched the expected tree before local validation. Four layout tests and two
+Borsh allocation tests now pass with Rust/Cargo 1.92.0 on macOS arm64, using
+locked dependencies offline. The first allocation run exposed a two-byte error
+in the supplemental expected sizes and documentation: `8 + 2 + 6 + 36` is 52,
+not 54. Only the supplemental assertions and documentation were corrected;
+the preserved program and source hashes remain unchanged.
+
+All 15 Node regression tests, source integrity checks, 65 EVM mappings, and 18
+Solana mappings pass. The exact metadata clients pass `npm run check` after
+`npm ci --ignore-scripts`; this compiles without executing either client.
+Four existing fundamentals tests that do not generate signing keys also pass.
+The other three fundamentals tests were deliberately filtered out on the Mac
+because they generate signing keypairs. No wallet access, key generation,
+validator, RPC, public-network program, or SBF build was performed.
+
+See [host-check report](solana-host-checks-2026-10-30.json) for commands, results,
+and the distinction between host assertions and on-chain execution.

@@ -25,10 +25,10 @@ fn original_fixture_fits_exactly_with_discriminator() {
 
 #[test]
 fn fixed_allocation_is_not_a_general_dynamic_input_limit() {
-    assert_eq!(serialized(Some(true), "GMI", vec![Pubkey::default()]).len(), 55);
-    assert_eq!(serialized(Some(false), "GM", vec![Pubkey::default(); 2]).len(), 86);
-    assert_eq!(serialized(None, "GM", vec![Pubkey::default()]).len(), 53);
+    assert_eq!(serialized(Some(true), "GMI", vec![Pubkey::default()]).len(), PUBLISHED_FIXTURE_ALLOCATION + 1);
+    assert_eq!(serialized(Some(false), "GM", vec![Pubkey::default(); 2]).len(), PUBLISHED_FIXTURE_ALLOCATION + 32);
+    assert_eq!(serialized(None, "GM", vec![Pubkey::default()]).len(), PUBLISHED_FIXTURE_ALLOCATION - 1);
     assert_eq!(serialized(None, "", vec![]).len(), 17);
     // Borsh string length is UTF-8 bytes, not Unicode scalar count.
-    assert_eq!(serialized(Some(true), "€", vec![Pubkey::default()]).len(), 55);
+    assert_eq!(serialized(Some(true), "€", vec![Pubkey::default()]).len(), PUBLISHED_FIXTURE_ALLOCATION + 1);
 }

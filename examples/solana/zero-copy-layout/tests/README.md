@@ -18,5 +18,6 @@ ABI guarantee. The fixed little-endian byte map runs only on little-endian hosts
 the native-endian padding test is separate. No discriminator/account wrapper is
 part of this 24-byte struct test. No validator, wallet, or network transaction.
 
-**2026-10-30: not run** — Rust/Cargo are not installed in the audit environment.
-These assertions are prepared, not evidence of a successful Rust build or test.
+**2026-10-30: 4 host tests passed** on macOS arm64 with Rust/Cargo 1.92.0,
+using the locked dependencies offline. This validates the host layout only;
+no Solana program build or validator execution was performed.
