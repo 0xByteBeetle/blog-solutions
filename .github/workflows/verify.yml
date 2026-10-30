@@ -21,6 +21,8 @@ jobs:
           go-version: "1.24.x"
       - uses: dtolnay/rust-toolchain@stable
       - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.4.4
       - run: node scripts/setup-restored.mjs
       - run: node scripts/check-catalog.mjs
       - run: node --test scripts/source-integrity.test.mjs
@@ -28,6 +30,9 @@ jobs:
       - run: node --test scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
       - run: node scripts/verify-restored-builds.mjs
       - run: node scripts/verify-restored-evm.mjs
+      - run: go test -count=1 ./...
+        working-directory: examples/evm/corrections/rlp
+      - run: forge test --root examples/evm/corrections/solidity
 
   evm:
     name: Supplementary EVM labs (not article coverage)
@@ -35,6 +40,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.4.4
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24.x"

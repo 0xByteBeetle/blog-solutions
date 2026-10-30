@@ -15,7 +15,7 @@ node scripts/check-evm-alignment.mjs
 node --test scripts/evm-alignment.test.mjs
 ```
 
-The four new tests passed on this checkpoint. No authored implementations, publication snapshots, source hashes, or article completion statuses were changed. Fresh Foundry/Go runtime tests were **not run** here: Foundry is absent, and the available `/usr/bin/go` is not the Go programming-language toolchain (`go version` exits with `Go: Unknown option: version`). Prior runtime evidence stays separately dated in its existing reports; it is not a result from this audit.
+The four new tests passed on this checkpoint. No authored implementations, publication snapshots, source hashes, or article completion statuses were changed. At the initial source-only checkpoint, Foundry was absent and `/usr/bin/go` was not the Go programming-language toolchain. After explicit installation approval, fresh EVM execution succeeded; see **Fresh execution follow-through** below and the updated EVM reports. The cross-chain build report remains historical.
 
 ## Per-article result
 
@@ -90,4 +90,24 @@ The existing [review findings](REVIEW-FINDINGS.md) still record the ABI selector
 
 The build and local-EVM runners now check tool identity before creating temporary state or replacing reports. A command merely named `go` is not enough: `go version` must identify the Go compiler. Missing Foundry/Go/Rust tools are setup blockers, not failed author examples.
 
-Three preflight regression tests passed. Both runners were also invoked in this tool-limited environment and rejected the unavailable toolchain before running examples. SHA-256 checks confirmed that `restored-builds.json` and `restored-evm.json` remained unchanged. These were preflight checks, not fresh EVM build/runtime results.
+Three preflight regression tests passed. Before installing the approved toolchains, both runners were invoked in the tool-limited environment and rejected the unavailable toolchain before running examples. SHA-256 checks confirmed that `restored-builds.json` and `restored-evm.json` remained unchanged. Those were preflight checks only; subsequent execution is reported below.
+
+## Fresh execution follow-through
+
+Official Go1.24.13 and Foundry1.4.4 installed only under ignored workspace-local
+`.local/toolchains`, with SHA256 verification against official metadata. All15 EVM
+projects build; original RLP tests and storage-validation's3 tests pass. Six
+loopback-only Anvil workflows pass. See `restored-evm-builds.json`, `restored-evm.json`,
+and `examples/evm/README.md` for exact coverage and narrower limitations.
+
+Assistant-authored corrections under `examples/evm/corrections` preserve author
+source separately. All4 Solidity tests pass (original UUPS reinitialization
+reproduction, guarded reinitialization rejection/upgrade, storage value/revert
+assertions); both corrected RLP packages pass native vectors and boundary tests.
+32-bit compilation succeeded but test execution is unsupported on this host.
+No public-network program ran; live article freshness remains unverified.
+
+The first Solidity build attempt failed because inherited XDG cache paths were
+read-only, then succeeded with workspace-local caches. Original historical
+cross-chain build evidence remains untouched; the new EVM-only runner has a
+separate report. Source snapshot/status claims have not been elevated automatically.
