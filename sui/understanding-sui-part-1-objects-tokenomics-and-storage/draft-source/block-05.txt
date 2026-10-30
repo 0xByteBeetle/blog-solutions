@@ -1,0 +1,3 @@
+[package]
+name = "sui_foundations"
+edition = "2024"

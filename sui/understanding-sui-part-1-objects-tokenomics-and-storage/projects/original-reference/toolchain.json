@@ -1,0 +1,34 @@
+{
+  "release": "mainnet-v1.82.3",
+  "sui_version": "1.82.3",
+  "release_url": "https://github.com/MystenLabs/sui/releases/tag/mainnet-v1.82.3",
+  "recorded_on": "2026-10-24",
+  "python_minimum": "3.10",
+  "assets": {
+    "macos-arm64": {
+      "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-macos-arm64.tgz",
+      "sha256": "861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9",
+      "archive_bytes": 366870778
+    },
+    "macos-x86_64": {
+      "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-macos-x86_64.tgz",
+      "sha256": "ea174560d3a6a99d388f06219045d11db7eaba8287f9b840dc016af76635fac5",
+      "archive_bytes": 363044592
+    },
+    "ubuntu-aarch64": {
+      "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-ubuntu-aarch64.tgz",
+      "sha256": "1946a62d579b1c1fe8725d4c5c22b3d75ee0312a97ccc726e54dec8f966bc0e6",
+      "archive_bytes": 1144998662
+    },
+    "ubuntu-x86_64": {
+      "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-ubuntu-x86_64.tgz",
+      "sha256": "d616d63d90309926cf7f544633c8dd4132f762fdbba555a35c4842cfa4129379",
+      "archive_bytes": 1190263050
+    },
+    "windows-x86_64": {
+      "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-windows-x86_64.tgz",
+      "sha256": "d9d7c6887ff44f3ee957b87ab506669bab6aaa638f491cf2a9024ae720edaf8a",
+      "archive_bytes": 254297994
+    }
+  }
+}

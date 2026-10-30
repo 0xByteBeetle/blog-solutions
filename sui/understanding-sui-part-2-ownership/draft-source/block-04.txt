@@ -1,0 +1,3 @@
+sui client faucet --address "$ALICE" --url https://faucet.testnet.sui.io
+
+sui client faucet --address "$BOB" --url https://faucet.testnet.sui.io

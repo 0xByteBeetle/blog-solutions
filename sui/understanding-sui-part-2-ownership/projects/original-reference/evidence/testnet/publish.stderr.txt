@@ -1,0 +1,21 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING sui_ownership
+warning[WC10007]: issue with attribute value
+   ┌─ move/sources/case.move:10:14
+   │
+10 │ #[allow(lint(self_transfer))]
+   │              ^^^^^^^^^^^^^ Unknown diagnostic filter 'lint(self_transfer)'
+
+warning[WC10007]: issue with attribute value
+   ┌─ move/sources/case.move:23:14
+   │
+23 │ #[allow(lint(self_transfer))]
+   │              ^^^^^^^^^^^^^ Unknown diagnostic filter 'lint(self_transfer)'
+
+warning[WC10007]: issue with attribute value
+   ┌─ move/sources/owned.move:21:14
+   │
+21 │ #[allow(lint(self_transfer))]
+   │              ^^^^^^^^^^^^^ Unknown diagnostic filter 'lint(self_transfer)'
+

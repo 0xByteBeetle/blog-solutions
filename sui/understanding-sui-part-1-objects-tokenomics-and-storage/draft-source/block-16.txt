@@ -1,0 +1,3 @@
+[package]
+name = "copy_object_failure"
+edition = "2024"

@@ -1,0 +1,10 @@
+.tools/
+.local/
+.venv/
+__pycache__/
+**/__pycache__/
+move/build/
+move/negative/copy_object/build/
+evidence/local/
+evidence/object.json
+evidence/storage-costs.json

@@ -1,0 +1,11 @@
+{
+  "release": "testnet-v1.83.0",
+  "asset": "sui-testnet-v1.83.0-macos-arm64.tgz",
+  "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.83.0/sui-testnet-v1.83.0-macos-arm64.tgz",
+  "sha256": "3bdb5300231bc77efc926d8314457cb24e79223c07373a5f3d76b4d8c6025f65",
+  "sha256_source": "https://api.github.com/repos/MystenLabs/sui/releases/tags/testnet-v1.83.0",
+  "size": 367299563,
+  "checksum_verified": true,
+  "extracted_member": "./sui",
+  "actual_version": "sui 1.83.0-16d2dc1e05ed"
+}

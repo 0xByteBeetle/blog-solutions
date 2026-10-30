@@ -1,0 +1,1 @@
+sui client call --package "$PACKAGE" --module owned --function set_value --args "$NOTEBOOK" "$CAPABILITY" 12 --sender "$BOB" --gas-budget 50000000 --json

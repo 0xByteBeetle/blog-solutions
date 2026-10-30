@@ -1,0 +1,28 @@
+{
+  "scope": "Author-reference integration of the standalone setup printed in the draft",
+  "setup_source": "setup_sui.py",
+  "setup_sha256": "90fa81577d8d11d8a4f3a684b4857b4560c32c51eae65ccd8e333919b9cbb8e8",
+  "copied_without_body_changes": true,
+  "python_syntax_valid": true,
+  "all_16_provenance_source_hashes_match": true,
+  "fresh_directory_runtime_evidence": "recorded-selfcontained/setup-manifest.json",
+  "staged_build_test_and_generated_locks": "recorded-selfcontained/build-manifest.json",
+  "guard_checks": "recorded-selfcontained/setup-checks.json",
+  "catalog_check": {
+    "command": "node scripts/check-catalog.mjs",
+    "exit_code": 0,
+    "articles": 53,
+    "published_blocks": 494,
+    "restored_files": 106
+  },
+  "source_integrity_tests": {
+    "command": "node --test scripts/source-integrity.test.mjs",
+    "exit_code": 0,
+    "tests": 3,
+    "passed": 3,
+    "failed": 0
+  },
+  "publications": false,
+  "transactions": false,
+  "note": "Runtime captures were produced in the separate fresh-directory lab before exact source integration. Official archive and framework caches were explicitly reused. No fresh network-download claim."
+}

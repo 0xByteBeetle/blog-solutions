@@ -1,0 +1,304 @@
+{
+  "date": "2026-10-30T17:56:49.581883+00:00",
+  "importCheckpoint": "a0b097630ba44f9007f362467b3a7b306540269b",
+  "importTree": "871247a279247d4329a6740f20b14c6bc9250cfd",
+  "base": "63e1c2ed0ae8c342d3b0977fe105c4e411305e7c",
+  "import": {
+    "chunks": 27,
+    "gzipSha256": "b02fb34a9b1d44040e2b9ed0a88ed8f54ba95ac277868a016388a6b14274ba95",
+    "patchSha256": "6f2ba26ba1e296cd0f2ac1c3d245ac059fad41b52ba232ccf86d6d9fc565b47d",
+    "suiFiles": 404,
+    "nativeBlocks": 107,
+    "publishedArticlesUnchanged": 58
+  },
+  "offlineChecks": [
+    {
+      "name": "sui-integrity",
+      "command": [
+        "python3",
+        "scripts/check-sui-drafts.py"
+      ],
+      "exit": 0,
+      "seconds": 0.098
+    },
+    {
+      "name": "foundations-offline",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/tests",
+        "-v"
+      ],
+      "exit": 0,
+      "seconds": 0.186
+    },
+    {
+      "name": "ownership-offline",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "sui/understanding-sui-part-2-ownership/projects/current-draft/tests",
+        "-v"
+      ],
+      "exit": 0,
+      "seconds": 1.628
+    },
+    {
+      "name": "catalog",
+      "command": [
+        "node",
+        "scripts/check-catalog.mjs"
+      ],
+      "exit": 0,
+      "seconds": 0.08
+    },
+    {
+      "name": "topology",
+      "command": [
+        "node",
+        "scripts/check-topology.mjs"
+      ],
+      "exit": 0,
+      "seconds": 0.094
+    },
+    {
+      "name": "root-tests",
+      "command": [
+        "node",
+        "--test",
+        "scripts/evm-alignment.test.mjs",
+        "scripts/hyperliquid-alignment.test.mjs",
+        "scripts/live-source-freshness.test.mjs",
+        "scripts/solana-alignment.test.mjs",
+        "scripts/source-integrity.test.mjs",
+        "scripts/toolchain.test.mjs",
+        "scripts/topology.test.mjs"
+      ],
+      "exit": 0,
+      "seconds": 0.897
+    }
+  ],
+  "foundationRuntime": {
+    "scope": "Local compilation and Move unit tests only",
+    "cli": "sui 1.82.3-bf4073918ed3",
+    "artifact": {
+      "path": "move/build/sui_foundations/bytecode_modules/notebook.mv",
+      "bytes": 422,
+      "sha256": "47036b656e02133e9794fb73ab06d9d33f32496ea4633a0cfafdba5ecba76219"
+    },
+    "tests": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "expected_test_names": [
+      "test_create_and_update",
+      "test_distinct_ids",
+      "test_wrong_capability"
+    ],
+    "intentional_copy_failure_observed": true,
+    "chain_reads": false,
+    "package_publications": false,
+    "transaction_submissions": false,
+    "signing_keys": 0,
+    "runs": [
+      {
+        "command": [
+          "sui",
+          "--version"
+        ],
+        "working_directory": ".",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "sui",
+          "move",
+          "build"
+        ],
+        "working_directory": "move",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "sui",
+          "move",
+          "test"
+        ],
+        "working_directory": "move",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "sui",
+          "move",
+          "build",
+          "--path",
+          "negative/copy_object"
+        ],
+        "working_directory": "move",
+        "exit_code": 1
+      }
+    ]
+  },
+  "runtimeCommand": {
+    "command": [
+      "python3",
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/verify.py",
+      "--sui",
+      "/Users/andreyobruchkov/.local/bin/sui"
+    ],
+    "exit": 0,
+    "timedOut": false,
+    "seconds": 15.196
+  },
+  "binary": {
+    "path": "/Users/andreyobruchkov/.local/bin/sui",
+    "version": "sui 1.82.3-bf4073918ed3",
+    "sha256": "84b18c662bd8b5a573f699f7e9bcd5b233544bc8ce1658086d29c9a1415a1b8f"
+  },
+  "ownership": {
+    "status": "blocked-missing-recorded-cli",
+    "requiredVersion": "1.83.0",
+    "installedVersion": "1.82.3-bf4073918ed3",
+    "searched": [
+      "PATH",
+      "/Users/andreyobruchkov/.local/bin/sui",
+      "/Users/andreyobruchkov/.local/share/suiup/binaries",
+      "task-local named Sui tool directories",
+      "/Users/andreyobruchkov/Downloads/sui-testnet-v1.83.0*"
+    ],
+    "freshMoveExecution": false,
+    "installedNewToolchain": false
+  },
+  "cleanup": {
+    "preexistingRuntimeDirectories": false,
+    "emptyKeystoreVerifiedBeforeRemoval": true,
+    "generatedPathsRemoved": [
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/.local",
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/evidence/local",
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/move/build",
+      "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/move/negative/copy_object/build"
+    ],
+    "trackedMoveLocksChanged": false,
+    "allImportedFileHashesMatchedBeforeDocumentationUpdates": true
+  },
+  "limits": [
+    "No real gRPC transport/reflection or historical object retention verified",
+    "Historical receipts are fixture consistency evidence only",
+    "No public-chain reads, publications, transactions, personal keys or funding used"
+  ],
+  "reviewedSupplementalDocumentationHashes": {
+    "sui/README.md": {
+      "before": "ff289c90f5ff1507ac1d904f511ac6a3950ffe5eb7026e55eeac66738631cc72",
+      "after": "bfad993afff9d48b6958caaa038e7e51d70e1a7acb9d150862a6d96fb040db2c"
+    },
+    "sui/understanding-sui-part-1-objects-tokenomics-and-storage/README.md": {
+      "before": "ac3f87252f2b89c84a487373107685f33b36449f6718ae337c7bb7e439e354c8",
+      "after": "5bea892abec877870561dc6d931d142832b246fbf1c67fb7fa5681d808aeb8e9"
+    },
+    "sui/understanding-sui-part-1-objects-tokenomics-and-storage/SETUP.md": {
+      "before": "25daa5f1be5bdc50eca3b5da49d0befbf4584c6de35ac4706196ab3e89fd84e7",
+      "after": "15f54d1a77cc224b0b05bb0dca1846e31975c67879e30a60abecac80b83e6917"
+    },
+    "sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/README.md": {
+      "before": "eab35d131b1c156b23713098964f45bbe4dcd87ba516e7de493e00210806427e",
+      "after": "59117f16a872e8d00c424d5cc16f3734ee90bd197e623b32bdfeb2d9a0a4d639"
+    }
+  },
+  "importCatalogSha256": "37f011bb9c96ed590a1649ac49c4d924c75c27c18280abec01e22c80f968a08c",
+  "finalChecks": [
+    {
+      "name": "final-sui-integrity",
+      "command": [
+        "python3",
+        "scripts/check-sui-drafts.py"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "final-catalog",
+      "command": [
+        "node",
+        "scripts/check-catalog.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "final-topology",
+      "command": [
+        "node",
+        "scripts/check-topology.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "final-root-tests",
+      "command": [
+        "node",
+        "--test",
+        "scripts/evm-alignment.test.mjs",
+        "scripts/hyperliquid-alignment.test.mjs",
+        "scripts/live-source-freshness.test.mjs",
+        "scripts/solana-alignment.test.mjs",
+        "scripts/source-integrity.test.mjs",
+        "scripts/toolchain.test.mjs",
+        "scripts/topology.test.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "relative-document-links",
+      "links": 19,
+      "missing": [],
+      "exit": false
+    }
+  ],
+  "evidenceFileSha256": {
+    "verification/mac-sui-drafts-2026-10-30/catalog.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/catalog.stdout.txt": "cdf35b7e62e327d424283dbabbd350823bc3a81118fe7c1aa66feb96945b05c2",
+    "verification/mac-sui-drafts-2026-10-30/final-catalog.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/final-catalog.stdout.txt": "cdf35b7e62e327d424283dbabbd350823bc3a81118fe7c1aa66feb96945b05c2",
+    "verification/mac-sui-drafts-2026-10-30/final-results.json": "2b53e5289c15cc6f122e1d476e6bc2f5326447862b928bcf186b8fcaf3693bcc",
+    "verification/mac-sui-drafts-2026-10-30/final-root-tests.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/final-root-tests.stdout.txt": "c976a95dd92e5f29ca4d0cda5f4bf7170b4029592054cf9cd041f05cbb8a9491",
+    "verification/mac-sui-drafts-2026-10-30/final-sui-integrity.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/final-sui-integrity.stdout.txt": "b49b8309c8c6762efd76965595d65486a365d07e986d5ec7fe30f1f0c9dadbef",
+    "verification/mac-sui-drafts-2026-10-30/final-topology.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/final-topology.stdout.txt": "17c92e01aa6a9a1ea1ef41eae1eb24f4d23d0934c426a8f27dc1bb86468850fa",
+    "verification/mac-sui-drafts-2026-10-30/foundations/build.stderr.txt": "0aaadfd88b005dea268a52b5f1c04096f19b57e533d1eb720cfc2ee2334ecbd4",
+    "verification/mac-sui-drafts-2026-10-30/foundations/build.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/foundations/cannot-copy.stderr.txt": "7d903bc18225353d1e38c648076944978715fc5e4fd113dce6080649458d6135",
+    "verification/mac-sui-drafts-2026-10-30/foundations/cannot-copy.stdout.txt": "06c3b68b50da1248b99444fdf2564307152e1f9046f6a1a7f56f56779962c4ba",
+    "verification/mac-sui-drafts-2026-10-30/foundations/test.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/foundations/test.stdout.txt": "9e897dd6fd1574b9a9168c435e99e36d8a311c0ed8d66f77a29e6041ea67852e",
+    "verification/mac-sui-drafts-2026-10-30/foundations/verification.json": "a1242333c2df11eca9c4c1ac94cdafa4489dbdaa7ebdb58ad4934adefaafeeea",
+    "verification/mac-sui-drafts-2026-10-30/foundations/version.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/foundations/version.stdout.txt": "c37dab940dffacde9fec0420a5e139fa746846a3eb5f5a1b69a08e4d99f4c454",
+    "verification/mac-sui-drafts-2026-10-30/foundations-offline.stderr.txt": "af7d27672312597129ae0f26c2262015da876576b17828094e41cff695da57c0",
+    "verification/mac-sui-drafts-2026-10-30/foundations-offline.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/foundations-runtime-result.json": "0014c10faf771be6ca70d463d7f54a7f130c7f0a08b3f9a2562ea87122ae6b5e",
+    "verification/mac-sui-drafts-2026-10-30/foundations-runtime.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/foundations-runtime.stdout.txt": "96acbabfa3e5e9417733834056a652cd67d78f1dcd0926ea281a29b9f4fa3f6c",
+    "verification/mac-sui-drafts-2026-10-30/offline-results.json": "9ce3025af3c1491499430cf6eb101e7355e5a9bd08dd9c654cc40650e1320bb6",
+    "verification/mac-sui-drafts-2026-10-30/ownership-offline.stderr.txt": "762edbe130821d823cef01bed23858597927cb474568da3bf37e52fafa09974e",
+    "verification/mac-sui-drafts-2026-10-30/ownership-offline.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/root-tests.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/root-tests.stdout.txt": "30461175f5496cc10d656db0e19873a3c4e4359bb85751428afcc0c968968769",
+    "verification/mac-sui-drafts-2026-10-30/sui-integrity.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/sui-integrity.stdout.txt": "b49b8309c8c6762efd76965595d65486a365d07e986d5ec7fe30f1f0c9dadbef",
+    "verification/mac-sui-drafts-2026-10-30/topology.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification/mac-sui-drafts-2026-10-30/topology.stdout.txt": "17c92e01aa6a9a1ea1ef41eae1eb24f4d23d0934c426a8f27dc1bb86468850fa"
+  },
+  "whitespaceCheck": {
+    "status": "pass-except-verbatim-diagnostic",
+    "retained": "verification/mac-sui-drafts-2026-10-30/foundations/cannot-copy.stderr.txt",
+    "reason": "One compiler-emitted blank line at EOF retained as exact failure evidence"
+  }
+}

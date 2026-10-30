@@ -1,0 +1,2 @@
+sui-testnet-v1.83.0-macos-arm64.tgz: OK
+SHA256: 3bdb5300231bc77efc926d8314457cb24e79223c07373a5f3d76b4d8c6025f65

@@ -1,0 +1,17 @@
+INCLUDING DEPENDENCY MoveStdlib
+INCLUDING DEPENDENCY Sui
+BUILDING copy_object_failure
+[0m[1m[38;5;9merror[EC05001][0m[1m: ability constraint not satisfied[0m
+   [0m[34m┌─[0m ./sources/bad_copy.move:4:9
+   [0m[34m│[0m
+[0m[34m 4[0m [0m[34m│[0m     id: [0m[31mUID[0m,
+   [0m[34m│[0m         [0m[31m^^^[0m
+   [0m[34m│[0m         [0m[31m│[0m
+   [0m[34m│[0m         [0m[31mInvalid field type. The struct was declared with the ability 'copy' so all fields require the ability 'copy'[0m
+   [0m[34m│[0m         [0m[34mThe type 'sui::object::UID' does not have the ability 'copy'[0m
+   [0m[34m│[0m
+   [0m[34m┌─[0m /Users/andreyobruchkov/Documents/Codex/2026-10-30/task/blog-solutions-sui/sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/.local/move-cache/git/https___github_com_MystenLabs_sui_git_719fb2960ccfbf9f4d33041f8ea5146d30671696/crates/sui-framework/packages/sui-framework/sources/object.move:84:15
+   [0m[34m│[0m
+[0m[34m84[0m [0m[34m│[0m public struct UID has store {
+   [0m[34m│[0m               [0m[34m---[0m [0m[34mTo satisfy the constraint, the 'copy' ability would need to be added here[0m
+

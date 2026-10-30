@@ -1,0 +1,2 @@
+sui client transfer --to "$BOB" --object-id "$NOTEBOOK" --sender "$ALICE" --gas-budget 50000000 --json > evidence/owned-transfer.json
+python3 client/receipt.py evidence/owned-transfer.json

@@ -1,0 +1,9 @@
+Object ID: 0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050
+Version: 2
+Type: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::Notebook
+Owner: {"address": "0x9f80559b996a375c341a9906a2c10fc82555c3d9c3646105de3dc00ce8145497", "kind": "ADDRESS"}
+Move value: {
+  "id": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050",
+  "value": "9"
+}
+Saved: evidence/owned_before.json

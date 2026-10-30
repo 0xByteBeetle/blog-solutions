@@ -1,0 +1,26 @@
+{
+  "object": {
+    "bcs": {
+      "name": "Object",
+      "value": "AAAgqMYB/7tFEj7+PWXpYfC6WrBSgnjI/t80Eniws+GkvwVydWxlcwVSdWxlcwABAQAAAAAAAAAo4KPwIJCOQoe8B5ntHA2vY56XrbLRgZRRdldFGYclIl4KAAAAAAAAAAMgtbR3cs77DQKlcxIgo2Vde28cU2DtMJHCK/tK2fnGTotQSxQAAAAAAA=="
+    },
+    "object_id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e",
+    "version": "1",
+    "digest": "6iUgPU9db9ytKQUKDkAB7aB38qJjtRz3t8nYVuc5H9E6",
+    "owner": {
+      "kind": "IMMUTABLE"
+    },
+    "object_type": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules",
+    "has_public_transfer": true,
+    "contents": {
+      "name": "0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::rules::Rules",
+      "value": "4KPwIJCOQoe8B5ntHA2vY56XrbLRgZRRdldFGYclIl4KAAAAAAAAAA=="
+    },
+    "previous_transaction": "DEJQ8nhJd7zBwC2kxWAc44Rc6UhkJctsA64eEF2NVQzN",
+    "storage_rebate": "1330000",
+    "json": {
+      "limit": "10",
+      "id": "0xe0a3f020908e4287bc0799ed1c0daf639e97adb2d1819451765745198725225e"
+    }
+  }
+}

@@ -103,3 +103,15 @@ jobs:
         working-directory: solana/where-token-metadata-lives-on-solana/projects/metadata-published
       - run: npm run check
         working-directory: solana/where-token-metadata-lives-on-solana/projects/metadata-published
+
+  sui-draft-offline:
+    name: Sui draft source and offline fixtures (not Move runtime)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/check-sui-drafts.py
+      - run: python3 -m unittest discover -s sui/understanding-sui-part-1-objects-tokenomics-and-storage/projects/current-draft/tests -v
+      - run: python3 -m unittest discover -s sui/understanding-sui-part-2-ownership/projects/current-draft/tests -v

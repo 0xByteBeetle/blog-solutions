@@ -1,0 +1,36 @@
+{
+  "guard_checks": [
+    {
+      "label": "corrupt-archive",
+      "command": "python3 setup_sui.py",
+      "cwd": "evidence/setup-checks/corrupt-archive",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Archive checksum mismatch. The CLI was not executed\n",
+      "duration_seconds": 0.099,
+      "cli_not_installed_or_executed": true
+    },
+    {
+      "label": "nonempty-keystore",
+      "command": "python3 setup_sui.py",
+      "cwd": "evidence/setup-checks/nonempty-keystore",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Refusing to replace a keystore that contains signing material\n",
+      "duration_seconds": 0.079,
+      "existing_keystore_preserved_byte_for_byte": true,
+      "cli_not_installed_or_executed": true
+    }
+  ],
+  "embedded_official_platforms": [
+    "macos-arm64",
+    "macos-x86_64",
+    "ubuntu-aarch64",
+    "ubuntu-x86_64",
+    "windows-x86_64"
+  ],
+  "runtime_support_files_required": [],
+  "third_party_python_packages_required": [],
+  "script_lines": 106,
+  "setup_sha256": "90fa81577d8d11d8a4f3a684b4857b4560c32c51eae65ccd8e333919b9cbb8e8"
+}

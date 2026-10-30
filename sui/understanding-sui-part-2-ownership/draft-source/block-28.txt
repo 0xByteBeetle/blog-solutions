@@ -1,0 +1,9 @@
+sui client call --package "$PACKAGE" --module owned --function create_owned --args 7 --sender "$ALICE" --gas-budget 50000000 --json > evidence/owned-create.json
+NOTEBOOK=$(python3 client/receipt.py evidence/owned-create.json '::owned::Notebook')
+CAPABILITY=$(python3 client/receipt.py evidence/owned-create.json '::owned::NotebookCap')
+
+# NOTEBOOK=0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050
+# CAPABILITY=0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293
+
+sui client call --package "$PACKAGE" --module owned --function set_value --args "$NOTEBOOK" "$CAPABILITY" 9 --sender "$ALICE" --gas-budget 50000000 --json > evidence/owned-alice-update.json
+python3 client/receipt.py evidence/owned-alice-update.json

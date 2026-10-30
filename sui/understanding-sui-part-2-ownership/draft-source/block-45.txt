@@ -1,0 +1,10 @@
+sui client call --package "$PACKAGE" --module registry --function create --sender "$ALICE" --gas-budget 50000000 --json > evidence/registry-create.json
+REGISTRY=$(python3 client/receipt.py evidence/registry-create.json '::registry::Registry')
+
+# REGISTRY=0x0fcd4a588b475da4a2ce27731e1610d6bfe66370524bdc2eac0a09fdb7401725
+
+sui client call --package "$PACKAGE" --module registry --function add_entry --args "$REGISTRY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/registry-alice-add.json
+python3 client/receipt.py evidence/registry-alice-add.json
+
+sui client call --package "$PACKAGE" --module registry --function add_entry --args "$REGISTRY" --sender "$BOB" --gas-budget 50000000 --json > evidence/registry-bob-add.json
+python3 client/receipt.py evidence/registry-bob-add.json

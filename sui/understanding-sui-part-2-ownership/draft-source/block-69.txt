@@ -1,0 +1,11 @@
+sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/party-update-a.json &
+PID_A=$!
+
+sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/party-update-b.json &
+PID_B=$!
+
+wait "$PID_A"
+wait "$PID_B"
+
+python3 client/receipt.py evidence/party-update-a.json
+python3 client/receipt.py evidence/party-update-b.json

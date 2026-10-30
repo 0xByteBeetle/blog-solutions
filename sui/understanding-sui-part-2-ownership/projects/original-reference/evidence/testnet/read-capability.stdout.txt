@@ -1,0 +1,9 @@
+Object ID: 0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293
+Version: 4
+Type: 0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf::owned::NotebookCap
+Owner: {"address": "0x4d99c21a4439b90bb63a31ca3ed2e59d85a1eeaa3ff7ce44309414925abd0df0", "kind": "ADDRESS"}
+Move value: {
+  "id": "0xc9dbe7189dc0ea44e2b520a5d44c4b4bcd341419b42461aebb9018ca96ea4293",
+  "notebook": "0x4533721f6d1b6a56c3e82ea26af9380306a4ea7c4fa11217533c8b16a6fa0050"
+}
+Saved: evidence/capability.json

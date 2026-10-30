@@ -7,7 +7,7 @@ Start with the [article index](ARTICLES.md). Each article has its published code
 The repository is undergoing a source-preserving repair. All 58 cataloged posts and 573 displayed code/output blocks are preserved. This does **not** mean all 58 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
 Current chain guides: [EVM](evm/README.md), [Solana](solana/README.md),
-and [Hyperliquid](hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
+[Hyperliquid](hyperliquid/README.md), and separately [Sui unpublished draft companions](sui/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
 with offline/mock companions. All 37 EVM and 16 Solana pages were also checked live on October 30: their
 494 native blocks match saved text exactly. [Dated evidence](verification/live-source-freshness-2026-10-30.json)
 proves source text at that capture time, not technical correctness or execution.
@@ -17,6 +17,8 @@ See the current chain guides above for fresh results and remaining gates. The
 including the separately corrected Solana ALT and transfer-hook tests.
 
 [Mac validation after migration](verification/mac-topology-validation-2026-10-30.md) records fresh article-path builds, 27 passing Anchor integration checks, three passing nonconfidential Token-2022 CLI scenarios, and the preserved source failures. Confidential proof execution remains blocked.
+
+[Sui draft Mac verification](verification/mac-sui-drafts-2026-10-30.md) records 24 offline checks and Foundations' Sui 1.82.3 build, three Move tests and intended compiler rejection. Ownership still requires the absent Sui 1.83.0 binary; these unpublished drafts are separate from published article coverage.
 
 ## Layout
 

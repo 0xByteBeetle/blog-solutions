@@ -1,0 +1,4 @@
+PACKAGE=$(python3 client/receipt.py evidence/publish.json package)
+
+# Output:
+# PACKAGE=0x20a8c601ffbb45123efe3d65e961f0ba5ab0528278c8fedf341278b0b3e1a4bf

@@ -1,0 +1,21 @@
+{
+  "gasCoins": [
+    {
+      "gasCoinId": "0xe5e67319047bef21b0d942e02bc0968fbc7c80cec27686b9acff8da03ff8e202",
+      "mistBalance": 297023901,
+      "suiBalance": "0.29"
+    },
+    {
+      "gasCoinId": "0x7779f2ffdeeb31af4d996f4b0161bc685759cf9ee376c23350f1a84c0fba5bf2",
+      "mistBalance": 98999761,
+      "suiBalance": "0.09"
+    },
+    {
+      "gasCoinId": "0xfb1aca80d7e3c5b7ec736413eec7a7f9180eb912b9ab1d595884b85522beb371",
+      "mistBalance": 98999761,
+      "suiBalance": "0.09"
+    }
+  ],
+  "addressMistBalance": 1458428856,
+  "addressSuiBalance": "1.45"
+}

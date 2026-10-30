@@ -1,0 +1,5 @@
+{
+  "command": "sui move build --path negative/copy_object",
+  "exit_code": 1,
+  "seconds": 0.407
+}

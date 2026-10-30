@@ -1,0 +1,6 @@
+sui client call --package "$PACKAGE" --module party_counter --function create --sender "$ALICE" --gas-budget 50000000 --json > evidence/party-create.json
+PARTY=$(python3 client/receipt.py evidence/party-create.json '::party_counter::Counter')
+
+# PARTY=0x1051ce0f96a8b4c833cff80c056708f148f97d94a96de2ef87be49041be5f9d6
+
+sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$BOB" --gas-budget 50000000 --json

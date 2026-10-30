@@ -1,0 +1,1 @@
+sui client call --package "$PACKAGE" --module rules --function set_limit --args "$RULES" 20 --sender "$BOB" --gas-budget 50000000 --json
