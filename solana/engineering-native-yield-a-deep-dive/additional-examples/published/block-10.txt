@@ -1,0 +1,17 @@
+
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "context": {
+      "apiVersion": "3.1.10",
+      "slot": 448286815
+    },
+    "value": {
+      "amount": "100000000000",   <-- The raw principal (100 tokens with 9 decimals)
+      "decimals": 9,
+      "uiAmount": 100.009224922,  <-- The mathematically yielded balance!
+      "uiAmountString": "100.009224922"
+    }
+  },
+  "id": 1
+}

@@ -1,0 +1,2 @@
+
+spl-token deposit-confidential-tokens <YOUR_MINT_ADDRESS> 100

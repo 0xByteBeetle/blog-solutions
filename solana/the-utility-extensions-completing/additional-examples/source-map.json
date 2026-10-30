@@ -1,0 +1,137 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+  "exactPublishedBlocks": [
+    {
+      "path": "published/block-01.txt",
+      "sha256": "c489d720cb6a4d0468c6b22cfd37088d6ae7e144546a025845223afa5a950b63",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 1,
+        "sha256": "c489d720cb6a4d0468c6b22cfd37088d6ae7e144546a025845223afa5a950b63"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "592596e2deb66086e35158269d243326a3addf9cf7fb55a1ea4e2cfcab496928",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 2,
+        "sha256": "592596e2deb66086e35158269d243326a3addf9cf7fb55a1ea4e2cfcab496928"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "8e9784d02787af4950f8c5b8b5522b3de2de085dd13422b5f3930eeffaff24b2",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 3,
+        "sha256": "8e9784d02787af4950f8c5b8b5522b3de2de085dd13422b5f3930eeffaff24b2"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "63b9b5d580129c33ed326f195d66dc0f1c0174b405d4f35a6e90ef53a78e8570",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 4,
+        "sha256": "63b9b5d580129c33ed326f195d66dc0f1c0174b405d4f35a6e90ef53a78e8570"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "54afca74d82a13cb4f0922bc3013e9a9438d1aca56ebdbad34e19f453b53cb89",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 5,
+        "sha256": "54afca74d82a13cb4f0922bc3013e9a9438d1aca56ebdbad34e19f453b53cb89"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "4685c8df0c1a4aa0dce0ab1e1f01d26668a746ef54935cf75ee59d3e62581733",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 6,
+        "sha256": "4685c8df0c1a4aa0dce0ab1e1f01d26668a746ef54935cf75ee59d3e62581733"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-07.txt",
+      "sha256": "485edb588a649d3805a9b4a3d3c39b88564944c0a28d7f0eb339e50268992234",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 7,
+        "sha256": "485edb588a649d3805a9b4a3d3c39b88564944c0a28d7f0eb339e50268992234"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-08.txt",
+      "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 8,
+        "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-09.txt",
+      "sha256": "ffbaae836404d7c03b3028470ceca082513ecbfd9d32d9928f51093bcd6d3b8e",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 9,
+        "sha256": "ffbaae836404d7c03b3028470ceca082513ecbfd9d32d9928f51093bcd6d3b8e"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-10.txt",
+      "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 10,
+        "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-11.txt",
+      "sha256": "4006a93c8742d144e5685f2a2be18f3a6aee3df16b275ac674522466f8bfb31f",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 11,
+        "sha256": "4006a93c8742d144e5685f2a2be18f3a6aee3df16b275ac674522466f8bfb31f"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-12.txt",
+      "sha256": "f8d7cf6789c59118559eadba0edbc4a48117b6b232e2b8b06e7ca381ff1721b9",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 12,
+        "sha256": "f8d7cf6789c59118559eadba0edbc4a48117b6b232e2b8b06e7ca381ff1721b9"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-13.txt",
+      "sha256": "5f2c1bbee49fb9b04483d43b30eead968d10dfd63e02b866ee6f24ba26c7242d",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+        "block": 13,
+        "sha256": "5f2c1bbee49fb9b04483d43b30eead968d10dfd63e02b866ee6f24ba26c7242d"
+      },
+      "changes": []
+    }
+  ],
+  "supplementalFiles": "Everything outside published/ is supplemental setup/tests, not author-source.",
+  "reusedSource": "blog-solutions-audit/solana/token-2022/run-local.sh; scenarios/helpers adapted for isolated per-article use."
+}

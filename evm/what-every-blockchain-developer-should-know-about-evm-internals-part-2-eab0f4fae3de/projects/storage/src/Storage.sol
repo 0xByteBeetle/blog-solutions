@@ -1,0 +1,16 @@
+pragma solidity 0.8.12;
+
+contract Storage {
+    struct my_storage_struct {
+        uint256 number;
+        string owner;
+    }
+    my_storage_struct my_storage;
+
+    function store(my_storage_struct calldata new_storage) public {
+        my_storage = new_storage;
+    }
+    function retrieve() public view returns (my_storage_struct memory){
+        return my_storage;
+    }
+}

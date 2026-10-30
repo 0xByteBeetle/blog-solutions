@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-30",
+  "scope": "Local Solidity compilation and ten supplemental mocked-VM tests only; no network/native HyperCore proof",
+  "command": "forge test --root hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter -vv",
+  "exitCode": 0,
+  "forgeVersion": "forge Version: 1.4.4-v1.4.4\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-10-30T15:50:28.714367747Z (1761839428)\nBuild Profile: maxperf",
+  "solc": "0.8.30",
+  "stdout": "No files changed, compilation skipped\n\nRan 10 tests for test/PublishedExamples.t.sol:PublishedExamplesTest\n[PASS] testBalanceAddressAndUint64Encoding() (gas: 15272)\n[PASS] testBboAndBalanceFailuresReject() (gas: 21237)\n[PASS] testBboTupleDecodingAndRawIndex() (gas: 14128)\n[PASS] testLimitOrderHeaderAndEveryField() (gas: 520941)\n[PASS] testLowLevelOrderDoesNotValidateZeroSizeOrTif() (gas: 400816)\n[PASS] testOracleFailureAndMalformedOutputReject() (gas: 16802)\n[PASS] testOracleUsesRawAbiWithoutSelector() (gas: 16251)\n[PASS] testPriceScaleAndDecimalsBoundary() (gas: 19430)\n[PASS] testPriceScaleUnsupportedDecimalsRevert() (gas: 10124)\n[PASS] testUsdActionHeaderAndBodyAndCaller() (gas: 294099)\nSuite result: ok. 10 passed; 0 failed; 0 skipped; finished in 2.00ms (2.10ms CPU time)\n\nRan 1 test suite in 3.29ms (2.00ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)\n",
+  "stderr": "",
+  "sourceSubstringChecks": 12,
+  "fileHashes": {
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/HyperCoreBbo.sol": "20ff8d7272f033a22e933452694a53b3f051840e45897826a15cb17ff66fa15a",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/HyperCoreBalances.sol": "a2b68d0b4acc6aa38aed5280562b9c3d68fc15c79ceebf385fd365bd53e9016f",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/Bbo.sol": "d81b6392045aa19fbbf682193fc598b604c4b57fe521f542052f4c5335d1aa3e",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/Position.sol": "7499dee02df6fca813b194e3dbf260d3e574b67afe5f38f2a57114014b3c255f",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/PriceScale.sol": "3146a82033a304501c903363b64a362cd7b17cd42fae407ddcc42bfa0417d484",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/AccountMarginSummary.sol": "b184d83ed0bc9e83728688a9f809e5aaa6ecf42bcda12b68d2322dd3f6b0bdd8",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/UsdClassTransfer.sol": "b27557e50117108fa61da29fac3bf7aec0b77e0d99951ac1490dafbfc101c9ca",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/HyperCoreLimitOrder.sol": "fc3f4fd769e0a51c2caa71393ebd98503a6f132853243e35cdc01beed4c85f40",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/HyperCoreRead.sol": "d7a7834ecfc0bde0cb004a5492cfd246d3e67e6c9fd4c165760044c68925d79d",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/SpotBalance.sol": "feb277494722282821a63e00ecbf046337ccc76887dcd7654284c00bd91f37e1",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/src/WrongOracle.sol": "45411c62b8de8f5711b65bceb667c409e5cdd6b743968fcee65793109be615aa",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/test/PublishedExamples.t.sol": "49d34ff9bb477a8064dbe4ea850ec94761d10c1d57a868fe7be7005a77296d43",
+    "hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter/foundry.toml": "6aecf0a25c61a9d53b59a9b7e0d6a416fb5b55eb9fd1416e5ba0b05ccd9f9979"
+  }
+}

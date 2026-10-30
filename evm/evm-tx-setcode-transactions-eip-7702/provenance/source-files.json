@@ -1,0 +1,164 @@
+[
+  {
+    "path": "projects/transaction-types/go.mod",
+    "sha256": "2dbb769b9e675a7b2e7437347c16f1bd926bbc5e1f84cc4a272cc99a836009e0",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "go.mod"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/go.sum",
+    "sha256": "2f1eb0745b3384c46ff8b4e439fc0b4ddaa07a2657df10d3e41c642e31963007",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "go.sum"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/account/account.go",
+    "sha256": "cf5e5e1b6e45be5925f1d6e3deffcdede35134888382500997d9e51c53899e49",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "account/account.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip1559/eip1559.go",
+    "sha256": "4131774273e3d8faf708805997c895fb08a561e133c0821abeebf8e90b324707",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip1559/eip1559.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip2930/eip2930.go",
+    "sha256": "e6e91357023a2a6a8b8a0b9ec5bb6ee8b61df5fdebb597cb35796ead23a8fe09",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip2930/eip2930.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip4844/eip4844.go",
+    "sha256": "8324d7e533c42a5c6d0a0a1a43ab72674471d4a3e5ff195a505da89722a7adb3",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip4844/eip4844.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip712/eip712.go",
+    "sha256": "5e73fb946ecf9d4fb9208f048e225ac6facfa72891bfddba49fb61767a9b9f16",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip712/eip712.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip712/verifier.sol",
+    "sha256": "d9196830d00b23029d0af4b38a570b4d9aeed72f7e63fb4d932302805ebca6e1",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip712/verifier.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip7702/eip7702_batch.go",
+    "sha256": "b8abdff7a9af3bfe2e70cf3fb8a9cc670a720adae647f92304d500d0fb582230",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/eip7702_batch.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip7702/invoked.sol",
+    "sha256": "1c5b072dc54111dcd349f049a66402bc54704936507b54af5de5761d0f220185",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/invoked.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/eip7702/multi_delegation_invoker.sol",
+    "sha256": "e95782736794b8ee19929a4c4782a6340ce19da2150368b3611f0fe2f26e1b9b",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip7702/multi_delegation_invoker.sol"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/legacy-tx/legacy.go",
+    "sha256": "c84cbd77d6a935f9b28d20f505f3270f994dde6094d3d2878dfc713d385c24b3",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "legacy-tx/legacy.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/transaction-types/personalsign/personalsign.go",
+    "sha256": "ed83d3679228b230da80e8f200f08b745de151ea33c23263d3714ccb936bd172",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "personalsign/personalsign.go"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/delegation/src/Invoked.sol",
+    "sha256": "7fcd21497429b6d1cb6bdc97f18a2a19c85bea046fccd69563a3aa6f94ecd2b0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702",
+      "block": 4,
+      "sha256": "b6f1ba50736bd3275c16a0295c775db81e1ab33a9238c4a7a966d0cf095f08b5"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/delegation/src/MultiDelegationInvoker.sol",
+    "sha256": "cc387592a72717ce50e35c3675132740896c826272919c5063a24b876c0e15ca",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/evm-tx-setcode-transactions-eip-7702",
+      "block": 5,
+      "sha256": "ac4291f322fa06c6b32d743b3a9531ff4558b9ad31dfccafa2810202680b6ebc"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "projects/transaction-types/eip4844/trusted_setup.txt",
+    "sha256": "e695ba9905a832de98dc3567febe326b760382bfd77a9a6880ca51b602a7d7ff",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/TransactionTypes",
+      "revision": "c740e9c0e0ee20967c63da322b3a99a80723351f",
+      "path": "eip4844/trusted_setup.txt"
+    },
+    "changes": []
+  }
+]

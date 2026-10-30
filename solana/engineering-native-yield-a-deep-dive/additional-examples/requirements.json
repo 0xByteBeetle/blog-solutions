@@ -1,0 +1,23 @@
+{
+  "shell": "bash",
+  "python": "3.10+ standard library",
+  "commands": [
+    "solana",
+    "solana-keygen",
+    "solana-test-validator",
+    "spl-token",
+    "curl"
+  ],
+  "referenceCli": "spl-token-cli 5.6.1 (official current reference; not locally verified)",
+  "referenceAgave": "4.2.1 (documented bundle pairing; not installed or runtime verified here)",
+  "versionPolicy": "CLI5.5.0 is accepted only with reviewed Solana/validator3.1.9; CLI5.6.1 retains the documented reference path. All used flags must exist before key generation or validator startup. Unsupported versions or missing flags fail closed; no bypass or automatic install.",
+  "network": "127.0.0.1 only, no clone-feature-set or public RPC",
+  "runtimeStatus": "NOT RUN: cloud lacks Solana CLI/validator; static checks only",
+  "reviewedInstalledPair": {
+    "splTokenCli": "5.5.0",
+    "solanaCli": "3.1.9",
+    "validator": "3.1.9",
+    "evidence": "tests/fixtures/cli-help-5.5.0.json",
+    "scope": "Read-only syntax/capability confirmation; runtime results recorded separately."
+  }
+}

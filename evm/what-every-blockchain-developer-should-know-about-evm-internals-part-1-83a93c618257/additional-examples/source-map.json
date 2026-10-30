@@ -1,0 +1,14 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
+  "sourceSnapshot": "articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/published.md",
+  "mappings": [
+    {
+      "block": 6,
+      "publishedPath": "evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/additional-examples/published/block-06.txt",
+      "publishedSha256": "ad3846d97aed7537ea3fd8d24b885a5bb948d0b074ef0d54d797ca36e63c4893",
+      "sourcePath": "evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/additional-examples/src/Block06.sol",
+      "sourceSha256": "3933e0637a2a59f86a39eeb24e50a594b1f1013dd868de483adcf2b65a816978",
+      "changes": "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    }
+  ]
+}

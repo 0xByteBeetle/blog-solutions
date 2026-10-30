@@ -1,0 +1,32 @@
+[
+  {
+    "path": "projects/signing-nonces/01_sign_and_recover.py",
+    "sha256": "32ff6ba25233749f79509cd56bbdd0f7bf45e253d8c200d8885939f5d8499fbe",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 8,
+      "sha256": "32ff6ba25233749f79509cd56bbdd0f7bf45e253d8c200d8885939f5d8499fbe"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/signing-nonces/02_signed_preimage_mutations.py",
+    "sha256": "7ddd021042bff830af40787d6b846d841c29b55ab7e1a836e0245a2fd2565497",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 10,
+      "sha256": "7ddd021042bff830af40787d6b846d841c29b55ab7e1a836e0245a2fd2565497"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/signing-nonces/03_nonce_allocator.py",
+    "sha256": "319122b135ea3aa8de9d65f4841910835460fe3466945f9bb56ac4a5a872424c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 17,
+      "sha256": "319122b135ea3aa8de9d65f4841910835460fe3466945f9bb56ac4a5a872424c"
+    },
+    "changes": []
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "article": "engineering-native-yield-a-deep-dive",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exitCode": 0,
+    "output": "test_equal_or_increasing_values (test_interest.InterestCheckerTests.test_equal_or_increasing_values) ... ok\ntest_invalid_rpc_principal_and_ui_are_rejected (test_interest.InterestCheckerTests.test_invalid_rpc_principal_and_ui_are_rejected) ... ok\ntest_regression_rejected (test_interest.InterestCheckerTests.test_regression_rejected) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.179s\n\nOK\n",
+    "runtime": "not-run"
+  },
+  {
+    "article": "from-convention-to-explicit-state",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exitCode": 0,
+    "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.109s\n\nOK\n",
+    "runtime": "not-run"
+  },
+  {
+    "article": "native-zk-on-solana-the-architecture",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exitCode": 0,
+    "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.120s\n\nOK\n",
+    "runtime": "not-run"
+  },
+  {
+    "article": "the-utility-extensions-completing",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exitCode": 0,
+    "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.116s\n\nOK\n",
+    "runtime": "not-run"
+  },
+  {
+    "article": "transfer-hooks-on-solana-anchor-031",
+    "command": [
+      "node",
+      "--test",
+      "tests/staging.test.mjs"
+    ],
+    "exitCode": 0,
+    "output": "\u2714 published and normalized source inputs retain their recorded hashes (2.134515ms)\n\u2714 dependencies and manifests are article-local (2.907614ms)\n\u2714 runtime refuses missing action acknowledgement before tools or key generation (126.239758ms)\n\u2714 runtime rejects public provider or external wallet before tools or key generation (261.112875ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 566.103108\n",
+    "runtime": "not-run"
+  },
+  {
+    "article": "understanding-solana-part-6-transactions",
+    "command": [
+      "node",
+      "--test",
+      "tests/staging.test.mjs"
+    ],
+    "exitCode": 0,
+    "output": "\u2714 published and normalized source inputs retain their recorded hashes (3.274374ms)\n\u2714 dependencies and manifests are article-local (3.68414ms)\n\u2714 runtime refuses missing action acknowledgement before tools or key generation (178.717243ms)\n\u2714 runtime rejects public provider or external wallet before tools or key generation (319.217963ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 699.032899\n",
+    "runtime": "not-run"
+  }
+]

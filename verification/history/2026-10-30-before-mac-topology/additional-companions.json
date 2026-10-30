@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-30T16:32:04.400Z",
+  "scope": "Supplemental offline/loopback EVM tests and Solana static checks; no Solana runtime or public-network claim",
+  "results": [
+    {
+      "article": "the-utility-extensions-completing",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.088s\n\nOK\n"
+    },
+    {
+      "article": "native-zk-on-solana-the-architecture",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.083s\n\nOK\n"
+    },
+    {
+      "article": "engineering-native-yield-a-deep-dive",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "output": "test_equal_or_increasing_values (test_interest.InterestCheckerTests.test_equal_or_increasing_values) ... ok\ntest_invalid_rpc_principal_and_ui_are_rejected (test_interest.InterestCheckerTests.test_invalid_rpc_principal_and_ui_are_rejected) ... ok\ntest_regression_rejected (test_interest.InterestCheckerTests.test_regression_rejected) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.085s\n\nOK\n"
+    },
+    {
+      "article": "transfer-hooks-on-solana-anchor-031",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "tests/check-annotations.test.mjs",
+        "tests/staging.test.mjs"
+      ],
+      "exitCode": 0,
+      "output": "✔ CHECK variant adds only the two documented comments, preserving every other byte (1.964555ms)\n✔ CHECK variant is explicit and separately recorded, never the default source (0.528353ms)\n✔ published and normalized source inputs retain their recorded hashes (2.506105ms)\n✔ dependencies and manifests are article-local (12.01156ms)\n✔ runtime refuses missing action acknowledgement before tools or key generation (130.497292ms)\n✔ runtime rejects public provider or external wallet before tools or key generation (192.061174ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 494.126432\n"
+    },
+    {
+      "article": "from-convention-to-explicit-state",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.090s\n\nOK\n"
+    },
+    {
+      "article": "understanding-solana-part-6-transactions",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "tests/staging.test.mjs"
+      ],
+      "exitCode": 0,
+      "output": "✔ published and normalized source inputs retain their recorded hashes (2.144868ms)\n✔ dependencies and manifests are article-local (6.118177ms)\n✔ runtime refuses missing action acknowledgement before tools or key generation (119.31801ms)\n✔ runtime rejects public provider or external wallet before tools or key generation (215.935365ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 482.526453\n"
+    },
+    {
+      "article": "eth_call-vs-debug_tracecall-how-to",
+      "command": [
+        "python3",
+        "local_rpc.py"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"fixture\": \"supplemental local identity precompile\",\n  \"ethCallRequest\": {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_call\",\n    \"params\": [\n      {\n        \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n        \"to\": \"0x0000000000000000000000000000000000000004\",\n        \"value\": \"0x1\",\n        \"data\": \"0x1234\",\n        \"gas\": \"0x186a0\"\n      },\n      \"latest\"\n    ],\n    \"id\": 1\n  },\n  \"ethCallResult\": \"0x1234\",\n  \"traceCallRequest\": {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"debug_traceCall\",\n    \"params\": [\n      {\n        \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n        \"to\": \"0x0000000000000000000000000000000000000004\",\n        \"value\": \"0x1\",\n        \"data\": \"0x1234\",\n        \"gas\": \"0x186a0\"\n      },\n      \"latest\",\n      {\n        \"tracer\": \"callTracer\",\n        \"timeout\": \"30s\"\n      }\n    ],\n    \"id\": 1\n  },\n  \"traceCallResult\": {\n    \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n    \"gas\": \"0x13478\",\n    \"gasUsed\": \"0x5258\",\n    \"to\": \"0x0000000000000000000000000000000000000004\",\n    \"input\": \"0x1234\",\n    \"output\": \"0x1234\",\n    \"value\": \"0x1\",\n    \"type\": \"CALL\"\n  },\n  \"balancesBefore\": [\n    \"0x21e19e0c9bab2400000\",\n    \"0x0\"\n  ],\n  \"balancesAfter\": [\n    \"0x21e19e0c9bab2400000\",\n    \"0x0\"\n  ],\n  \"checks\": [\n    \"complete JSON request round-trip\",\n    \"eth_call returns supplied identity bytes\",\n    \"debug_traceCall returns same bytes\",\n    \"simulated value transfer does not persist balances\"\n  ],\n  \"transactionsSubmitted\": 0,\n  \"publicNetwork\": false\n}\n"
+    },
+    {
+      "article": "solidity-execution-overview-payable",
+      "command": [
+        "forge",
+        "test"
+      ],
+      "exitCode": 0,
+      "output": "No files changed, compilation skipped\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.02ms (2.16ms CPU time)\n\nRan 1 test suite in 4.25ms (1.02ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
+    },
+    {
+      "article": "introduction-to-the-ethereum-virtual",
+      "command": [
+        "forge",
+        "test"
+      ],
+      "exitCode": 0,
+      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 839.51µs (496.61µs CPU time)\n\nRan 1 test suite in 3.71ms (839.51µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+    },
+    {
+      "article": "diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "command": [
+        "forge",
+        "test"
+      ],
+      "exitCode": 0,
+      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testIndependentContractStorageAndOverwrite() (gas: 332789)\n[PASS] testWritesExactNamespacedSlotNotSlotZero() (gas: 170058)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 547.95µs (468.49µs CPU time)\n\nRan 1 test suite in 3.03ms (547.95µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+    },
+    {
+      "article": "ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc",
+      "command": [
+        "python3",
+        "local_rpc.py"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"fixture\": \"supplemental local identity precompile\",\n  \"ethCallRequest\": {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_call\",\n    \"params\": [\n      {\n        \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n        \"to\": \"0x0000000000000000000000000000000000000004\",\n        \"value\": \"0x1\",\n        \"data\": \"0x1234\",\n        \"gas\": \"0x186a0\"\n      },\n      \"latest\"\n    ],\n    \"id\": 1\n  },\n  \"ethCallResult\": \"0x1234\",\n  \"traceCallRequest\": {\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"debug_traceCall\",\n    \"params\": [\n      {\n        \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n        \"to\": \"0x0000000000000000000000000000000000000004\",\n        \"value\": \"0x1\",\n        \"data\": \"0x1234\",\n        \"gas\": \"0x186a0\"\n      },\n      \"latest\",\n      {\n        \"tracer\": \"callTracer\",\n        \"timeout\": \"30s\"\n      }\n    ],\n    \"id\": 1\n  },\n  \"traceCallResult\": {\n    \"from\": \"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266\",\n    \"gas\": \"0x13478\",\n    \"gasUsed\": \"0x5258\",\n    \"to\": \"0x0000000000000000000000000000000000000004\",\n    \"input\": \"0x1234\",\n    \"output\": \"0x1234\",\n    \"value\": \"0x1\",\n    \"type\": \"CALL\"\n  },\n  \"balancesBefore\": [\n    \"0x21e19e0c9bab2400000\",\n    \"0x0\"\n  ],\n  \"balancesAfter\": [\n    \"0x21e19e0c9bab2400000\",\n    \"0x0\"\n  ],\n  \"checks\": [\n    \"complete JSON request round-trip\",\n    \"eth_call returns supplied identity bytes\",\n    \"debug_traceCall returns same bytes\",\n    \"simulated value transfer does not persist balances\"\n  ],\n  \"transactionsSubmitted\": 0,\n  \"publicNetwork\": false\n}\n"
+    },
+    {
+      "article": "what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de",
+      "command": [
+        "forge",
+        "test"
+      ],
+      "exitCode": 0,
+      "output": "No files changed, compilation skipped\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.25ms (2.39ms CPU time)\n\nRan 1 test suite in 2.37ms (1.25ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
+    },
+    {
+      "article": "what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
+      "command": [
+        "forge",
+        "test"
+      ],
+      "exitCode": 0,
+      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 957.61µs (468.46µs CPU time)\n\nRan 1 test suite in 2.31ms (957.61µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+    }
+  ]
+}

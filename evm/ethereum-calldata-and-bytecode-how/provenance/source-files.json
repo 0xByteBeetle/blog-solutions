@@ -1,0 +1,12 @@
+[
+  {
+    "path": "projects/bytecode/src/MiniExample.sol",
+    "sha256": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/ethereum-calldata-and-bytecode-how",
+      "block": 6,
+      "sha256": "e6eaba303a7e34a87e38bde46f961c19419ff51466bf35539786ae3822d47ce2"
+    },
+    "changes": []
+  }
+]

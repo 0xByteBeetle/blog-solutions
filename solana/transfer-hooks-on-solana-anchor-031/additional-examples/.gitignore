@@ -1,0 +1,6 @@
+.local/
+**/node_modules/
+**/target/
+**/.anchor/
+*.log
+.env*

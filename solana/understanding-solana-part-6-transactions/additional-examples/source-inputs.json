@@ -1,0 +1,68 @@
+[
+  {
+    "path": "published/lib.rs",
+    "sha256": "9702c306fe1c2110a1bfe7e970440381cebf7b4ef8a046be8459f0251986fd2c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 1,
+      "sha256": "9702c306fe1c2110a1bfe7e970440381cebf7b4ef8a046be8459f0251986fd2c"
+    },
+    "changes": []
+  },
+  {
+    "path": "published/setup.ts",
+    "sha256": "caa188e35e8354560f477c05bf250d8974db789f7c24e9a44e53d936f2d4912c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 4,
+      "sha256": "caa188e35e8354560f477c05bf250d8974db789f7c24e9a44e53d936f2d4912c"
+    },
+    "changes": []
+  },
+  {
+    "path": "published/client.ts",
+    "sha256": "482ffac8db2e823522677f0150639d6ef19ab03a355022344d775d78c27e7cd9",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 5,
+      "sha256": "482ffac8db2e823522677f0150639d6ef19ab03a355022344d775d78c27e7cd9"
+    },
+    "changes": []
+  },
+  {
+    "path": "workspace-template/programs/wallet_tokens_balance/src/lib.rs",
+    "sha256": "5493688ee91199b5be9e19b042bc4532d070ce67bb26f4963e88c7b708a4bf11",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 1,
+      "sha256": "9702c306fe1c2110a1bfe7e970440381cebf7b4ef8a046be8459f0251986fd2c"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "workspace-template/scripts/create_alts.ts",
+    "sha256": "262b52358c0fac399ce334a86e7b7967993905142c7dfb6959ba6764bd16f7e1",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 4,
+      "sha256": "caa188e35e8354560f477c05bf250d8974db789f7c24e9a44e53d936f2d4912c"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "workspace-template/scripts/client.ts",
+    "sha256": "c55f702638b13631e2c012d5711c054b34bae502ec78c58a6d41fbb5b08a322f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "block": 5,
+      "sha256": "482ffac8db2e823522677f0150639d6ef19ab03a355022344d775d78c27e7cd9"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  }
+]

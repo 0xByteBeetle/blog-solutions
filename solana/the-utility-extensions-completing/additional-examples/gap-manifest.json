@@ -1,0 +1,117 @@
+{
+  "target": "solana/the-utility-extensions-completing/",
+  "sourceMap": "source-map.json",
+  "exactBlocks": 13,
+  "supplementalSetup": [
+    "requirements.json",
+    "local-harness.sh",
+    "run.sh",
+    "scenario.sh",
+    "README.md",
+    "tests/test_static.py"
+  ],
+  "staticChecks": {
+    "status": "passed",
+    "count": 5,
+    "date": "2026-10-30"
+  },
+  "runtimeChecks": {
+    "status": "not-run",
+    "reason": "Combined extension support and exact CLI/program rejection logs must be verified by the supported local validator. Negative helper requires program-simulation failure plus unchanged balances, but exact program-error decoding remains a runtime review gate."
+  },
+  "networkPolicy": "strict-loopback; no automatic public fallback",
+  "integration": "Overlay/add these supplemental files and published snapshots into migrated perarticle target without deleting healthy variants; resolve name collisions explicitly.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "d8974a1bd0952e55874013d796a654bfe6278147b832cc19879b3c5338ea85a3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c7088a577ad7a5623c3ffbaaabcc8404ab0432b89df2f61881d3f0a7a385dc1e"
+    },
+    {
+      "path": "local-harness.sh",
+      "sha256": "ed7f5a17f8c990b5b4eae3f683ba94ccde15e88807b6da241603d56b7fd2e9b6"
+    },
+    {
+      "path": "published/block-01.txt",
+      "sha256": "c489d720cb6a4d0468c6b22cfd37088d6ae7e144546a025845223afa5a950b63"
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "592596e2deb66086e35158269d243326a3addf9cf7fb55a1ea4e2cfcab496928"
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "8e9784d02787af4950f8c5b8b5522b3de2de085dd13422b5f3930eeffaff24b2"
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "63b9b5d580129c33ed326f195d66dc0f1c0174b405d4f35a6e90ef53a78e8570"
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "54afca74d82a13cb4f0922bc3013e9a9438d1aca56ebdbad34e19f453b53cb89"
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "4685c8df0c1a4aa0dce0ab1e1f01d26668a746ef54935cf75ee59d3e62581733"
+    },
+    {
+      "path": "published/block-07.txt",
+      "sha256": "485edb588a649d3805a9b4a3d3c39b88564944c0a28d7f0eb339e50268992234"
+    },
+    {
+      "path": "published/block-08.txt",
+      "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd"
+    },
+    {
+      "path": "published/block-09.txt",
+      "sha256": "ffbaae836404d7c03b3028470ceca082513ecbfd9d32d9928f51093bcd6d3b8e"
+    },
+    {
+      "path": "published/block-10.txt",
+      "sha256": "c1f089cd2e2b62ff907a9e61b1595386758d51353aa5e4f8c8ac6222afb3d9bd"
+    },
+    {
+      "path": "published/block-11.txt",
+      "sha256": "4006a93c8742d144e5685f2a2be18f3a6aee3df16b275ac674522466f8bfb31f"
+    },
+    {
+      "path": "published/block-12.txt",
+      "sha256": "f8d7cf6789c59118559eadba0edbc4a48117b6b232e2b8b06e7ca381ff1721b9"
+    },
+    {
+      "path": "published/block-13.txt",
+      "sha256": "5f2c1bbee49fb9b04483d43b30eead968d10dfd63e02b866ee6f24ba26c7242d"
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "037591f86c2d12f00de8b899a2d0d4109051fafac244ad37371ff2ba178d5e12"
+    },
+    {
+      "path": "run.sh",
+      "sha256": "71186a38678d4b368f68234ee244f1c7759fd3d334a71aabd94207a3768415eb"
+    },
+    {
+      "path": "scenario.sh",
+      "sha256": "b39ef1cf04723e38afa5bf9caea1648cef5f2b7a3f564e7d69a31ef60c4a7446"
+    },
+    {
+      "path": "source-map.json",
+      "sha256": "218b830c30bc03b720abbf13610b44f5f1888ecd20d549cef150dc125e201ba4"
+    },
+    {
+      "path": "tests/test_static.py",
+      "sha256": "3a4081f07a2345738cece7b05a036fff834589494051551f3a8efe068479c037"
+    }
+  ],
+  "topologyDocumentationAdaptations": [
+    {
+      "path": "README.md",
+      "beforeSha256": "872c7aeab1a5b4270603731ffd6b740745bd3e9b57d72d14a81f5de02b178715",
+      "reason": "Label old source path as historical provenance, not a current runnable command."
+    }
+  ]
+}

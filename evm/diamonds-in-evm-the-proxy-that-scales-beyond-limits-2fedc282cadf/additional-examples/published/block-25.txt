@@ -1,0 +1,13 @@
+library CounterStorage {
+    // random slot: keccak256("example.counter.storage")
+    bytes32 internal constant SLOT = keccak256("example.counter.storage");
+
+    struct Layout {
+        uint256 counter;
+    }
+
+    function layout() internal pure returns (Layout storage l) {
+        bytes32 slot = SLOT;
+        assembly { l.slot := slot }
+    }
+}

@@ -1,0 +1,28 @@
+[toolchain]
+anchor_version = "0.31.1"
+package_manager = "npm"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+accounts_lab = "xwFycoUEijNTc5j668Hhj41RCX8fGWJRjzWUeNNbZDP"
+borsh_lab = "3bSwAt5S78JAqp3153dd2Jrm6nscvYYW2MgamGXDvw9P"
+zero_copy = "6LEQabRZV5yviGWzAFBw7qj1Dxc1sq7VKgJCcfyZiezi"
+transfer_hook = "3YAaWETbu4RMYx93XzW12ogaruJGy5TYqPhGutoYbjxp"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[test.validator]
+bind_address = "127.0.0.1"
+ledger = ".anchor/test-ledger"
+rpc_port = 18999
+gossip_port = 19001
+faucet_port = 19002
+dynamic_port_range = "19003-19100"
+
+[scripts]
+test = "npm run test:anchor"

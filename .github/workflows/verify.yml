@@ -25,7 +25,9 @@ jobs:
           version: v1.4.4
       - run: node scripts/setup-restored.mjs
       - run: node scripts/check-catalog.mjs
-      - run: python3 -m unittest discover -s examples/hyperliquid/hip3-original/tests -v
+      - run: node scripts/check-topology.mjs
+      - run: node --test scripts/topology.test.mjs
+      - run: python3 -m unittest discover -s hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-original/tests -v
       - run: node --test scripts/source-integrity.test.mjs
       - run: node scripts/check-evm-alignment.mjs
       - run: node scripts/check-solana-alignment.mjs
@@ -36,23 +38,24 @@ jobs:
       - run: node --test scripts/solana-alignment.test.mjs
       - run: node --test scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
       - run: node scripts/verify-restored-builds.mjs
-      - run: cargo test --locked --manifest-path examples/solana/borsh-proposal/Cargo.toml -p borsh_deep_dive --test allocation
+      - run: node scripts/verify-additional-companions.mjs
+      - run: cargo test --locked --manifest-path solana/solana-deep-dive-unpacking-borsh/projects/borsh-proposal/Cargo.toml -p borsh_deep_dive --test allocation
       - run: node scripts/verify-restored-evm.mjs
       - run: go test -count=1 ./...
-        working-directory: examples/evm/corrections/rlp
-      - run: forge test --root examples/evm/corrections/solidity
-      - run: forge test --root examples/hyperliquid/precompiles-corewriter
-      - run: cargo test --locked --manifest-path examples/hyperliquid/account-shapes/Cargo.toml
-      - run: python3 -m unittest discover -s examples/hyperliquid/account-shapes/tests -v
-      - run: python3 -m unittest discover -s examples/hyperliquid/hip3-published/tests -v
+        working-directory: evm/proxies-and-upgradability-uups-proxy/projects/corrections/rlp
+      - run: forge test --root evm/proxies-and-upgradability-uups-proxy/projects/corrections/solidity
+      - run: forge test --root hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter
+      - run: cargo test --locked --manifest-path hyperliquid/hyperliquid-beyond-generic-vms-the/projects/account-shapes/Cargo.toml
+      - run: python3 -m unittest discover -s hyperliquid/hyperliquid-beyond-generic-vms-the/projects/account-shapes/tests -v
+      - run: python3 -m unittest discover -s hyperliquid/unpacking-hyperliquid-part-4-hip/projects/hip3-published/tests -v
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: |
-          python3 -m venv examples/hyperliquid/signing-nonces/.venv
-          examples/hyperliquid/signing-nonces/.venv/bin/python -m pip install -r examples/hyperliquid/signing-nonces/requirements-verified.txt
-          examples/hyperliquid/signing-nonces/.venv/bin/python -m pip check
-          examples/hyperliquid/signing-nonces/.venv/bin/python -m unittest discover -s examples/hyperliquid/signing-nonces/tests -v
+          python3 -m venv hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/.venv
+          hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/.venv/bin/python -m pip install -r hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/requirements-verified.txt
+          hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/.venv/bin/python -m pip check
+          hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/.venv/bin/python -m unittest discover -s hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/tests -v
 
   evm:
     name: Supplementary EVM labs (not article coverage)
@@ -65,10 +68,10 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: "1.24.x"
-          cache-dependency-path: evm/go/go.sum
-      - run: forge test --root evm/foundry
+          cache-dependency-path: evm/batching-calls-efficiently-with-multicall/supplementary/go/go.sum
+      - run: forge test --root evm/proxies-and-upgradability-minimal/supplementary/foundry
       - run: go test ./...
-        working-directory: evm/go
+        working-directory: evm/batching-calls-efficiently-with-multicall/supplementary/go
 
   solana-and-catalog:
     name: Supplementary Solana labs (not article coverage)
@@ -80,23 +83,23 @@ jobs:
           node-version: "22"
           cache: npm
           cache-dependency-path: |
-            solana/anchor/package-lock.json
-            solana/metadata/package-lock.json
+            solana/solana-deep-dive-unpacking-borsh/supplementary/anchor/package-lock.json
+            solana/where-token-metadata-lives-on-solana/supplementary/metadata/package-lock.json
       - uses: dtolnay/rust-toolchain@stable
       - run: node scripts/check-catalog.mjs
-      - run: cargo test --manifest-path solana/fundamentals/Cargo.toml
-      - run: cargo check --workspace --manifest-path solana/anchor/Cargo.toml
+      - run: cargo test --manifest-path solana/architecting-high-performance-solana/supplementary/fundamentals/Cargo.toml
+      - run: cargo check --workspace --manifest-path solana/solana-deep-dive-unpacking-borsh/supplementary/anchor/Cargo.toml
       - run: npm ci
-        working-directory: solana/anchor
+        working-directory: solana/solana-deep-dive-unpacking-borsh/supplementary/anchor
       - run: npx tsc --noEmit
-        working-directory: solana/anchor
+        working-directory: solana/solana-deep-dive-unpacking-borsh/supplementary/anchor
       - run: npm ci
-        working-directory: solana/metadata
+        working-directory: solana/where-token-metadata-lives-on-solana/supplementary/metadata
       - run: npm test
-        working-directory: solana/metadata
+        working-directory: solana/where-token-metadata-lives-on-solana/supplementary/metadata
       - run: npm run check
-        working-directory: solana/metadata
+        working-directory: solana/where-token-metadata-lives-on-solana/supplementary/metadata
       - run: npm ci --ignore-scripts
-        working-directory: examples/solana/metadata-published
+        working-directory: solana/where-token-metadata-lives-on-solana/projects/metadata-published
       - run: npm run check
-        working-directory: examples/solana/metadata-published
+        working-directory: solana/where-token-metadata-lives-on-solana/projects/metadata-published

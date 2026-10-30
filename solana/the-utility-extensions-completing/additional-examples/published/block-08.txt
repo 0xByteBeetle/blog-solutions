@@ -1,0 +1,1 @@
+spl-token mint <MINT_ADDRESS> 100 <SOME_TOKEN_ACCOUNT>

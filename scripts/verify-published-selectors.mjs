@@ -6,8 +6,8 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..');
 const paths=[
- 'articles/evm/abi-encoding-deep-dive-how-solidity/published.md',
- 'articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md',
+ 'evm/abi-encoding-deep-dive-how-solidity/published.md',
+ 'evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md',
 ];
 const readBlock=(file,index)=>{
  const matches=[...fs.readFileSync(root+'/'+file,'utf8').matchAll(/## Block (\d+)\n\nSHA-256: `[a-f0-9]{64}`\n\n````text\n([\s\S]*?)\n````/g)];

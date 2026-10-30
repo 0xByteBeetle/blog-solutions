@@ -1,0 +1,3 @@
+
+spl-token create-account <YOUR_MINT_ADDRESS>
+spl-token mint <YOUR_MINT_ADDRESS> 100
