@@ -15,3 +15,7 @@ Foundry downloads the pinned compiler on first use if absent. With the compiler 
 Four tests cover the empty initial value, tuple calldata and return encoding/decoding, long/empty strings and uint256 boundaries, and rejection of missing tuple calldata. They execute locally in Foundry's EVM. They do not validate every explanatory/calldata block in the article.
 
 Verified: Foundry 1.4.4, solc 0.8.12; all four tests passed.
+
+## Foundry project
+
+The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.

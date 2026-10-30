@@ -13,3 +13,7 @@ Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.30.
 # From this article directory
 forge test
 ```
+
+## Foundry project
+
+The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.
