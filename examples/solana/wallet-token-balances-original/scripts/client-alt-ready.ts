@@ -1,5 +1,5 @@
 // Authorized ALT-readiness variant. Original implementation is preserved in client.ts.
-// Changes: readiness polling, consistent confirmed RPC context, and import-safe entrypoint.
+// Changes: readiness polling, confirmed RPC context, default RPC retries, and import-safe entrypoint.
 import { PublicKey, TransactionSignature, AddressLookupTableProgram, Connection } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
 import {
@@ -148,7 +148,8 @@ export async function getBalancesClient(
   await provider.wallet.signTransaction(vtx);
 
   const sig = await connection.sendTransaction(vtx, {
-    maxRetries: 3,
+    // Use the RPC retry policy for this same signed transaction.
+    // Do not truncate rebroadcast to three retries before blockhash expiry.
     preflightCommitment: "confirmed",
     minContextSlot,
   });

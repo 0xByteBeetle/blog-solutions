@@ -39,3 +39,15 @@ The second inspection command should query the new selector if its purpose is to
 ## Incomplete and illustrative blocks
 
 The `eth_call` example in block 4 of both node-debugging articles ends inside the JSON request and is not a complete runnable command. Other articles intentionally show omitted imports, ellipses, API signatures, pseudocode, or historical output. All 494 blocks are now classified; classification does not claim that every snippet is independently executable or technically verified.
+
+## Fresh local-validator checks on October 30
+
+[The new report](solana-local-validator-2026-10-30.md) reruns the selected
+original/variant programs with disposable local fixtures. The original wallet
+cold-extension path still fails with an invalid lookup-table index; prepared
+ALT use passes. The corrected variant initially failed two extension checks
+with blockheight-expiry errors while capped at three RPC retries. Removing
+that cap preserves readiness checks and preflight while allowing the RPC's
+default rebroadcast policy. Its six-check regression then passes. The original
+client remains byte-for-byte preserved. Failed and earlier passing attempts
+are archived with their source hashes, not replaced by the new result.

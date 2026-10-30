@@ -2,8 +2,11 @@
 
 Supplemental setup/review notes, 2026-10-30. See the [16-article audit](../../verification/solana-alignment-2026-10-30.md).
 Original code, published snapshots, intentional failures and recorded variants are
-preserved. This review did not build Solana programs or execute transactions. Metadata client
-dependencies were installed with lifecycle scripts disabled and type-checks pass. Historical evidence below is from **2026-09-06**, not rerun today.
+preserved. The October 30 follow-through built and ran the selected local-validator
+suites below with disposable keys and local test funds. It also retains the
+original cold-ALT failure. See the [fresh runtime report](../../verification/solana-local-validator-2026-10-30.md).
+Metadata clients remain type-checked only; no public-network client was executed.
+September 6 evidence is archived separately rather than represented as a new pass.
 
 ## Safe setup boundary
 
@@ -12,7 +15,11 @@ and reference personal wallet paths. No wallet/keypair is supplied. Published
 clients contain historical program/mint/ALT addresses and may submit transactions.
 The supported harness copies a project into a temporary directory, creates new
 local keys, substitutes program IDs, and rewrites provider/ports/test launcher.
-The originals remain unchanged. No public deployment is required.
+The originals remain unchanged. No public deployment is required. Agave 3.1.9 binds
+the temporary faucet to all network interfaces. Listener inspection also showed
+the RPC listener on all interfaces despite the configured loopback bind. The
+loopback endpoint is used by tests; these services contain only disposable local state. Stop the test-owned
+processes and remove their wallet/program/ledger keys after execution.
 
 Prerequisites: Node 22/npm, Rust/Cargo, Anchor **0.31.1**, Solana CLI/keygen,
 `cargo-build-sbf` and local validator. Check actual versions before use. The
@@ -35,32 +42,40 @@ npm ci --prefix solana/anchor --ignore-scripts
 
 The Anchor harness uses shared dependencies rather than installing each recovered
 package.json. It runs TypeScript tests **transpile-only**, not full type checking,
-except explicit wallet-client type checks. It requires free loopback ports 19899,
-19901, 19902 and range 19903–20000. It writes verification reports: archive old
+except explicit wallet-client type checks. It requires free RPC/WebSocket ports
+19899–19900, gossip/faucet ports 19901–19902, and dynamic range 19903–20000. It writes verification reports: archive old
 reports before a rerun if needed. Run projects sequentially, not on those same
 ports concurrently.
 
+The October 30 Mac runtime uses installed Node **22.6.0** with
+`NODE_OPTIONS=--experimental-require-module`: its pinned CommonJS Web3 dependency
+loads an ESM UUID package. Without that compatibility flag, this Node version
+raises `ERR_REQUIRE_ESM`, which Mocha can surface as an unknown `.ts` extension.
+The failed launcher attempt is archived separately. Native npm lifecycle scripts
+are disabled; the optional bigint binding falls back to JavaScript.
+
 ## Projects and verification matrix
 
-All commands below run from repository root. `runtime` means historical local
-validator evidence, not a security audit or complete article verification.
+All commands below run from repository root. Runtime entries were rerun on
+October 30 with the recorded toolchain. They establish only the listed local
+fixtures, not a security audit or complete article verification.
 
-| Directory | Command / status | Historical coverage and remaining gap |
+| Directory | Command / status | Observed coverage and remaining gap |
 | --- | --- | --- |
 | `metadata-published` | `cd examples/solana/metadata-published && npm ci --ignore-scripts && npm run check` | Fresh type-check pass only; original create client reads a personal wallet and broadcasts to devnet if executed. |
-| `anchor-accounts` | `node scripts/run-original-anchor.mjs anchor-accounts` | Runtime recorded. Tests create/update/close but only log signatures; no fetched-state, unauthorized-owner or UTF-8-boundary assertions. |
-| `borsh-profile` | `node scripts/run-original-anchor.mjs borsh-profile` | Runtime recorded. Test logs raw bytes; no expected byte-array assertion. Published program-ID placeholder substitution is recorded in manifest. |
-| `borsh-proposal` | `node scripts/run-original-anchor.mjs borsh-proposal` | Runtime recorded for fixed fixture; two new host serialization boundary tests are prepared but not yet run. Different original program from profile; preserve both. |
-| `zero-copy` | `node scripts/run-original-anchor.mjs zero-copy` | Runtime recorded; volume500 and active1 asserted. Published module name, distinct from recovered original. |
-| `zero-copy-original` | `node scripts/run-original-anchor.mjs zero-copy-original` | Runtime recorded; same happy path under original `borsh_deep_dive` module. |
-| `zero-copy-layout` | `cargo test --locked --manifest-path examples/solana/zero-copy-layout/Cargo.toml -- --nocapture` | Host unit execution recorded in restored-builds.json. Original test prints layout; four new supplemental assertion tests are prepared but not yet run. Host execution does not establish every SBF ABI layout. |
+| `anchor-accounts` | `node scripts/run-original-anchor.mjs anchor-accounts` | Three local tests pass. Tests create/update/close but only log signatures; no fetched-state, unauthorized-owner or UTF-8-boundary assertions. |
+| `borsh-profile` | `node scripts/run-original-anchor.mjs borsh-profile` | One local test passes. Test logs raw bytes; no expected byte-array assertion. Published program-ID placeholder substitution is recorded in manifest. |
+| `borsh-proposal` | `node scripts/run-original-anchor.mjs borsh-proposal` | One local test passes for the fixed fixture; both supplemental host allocation tests also passed. Different original program from profile; preserve both. |
+| `zero-copy` | `node scripts/run-original-anchor.mjs zero-copy` | One local test passes; volume500 and active1 asserted. Published module name, distinct from recovered original. |
+| `zero-copy-original` | `node scripts/run-original-anchor.mjs zero-copy-original` | One local test passes; same happy path under original `borsh_deep_dive` module. |
+| `zero-copy-layout` | `cargo test --locked --manifest-path examples/solana/zero-copy-layout/Cargo.toml -- --nocapture` | Host unit execution recorded in restored-builds.json. Original test prints layout; all four supplemental host assertion tests passed. Host execution does not establish every SBF ABI layout. |
 | `transfer-hook` | Snapshot files only; no workspace/run command | Exact published program/client preserved, including placeholder ID. Original project below is a variant, not interchangeable exact source. |
-| `transfer-hook-original` | `node scripts/run-original-anchor.mjs transfer-hook-original --regression` | Separate negative/positive balance regression historically passed. Original catch-all negative test is unsound and preserved. |
+| `transfer-hook-original` | `node scripts/run-original-anchor.mjs transfer-hook-original --regression` | Both separate negative/positive balance tests pass locally. Original catch-all negative test is unsound and preserved. |
 | `wallet-token-balances` | Snapshot files only; no workspace/run command | Printed program/setup/client preserved; placeholder program ID and historical inputs are not ready-to-run configuration. |
-| `wallet-token-balances-original` | `node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only` | Original Rust build and two client type checks recorded; stale original scaffold test calls nonexistent initialize(). |
-| same original project, separate corrected client | `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready` | Historical six-check regression and type check recorded. Explicit timing correction, not exact published client. |
+| `wallet-token-balances-original` | `node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only` | Fresh original SBF build and two client type checks pass; stale original scaffold test calls nonexistent initialize(). |
+| same original project, separate corrected client | `node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready` | Fresh six-check regression and type check pass after retaining default RPC retries. Explicit timing correction, not exact published client. |
 
-[Historical report index](../../verification/REVIEW-FINDINGS.md): original wallet
+[Findings and historical report index](../../verification/REVIEW-FINDINGS.md): original wallet
 empty-ALT run **failed**; prepared-ALT fixture passed but bypasses cold extension;
 corrected `client-alt-ready.ts` separately passed. No original failure is erased.
 The harness also temporarily guards the historical client's automatic entrypoint,

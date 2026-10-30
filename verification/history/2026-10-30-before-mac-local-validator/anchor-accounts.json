@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-06T12:32:48.849Z",
+  "project": "examples/solana/anchor-accounts",
+  "status": "runtime-verified",
+  "sourceHashes": {
+    "examples/solana/anchor-accounts/Anchor.toml": "24f8ffef7c27139066a572370d5b433c4355f8c9af4fbffc569404d5f313b71b",
+    "examples/solana/anchor-accounts/Cargo.lock": "b85bdb72cdce9b6b939116f7f672126dbac3149fb76ad52c703e4f0adedf2ffe",
+    "examples/solana/anchor-accounts/Cargo.toml": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "examples/solana/anchor-accounts/package.json": "3345fc4a92d043439eb56105a036450ec7eb0226441969a4d739ccbc878b54d5",
+    "examples/solana/anchor-accounts/pnpm-lock.yaml": "50d058e56cee3ca8afd84061966658dc3182e912402654ca3bfba08fefd4b0bc",
+    "examples/solana/anchor-accounts/tsconfig.json": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "examples/solana/anchor-accounts/migrations/deploy.ts": "8484b6acd1cd6c4e5aef44b4058279e6e290a43015f9cf04ec4b4e7dac70df49",
+    "examples/solana/anchor-accounts/scripts/solana_accounts.ts": "18445dde0c805492f38f4ffe5c26aad154d1dfd5073cd4a4a54c93e8df2d82b1",
+    "examples/solana/anchor-accounts/tests/solana_accounts.ts": "b97e1c370a820ad112c438775c04a37121ff7b4ec1aaa418c5b669564a97851f",
+    "examples/solana/anchor-accounts/programs/solana_accounts/Cargo.toml": "00060122f588737a8298ce33956b137547d6dcb81f0a45e74eadb6f688287a1b",
+    "examples/solana/anchor-accounts/programs/solana_accounts/Xargo.toml": "815f2dfb6197712a703a8e1f75b03c6991721e9eb7c40dfaec8b0b49da4aa629",
+    "examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs": "a998a65c834b05f55af6d5515a01d8bc7091508d269976160fe63504ebcdbb9f"
+  },
+  "command": "node scripts/run-original-anchor.mjs anchor-accounts",
+  "changes": "Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.",
+  "anchorVersion": "anchor-cli 0.31.1"
+}

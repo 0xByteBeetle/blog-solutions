@@ -122,3 +122,14 @@ validator, RPC, public-network program, or SBF build was performed.
 
 See [host-check report](solana-host-checks-2026-10-30.json) for commands, results,
 and the distinction between host assertions and on-chain execution.
+
+## Later Mac local-validator follow-through
+
+The earlier source/host-only statements above describe those checkpoints. After
+explicit approval for disposable test keys and temporary local services, the
+selected SBF/local-validator suites were rerun on October 30. The original
+cold-ALT invalid-index failure remains reproduced. A separate retry-policy fix
+in the already labeled corrected client passes all six readiness/balance tests.
+See [fresh runtime evidence](solana-local-validator-2026-10-30.md) for commands,
+counts, failed attempts, toolchains, cleanup and remaining coverage limits.
+No original source, published snapshot or manifest hash was changed.

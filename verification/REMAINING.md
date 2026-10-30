@@ -7,7 +7,9 @@
 > [Solana](solana-alignment-2026-10-30.md), and
 > [Hyperliquid](hyperliquid-alignment-2026-10-30.md) for current verification.
 > EVM/Solana live block-text freshness is now verified at the October 30 capture;
-> additional local-validator gates remain separate and pending.
+> selected local-validator suites were rerun with disposable fixtures; see
+> [October 30 runtime evidence](solana-local-validator-2026-10-30.md). Remaining
+> article-level runtime coverage is separate.
 > dated historical network/local-chain results are not new passes.
 
 This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 106 recovered source/configuration/data files.

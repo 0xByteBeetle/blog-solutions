@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-30T16:22:20.009158+00:00",
+  "baseCommit": "3410e2e02fba706551bfa3452a37ef11560ed3ee",
+  "freshnessEvidenceCommit": "56568cfa333bce7fab79e93ce74277ebb18dda58",
+  "scope": "Selected original and labeled corrected Solana programs, disposable local genesis, and host tests. No public-network clients or transactions.",
+  "environment": {
+    "os": "macOS arm64",
+    "node": "22.6.0",
+    "NODE_OPTIONS": "--experimental-require-module",
+    "npmRestore": "npm ci --ignore-scripts --prefix solana/anchor (an offline attempt missed a cached tarball; normal locked registry restore succeeded)",
+    "npmLockSha256": "9bf3ab70a3f6a9caaaa673208efe3ffa4abdecd7cf6ec10212872ffd1f199272",
+    "anchor": "0.31.1",
+    "agave": "3.1.9 (765ee54a)",
+    "sbfPlatformTools": "v1.52 / rustc 1.89.0-dev",
+    "cargoHost": "1.92.0",
+    "idlRust": "1.93.0-nightly (6647be936 2025-11-09)",
+    "CARGO_NET_OFFLINE": "true",
+    "testMode": "TypeScript transpile-only except explicit client tsc checks",
+    "temporaryUmask": "077",
+    "timeoutSecondsPerSuite": 900
+  },
+  "results": [
+    {
+      "report": "verification/zero-copy-original.json",
+      "sha256": "881438326f7c6a46c6f745c2e07ef8ae2fea27be5109fa9e86675be118af894d",
+      "command": "node scripts/run-original-anchor.mjs zero-copy-original",
+      "date": "2026-10-30T15:59:33.587Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 1,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/borsh-profile.json",
+      "sha256": "9945a8baa592f1d304f394f6a922ed9e2ec75397ac0c78b32003cd066ebeb574",
+      "command": "node scripts/run-original-anchor.mjs borsh-profile",
+      "date": "2026-10-30T16:01:33.905Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 1,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/borsh-proposal.json",
+      "sha256": "38060553102ec4e16f4cd7574c069dceecc04faf4a12ee61a6482af5693c20f9",
+      "command": "node scripts/run-original-anchor.mjs borsh-proposal",
+      "date": "2026-10-30T16:02:43.732Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 1,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/anchor-accounts.json",
+      "sha256": "3e29edde8114d5b9f9326539b4e4288c7d1f0f4842a72f7f41123914385a436a",
+      "command": "node scripts/run-original-anchor.mjs anchor-accounts",
+      "date": "2026-10-30T16:03:53.208Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 3,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/transfer-hook-original-regression.json",
+      "sha256": "fa8303320d74aea85145cff55817cdf41961ca433e8433e4e8b83c44469065e0",
+      "command": "node scripts/run-original-anchor.mjs transfer-hook-original --regression",
+      "date": "2026-10-30T16:05:10.085Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 2,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/wallet-token-balances-original-regression-alt-ready.json",
+      "sha256": "0aa29a90c2a713c9679e27ee406b046e00324fc09a7ef54f3aed93b693c76908",
+      "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --alt-ready",
+      "date": "2026-10-30T16:20:43.956Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 6,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/zero-copy.json",
+      "sha256": "f71e7084473a0759711376e1bb91579edde3c46c11411592f371c2bd1af06700",
+      "command": "node scripts/run-original-anchor.mjs zero-copy",
+      "date": "2026-10-30T16:10:47.067Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 1,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/wallet-token-balances-original.json",
+      "sha256": "5322b5a4f203742dbcb1602eb26a792db2c1cb5547920d0dc05ef82d649dc567",
+      "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --build-only",
+      "date": "2026-10-30T16:12:00.485Z",
+      "status": "build-checked",
+      "passingIntegrationTests": 0,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    },
+    {
+      "report": "verification/wallet-token-balances-original-regression.json",
+      "sha256": "ce77ef5b874da17daa213437e57130b8c383a2ed564435186eb6ab048c06641e",
+      "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --regression",
+      "date": "2026-10-30T16:13:34.863Z",
+      "status": "failed",
+      "passingIntegrationTests": 0,
+      "failingIntegrationTests": 2,
+      "expectedFailure": true
+    },
+    {
+      "report": "verification/wallet-token-balances-original-regression-prepared-alt.json",
+      "sha256": "281286420cb9f3355bb40150850674a29821870b5df7eb9878276ed71d22e666",
+      "command": "node scripts/run-original-anchor.mjs wallet-token-balances-original --regression --prepared-alt",
+      "date": "2026-10-30T16:15:31.063Z",
+      "status": "runtime-verified",
+      "passingIntegrationTests": 2,
+      "failingIntegrationTests": 0,
+      "expectedFailure": false
+    }
+  ],
+  "uniquePassingIntegrationTests": 17,
+  "fundamentalsHostTests": {
+    "command": "CARGO_NET_OFFLINE=true CARGO_TARGET_DIR=$PWD/.local/baseline-target cargo test --locked --manifest-path solana/fundamentals/Cargo.toml",
+    "passed": 7,
+    "failed": 0,
+    "filteredOut": 0
+  },
+  "repeatability": {
+    "report": "verification/history/2026-10-30-mac-local-validator-attempts/wallet-alt-ready-default-retries-first-pass.json",
+    "sha256": "e02c67ac3a7d2b21a3a37588668426768d50d63032611383e24f220ee2a64b0b",
+    "passingTests": 6,
+    "description": "The six-check corrected-client suite passed on two separate fresh validators/ALTs after removing the three-retry cap."
+  },
+  "failedAttempts": [
+    {
+      "report": "verification/history/2026-10-30-mac-local-validator-attempts/zero-copy-original-node22-launcher-failure.json",
+      "reason": "Node 22.6 CommonJS dependency required require-ESM compatibility flag; SBF build succeeded, launcher failed before test execution."
+    },
+    {
+      "report": "verification/history/2026-10-30-mac-local-validator-attempts/wallet-alt-ready-three-retry-expiry.json",
+      "reason": "Four passing tests and two blockheight-expiry failures with three-retry submission cap; corrected variant now uses default RPC rebroadcast, keeping preflight and blockheight confirmation."
+    }
+  ],
+  "dependencyLockEvidence": [
+    {
+      "path": "verification/solana-local-validator-locks/borsh-profile.Cargo.lock",
+      "sha256": "85dfb6c2bfe3694b07917e77526dd2ab65ef6954d500b21896a5845a1a3af23f"
+    },
+    {
+      "path": "verification/solana-local-validator-locks/zero-copy.Cargo.lock",
+      "sha256": "ee32b7ecbbdff0b948415d8c1f8c4c9c463afa95c06189197411e8d738d8d00f"
+    }
+  ],
+  "sourceChecks": {
+    "command": "node scripts/check-catalog.mjs; node scripts/check-evm-alignment.mjs; node scripts/check-solana-alignment.mjs; node scripts/check-hyperliquid-alignment.mjs; node scripts/check-live-source-freshness.mjs; node --test scripts/*.test.mjs",
+    "articles": 58,
+    "publishedBlocks": 573,
+    "restoredFiles": 143,
+    "nodeTestsPassed": 20,
+    "evmLinks": 65,
+    "solanaLinks": 18,
+    "hyperliquidLiteralLinks": 29,
+    "datedLiveArticles": 53,
+    "datedLiveBlocks": 494
+  },
+  "cleanup": {
+    "date": "2026-10-30T16:21:23.934209+00:00",
+    "privateTempRemaining": 0,
+    "testOwnedProcessesRemaining": 0,
+    "testListenersRemaining": 0,
+    "testKeyFilesRemaining": 0,
+    "portInspectionExitCode": 1,
+    "portInspectionOutput": "",
+    "method": "Each suite used a new process group; after exit the wrapper terminated only that test-owned group. Runner removed its private project/wallet/ledger. Final cleanup removed residual test compiler temp caches. ps and lsof inspected only test-owned paths/listener ports. No unrelated process was killed.",
+    "observedListenerScope": "During the Agave 3.1.9 run, lsof showed RPC 19899 and faucet 19902 listening on all interfaces despite bind_address=127.0.0.1; tests used only http://127.0.0.1:19899. No listener remains.",
+    "personalWalletsRead": false,
+    "securitySettingsChanged": false,
+    "publicChainNetworksAccessed": false
+  },
+  "toolCapabilitiesReport": "verification/installed-chain-cli-capabilities-2026-10-30.json",
+  "limits": [
+    "Original Borsh byte-output and account lifecycle tests log results; no extra assertions were invented.",
+    "Original cold-ALT behavior still fails; its author source is preserved.",
+    "The retry correction changes only the existing labeled client variant, not the original client, Rust program, snapshots or source manifest.",
+    "Public-chain clients, metadata submission, confidential transfers/proofs and Sui transactions were not executed.",
+    "This is selected local fixture coverage, not complete article/runtime/security verification."
+  ]
+}
