@@ -1,0 +1,1389 @@
+{
+  "date": "2026-10-30",
+  "scope": "16 cataloged Solana article snapshots; no live freshness or runtime verification.",
+  "warning": "Broad normalization removes whitespace including literals; diagnostic only, not semantic equality. Archived export is lossy and historical; positive corroboration does not prove exact block boundaries; negative result does not prove author discrepancy.",
+  "articles": [
+    {
+      "title": "Architecting High-Performance Solana Programs: The Zero-Copy Deep Dive",
+      "slug": "architecting-high-performance-solana",
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "projects": [
+        "examples/solana/zero-copy-original",
+        "examples/solana/zero-copy",
+        "examples/solana/zero-copy-layout"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "struct-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "test-program",
+          "mappings": [
+            {
+              "path": "examples/solana/zero-copy-layout/src/lib.rs",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 3,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 4,
+          "kind": "intentional-failure",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "program",
+          "mappings": [
+            {
+              "path": "examples/solana/zero-copy/programs/zero_copy_deep_dive/src/lib.rs",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 6,
+          "kind": "integration-test",
+          "mappings": [
+            {
+              "path": "examples/solana/zero-copy/tests/published.ts",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        }
+      ]
+    },
+    {
+      "title": "Solana Deep Dive: Unpacking Borsh Serialization Under the Hood",
+      "slug": "solana-deep-dive-unpacking-borsh",
+      "url": "https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh",
+      "projects": [
+        "examples/solana/borsh-proposal",
+        "examples/solana/borsh-profile"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "struct-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "program",
+          "mappings": [
+            {
+              "path": "examples/solana/borsh-profile/programs/borsh_deep_dive/src/lib.rs",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": false,
+              "documentedAdaptation": "catalog/source-files.json: environment placeholder substitution YourProgramIdHere... -> Bo8J1of9EuuGw3DvSgTdV7Fug65oD7cERLsf5rzF6PG4",
+              "exactAfterDocumentedSubstitution": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 3,
+          "kind": "integration-test",
+          "mappings": [
+            {
+              "path": "examples/solana/borsh-profile/tests/published.ts",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 4,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "published-hash",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "struct-fragment",
+          "mappings": [
+            {
+              "path": "examples/solana/borsh-proposal/programs/borsh_deep_dive/src/lib.rs",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 10,
+          "kind": "test-data-fragment",
+          "mappings": [
+            {
+              "path": "examples/solana/borsh-proposal/tests/borsh_deep_dive.ts",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Only four leading spaces added to second and third lines; GM string and comment unchanged."
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": false
+        },
+        {
+          "index": 12,
+          "kind": "upstream-pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "upstream-pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "The Utility Extensions: Completing the Token-2022 Architecture",
+      "slug": "the-utility-extensions-completing",
+      "url": "https://andreyobruchkov1996.substack.com/p/the-utility-extensions-completing",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "intentional-failure-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "intentional-failure-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "intentional-failure-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Native ZK on Solana: The Architecture of Confidential Transfers",
+      "slug": "native-zk-on-solana-the-architecture",
+      "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Engineering Native Yield: A Deep Dive into Solana's Interest-Bearing Mint Extension",
+      "slug": "engineering-native-yield-a-deep-dive",
+      "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "upstream-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "illustrative-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "illustrative-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "rpc-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "annotated-rpc-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Transfer Hooks on Solana: Anchor 0.31 & Token-2022",
+      "slug": "transfer-hooks-on-solana-anchor-031",
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "projects": [
+        "examples/solana/transfer-hook",
+        "examples/solana/transfer-hook-original"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "dependency-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "account-context",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "upstream-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "instruction-fragment",
+          "mappings": [
+            {
+              "path": "examples/solana/transfer-hook/published-program.rs",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Only eight leading spaces added to second and third lines; generic type and arguments unchanged."
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "program",
+          "mappings": [
+            {
+              "path": "examples/solana/transfer-hook/published-program.rs",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [
+            "examples/solana/transfer-hook-original/programs/transfer-hook-project/src/lib.rs"
+          ],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "configuration",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "client-program",
+          "mappings": [
+            {
+              "path": "examples/solana/transfer-hook/published-client.ts",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "intentional-failure-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 14,
+          "kind": "published-failure-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 15,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Solana Token-2022 Transfer Hooks and the Fee-on-Transfer Extension",
+      "slug": "solana-token-2022-transfer-hooks",
+      "url": "https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "configuration-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "configuration-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "commands-and-published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "commands-and-published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "commands-and-published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "commands-and-published-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "From Convention to Explicit State: Token-2022 and Metadata Pointers on Solana",
+      "slug": "from-convention-to-explicit-state",
+      "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Where Token Metadata Lives on Solana: From Convention to Explicit Data",
+      "slug": "where-token-metadata-lives-on-solana",
+      "url": "https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana",
+      "projects": [
+        "examples/solana/metadata-published"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "client-program",
+          "mappings": [
+            {
+              "path": "examples/solana/metadata-published/metadata.ts",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedMatch": true,
+              "reviewedChanges": []
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "client-program",
+          "mappings": [
+            {
+              "path": "examples/solana/metadata-published/read.ts",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedMatch": true,
+              "reviewedChanges": []
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "SPL Token Program Architecture: A Technical Overview",
+      "slug": "spl-token-program-architecture-a",
+      "url": "https://andreyobruchkov1996.substack.com/p/spl-token-program-architecture-a",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "upstream-struct",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "upstream-struct",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "configuration-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "installation-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "command-and-illustrative-output",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "inspection-command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana – Part 6: Transactions, Messages, and Address Lookup Tables in Practice",
+      "slug": "understanding-solana-part-6-transactions",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-6-transactions",
+      "projects": [
+        "examples/solana/wallet-token-balances",
+        "examples/solana/wallet-token-balances-original"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "program",
+          "mappings": [
+            {
+              "path": "examples/solana/wallet-token-balances/lib.rs",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Smart double quotes around program-ID placeholder converted to ASCII; lifetime syntax and all other bytes unchanged."
+            }
+          ],
+          "originalVariants": [
+            "examples/solana/wallet-token-balances-original/programs/wallet_tokens_balance/src/lib.rs"
+          ],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "client-setup",
+          "mappings": [
+            {
+              "path": "examples/solana/wallet-token-balances/setup.ts",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Smart double quote delimiters converted to ASCII; literal contents and whitespace unchanged."
+            }
+          ],
+          "originalVariants": [
+            "examples/solana/wallet-token-balances-original/scripts/create_alts.ts"
+          ],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "client-program",
+          "mappings": [
+            {
+              "path": "examples/solana/wallet-token-balances/client.ts",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Smart double quote delimiters converted to ASCII; literal contents, token boundaries and whitespace unchanged."
+            }
+          ],
+          "originalVariants": [
+            "examples/solana/wallet-token-balances-original/scripts/client.ts"
+          ],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "client-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana - Part 5: Transaction, Serialization, Signatures, Fees, and Runtime Execution",
+      "slug": "understanding-solana-part-5-transaction",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-5-transaction",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "upstream-struct",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "upstream-struct",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "formula",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "formula",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "instruction-name",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "instruction-name",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "program-name",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "worked-calculation",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana - Part4: Instructions and Messages",
+      "slug": "understanding-solana-part4-instructions",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part4-instructions",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "illustrative-data",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "upstream-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "annotated-bytes",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "worked-calculation",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "upstream-structs",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "upstream-structs",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "struct-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "illustrative-data",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "upstream-struct",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana - Part 3: Anchor Accounts, Seeds, Bumps, PDAs, and How the Client Really Works",
+      "slug": "understanding-solana-part-3-anchor",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-part-3-anchor",
+      "projects": [
+        "examples/solana/anchor-accounts"
+      ],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "installation-commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "program",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "configuration-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "struct-fragment",
+          "mappings": [
+            {
+              "path": "examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs",
+              "exactSubstring": true,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "constraint-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "account-context",
+          "mappings": [
+            {
+              "path": "examples/solana/anchor-accounts/programs/solana_accounts/src/lib.rs",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Smart double quotes in byte-string delimiters/comment example repaired; curly apostrophe in info lifetimes changed to ASCII; generic/lifetime structure unchanged."
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 8,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 9,
+          "kind": "account-context",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 10,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 11,
+          "kind": "account-context",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 12,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 13,
+          "kind": "client-program",
+          "mappings": [
+            {
+              "path": "examples/solana/anchor-accounts/scripts/solana_accounts.ts",
+              "exactSubstring": false,
+              "broadNormalizedSubstring": true,
+              "reviewedAdaptationMatch": true,
+              "manualDiffReview": "Smart double quote delimiters/comment examples repaired; one findProgramAddressSync call reflowed from four lines to one. String contents and all other whitespace preserved."
+            }
+          ],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 14,
+          "kind": "deployment-commands",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 15,
+          "kind": "command",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana: Account Model - part 2",
+      "slug": "understanding-solana-account-model",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-account-model",
+      "projects": [],
+      "blocks": [
+        {
+          "index": 1,
+          "kind": "pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 2,
+          "kind": "api-signature",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 3,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 4,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 5,
+          "kind": "illustrative-data",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 6,
+          "kind": "pseudocode",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        },
+        {
+          "index": 7,
+          "kind": "instruction-fragment",
+          "mappings": [],
+          "originalVariants": [],
+          "archiveCorroborates": true
+        }
+      ]
+    },
+    {
+      "title": "Understanding Solana: Architecture, Account Model and Transactions — part 1",
+      "slug": "understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650",
+      "url": "https://andreyobruchkov1996.substack.com/p/understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650",
+      "projects": [],
+      "blocks": []
+    }
+  ],
+  "reviewedMatcher": "scripts/check-solana-alignment.mjs: exact substring after individually scoped, manually inspected formatting changes or documented Borsh program-ID substitution. Not a generic Rust/TS parser; no broad whitespace removal."
+}

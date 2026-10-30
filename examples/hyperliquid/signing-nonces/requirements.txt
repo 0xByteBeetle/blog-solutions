@@ -1,0 +1,2 @@
+# Supplemental dependency file; exact SDK pin from published block 7.
+hyperliquid-python-sdk==0.24.0

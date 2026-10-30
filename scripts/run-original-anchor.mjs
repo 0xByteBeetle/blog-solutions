@@ -5,9 +5,11 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
+import {requireToolchain} from './check-toolchain.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const name=process.argv[2];
 if(!['borsh-profile','borsh-proposal','zero-copy','zero-copy-original','anchor-accounts','wallet-token-balances-original','transfer-hook-original'].includes(name))throw new Error('Unknown original project');
+if(process.argv.slice(3).some(arg=>!['--build-only','--regression','--prepared-alt','--alt-ready'].includes(arg)))throw new Error('Unknown runner flag');
 const buildOnly=process.argv.includes('--build-only');
 const regression=process.argv.includes('--regression');
 const preparedAlt=process.argv.includes('--prepared-alt');
@@ -17,10 +19,11 @@ if(preparedAlt&&(!regression||name!=='wallet-token-balances-original'))throw new
 if(buildOnly&&regression)throw new Error('Choose build-only or regression, not both');
 if(regression&&!['wallet-token-balances-original','transfer-hook-original'].includes(name))throw new Error('No separate regression suite configured for this project');
 if(name==='wallet-token-balances-original'&&!buildOnly&&!regression)throw new Error('Original scaffold test is stale. Use --build-only or --regression.');
-const dir=fs.mkdtempSync(path.join(os.tmpdir(),`blog-${name}-`));
-const project=`${dir}/project`;
 const deps=`${root}/solana/anchor/node_modules`;
 if(!fs.existsSync(deps))throw new Error('Run npm ci --prefix solana/anchor first');
+requireToolchain(['anchor','cargo','solana-keygen',...(!buildOnly?['solana-test-validator']:[])]);
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),`blog-${name}-`));
+const project=`${dir}/project`;
 fs.cpSync(`${root}/examples/solana/${name}`,project,{recursive:true,filter:p=>!/(^|\/)(target|node_modules|\.anchor)(\/|$)/.test(p)});
 fs.symlinkSync(deps,`${project}/node_modules`,'dir');
 if(regression&&name==='wallet-token-balances-original'){

@@ -1,10 +1,10 @@
 {
-  "date": "2026-09-06T12:36:59.465Z",
+  "date": "2026-10-30T14:45:32.440Z",
   "environment": "Disposable loopback-only Anvil; unlocked generated local accounts; no public-network transactions",
   "command": "node scripts/verify-restored-evm.mjs",
   "versions": {
-    "forge": "forge Version: 1.4.4-stable\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-11-03T23:46:57.847015000Z (1762213617)\nBuild Profile: maxperf",
-    "anvil": "anvil Version: 1.4.4-stable\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-11-03T23:46:57.847015000Z (1762213617)\nBuild Profile: maxperf"
+    "forge": "forge Version: 1.4.4-v1.4.4\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-10-30T15:50:28.714367747Z (1761839428)\nBuild Profile: maxperf",
+    "anvil": "anvil Version: 1.4.4-v1.4.4\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-10-30T15:50:28.714367747Z (1761839428)\nBuild Profile: maxperf"
   },
   "results": [
     {

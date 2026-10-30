@@ -1,5 +1,14 @@
 # Source audit checkpoint: 6 September 2026
 
+> Historical baseline, retained for provenance. Current October 30 work uses
+> `codex/article-alignment-20261030`; do not follow the old branch/path below as
+> a current checkout instruction. Current inventory is 58 articles / 573 blocks / 143
+> recovered files. See [EVM](evm-alignment-2026-10-30.md),
+> [Solana](solana-alignment-2026-10-30.md), and
+> [Hyperliquid](hyperliquid-alignment-2026-10-30.md) for current verification.
+> EVM/Solana live freshness and additional local-validator gates remain open;
+> dated historical network/local-chain results are not new passes.
+
 This audit is not complete. The old catalog's blanket verification claims have been removed. The current feature branch preserves 53 cataloged articles, 494 displayed blocks, and 106 recovered source/configuration/data files.
 
 All 494 blocks now have explicit classifications. This is not a completion percentage: many blocks are historical output, commands, data, explanatory fragments, or deliberate failures, and classification is not semantic or runtime verification. Two captured posts have no displayed blocks.

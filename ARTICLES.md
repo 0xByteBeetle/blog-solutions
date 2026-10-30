@@ -42,6 +42,14 @@ Source preservation, build checks, and runtime tests are separate. An article is
 - [What Every Blockchain Developer Should Know About EVM Internals – Part 2](articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/README.md) · source-restored
 - [What Every Blockchain Developer Should Know About EVM Internals— Part 1.](articles/evm/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257/README.md) · source-restored
 
+## hyperliquid
+
+- [Hyperliquid: Beyond Generic VMs: The Architecture Internals Part 1](articles/hyperliquid/hyperliquid-beyond-generic-vms-the/README.md) · source-restored
+- [Unpacking Hyperliquid Part 2: HyperBFT, Spot vs. Perp Accounting, and Trading](articles/hyperliquid/unpacking-hyperliquid-part-2-hyperbft/README.md) · source-restored
+- [Unpacking Hyperliquid Part 3: HyperEVM Precompiles, CoreWriter, and the Solidity Bridge to HyperCore](articles/hyperliquid/unpacking-hyperliquid-part-3-hyperevm/README.md) · source-restored
+- [Unpacking Hyperliquid Part 4: HIP-3, Builder-Deployed Perpetuals, and the New Market Trust Boundary](articles/hyperliquid/unpacking-hyperliquid-part-4-hip/README.md) · source-restored
+- [Unpacking Hyperliquid Part 5: Agent Wallets, Phantom Signatures, and the Nonce State Machine](articles/hyperliquid/unpacking-hyperliquid-part-5-agent/README.md) · source-restored
+
 ## Solana
 
 - [Architecting High-Performance Solana Programs: The Zero-Copy Deep Dive](articles/solana/architecting-high-performance-solana/README.md) · source-restored

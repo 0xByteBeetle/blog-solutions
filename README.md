@@ -4,9 +4,16 @@ Source code accompanying [Andrey Obruchkov's writing](https://andreyobruchkov199
 
 Start with the [article index](ARTICLES.md). Each article has its published code blocks, recovered original sources where available, and an explicit verification status.
 
-The repository is undergoing a source-preserving repair. All 53 cataloged posts and 494 displayed code/output blocks are preserved. This does **not** mean all 53 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
+The repository is undergoing a source-preserving repair. All 58 cataloged posts and 573 displayed code/output blocks are preserved. This does **not** mean all 58 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
-See [remaining review and source gaps](verification/REMAINING.md) for the current boundary, including the recovered Solana Part 6 project's setup gaps and the transfer-hook test issue.
+Current chain guides: [EVM](examples/evm/README.md), [Solana](examples/solana/README.md),
+and [Hyperliquid](examples/hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
+with offline/mock companions. EVM/Solana saved-block live freshness is being checked
+separately; a hash-preserving snapshot is not by itself current live-source proof.
+
+See the current chain guides above for fresh results and remaining gates. The
+[September baseline](verification/REMAINING.md) is retained as historical evidence,
+including the separately corrected Solana ALT and transfer-hook tests.
 
 - `articles/`: source snapshots and per-article maps.
 - `examples/`: recovered author programs and projects. Their origins and any formatting/setup changes are recorded in `catalog/source-files.json`.
@@ -19,6 +26,10 @@ Verify that published blocks and recovered files have not drifted:
 
 ```sh
 node scripts/check-catalog.mjs
+node scripts/check-evm-alignment.mjs
+node scripts/check-solana-alignment.mjs
+node scripts/check-hyperliquid-alignment.mjs
+node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/solana-alignment.test.mjs scripts/hyperliquid-alignment.test.mjs scripts/toolchain.test.mjs
 ```
 
 Install pinned reproduction libraries before running the Solidity checks. Node.js 22+, Go, Rust, and Foundry must already be installed:
@@ -57,6 +68,9 @@ The runner changes only the temporary environment, not the committed program or 
 Do not run network scripts or copy commands blindly. Published examples may contain historic addresses, public RPC endpoints, placeholders, or intentional failures. Original transaction scripts load or generate test keys and may submit transactions; they are not part of the default verification runner. No wallet/key files from original projects are included.
 
 ## Source rule
+
+This is a code companion, not a mirror of the blog. Keep full article prose on Substack/Medium. The `articles/*/published.md` files preserve only displayed code, commands and relevant output with provenance; they are not full article copies. Per-article READMEs describe setup, source mapping and verification limits. Temporary full-text research belongs outside the tracked repository.
+
 
 The author's published code and confirmed original files are authoritative. Do not replace them with equivalent-looking implementations, rename APIs, alter memory layouts, or invent missing helpers. Keep required environment repairs explicit. An unresolved dependency or missing helper must remain marked unresolved until its source or an approved change is available.
 

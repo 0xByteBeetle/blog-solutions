@@ -1056,5 +1056,397 @@
       "path": "tests/transfer-hook-project.ts"
     },
     "changes": []
+  },
+  {
+    "path": "examples/solana/metadata-published/metadata.ts",
+    "sha256": "ad52f9afde30ab8c2dfaad336afc831cbe50a7d9df7b0425f3118fa820bf1cd9",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana",
+      "block": 4,
+      "sha256": "ad52f9afde30ab8c2dfaad336afc831cbe50a7d9df7b0425f3118fa820bf1cd9"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/solana/metadata-published/read.ts",
+    "sha256": "328da9f66525530e16c4094de2e7970cd8f90037586bb5d8d9b24228b9a93976",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana",
+      "block": 5,
+      "sha256": "328da9f66525530e16c4094de2e7970cd8f90037586bb5d8d9b24228b9a93976"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/01_read_market.py",
+    "sha256": "5ee5fd8453c3aa8fab1404461567eb5b334d8b33ffc6b9a1646e7b4ba4319f88",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "01_read_market.py"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/02_preview_actions.py",
+    "sha256": "cfa17c0318ddee9872bba3357cdb8cbd5a20841d322809a5e7a61c3c20ef27e2",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "02_preview_actions.py"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/03_deploy_testnet.py",
+    "sha256": "caa8e58c649560f246d0c281cdcb03af316b014226ebc7f52980c84ed37dcf9c",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "03_deploy_testnet.py"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/04_oracle_testnet.py",
+    "sha256": "27fccfdcd09f98dea3d48805b74ea4fa9f2e3e0a6194f98e45c95d2234be0d4a",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "04_oracle_testnet.py"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/hip3_common.py",
+    "sha256": "cca6f117bf4ee752755e605a2f43d2054911f22b048f9e086f982c956e21b7cf",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "hip3_common.py"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/requirements.txt",
+    "sha256": "0cd01f14b30b2f4955fedf87055bbc9320b81f22e8727f4f25007f0c4844192c",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": "requirements.txt"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-original/.gitignore",
+    "sha256": "0d53979455a54b25dfc8c451723ad15da39852aab7de87568c2ecf884fd6c8aa",
+    "source": {
+      "repository": "https://github.com/bounty-wiz/HyperLiquidBlogPost4",
+      "revision": "cdd5e21b6e22229f83661f125cabb68ded9d1061",
+      "path": ".gitignore"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/signing-nonces/01_sign_and_recover.py",
+    "sha256": "32ff6ba25233749f79509cd56bbdd0f7bf45e253d8c200d8885939f5d8499fbe",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 8,
+      "sha256": "32ff6ba25233749f79509cd56bbdd0f7bf45e253d8c200d8885939f5d8499fbe"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/signing-nonces/02_signed_preimage_mutations.py",
+    "sha256": "7ddd021042bff830af40787d6b846d841c29b55ab7e1a836e0245a2fd2565497",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 10,
+      "sha256": "7ddd021042bff830af40787d6b846d841c29b55ab7e1a836e0245a2fd2565497"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/signing-nonces/03_nonce_allocator.py",
+    "sha256": "319122b135ea3aa8de9d65f4841910835460fe3466945f9bb56ac4a5a872424c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-5-agent",
+      "block": 17,
+      "sha256": "319122b135ea3aa8de9d65f4841910835460fe3466945f9bb56ac4a5a872424c"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/WrongOracle.sol",
+    "sha256": "45411c62b8de8f5711b65bceb667c409e5cdd6b743968fcee65793109be615aa",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 2,
+      "sha256": "8e75f3496cbf8fe6fc9c97b26ab96ac19a50dec437367716275c233e72529196"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/HyperCoreRead.sol",
+    "sha256": "d7a7834ecfc0bde0cb004a5492cfd246d3e67e6c9fd4c165760044c68925d79d",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 3,
+      "sha256": "d9756e1508ab958efd4c60d5df5291e46dd9f162a8202395455863a9cd69e094"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/Bbo.sol",
+    "sha256": "d81b6392045aa19fbbf682193fc598b604c4b57fe521f542052f4c5335d1aa3e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 8,
+      "sha256": "f9cc545577b9fcad0d2e620f9bab82365591dac5881c524b5150f618485ddaea"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/HyperCoreBbo.sol",
+    "sha256": "20ff8d7272f033a22e933452694a53b3f051840e45897826a15cb17ff66fa15a",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 13,
+      "sha256": "c009b25fba79c4bc17ee8534d0904f33fb2edecda916811638a48980c1782d60"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/SpotBalance.sol",
+    "sha256": "feb277494722282821a63e00ecbf046337ccc76887dcd7654284c00bd91f37e1",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 14,
+      "sha256": "098a6987328be3cdae656dcc10339328ab1e6d14a56c52bb6b99b019d2e34ac2"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/HyperCoreBalances.sol",
+    "sha256": "a2b68d0b4acc6aa38aed5280562b9c3d68fc15c79ceebf385fd365bd53e9016f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 15,
+      "sha256": "12e0153d0f19731de858fc11d8a555aaccd4cb3a2a35887204035f037b9b78cf"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/Position.sol",
+    "sha256": "7499dee02df6fca813b194e3dbf260d3e574b67afe5f38f2a57114014b3c255f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 16,
+      "sha256": "6bbd24c3e1224996ae219d7f5ae9661d2a4e296c2656d0a03e050405578b9349"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/AccountMarginSummary.sol",
+    "sha256": "b184d83ed0bc9e83728688a9f809e5aaa6ecf42bcda12b68d2322dd3f6b0bdd8",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 18,
+      "sha256": "48b48bd0c036f1f74adf77ab9e0b5b299ff504ea95fac895cdb5cae4c4deac89"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/UsdClassTransfer.sol",
+    "sha256": "b27557e50117108fa61da29fac3bf7aec0b77e0d99951ac1490dafbfc101c9ca",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 22,
+      "sha256": "b4f70f5aab6b08ab6f5ebab15eefe708e533e8e75e1df256940a1a3e04fa4236"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; no code-body changes"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/HyperCoreLimitOrder.sol",
+    "sha256": "fc3f4fd769e0a51c2caa71393ebd98503a6f132853243e35cdc01beed4c85f40",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 24,
+      "sha256": "29e779158d491b7cd196397c3677981d585fc88c4a040b30dc334f91558c7cf6"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; import existing published ICoreWriter interface"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/precompiles-corewriter/src/PriceScale.sol",
+    "sha256": "3146a82033a304501c903363b64a362cd7b17cd42fae407ddcc42bfa0417d484",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm",
+      "block": 27,
+      "sha256": "ce6e7797e1c410d272bfa26a761e4da626417772e630aa95c57ff95abf6f2eb2"
+    },
+    "changes": [
+      "Only pragma/comment prefix and trailing newline; library wrapper around exact internal helper"
+    ]
+  },
+  {
+    "path": "examples/hyperliquid/account-shapes/src/lib.rs",
+    "sha256": "72b1ebf84d7b714edefb9b2f76c6a95dc8528a4df3fd8f3c756e0c9716e69cfd",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/hyperliquid-beyond-generic-vms-the",
+      "block": 1,
+      "sha256": "72b1ebf84d7b714edefb9b2f76c6a95dc8528a4df3fd8f3c756e0c9716e69cfd"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/account-shapes/fixtures/clearinghouse.json",
+    "sha256": "0ac8de0cad8113de6a7ec0acdba814ea4ceddb804fe460384bd4512b8407613d",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-2-hyperbft",
+      "block": 2,
+      "sha256": "0ac8de0cad8113de6a7ec0acdba814ea4ceddb804fe460384bd4512b8407613d"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/account-shapes/fixtures/spot-response.json.txt",
+    "sha256": "1265f4d8da0671b5a0ad4a098eb3197a130fc17ca408f7031613c765bc518f08",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-2-hyperbft",
+      "block": 4,
+      "sha256": "1265f4d8da0671b5a0ad4a098eb3197a130fc17ca408f7031613c765bc518f08"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-02.ts",
+    "sha256": "20f30a2578780bbe3d51c660af5600c782507fb02f30320e38859ddf4c03ad0e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 2,
+      "sha256": "20f30a2578780bbe3d51c660af5600c782507fb02f30320e38859ddf4c03ad0e"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-03.ts",
+    "sha256": "1e6c3ef48ae7367eb24f57c39d2b9af4de6410c0c83605da744d7e9bee5b64f4",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 3,
+      "sha256": "1e6c3ef48ae7367eb24f57c39d2b9af4de6410c0c83605da744d7e9bee5b64f4"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-04.py",
+    "sha256": "2d5492016e023c2dfc19a8de08034c45389e0ca2861f49900973332f8cd57006",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 4,
+      "sha256": "2d5492016e023c2dfc19a8de08034c45389e0ca2861f49900973332f8cd57006"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-06.py",
+    "sha256": "9511b58726241c1f5dcdacf505454a58dcab8a1200dfa1dc6d4f98dfa510bb93",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 6,
+      "sha256": "9511b58726241c1f5dcdacf505454a58dcab8a1200dfa1dc6d4f98dfa510bb93"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-07.py",
+    "sha256": "4f64c26bc65de1a79886be7a365d030598c1afaad3596072d24cd8c3a3ec418c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 7,
+      "sha256": "4f64c26bc65de1a79886be7a365d030598c1afaad3596072d24cd8c3a3ec418c"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-08.py",
+    "sha256": "e73aedd6d8255fe9c7bc93dcf82e3b3911bb618cc27eb267998c593ef2215042",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 8,
+      "sha256": "e73aedd6d8255fe9c7bc93dcf82e3b3911bb618cc27eb267998c593ef2215042"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-09.py",
+    "sha256": "98dc690e6e98b6096ebfdce23fd219664b449e9b083f8fa338d14447270ff6ee",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 9,
+      "sha256": "98dc690e6e98b6096ebfdce23fd219664b449e9b083f8fa338d14447270ff6ee"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-10.py",
+    "sha256": "4a629e732752ef9a85117a3069be5ef6a9b95749f5e427317ec6a4368698c9b6",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 10,
+      "sha256": "4a629e732752ef9a85117a3069be5ef6a9b95749f5e427317ec6a4368698c9b6"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-11.py",
+    "sha256": "d5c24d932e999831dab09e29a1f7ab557222ca07dbc92ef69b0be26ce98d5011",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 11,
+      "sha256": "d5c24d932e999831dab09e29a1f7ab557222ca07dbc92ef69b0be26ce98d5011"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-19.ts",
+    "sha256": "75959ce34f59bb2f9d3138a4b391034a4b4aed25aa73502428bad17613bbb7c2",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 19,
+      "sha256": "75959ce34f59bb2f9d3138a4b391034a4b4aed25aa73502428bad17613bbb7c2"
+    },
+    "changes": []
+  },
+  {
+    "path": "examples/hyperliquid/hip3-published/published/block-20.py",
+    "sha256": "2153ccfe4fa30c895899c013772531216eecdfb9d92e0b6783320485e5df7a86",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+      "block": 20,
+      "sha256": "2153ccfe4fa30c895899c013772531216eecdfb9d92e0b6783320485e5df7a86"
+    },
+    "changes": []
   }
 ]

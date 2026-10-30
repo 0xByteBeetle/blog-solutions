@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-30",
+  "environment": "macOS arm64; dedicated publishing checkout",
+  "sourceCheckpoint": "8c4076d20f135d95e4fb71ea20a9b297bf176be0",
+  "sourceTreeVerifiedBeforeLocalFixes": "0b8c605e2fbdbd15fac907896448479b3a1d8f71",
+  "toolchain": {
+    "rustc": "1.92.0 (ded5c06cf 2025-12-08)",
+    "cargo": "1.92.0 (344c4567c 2025-10-21)",
+    "node": "20.19.6",
+    "npm": "10.8.2"
+  },
+  "scope": "Host checks only. Original implementations and published snapshots remain unchanged. No article completion status was elevated.",
+  "initialFailure": {
+    "command": "cargo test --offline --locked --manifest-path examples/solana/borsh-proposal/Cargo.toml -p borsh_deep_dive --test allocation",
+    "passed": 1,
+    "failed": 1,
+    "detail": "The supplemental dynamic-input test expected 55 bytes for Some(true), title GMI, and one voter; serialization produced 53. The original fixture test already passed at 52 bytes.",
+    "fix": "Corrected four supplemental size assertions using the preserved fixture allocation plus field-size differences; corrected 54-byte documentation to 52. Original program unchanged."
+  },
+  "checks": [
+    {
+      "command": "node scripts/check-catalog.mjs",
+      "status": "passed",
+      "articles": 53,
+      "publishedBlocks": 494,
+      "restoredFiles": 108
+    },
+    {
+      "command": "node scripts/check-evm-alignment.mjs",
+      "status": "passed",
+      "links": 65,
+      "mismatches": 0
+    },
+    {
+      "command": "node scripts/check-solana-alignment.mjs",
+      "status": "passed",
+      "links": 18,
+      "exact": 10,
+      "reviewedAdaptations": 8,
+      "mismatches": 0
+    },
+    {
+      "command": "node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/solana-alignment.test.mjs scripts/toolchain.test.mjs",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "command": "cargo test --offline --locked --manifest-path examples/solana/zero-copy-layout/Cargo.toml --test layout",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "command": "cargo test --offline --locked --manifest-path examples/solana/borsh-proposal/Cargo.toml -p borsh_deep_dive --test allocation",
+      "status": "passed",
+      "tests": 2,
+      "warnings": "Existing Anchor macro cfg/deprecation warnings; original sources preserved."
+    },
+    {
+      "command": "cargo test --offline --locked --manifest-path solana/fundamentals/Cargo.toml -- --skip message_compiles_account_permissions_into_header_and_indices --skip signature_covers_the_serialized_message --skip lookup_table_moves_non_signer_keys_out_of_static_account_keys",
+      "status": "passed",
+      "tests": 4,
+      "filteredOut": 3,
+      "reason": "Filtered tests generate signing keypairs; current Mac validation excludes key generation."
+    },
+    {
+      "command": "npm ci --ignore-scripts --no-audit --no-fund --cache <checkout>/.local/npm-cache",
+      "cwd": "examples/solana/metadata-published",
+      "status": "passed"
+    },
+    {
+      "command": "npm run check",
+      "cwd": "examples/solana/metadata-published",
+      "status": "passed",
+      "detail": "tsc --noEmit; clients were not executed."
+    }
+  ],
+  "notRun": [
+    "SBF program builds",
+    "Solana validator and Anchor transaction tests",
+    "Key generation or wallet access",
+    "RPC and public-network programs"
+  ],
+  "cacheNote": "Cargo used an ignored checkout-local target directory. npm dependencies and cache stayed in the dedicated checkout."
+}

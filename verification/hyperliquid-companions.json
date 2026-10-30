@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-30T15:30:12.736461+00:00",
+  "note": "No public APIs, new random keys, signing submissions, funds or native HyperCore execution. Signatures only with published never-fund fixtures.",
+  "results": [
+    {
+      "project": "examples/hyperliquid/account-shapes",
+      "status": "fixture-tested; Rust host not run",
+      "command": "python3 -m unittest discover -s examples/hyperliquid/account-shapes/tests -v",
+      "sourceHashes": {
+        "examples/hyperliquid/account-shapes/Cargo.toml": "274bd871cc33dbbeb88f2bf96bf9bbf2122437de648c2e05f3d647bc08bb09b7",
+        "examples/hyperliquid/account-shapes/README.md": "6212c3ea3be34c17f29746888288e3f552f72384c58f70df358aac6ac06b2b23",
+        "examples/hyperliquid/account-shapes/.gitignore": "6feaded4e28ea86e001a6751b4e3d960e8b7c31b9616ff9936b79297086e809b",
+        "examples/hyperliquid/account-shapes/tests/test_fixtures.py": "8e1ce5eaabe196eda82d5ee0d5e280f1f3ecd54d718110c0d49ffcbfb34829f1",
+        "examples/hyperliquid/account-shapes/tests/fixtures.rs": "b9b81f71382859cd19ba5304d19bb52b34293f8930d16379db70b32dc8fb1c04",
+        "examples/hyperliquid/account-shapes/src/lib.rs": "72b1ebf84d7b714edefb9b2f76c6a95dc8528a4df3fd8f3c756e0c9716e69cfd",
+        "examples/hyperliquid/account-shapes/fixtures/clearinghouse.json": "0ac8de0cad8113de6a7ec0acdba814ea4ceddb804fe460384bd4512b8407613d",
+        "examples/hyperliquid/account-shapes/fixtures/spot-response.json.txt": "1265f4d8da0671b5a0ad4a098eb3197a130fc17ca408f7031613c765bc518f08"
+      },
+      "output": "test_clearinghouse_observed_shape (test_fixtures.FixtureTests.test_clearinghouse_observed_shape) ... ok\ntest_displayed_spot_rows_only_after_explicit_test_normalization (test_fixtures.FixtureTests.test_displayed_spot_rows_only_after_explicit_test_normalization) ... ok\ntest_spot_excerpt_is_not_complete_json (test_fixtures.FixtureTests.test_spot_excerpt_is_not_complete_json) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK\n",
+      "exitCode": 0
+    },
+    {
+      "project": "examples/hyperliquid/precompiles-corewriter",
+      "status": "mock-vm-tested",
+      "command": "forge test --root examples/hyperliquid/precompiles-corewriter",
+      "sourceHashes": {
+        "examples/hyperliquid/precompiles-corewriter/README.md": "8d451b3571c37bb19643819c33d26e8a06b0884b61beb00e9cf7fe70bc255143",
+        "examples/hyperliquid/precompiles-corewriter/foundry.toml": "6aecf0a25c61a9d53b59a9b7e0d6a416fb5b55eb9fd1416e5ba0b05ccd9f9979",
+        "examples/hyperliquid/precompiles-corewriter/source-map.json": "566238b6daca52a80cb3cf01c4cfc8030a91a3d3c419308bd4c39add96953e25",
+        "examples/hyperliquid/precompiles-corewriter/test/PublishedExamples.t.sol": "49d34ff9bb477a8064dbe4ea850ec94761d10c1d57a868fe7be7005a77296d43",
+        "examples/hyperliquid/precompiles-corewriter/src/HyperCoreBbo.sol": "20ff8d7272f033a22e933452694a53b3f051840e45897826a15cb17ff66fa15a",
+        "examples/hyperliquid/precompiles-corewriter/src/HyperCoreBalances.sol": "a2b68d0b4acc6aa38aed5280562b9c3d68fc15c79ceebf385fd365bd53e9016f",
+        "examples/hyperliquid/precompiles-corewriter/src/Bbo.sol": "d81b6392045aa19fbbf682193fc598b604c4b57fe521f542052f4c5335d1aa3e",
+        "examples/hyperliquid/precompiles-corewriter/src/Position.sol": "7499dee02df6fca813b194e3dbf260d3e574b67afe5f38f2a57114014b3c255f",
+        "examples/hyperliquid/precompiles-corewriter/src/PriceScale.sol": "3146a82033a304501c903363b64a362cd7b17cd42fae407ddcc42bfa0417d484",
+        "examples/hyperliquid/precompiles-corewriter/src/AccountMarginSummary.sol": "b184d83ed0bc9e83728688a9f809e5aaa6ecf42bcda12b68d2322dd3f6b0bdd8",
+        "examples/hyperliquid/precompiles-corewriter/src/UsdClassTransfer.sol": "b27557e50117108fa61da29fac3bf7aec0b77e0d99951ac1490dafbfc101c9ca",
+        "examples/hyperliquid/precompiles-corewriter/src/HyperCoreLimitOrder.sol": "fc3f4fd769e0a51c2caa71393ebd98503a6f132853243e35cdc01beed4c85f40",
+        "examples/hyperliquid/precompiles-corewriter/src/HyperCoreRead.sol": "d7a7834ecfc0bde0cb004a5492cfd246d3e67e6c9fd4c165760044c68925d79d",
+        "examples/hyperliquid/precompiles-corewriter/src/SpotBalance.sol": "feb277494722282821a63e00ecbf046337ccc76887dcd7654284c00bd91f37e1",
+        "examples/hyperliquid/precompiles-corewriter/src/WrongOracle.sol": "45411c62b8de8f5711b65bceb667c409e5cdd6b743968fcee65793109be615aa"
+      },
+      "output": "No files changed, compilation skipped\n\nRan 10 tests for test/PublishedExamples.t.sol:PublishedExamplesTest\n[PASS] testBalanceAddressAndUint64Encoding() (gas: 15272)\n[PASS] testBboAndBalanceFailuresReject() (gas: 21237)\n[PASS] testBboTupleDecodingAndRawIndex() (gas: 14128)\n[PASS] testLimitOrderHeaderAndEveryField() (gas: 520941)\n[PASS] testLowLevelOrderDoesNotValidateZeroSizeOrTif() (gas: 400816)\n[PASS] testOracleFailureAndMalformedOutputReject() (gas: 16802)\n[PASS] testOracleUsesRawAbiWithoutSelector() (gas: 16251)\n[PASS] testPriceScaleAndDecimalsBoundary() (gas: 19430)\n[PASS] testPriceScaleUnsupportedDecimalsRevert() (gas: 10124)\n[PASS] testUsdActionHeaderAndBodyAndCaller() (gas: 294099)\nSuite result: ok. 10 passed; 0 failed; 0 skipped; finished in 6.64ms (4.98ms CPU time)\n\nRan 1 test suite in 25.29ms (6.64ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)\n",
+      "exitCode": 0
+    },
+    {
+      "project": "examples/hyperliquid/hip3-published",
+      "status": "offline/mock-tested; blocks8/9not run",
+      "command": "python3 -m unittest discover -s examples/hyperliquid/hip3-published/tests -v",
+      "sourceHashes": {
+        "examples/hyperliquid/hip3-published/offline.py": "1f7ad50f514de57135c6a84edfd178440faace34e9115f75b0f6b14bf1f362c3",
+        "examples/hyperliquid/hip3-published/README.md": "2eca06a9f38b117afbef73238649ce6f9b2ff1b67b47611825312508e940c4f3",
+        "examples/hyperliquid/hip3-published/source-map.json": "6ef4a362c44f72bb722a2898ae6074095236d4098c99cb0f034e16378aa0718a",
+        "examples/hyperliquid/hip3-published/tests/test_offline.py": "8cf43c351a6bf1ae54fe865c33c2a4fd736180f927f9d24140181d3fac369427",
+        "examples/hyperliquid/hip3-published/published/block-10.py": "4a629e732752ef9a85117a3069be5ef6a9b95749f5e427317ec6a4368698c9b6",
+        "examples/hyperliquid/hip3-published/published/block-11.py": "d5c24d932e999831dab09e29a1f7ab557222ca07dbc92ef69b0be26ce98d5011",
+        "examples/hyperliquid/hip3-published/published/block-03.ts": "1e6c3ef48ae7367eb24f57c39d2b9af4de6410c0c83605da744d7e9bee5b64f4",
+        "examples/hyperliquid/hip3-published/published/block-20.py": "2153ccfe4fa30c895899c013772531216eecdfb9d92e0b6783320485e5df7a86",
+        "examples/hyperliquid/hip3-published/published/block-08.py": "e73aedd6d8255fe9c7bc93dcf82e3b3911bb618cc27eb267998c593ef2215042",
+        "examples/hyperliquid/hip3-published/published/block-04.py": "2d5492016e023c2dfc19a8de08034c45389e0ca2861f49900973332f8cd57006",
+        "examples/hyperliquid/hip3-published/published/block-07.py": "4f64c26bc65de1a79886be7a365d030598c1afaad3596072d24cd8c3a3ec418c",
+        "examples/hyperliquid/hip3-published/published/block-06.py": "9511b58726241c1f5dcdacf505454a58dcab8a1200dfa1dc6d4f98dfa510bb93",
+        "examples/hyperliquid/hip3-published/published/block-19.ts": "75959ce34f59bb2f9d3138a4b391034a4b4aed25aa73502428bad17613bbb7c2",
+        "examples/hyperliquid/hip3-published/published/block-09.py": "98dc690e6e98b6096ebfdce23fd219664b449e9b083f8fa338d14447270ff6ee",
+        "examples/hyperliquid/hip3-published/published/block-02.ts": "20f30a2578780bbe3d51c660af5600c782507fb02f30320e38859ddf4c03ad0e"
+      },
+      "output": "test_all_exact_sources_and_python_syntax (test_offline.PublishedOfflineTests.test_all_exact_sources_and_python_syntax) ... ok\ntest_credentials_and_submission_blocks_cannot_run_in_harness (test_offline.PublishedOfflineTests.test_credentials_and_submission_blocks_cannot_run_in_harness) ... ok\ntest_discovery_uses_original_indexes_with_mocked_info (test_offline.PublishedOfflineTests.test_discovery_uses_original_indexes_with_mocked_info) ... ok\ntest_missing_dex_expected_failure_uses_mock (test_offline.PublishedOfflineTests.test_missing_dex_expected_failure_uses_mock) ... ok\ntest_oracle_payload_does_not_run_a_loop (test_offline.PublishedOfflineTests.test_oracle_payload_does_not_run_a_loop) ... ok\ntest_post_registration_snapshot_with_mocked_info (test_offline.PublishedOfflineTests.test_post_registration_snapshot_with_mocked_info) ... ok\ntest_register_payload_offline (test_offline.PublishedOfflineTests.test_register_payload_offline) ... ok\ntest_set_oracle_call_shape_only (test_offline.PublishedOfflineTests.test_set_oracle_call_shape_only) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.016s\n\nOK\n",
+      "exitCode": 0
+    },
+    {
+      "project": "examples/hyperliquid/signing-nonces",
+      "status": "offline-tested",
+      "command": "python (isolated SDK0.24.0 env) -m unittest discover -s examples/hyperliquid/signing-nonces/tests -v",
+      "sourceHashes": {
+        "examples/hyperliquid/signing-nonces/requirements-verified.txt": "c839fcd3031838783e141e61338238b7a3062c10cc9c4448ab53c614dfa0fc96",
+        "examples/hyperliquid/signing-nonces/requirements.txt": "5888cb8a381152aacd8349ca61729acd23c7feba8acb56f64c20c0e125b51e19",
+        "examples/hyperliquid/signing-nonces/README.md": "e84d79f080e11085ecc2910ce5d29cdfc7173d240ac2dda8f8b0fde63715b7c4",
+        "examples/hyperliquid/signing-nonces/01_sign_and_recover.py": "32ff6ba25233749f79509cd56bbdd0f7bf45e253d8c200d8885939f5d8499fbe",
+        "examples/hyperliquid/signing-nonces/.gitignore": "22bc478fc0eb97818e8c2efd9a6c8f9dce55490bdd8074a3f2b6b8653c5c12d5",
+        "examples/hyperliquid/signing-nonces/03_nonce_allocator.py": "319122b135ea3aa8de9d65f4841910835460fe3466945f9bb56ac4a5a872424c",
+        "examples/hyperliquid/signing-nonces/02_signed_preimage_mutations.py": "7ddd021042bff830af40787d6b846d841c29b55ab7e1a836e0245a2fd2565497",
+        "examples/hyperliquid/signing-nonces/tests/test_offline.py": "9152774af0ad2a9ea8b976e48ab39a7ce2b36b2bfbdcd528195bc825fbe35e2e"
+      },
+      "output": "test_clock_regression_does_not_repeat_nonce (test_offline.PublishedProgramsTests.test_clock_regression_does_not_repeat_nonce) ... ok\ntest_one_allocator_across_more_threads (test_offline.PublishedProgramsTests.test_one_allocator_across_more_threads) ... ok\ntest_published_six_worker_demo (test_offline.PublishedProgramsTests.test_published_six_worker_demo) ... ok\ntest_sign_and_recover (test_offline.PublishedProgramsTests.test_sign_and_recover) ... ok\ntest_signed_preimage_mutations (test_offline.PublishedProgramsTests.test_signed_preimage_mutations) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.195s\n\nOK\n",
+      "exitCode": 0
+    }
+  ]
+}
