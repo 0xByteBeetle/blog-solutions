@@ -1,0 +1,14 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+  "sourceSnapshot": "articles/evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/published.md",
+  "mappings": [
+    {
+      "block": 25,
+      "publishedPath": "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/additional-examples/published/block-25.txt",
+      "publishedSha256": "8d5c367a80432972d822fe3e61a0b4c422a585527b4005f38c5595538e46ceed",
+      "sourcePath": "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/additional-examples/src/Block25.sol",
+      "sourceSha256": "869ac8ed1e11f7e49989a2768972fa0a162b02ba8b8a0d6381b281617f380313",
+      "changes": "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    }
+  ]
+}

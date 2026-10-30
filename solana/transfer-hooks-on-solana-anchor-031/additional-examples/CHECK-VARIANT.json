@@ -1,0 +1,9 @@
+{
+  "variant": "variants/check-annotations/lib.rs",
+  "sha256": "4d5fe052c010b48d6f66aafce4e63ed245e24e26a7124ba8d00f4d1ed44f4e7f",
+  "base": "workspace-template/programs/transfer-hook-project/src/lib.rs",
+  "baseSha256": "e3ff981b8a9312d55238661260d949b8e2f38d9e59bf8cd538c4c73eb184a7f0",
+  "change": "Add exactly two CHECK documentation comments copied from the already-existing recovered original variant. No field/attribute/function/body changes.",
+  "sourceBoundary": "Native published block7 has no CHECK docs on these two initialization fields; recovered original does. This is a compile-lint candidate, not a newly observed compile failure or verified fix.",
+  "runtime": "NOT RUN"
+}

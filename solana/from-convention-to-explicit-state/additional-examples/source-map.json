@@ -1,0 +1,67 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+  "exactPublishedBlocks": [
+    {
+      "path": "published/block-01.txt",
+      "sha256": "f31689a1ae665243eaf97abe070b0a82293b622d89de2c98e38307b80cff1e23",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 1,
+        "sha256": "f31689a1ae665243eaf97abe070b0a82293b622d89de2c98e38307b80cff1e23"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "3c891c8b700f0ef7ae1c7e3342230f95a6bdd6be16412b81dcb7607049b0730c",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 2,
+        "sha256": "3c891c8b700f0ef7ae1c7e3342230f95a6bdd6be16412b81dcb7607049b0730c"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "f94d63101b73bf41f7f680d6cee35e862a33cc37df265cdf0e501003b7b9de66",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 3,
+        "sha256": "f94d63101b73bf41f7f680d6cee35e862a33cc37df265cdf0e501003b7b9de66"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "dff305fece40d621fbd642bd188908c70223812d6473cc0588f53ad9af5168a3",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 4,
+        "sha256": "dff305fece40d621fbd642bd188908c70223812d6473cc0588f53ad9af5168a3"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "0a254d3f68f3cc25e5e6da2f586146f32dd52b5b62d81708425ae4a1fecaa865",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 5,
+        "sha256": "0a254d3f68f3cc25e5e6da2f586146f32dd52b5b62d81708425ae4a1fecaa865"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "355cd468b43ef90fd441047f1a6717b36ad72491cd8ec938f6d5844295f9d703",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/from-convention-to-explicit-state",
+        "block": 6,
+        "sha256": "355cd468b43ef90fd441047f1a6717b36ad72491cd8ec938f6d5844295f9d703"
+      },
+      "changes": []
+    }
+  ],
+  "supplementalFiles": "Everything outside published/ is supplemental setup/tests, not author-source.",
+  "reusedSource": "blog-solutions-audit/solana/token-2022/run-local.sh; scenarios/helpers adapted for isolated per-article use."
+}

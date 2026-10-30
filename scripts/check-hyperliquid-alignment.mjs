@@ -7,7 +7,7 @@ export function auditHyperliquid(root, read = fs.readFileSync) {
   const articles = JSON.parse(read(path.join(root, 'catalog/articles.json'), 'utf8')).filter(a => a.chain === 'hyperliquid');
   const mappings = [];
   for (const article of articles) {
-    const snapshot = read(path.join(root, `articles/hyperliquid/${article.slug}/published.md`), 'utf8');
+    const snapshot = read(path.join(root, `${article.directory||`articles/hyperliquid/${article.slug}`}/published.md`), 'utf8');
     const blocks = new Map([...snapshot.matchAll(/## Block (\d+)\n\nSHA-256: `[a-f0-9]{64}`\n\n````text\n([\s\S]*?)\n````/g)].map(m => [+m[1], m[2]]));
     for (const block of article.sourceBlocks) for (const relative of block.implementations) {
       const filename = path.resolve(root, relative);

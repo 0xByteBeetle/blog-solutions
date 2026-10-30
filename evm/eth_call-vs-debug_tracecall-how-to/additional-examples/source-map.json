@@ -1,0 +1,11 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/eth_call-vs-debug_tracecall-how-to",
+  "sourceSnapshot": "articles/evm/eth_call-vs-debug_tracecall-how-to/published.md",
+  "mappings": [
+    {
+      "block": 4,
+      "publishedPath": "evm/eth_call-vs-debug_tracecall-how-to/additional-examples/published/block-04.txt",
+      "publishedSha256": "a13ca67e8c1bbfb8c96b593d8fc349f6b679598e4402b0afe3eb31d55ef5ec05"
+    }
+  ]
+}

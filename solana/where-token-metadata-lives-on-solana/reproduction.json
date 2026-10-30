@@ -1,0 +1,12 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana",
+  "requiredFiles": [
+    "projects/metadata-published/package-lock.json",
+    "projects/metadata-published/package.json",
+    "projects/metadata-published/tsconfig.json",
+    "supplementary/metadata/package-lock.json",
+    "supplementary/metadata/package.json",
+    "supplementary/metadata/tsconfig.json"
+  ],
+  "note": "Existing project manifests/setup required for article-local reproduction. Presence is not build/runtime verification; conceptual articles may have none."
+}

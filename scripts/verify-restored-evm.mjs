@@ -8,6 +8,8 @@ import {spawn, spawnSync} from 'node:child_process';
 import {requireToolchain} from './check-toolchain.mjs';
 requireToolchain(['forge', 'anvil', 'cast']);
 const root=path.resolve(import.meta.dirname,'..');
+const projectPaths=JSON.parse(fs.readFileSync(root+'/catalog/project-paths.json'));
+const projectPath=(chain,name)=>projectPaths['examples/'+chain+'/'+name];
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'blog-evm-run-'));
 const port=Number(process.env.BLOG_TEST_PORT||18549);
 const rpc=`http://127.0.0.1:${port}`;
@@ -28,8 +30,8 @@ try{
  const [owner,admin,recipient]=accounts;
  const call=(address,sig,...args)=>run('cast',['call',address,sig,...args,'--from',owner,'--rpc-url',rpc]);
  const send=(address,sig,args=[],from=owner)=>JSON.parse(run('cast',['send',address,sig,...args,'--unlocked','--from',from,'--rpc-url',rpc,'--json']));
- function deploy(project,contract,args=[]){return JSON.parse(run('forge',['create',contract,'--rpc-url',rpc,'--unlocked','--from',owner,'--broadcast','--json',...(args.length?['--constructor-args',...args]:[])],`${root}/examples/evm/${project}`)).deployedTo;}
- function pass(project,checks){const prefix=`examples/evm/${project}/`;const files=JSON.parse(fs.readFileSync(`${root}/catalog/source-files.json`)).filter(s=>s.path.startsWith(prefix));const sourceHashes=Object.fromEntries(files.map(s=>[s.path,crypto.createHash('sha256').update(fs.readFileSync(root+'/'+s.path)).digest('hex')]));results.push({project:`examples/evm/${project}`,status:'runtime-verified',checks,sourceHashes});console.log(`PASS ${project}: ${checks.join('; ')}`);}
+ function deploy(project,contract,args=[]){return JSON.parse(run('forge',['create',contract,'--rpc-url',rpc,'--unlocked','--from',owner,'--broadcast','--json',...(args.length?['--constructor-args',...args]:[])],`${root}/${projectPath('evm',project)}`)).deployedTo;}
+ function pass(project,checks){const prefix=projectPath('evm',project)+'/';const files=JSON.parse(fs.readFileSync(`${root}/catalog/source-files.json`)).filter(s=>s.path.startsWith(prefix));const sourceHashes=Object.fromEntries(files.map(s=>[s.path,crypto.createHash('sha256').update(fs.readFileSync(root+'/'+s.path)).digest('hex')]));results.push({project:projectPath('evm',project),status:'runtime-verified',checks,sourceHashes});console.log(`PASS ${project}: ${checks.join('; ')}`);}
  const factory=deploy('factory','src/basicfactory.sol:CounterFactory');
  const created=send(factory,'createCounter(address,uint256)',[owner,'42']).logs.map(l=>'0x'+l.topics[1].slice(-40));
  assert.equal(created.length,5);for(const c of created)assert.equal(call(c,'value()(uint256)'),'42');

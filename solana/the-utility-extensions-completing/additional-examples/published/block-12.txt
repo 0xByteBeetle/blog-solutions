@@ -1,0 +1,1 @@
+spl-token transfer <MINT_ADDRESS> 50 <ALICE_TOKEN_ACCOUNT_ADDRESS>

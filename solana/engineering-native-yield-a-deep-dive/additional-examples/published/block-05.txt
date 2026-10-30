@@ -1,0 +1,5 @@
+Extensions
+  Interest-bearing:
+    Current rate: 500bps
+    Average rate: 500bps
+    Rate authority: <YOUR_WALLET>

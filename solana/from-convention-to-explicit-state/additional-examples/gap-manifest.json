@@ -1,0 +1,89 @@
+{
+  "target": "solana/from-convention-to-explicit-state/",
+  "sourceMap": "source-map.json",
+  "exactBlocks": 6,
+  "supplementalSetup": [
+    "requirements.json",
+    "local-harness.sh",
+    "run.sh",
+    "scenario.sh",
+    "README.md",
+    "tests/test_static.py"
+  ],
+  "staticChecks": {
+    "status": "passed",
+    "count": 5,
+    "date": "2026-10-30"
+  },
+  "runtimeChecks": {
+    "status": "not-run",
+    "reason": "Do not claim pointer storage makes the target a valid canonical metadata account. A consumer must validate the target contents/reverse relationship separately. Shell continuation whitespace from exact snapshots is preserved; runnable scaffolding uses syntactically valid continuations."
+  },
+  "networkPolicy": "strict-loopback; no automatic public fallback",
+  "integration": "Overlay/add these supplemental files and published snapshots into migrated perarticle target without deleting healthy variants; resolve name collisions explicitly.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "d8974a1bd0952e55874013d796a654bfe6278147b832cc19879b3c5338ea85a3"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6fb1dba2109a8de4c7d719efc13e32045a6949e162830705475317089943a135"
+    },
+    {
+      "path": "local-harness.sh",
+      "sha256": "ed7f5a17f8c990b5b4eae3f683ba94ccde15e88807b6da241603d56b7fd2e9b6"
+    },
+    {
+      "path": "published/block-01.txt",
+      "sha256": "f31689a1ae665243eaf97abe070b0a82293b622d89de2c98e38307b80cff1e23"
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "3c891c8b700f0ef7ae1c7e3342230f95a6bdd6be16412b81dcb7607049b0730c"
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "f94d63101b73bf41f7f680d6cee35e862a33cc37df265cdf0e501003b7b9de66"
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "dff305fece40d621fbd642bd188908c70223812d6473cc0588f53ad9af5168a3"
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "0a254d3f68f3cc25e5e6da2f586146f32dd52b5b62d81708425ae4a1fecaa865"
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "355cd468b43ef90fd441047f1a6717b36ad72491cd8ec938f6d5844295f9d703"
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "037591f86c2d12f00de8b899a2d0d4109051fafac244ad37371ff2ba178d5e12"
+    },
+    {
+      "path": "run.sh",
+      "sha256": "4c7ee6bc2aba5c686c662333541b42cfdef85ac12680585e3d24dcb36b9662f5"
+    },
+    {
+      "path": "scenario.sh",
+      "sha256": "b12c8cfa53a8b92e5e2fa7ffa2a4588a2dcb4aee49bb4bcd5869bdedf71827a5"
+    },
+    {
+      "path": "source-map.json",
+      "sha256": "3336db4b933b05b82cf976174d41b33ba4780e19ac66752424346c15c775ae35"
+    },
+    {
+      "path": "tests/test_static.py",
+      "sha256": "3a4081f07a2345738cece7b05a036fff834589494051551f3a8efe068479c037"
+    }
+  ],
+  "topologyDocumentationAdaptations": [
+    {
+      "path": "README.md",
+      "beforeSha256": "197e36ae5dd867b01b59c3c332d0c6b1f6b31c9563151a0f0057dc30622dde35",
+      "reason": "Label old source path as historical provenance, not a current runnable command."
+    }
+  ]
+}

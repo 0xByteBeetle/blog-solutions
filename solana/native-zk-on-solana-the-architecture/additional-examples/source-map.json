@@ -1,0 +1,127 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+  "exactPublishedBlocks": [
+    {
+      "path": "published/block-01.txt",
+      "sha256": "b606dc009c8eebf9ed7852c03dd982af70fb81952d879bebc9e3867dca04d74e",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 1,
+        "sha256": "b606dc009c8eebf9ed7852c03dd982af70fb81952d879bebc9e3867dca04d74e"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "66a6a309b8038689ac3af33efb45a6551e44124c4113652f5e9e2e1f3265fa4d",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 2,
+        "sha256": "66a6a309b8038689ac3af33efb45a6551e44124c4113652f5e9e2e1f3265fa4d"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "4a16b32bf53f5b5e1120a411ff3e0e44a2e1c7b6e55b18970cb3f074222c9edb",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 3,
+        "sha256": "4a16b32bf53f5b5e1120a411ff3e0e44a2e1c7b6e55b18970cb3f074222c9edb"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 4,
+        "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "56c46d4f022ff7e3dd64a3e40aeae4817b48d70f4639eccde9ffc046ab4394d0",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 5,
+        "sha256": "56c46d4f022ff7e3dd64a3e40aeae4817b48d70f4639eccde9ffc046ab4394d0"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 6,
+        "sha256": "0a2c44dd9a15376f894ae3f4cc7cda7f6396261a47fa595ebd29b691bb31b158"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-07.txt",
+      "sha256": "5ba99eb4b93b4e6cdbbc64226a4a1573ebfb26d6c5dd9f684f53b1e58e2542d5",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 7,
+        "sha256": "5ba99eb4b93b4e6cdbbc64226a4a1573ebfb26d6c5dd9f684f53b1e58e2542d5"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-08.txt",
+      "sha256": "398cdd46a7d188b90bc0c95733673351e74018f8bf432c8c740126e431744fc2",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 8,
+        "sha256": "398cdd46a7d188b90bc0c95733673351e74018f8bf432c8c740126e431744fc2"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-09.txt",
+      "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 9,
+        "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-10.txt",
+      "sha256": "92dd4b6ff62decf8169320e6c9aac8c19914d24c539bb0f5f3aab7d0a52b005c",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 10,
+        "sha256": "92dd4b6ff62decf8169320e6c9aac8c19914d24c539bb0f5f3aab7d0a52b005c"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-11.txt",
+      "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 11,
+        "sha256": "87741b8235c0b8b6a07ccd40a5f8093815e77c158a1628266c9356da60b7b319"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-12.txt",
+      "sha256": "ff58c4574aa76eb8cfe72fe28b54afea5f0393d39f1f35d9e3717c3c7d3d0974",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture",
+        "block": 12,
+        "sha256": "ff58c4574aa76eb8cfe72fe28b54afea5f0393d39f1f35d9e3717c3c7d3d0974"
+      },
+      "changes": []
+    }
+  ],
+  "supplementalFiles": "Everything outside published/ is supplemental setup/tests, not author-source.",
+  "reusedSource": "blog-solutions-audit/solana/token-2022/run-local.sh; scenarios/helpers adapted for isolated per-article use."
+}

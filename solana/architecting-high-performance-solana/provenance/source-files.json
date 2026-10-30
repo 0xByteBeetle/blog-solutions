@@ -1,0 +1,104 @@
+[
+  {
+    "path": "projects/zero-copy-original/Cargo.toml",
+    "sha256": "dbd714c64166d92c8550badcd0964293191a945a0de4a756d1d69486e772c57f",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/Cargo.lock",
+    "sha256": "a8c0148a354f74bb31ab24534ce59d4c422a457b40c1a8e58a4b9185d3de7eba",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Cargo.lock"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/Anchor.toml",
+    "sha256": "a6f830c24bca347aa8a8e4b649eb4a41d3e404f18de4dd2a1a7bf843c3e1f962",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "Anchor.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/package.json",
+    "sha256": "51aa4935f4eca5cc345d93a50816a9f0f3c0fd3d73683653ea2c75f0035759a3",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "package.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/tsconfig.json",
+    "sha256": "bd0f2c29bd00ea49b24b102057d2dda078f9dea09ef193ac0335af99df5149f4",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "tsconfig.json"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/programs/borsh_deep_dive/Cargo.toml",
+    "sha256": "14ba836b5e0945487f5430bdefd74435a3cd05ab66b45359327c698ebbb180ef",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "programs/borsh_deep_dive/Cargo.toml"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/programs/borsh_deep_dive/src/lib.rs",
+    "sha256": "ccbfbcfab72e507666161e51cf6d6e82244116d30bad5c536abaa5c160af86a1",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "programs/borsh_deep_dive/src/lib.rs"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-original/tests/zero_copy.ts",
+    "sha256": "12a2a6cb4b615e2dccea9ff5ad4fefb3551a0a06af57a608e45c9a9b85d6e11e",
+    "source": {
+      "localProject": "zero_copy_deep_dive",
+      "path": "tests/zero_copy.ts"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy/programs/zero_copy_deep_dive/src/lib.rs",
+    "sha256": "55557ca2c89e40c1a3a4aa66402d3769f9b0d3091b5e5974e1b47c93cc4eba7a",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 5,
+      "sha256": "d73cd3b9bfc6bfb80d86ab37ac306430b20b97ecab4152a1c6d11fff1dfa9ba1"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy/tests/published.ts",
+    "sha256": "1ce25fa6b172dbf3fd74a6444da1f1d2286ea730a7364959488c057357700858",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 6,
+      "sha256": "68244dd301071a564c627bcc6e07b8c8dc36b69576cea7e8b014f978667acf7c"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/zero-copy-layout/src/lib.rs",
+    "sha256": "1fed75363c2246d996cc1539e052d52a835aebe8ab8a13b63439ee4aa63c0782",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/architecting-high-performance-solana",
+      "block": 2,
+      "sha256": "7f3be386891a091dad5985a65d8e1ee6ab560bcd1a120d895bd524ce0c4ad63f"
+    },
+    "changes": []
+  }
+]

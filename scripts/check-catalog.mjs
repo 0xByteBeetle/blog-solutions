@@ -12,7 +12,7 @@ const urls=new Set(), slugs=new Set();let blocks=0;
 for(const article of catalog){
  assert.ok(!urls.has(article.url)&&!slugs.has(`${article.chain}/${article.slug}`));
  urls.add(article.url);slugs.add(`${article.chain}/${article.slug}`);
- const directory=`articles/${article.chain}/${article.slug}`;
+ const directory=(article.directory||`articles/${article.chain}/${article.slug}`);
  assert.ok(fs.existsSync(local(`${directory}/README.md`)));
  const snapshot=fs.readFileSync(local(`${directory}/published.md`),'utf8');
  const captured=[...snapshot.matchAll(/## Block (\d+)\n\nSHA-256: `([a-f0-9]{64})`\n\n````text\n([\s\S]*?)\n````/g)];

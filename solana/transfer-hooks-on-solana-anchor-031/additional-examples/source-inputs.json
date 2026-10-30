@@ -1,0 +1,42 @@
+[
+  {
+    "path": "published/program.rs",
+    "sha256": "0899e1fcd810a950f3f84c5f600e0cf781dc96092e8d188cb0357a443b8c7a67",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 7,
+      "sha256": "0899e1fcd810a950f3f84c5f600e0cf781dc96092e8d188cb0357a443b8c7a67"
+    },
+    "changes": []
+  },
+  {
+    "path": "published/client.ts",
+    "sha256": "6145540021f492a66d6788749af39daa9f2112910aa831d1681f449978f7cb1b",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 12,
+      "sha256": "6145540021f492a66d6788749af39daa9f2112910aa831d1681f449978f7cb1b"
+    },
+    "changes": []
+  },
+  {
+    "path": "workspace-template/programs/transfer-hook-project/src/lib.rs",
+    "sha256": "e3ff981b8a9312d55238661260d949b8e2f38d9e59bf8cd538c4c73eb184a7f0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 7,
+      "sha256": "0899e1fcd810a950f3f84c5f600e0cf781dc96092e8d188cb0357a443b8c7a67"
+    },
+    "changes": []
+  },
+  {
+    "path": "workspace-template/scripts/published-client.ts",
+    "sha256": "2d8374280f129995ae756a3fe06b49078eda335356833d4f4d631d8fba33ddb0",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/transfer-hooks-on-solana-anchor-031",
+      "block": 12,
+      "sha256": "6145540021f492a66d6788749af39daa9f2112910aa831d1681f449978f7cb1b"
+    },
+    "changes": []
+  }
+]

@@ -26,3 +26,13 @@ node_modules/
 examples/**/out/
 examples/**/cache/
 examples/**/broadcast/
+
+# Article-local build outputs
+**/out/
+**/cache/
+**/broadcast/
+**/.venv/
+
+# Python interpreter artifacts
+**/__pycache__/
+*.py[cod]

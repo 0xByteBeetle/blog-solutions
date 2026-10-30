@@ -41,7 +41,7 @@ export function auditSolana(root) {
   const articles = JSON.parse(fs.readFileSync(path.join(root, 'catalog/articles.json')));
   const results = [];
   for (const article of articles.filter(a => a.chain === 'solana')) {
-    const snapshot = fs.readFileSync(path.join(root, `articles/solana/${article.slug}/published.md`), 'utf8');
+    const snapshot = fs.readFileSync(path.join(root, `${article.directory||`articles/solana/${article.slug}`}/published.md`), 'utf8');
     const blocks = new Map([...snapshot.matchAll(/## Block (\d+)\n\nSHA-256: `[a-f0-9]{64}`\n\n````text\n([\s\S]*?)\n````/g)].map(m => [+m[1], m[2]]));
     for (const block of article.sourceBlocks) {
       for (const relative of block.implementations) {

@@ -1,0 +1,24 @@
+[
+  {
+    "path": "projects/bytecode/src/MiniExample.sol",
+    "sha256": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/ethereum-calldata-and-bytecode-how",
+      "block": 6,
+      "sha256": "e6eaba303a7e34a87e38bde46f961c19419ff51466bf35539786ae3822d47ce2"
+    },
+    "changes": []
+  },
+  {
+    "path": "additional-examples/src/Block06.sol",
+    "sha256": "3933e0637a2a59f86a39eeb24e50a594b1f1013dd868de483adcf2b65a816978",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
+      "block": 6,
+      "sha256": "ad3846d97aed7537ea3fd8d24b885a5bb948d0b074ef0d54d797ca36e63c4893"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  }
+]

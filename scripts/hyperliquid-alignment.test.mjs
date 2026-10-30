@@ -12,7 +12,7 @@ test('five live-captured articles retain exact implementation links', () => {
   assert.deepEqual(report.mappings.filter(x => !x.exact), []);
 });
 test('a literal alteration is rejected, not whitespace-normalized away', () => {
-  const target = 'examples/hyperliquid/signing-nonces/01_sign_and_recover.py';
+  const target = 'hyperliquid/unpacking-hyperliquid-part-5-agent/projects/signing-nonces/01_sign_and_recover.py';
   const report = auditHyperliquid(root, (filename, encoding) => {
     const content = fs.readFileSync(filename, encoding);
     return filename.endsWith(target) ? content.replace('Hyperliquid', 'Hyper liquid') : content;

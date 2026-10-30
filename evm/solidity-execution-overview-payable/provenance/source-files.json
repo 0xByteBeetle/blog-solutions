@@ -1,0 +1,50 @@
+[
+  {
+    "path": "additional-examples/src/Block03.sol",
+    "sha256": "c536a63707f37d4ca9f1f434fc8f4298af4c6103722cad88c420b1a3105892cf",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solidity-execution-overview-payable",
+      "block": 3,
+      "sha256": "b7d1f81e4b37fd7fc25b411d57a99adbd9b934bad2c968804ac50c1d8e50435d"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  },
+  {
+    "path": "additional-examples/src/Block05.sol",
+    "sha256": "d215b098c18ee6fc948efb81a4e2b3fd43a4cdefcf00982fc271eabce79f8726",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solidity-execution-overview-payable",
+      "block": 5,
+      "sha256": "4a47de1ca01e0d3c007a73fc067bc202af0adcd1cf29a14f3595c144cba89992"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  },
+  {
+    "path": "additional-examples/src/Block06.sol",
+    "sha256": "9555dfd5465b1c1326cd1455c323adfee7b2c6d1cfcc1d1ce1e8507162ae3314",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solidity-execution-overview-payable",
+      "block": 6,
+      "sha256": "b2f94405a94fe28bb635890bf3ef850ffb3abd73f909d014d9536ba3bee6fbd7"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  },
+  {
+    "path": "additional-examples/src/Block07.sol",
+    "sha256": "fbf79133c2d214a356bb60ac10ed0bc63de76814518d78adb4fe2975a4e461fd",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/solidity-execution-overview-payable",
+      "block": 7,
+      "sha256": "fb1df9bd4f35a01f16ee3804df61204e31ef972b92c68c7d898730b7bd08987e"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  }
+]

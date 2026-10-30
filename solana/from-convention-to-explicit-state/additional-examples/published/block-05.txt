@@ -1,0 +1,5 @@
+spl-token initialize-metadata <MINT-ADDRESS> \                  
+  "Example Token" \
+  "EXMPL" \                            
+  "https://example.com/metadata.json" \                   
+  --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb

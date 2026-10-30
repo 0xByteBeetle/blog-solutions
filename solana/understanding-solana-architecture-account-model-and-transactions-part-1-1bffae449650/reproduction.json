@@ -1,0 +1,8 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/understanding-solana-architecture-account-model-and-transactions-part-1-1bffae449650",
+  "requiredFiles": [
+    "supplementary/fundamentals/Cargo.lock",
+    "supplementary/fundamentals/Cargo.toml"
+  ],
+  "note": "Existing project manifests/setup required for article-local reproduction. Presence is not build/runtime verification; conceptual articles may have none."
+}

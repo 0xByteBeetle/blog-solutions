@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "69cfc78d00d89b1f2044e4569a7b0a38ba66c95a",
+  "sourcePath": "examples/solana/wallet-token-balances-original/scripts/client-alt-ready.ts",
+  "sha256": "fea151683ba1cf83c7dfc80cce019439adc24abbe88a10859c31cfaaddc48769",
+  "copies": [
+    {
+      "path": "solana/understanding-solana-part-6-transactions/projects/wallet-token-balances-original/scripts/client-alt-ready.ts",
+      "sha256": "fea151683ba1cf83c7dfc80cce019439adc24abbe88a10859c31cfaaddc48769",
+      "byteEquivalentToMain": true
+    },
+    {
+      "path": "solana/understanding-solana-part-6-transactions/additional-examples/workspace-template/scripts/client-alt-ready.ts",
+      "sha256": "fea151683ba1cf83c7dfc80cce019439adc24abbe88a10859c31cfaaddc48769",
+      "byteEquivalentToMain": true
+    },
+    {
+      "path": "solana/understanding-solana-part-6-transactions/additional-examples/variants/original/scripts/client-alt-ready.ts",
+      "sha256": "fea151683ba1cf83c7dfc80cce019439adc24abbe88a10859c31cfaaddc48769",
+      "byteEquivalentToMain": true
+    }
+  ],
+  "runnerChange": "Exact committed explanation propagated to all five article-local harnesses and both additional harnesses; topology safeguards unchanged. No launcher implementation change exists in committed main.",
+  "changedFiles": [
+    "solana/understanding-solana-part-6-transactions/projects/wallet-token-balances-original/scripts/client-alt-ready.ts",
+    "solana/understanding-solana-part-6-transactions/additional-examples/workspace-template/scripts/client-alt-ready.ts",
+    "solana/understanding-solana-part-6-transactions/additional-examples/variants/original/scripts/client-alt-ready.ts",
+    "solana/understanding-solana-part-3-anchor/scripts/run-original-anchor.mjs",
+    "solana/transfer-hooks-on-solana-anchor-031/scripts/run-original-anchor.mjs",
+    "solana/understanding-solana-part-6-transactions/scripts/run-original-anchor.mjs",
+    "solana/solana-deep-dive-unpacking-borsh/scripts/run-original-anchor.mjs",
+    "solana/architecting-high-performance-solana/scripts/run-original-anchor.mjs",
+    "solana/transfer-hooks-on-solana-anchor-031/additional-examples/scripts/run-local.mjs",
+    "solana/understanding-solana-part-6-transactions/additional-examples/scripts/run-local.mjs",
+    "solana/understanding-solana-part-6-transactions/projects/wallet-token-balances-original/README.md",
+    "solana/understanding-solana-part-6-transactions/additional-examples/workspace-template/README.md",
+    "solana/understanding-solana-part-6-transactions/additional-examples/variants/original/README.md",
+    "solana/understanding-solana-part-3-anchor/SETUP.md",
+    "solana/transfer-hooks-on-solana-anchor-031/SETUP.md",
+    "solana/understanding-solana-part-6-transactions/SETUP.md",
+    "solana/solana-deep-dive-unpacking-borsh/SETUP.md",
+    "solana/architecting-high-performance-solana/SETUP.md",
+    "solana/transfer-hooks-on-solana-anchor-031/additional-examples/companion-manifest.json",
+    "solana/understanding-solana-part-6-transactions/additional-examples/companion-manifest.json"
+  ]
+}

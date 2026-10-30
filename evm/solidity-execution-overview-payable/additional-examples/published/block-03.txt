@@ -1,0 +1,7 @@
+contract MyContract{
+    event Received(address sender, uint amount);
+
+    receive() external payable {
+        emit Received(msg.sender, msg.value);
+    }
+}

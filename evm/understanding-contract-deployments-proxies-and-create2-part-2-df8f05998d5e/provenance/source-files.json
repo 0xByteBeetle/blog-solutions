@@ -1,0 +1,94 @@
+[
+  {
+    "path": "projects/factory/src/basicfactory.sol",
+    "sha256": "fdc8e6d56b611d2e8288324a6787f656dbadb87208fb4fab929d4f070e893cb9",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/factories-how-smart-contracts-deploy",
+      "block": 1,
+      "sha256": "3e70d3ba22a9f914feae4e73ef5288d20d964d33b5fbfb8e19c79899826070cc"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "projects/minimal-proxy/src/minimalProxy.sol",
+    "sha256": "588d7b16f6bf34c5f536c8698311299752b7778bca22bfd40be559a00c20fd4f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-minimal",
+      "block": 2,
+      "sha256": "46f6fc34c7728fd545aa2d23ba2e67c0883fcbfca278e6c721ece8b9f9493223"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "projects/uups/src/UUPSLogicContract.sol",
+    "sha256": "956e627e9c2488d070bae16d8826f6f146290d05b0b62a7807972322fa8ef879",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-uups-proxy",
+      "block": 1,
+      "sha256": "cf27b90678b9a78791f0928d66593ee88374f33c12052fa43f08a3ff0aca4421"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "projects/uups/src/UUPSProxy.sol",
+    "sha256": "8193952de55114b2cc4ac40feb30b6b9d7ea60dbbbbeb5ba355a543cc55d8796",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/proxies-and-upgradability-uups-proxy",
+      "block": 2,
+      "sha256": "7d2b16b9b5a0f74fd32c6e8114a6680ea2c77c7a2f52435aac1d729a07d1f768"
+    },
+    "changes": [
+      "Normalize typographic quote characters from the published text; no algorithm changes."
+    ]
+  },
+  {
+    "path": "projects/storage-validation/src/Storage.sol",
+    "sha256": "7d17102e9a67740c3dfc118d41d98bfe96bd94bb46f958e8632aea4dd0aec636",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+      "block": 3,
+      "sha256": "7d73ec75414e9ad43a536d1ff54f9f25cb4a97d4ae7fdeb503a6e101719ede52"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/storage-validation/test/Storage.t.sol",
+    "sha256": "7f32fceecd8e6a16b598bef82147e49dea4e696476948421bf3a89044e97e81e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+      "block": 4,
+      "sha256": "4de46069dad0c0dfdefd20639016cf4e87bf5820355a341b274088b64f86aeeb"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/storage-validation/test/Tracing.t.sol",
+    "sha256": "b2ec00bcd144319271bf6fa5dbb5155593fcfb63993146bc43a63b946b1f66ee",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/tracing-ethereum-transactions-how",
+      "block": 1,
+      "sha256": "e2ac2f6fe2426c2b784fcc2ca6c8b312c32834ffd23acd70639f32bb9aba6789"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  },
+  {
+    "path": "projects/storage-validation/script/DebugStore.sol",
+    "sha256": "cb1f9c38bd9c6de8457d572a6e07250ea8ef917ddf6f37c70f19092154207c93",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/tracing-ethereum-transactions-how",
+      "block": 10,
+      "sha256": "d06f5d4c5ab16a6709f0caf54da21bb6696a7511869ce0dc632b0fc6e0ca87e7"
+    },
+    "changes": [
+      "Normalize typographic quotes; no implementation changes."
+    ]
+  }
+]

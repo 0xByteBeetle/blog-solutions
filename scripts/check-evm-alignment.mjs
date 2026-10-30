@@ -57,9 +57,9 @@ export function containsLiteralPreserving(source, published, equal = (a, b) => a
 // during source recovery. Only JSON syntax whitespace is ignored for these links;
 // whitespace inside JSON strings, field order, duplicate keys and all values stay exact.
 const reviewedAbiFormatting = new Set([
-  'evm-tx-setcode-transactions-eip-7702:11:examples/evm/transaction-types/eip7702/eip7702_batch.go',
-  'understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768:13:examples/evm/transaction-types/eip7702/eip7702_batch.go',
-  'ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397:8:examples/evm/multicall/main.go',
+  'evm-tx-setcode-transactions-eip-7702:11:evm/evm-tx-setcode-transactions-eip-7702/projects/transaction-types/eip7702/eip7702_batch.go',
+  'understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768:13:evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/projects/transaction-types/eip7702/eip7702_batch.go',
+  'ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397:8:evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397/projects/multicall/main.go',
 ]);
 export function jsonAbiLiteralEqual(left, right) {
   if (left === right) return true;
@@ -87,7 +87,7 @@ export function auditEvm(root) {
   const articles = JSON.parse(fs.readFileSync(path.join(root, 'catalog/articles.json'), 'utf8'));
   const failures = [];
   const results = articles.filter(article => article.chain === 'evm').map(article => {
-    const snapshotPath = `articles/evm/${article.slug}/published.md`;
+    const snapshotPath = `${article.directory||`articles/evm/${article.slug}`}/published.md`;
     const snapshot = fs.readFileSync(path.join(root, snapshotPath), 'utf8');
     const blocks = new Map([...snapshot.matchAll(/## Block (\d+)\n\nSHA-256: `[a-f0-9]{64}`\n\n````text\n([\s\S]*?)\n````/g)].map(match => [Number(match[1]), match[2]]));
     const mappings = [];

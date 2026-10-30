@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-30T16:32:40.018290+00:00",
+  "base": "e7d0c04707b6f324b08faa77f72b63b37475418b",
+  "articleDirectories": 58,
+  "sourceBlocks": 573,
+  "sourceFilesWithUnchangedBodyHashes": 347,
+  "pathMap": "catalog/topology-migration.json",
+  "checks": {
+    "rootNodeTests": 28,
+    "topologyMutationTestsIncluded": 8,
+    "evmBuildOrUnitProjects": 15,
+    "evmNewGapFoundryTests": 18,
+    "evmLoopbackHarnessAssertions": 8,
+    "evmCorrectionFoundryTests": 4,
+    "evmCorrectionGoPackages": 2,
+    "solanaCompanionStaticChecks": 33,
+    "solanaRuntime": "not-run after migration; pending Mac",
+    "hyperliquidIsolatedTests": "39; parent evidence file imported",
+    "sourceAlignment": "EVM76links; Solana18links; Hyperliquid29links; zero mismatches",
+    "liveFreshness": "53articles494blocks exact at prior capture; no new fetch"
+  },
+  "remainingGates": [
+    "Mac Rust/SBF/validator and actual CLI tests on final paths",
+    "Fresh dependency restore in clean environment/CI",
+    "Sui drafts remain separate, not in published58",
+    "Exact printed hook lint/runtime remains unverified; optional comment-only CHECK variant static checked"
+  ],
+  "safety": [
+    "No original source bodies changed",
+    "No public networks or user keys used by migration checks",
+    "Supplementary runners now reject external/occupied RPC overrides; local Token2022 keys/ledger temporary and cleaned"
+  ],
+  "publication": "Prepared reviewed local checkpoint; remote publication owned by Mac worker",
+  "mainRuntimePort": "verification/topology-main-runtime-port-2026-10-30.json"
+}

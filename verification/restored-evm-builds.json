@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-30T14:47:28.839Z",
+  "date": "2026-10-30T16:07:00.037Z",
   "toolchain": {
     "forge": "forge Version: 1.4.4-v1.4.4\nCommit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e\nBuild Timestamp: 2025-10-30T15:50:28.714367747Z (1761839428)\nBuild Profile: maxperf",
     "go": "go version go1.24.13 linux/amd64"
@@ -7,170 +7,170 @@
   "note": "Build checks do not execute transaction scripts or validate network behavior.",
   "results": [
     {
-      "project": "examples/evm/storage-validation",
+      "project": "evm/proxies-and-upgradability-uups-proxy/projects/storage-validation",
       "status": "unit-tested",
       "command": "forge test",
       "sourceHashes": {
-        "examples/evm/storage-validation/src/Storage.sol": "7d17102e9a67740c3dfc118d41d98bfe96bd94bb46f958e8632aea4dd0aec636",
-        "examples/evm/storage-validation/test/Storage.t.sol": "7f32fceecd8e6a16b598bef82147e49dea4e696476948421bf3a89044e97e81e",
-        "examples/evm/storage-validation/test/Tracing.t.sol": "b2ec00bcd144319271bf6fa5dbb5155593fcfb63993146bc43a63b946b1f66ee",
-        "examples/evm/storage-validation/script/DebugStore.sol": "cb1f9c38bd9c6de8457d572a6e07250ea8ef917ddf6f37c70f19092154207c93"
+        "evm/proxies-and-upgradability-uups-proxy/projects/storage-validation/src/Storage.sol": "7d17102e9a67740c3dfc118d41d98bfe96bd94bb46f958e8632aea4dd0aec636",
+        "evm/proxies-and-upgradability-uups-proxy/projects/storage-validation/test/Storage.t.sol": "7f32fceecd8e6a16b598bef82147e49dea4e696476948421bf3a89044e97e81e",
+        "evm/proxies-and-upgradability-uups-proxy/projects/storage-validation/test/Tracing.t.sol": "b2ec00bcd144319271bf6fa5dbb5155593fcfb63993146bc43a63b946b1f66ee",
+        "evm/proxies-and-upgradability-uups-proxy/projects/storage-validation/script/DebugStore.sol": "cb1f9c38bd9c6de8457d572a6e07250ea8ef917ddf6f37c70f19092154207c93"
       },
-      "output": "No files changed, compilation skipped\n\nRan 1 test for test/Tracing.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\nSuite result: ok. 1 passed; 0 failed; 0 skipped; finished in 262.59µs (38.50µs CPU time)\n\nRan 2 tests for test/Storage.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\n[PASS] testStoreStructReverts() (gas: 9674)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 507.23µs (176.44µs CPU time)\n\nRan 2 test suites in 12.10ms (769.82µs CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)\n"
+      "output": "Compiling 22 files with Solc 0.8.30\nSolc 0.8.30 finished in 1.62s\nCompiler run successful!\n\nRan 1 test for test/Tracing.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\nSuite result: ok. 1 passed; 0 failed; 0 skipped; finished in 676.07µs (84.48µs CPU time)\n\nRan 2 tests for test/Storage.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\n[PASS] testStoreStructReverts() (gas: 9674)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 949.65µs (557.74µs CPU time)\n\nRan 2 test suites in 4.25ms (1.63ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)\n"
     },
     {
-      "project": "examples/evm/permit-verifier",
+      "project": "evm/evm-message-signtypeddata-eip-712/projects/permit-verifier",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/permit-verifier/src/PermitVerifier.sol": "39fbc12fc890ffefac2ef2e34eb693a6f0356965a15ab2b2cb71190a12d8faca"
+        "evm/evm-message-signtypeddata-eip-712/projects/permit-verifier/src/PermitVerifier.sol": "39fbc12fc890ffefac2ef2e34eb693a6f0356965a15ab2b2cb71190a12d8faca"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 13 files with Solc 0.8.30\nSolc 0.8.30 finished in 152.07ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/delegation",
+      "project": "evm/evm-tx-setcode-transactions-eip-7702/projects/delegation",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/delegation/src/Invoked.sol": "7fcd21497429b6d1cb6bdc97f18a2a19c85bea046fccd69563a3aa6f94ecd2b0",
-        "examples/evm/delegation/src/MultiDelegationInvoker.sol": "cc387592a72717ce50e35c3675132740896c826272919c5063a24b876c0e15ca"
+        "evm/evm-tx-setcode-transactions-eip-7702/projects/delegation/src/Invoked.sol": "7fcd21497429b6d1cb6bdc97f18a2a19c85bea046fccd69563a3aa6f94ecd2b0",
+        "evm/evm-tx-setcode-transactions-eip-7702/projects/delegation/src/MultiDelegationInvoker.sol": "cc387592a72717ce50e35c3675132740896c826272919c5063a24b876c0e15ca"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 2 files with Solc 0.8.30\nSolc 0.8.30 finished in 30.61ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/calldata",
+      "project": "evm/what-actually-happens-when-calldata/projects/calldata",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/calldata/src/Example.sol": "75885b961d6ae3a0ab851125355f978e906cfce6215b469cd16c86cfe2a2f3c9"
+        "evm/what-actually-happens-when-calldata/projects/calldata/src/Example.sol": "75885b961d6ae3a0ab851125355f978e906cfce6215b469cd16c86cfe2a2f3c9"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 1 files with Solc 0.4.25\nSolc 0.4.25 finished in 4.44ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/bytecode",
+      "project": "evm/ethereum-calldata-and-bytecode-how/projects/bytecode",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/bytecode/src/MiniExample.sol": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7"
+        "evm/ethereum-calldata-and-bytecode-how/projects/bytecode/src/MiniExample.sol": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 1 files with Solc 0.8.30\nSolc 0.8.30 finished in 6.84ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/diamond",
+      "project": "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/diamond/src/LibDiamond.sol": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
-        "examples/evm/diamond/src/interfaces/IDiamondCut.sol": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
-        "examples/evm/diamond/src/interfaces/IDiamondLoupe.sol": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
-        "examples/evm/diamond/src/Diamond.sol": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
-        "examples/evm/diamond/src/facets/DiamondCutFacet.sol": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
-        "examples/evm/diamond/src/facets/DiamondLoupeFacet.sol": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
-        "examples/evm/diamond/src/facets/OwnershipFacet.sol": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
-        "examples/evm/diamond/src/facets/ExampleFacet.sol": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
-        "examples/evm/diamond/src/facets/newFacet.sol": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
-        "examples/evm/diamond/script/DeployDiamond.sol": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e"
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/LibDiamond.sol": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/interfaces/IDiamondCut.sol": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/interfaces/IDiamondLoupe.sol": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/Diamond.sol": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/facets/DiamondCutFacet.sol": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/facets/DiamondLoupeFacet.sol": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/facets/OwnershipFacet.sol": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/facets/ExampleFacet.sol": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/src/facets/newFacet.sol": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
+        "evm/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf/projects/diamond/script/DeployDiamond.sol": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 25 files with Solc 0.8.30\nSolc 0.8.30 finished in 1.67s\nCompiler run successful with warnings:\nWarning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.\n   --> src/LibDiamond.sol:124:30:\n    |\n124 |     function _removeFunction(address _facet, bytes4 _sel) private {\n    |                              ^^^^^^^^^^^^^^\n\n"
     },
     {
-      "project": "examples/evm/factory",
+      "project": "evm/factories-how-smart-contracts-deploy/projects/factory",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/factory/src/basicfactory.sol": "fdc8e6d56b611d2e8288324a6787f656dbadb87208fb4fab929d4f070e893cb9"
+        "evm/factories-how-smart-contracts-deploy/projects/factory/src/basicfactory.sol": "fdc8e6d56b611d2e8288324a6787f656dbadb87208fb4fab929d4f070e893cb9"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 1 files with Solc 0.8.30\nSolc 0.8.30 finished in 71.50ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/minimal-proxy",
+      "project": "evm/proxies-and-upgradability-minimal/projects/minimal-proxy",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/minimal-proxy/src/minimalProxy.sol": "588d7b16f6bf34c5f536c8698311299752b7778bca22bfd40be559a00c20fd4f"
+        "evm/proxies-and-upgradability-minimal/projects/minimal-proxy/src/minimalProxy.sol": "588d7b16f6bf34c5f536c8698311299752b7778bca22bfd40be559a00c20fd4f"
       },
-      "output": "No files changed, compilation skipped\n"
+      "output": "Compiling 1 files with Solc 0.8.30\nSolc 0.8.30 finished in 37.54ms\nCompiler run successful!\n"
     },
     {
-      "project": "examples/evm/storage",
+      "project": "evm/deployments-and-deterministic-addresses/projects/storage",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/storage/src/Storage.sol": "3d490b02e30b32581994c75da540cb212dfd321eb65596a50a9f4fbbc9021cd7"
+        "evm/deployments-and-deterministic-addresses/projects/storage/src/Storage.sol": "3d490b02e30b32581994c75da540cb212dfd321eb65596a50a9f4fbbc9021cd7"
       },
-      "output": "No files changed, compilation skipped\nnote[pascal-case-struct]: structs should use PascalCase\n --> src/Storage.sol:4:12\n  |\n4 |     struct my_storage_struct {\n  |            ^^^^^^^^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#pascal-case-struct\n\nnote[mixed-case-variable]: mutable variables should use mixedCase\n --> src/Storage.sol:8:23\n  |\n8 |     my_storage_struct my_storage;\n  |                       ^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-variable\n\nnote[mixed-case-variable]: mutable variables should use mixedCase\n  --> src/Storage.sol:10:47\n   |\n10 |     function store(my_storage_struct calldata new_storage) public {\n   |                                               ^^^^^^^^^^^\n   |\n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-variable\n\n"
+      "output": "Compiling 1 files with Solc 0.8.12\nSolc 0.8.12 finished in 29.02ms\nCompiler run successful!\nnote[pascal-case-struct]: structs should use PascalCase\n --> src/Storage.sol:4:12\n  |\n4 |     struct my_storage_struct {\n  |            ^^^^^^^^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#pascal-case-struct\n\nnote[mixed-case-variable]: mutable variables should use mixedCase\n --> src/Storage.sol:8:23\n  |\n8 |     my_storage_struct my_storage;\n  |                       ^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-variable\n\nnote[mixed-case-variable]: mutable variables should use mixedCase\n  --> src/Storage.sol:10:47\n   |\n10 |     function store(my_storage_struct calldata new_storage) public {\n   |                                               ^^^^^^^^^^^\n   |\n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-variable\n\n"
     },
     {
-      "project": "examples/evm/transparent-proxy",
+      "project": "evm/proxies-and-upgradability/projects/transparent-proxy",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/transparent-proxy/src/StorageV1.sol": "0196a6e0a0a2a1ce6da925a751013d6ec62cc99715ad284d00e341789d4ccd1e",
-        "examples/evm/transparent-proxy/src/StorageV2.sol": "0f59d43bad10a28082b957451b50f3791d7fd3dcc98b343c0ecd310192b0d544",
-        "examples/evm/transparent-proxy/src/TransparentProxy1967.sol": "ebf9172cdf2688a26e18f3834fa57a497e2390b703aebc4f5bd5aaf0f71ac5d7"
+        "evm/proxies-and-upgradability/projects/transparent-proxy/src/StorageV1.sol": "0196a6e0a0a2a1ce6da925a751013d6ec62cc99715ad284d00e341789d4ccd1e",
+        "evm/proxies-and-upgradability/projects/transparent-proxy/src/StorageV2.sol": "0f59d43bad10a28082b957451b50f3791d7fd3dcc98b343c0ecd310192b0d544",
+        "evm/proxies-and-upgradability/projects/transparent-proxy/src/TransparentProxy1967.sol": "ebf9172cdf2688a26e18f3834fa57a497e2390b703aebc4f5bd5aaf0f71ac5d7"
       },
-      "output": "No files changed, compilation skipped\nnote[unaliased-plain-import]: use named imports '{A, B}' or alias 'import \"..\" as X'\n --> src/StorageV2.sol:4:8\n  |\n4 | import \"./StorageV1.sol\";\n  |        ^^^^^^^^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/TransparentProxy1967.sol:30:14\n   |\n30 |     modifier ifAdmin() {\n   |              ^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier ifAdmin() {\n           -     if (msg.sender == _admin()) {\n           -         _;\n           -     } else {\n           -         _fallback();\n           -     }\n           - }\n           + modifier ifAdmin() {\n           +     _ifAdmin();\n           +     _;\n           + }\n           + \n           + function _ifAdmin() internal {\n           +     if (msg.sender == _admin()) {\n           +         _;\n           +     } else {\n           +         _fallback();\n           +     }\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\n"
+      "output": "Compiling 3 files with Solc 0.8.12\nSolc 0.8.12 finished in 40.53ms\nCompiler run successful!\nnote[unaliased-plain-import]: use named imports '{A, B}' or alias 'import \"..\" as X'\n --> src/StorageV2.sol:4:8\n  |\n4 | import \"./StorageV1.sol\";\n  |        ^^^^^^^^^^^^^^^^^\n  |\n  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/TransparentProxy1967.sol:30:14\n   |\n30 |     modifier ifAdmin() {\n   |              ^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier ifAdmin() {\n           -     if (msg.sender == _admin()) {\n           -         _;\n           -     } else {\n           -         _fallback();\n           -     }\n           - }\n           + modifier ifAdmin() {\n           +     _ifAdmin();\n           +     _;\n           + }\n           + \n           + function _ifAdmin() internal {\n           +     if (msg.sender == _admin()) {\n           +         _;\n           +     } else {\n           +         _fallback();\n           +     }\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\n"
     },
     {
-      "project": "examples/evm/uups",
+      "project": "evm/proxies-and-upgradability-uups-proxy/projects/uups",
       "status": "build-checked",
       "command": "forge build",
       "sourceHashes": {
-        "examples/evm/uups/src/UUPSLogicContract.sol": "956e627e9c2488d070bae16d8826f6f146290d05b0b62a7807972322fa8ef879",
-        "examples/evm/uups/src/UUPSProxy.sol": "8193952de55114b2cc4ac40feb30b6b9d7ea60dbbbbeb5ba355a543cc55d8796"
+        "evm/proxies-and-upgradability-uups-proxy/projects/uups/src/UUPSLogicContract.sol": "956e627e9c2488d070bae16d8826f6f146290d05b0b62a7807972322fa8ef879",
+        "evm/proxies-and-upgradability-uups-proxy/projects/uups/src/UUPSProxy.sol": "8193952de55114b2cc4ac40feb30b6b9d7ea60dbbbbeb5ba355a543cc55d8796"
       },
-      "output": "No files changed, compilation skipped\nnote[mixed-case-function]: function names should use mixedCase\n  --> src/UUPSLogicContract.sol:16:14\n   |\n16 |     function proxiableUUID() public pure returns (bytes32) {\n   |              ^^^^^^^^^^^^^\n   |\n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-function\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/UUPSLogicContract.sol:26:14\n   |\n26 |     modifier onlyOwner() {\n   |              ^^^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier onlyOwner() {\n           -     require(msg.sender == owner, \"Only owner is allowed to perform this action\");\n           -     _;\n           - }\n           + modifier onlyOwner() {\n           +     _onlyOwner();\n           +     _;\n           + }\n           + \n           + function _onlyOwner() internal {\n           +     require(msg.sender == owner, \"Only owner is allowed to perform this action\");\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/UUPSLogicContract.sol:40:14\n   |\n40 |     modifier delegatedOnly() {\n   |              ^^^^^^^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier delegatedOnly() {\n           -     require(initialized == true, \"The library is locked. No direct 'call' is allowed\");\n           -     _;\n           - }\n           + modifier delegatedOnly() {\n           +     _delegatedOnly();\n           +     _;\n           + }\n           + \n           + function _delegatedOnly() internal {\n           +     require(initialized == true, \"The library is locked. No direct 'call' is allowed\");\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\n"
+      "output": "Compiling 2 files with Solc 0.8.30\nSolc 0.8.30 finished in 28.39ms\nCompiler run successful!\nnote[mixed-case-function]: function names should use mixedCase\n  --> src/UUPSLogicContract.sol:16:14\n   |\n16 |     function proxiableUUID() public pure returns (bytes32) {\n   |              ^^^^^^^^^^^^^\n   |\n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-function\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/UUPSLogicContract.sol:26:14\n   |\n26 |     modifier onlyOwner() {\n   |              ^^^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier onlyOwner() {\n           -     require(msg.sender == owner, \"Only owner is allowed to perform this action\");\n           -     _;\n           - }\n           + modifier onlyOwner() {\n           +     _onlyOwner();\n           +     _;\n           + }\n           + \n           + function _onlyOwner() internal {\n           +     require(msg.sender == owner, \"Only owner is allowed to perform this action\");\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\nnote[unwrapped-modifier-logic]: wrap modifier logic to reduce code size\n  --> src/UUPSLogicContract.sol:40:14\n   |\n40 |     modifier delegatedOnly() {\n   |              ^^^^^^^^^^^^^\n   |\n   = note: wrap modifier logic to reduce code size\n           \n           - modifier delegatedOnly() {\n           -     require(initialized == true, \"The library is locked. No direct 'call' is allowed\");\n           -     _;\n           - }\n           + modifier delegatedOnly() {\n           +     _delegatedOnly();\n           +     _;\n           + }\n           + \n           + function _delegatedOnly() internal {\n           +     require(initialized == true, \"The library is locked. No direct 'call' is allowed\");\n           + }\n           \n           \n   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic\n\n"
     },
     {
-      "project": "examples/evm/rlp",
+      "project": "evm/what-is-recursive-length-prefix-rlp/projects/rlp",
       "status": "unit-tested",
       "command": "go test ./...",
       "sourceHashes": {
-        "examples/evm/rlp/go.mod": "b21abf1ee0a1c3a1c77186fa45f6e10e4d93201ba9857916827045c870626098",
-        "examples/evm/rlp/decode/decode.go": "2e51236fd0180c01ce7ba38364933e4d704b0344608a9aea85e19d2c01c5a993",
-        "examples/evm/rlp/decode/decode_test.go": "9ae48f9269c61641eaebaf0b6e1bfc241ebd4912877a7f86fb819e273fe38df8",
-        "examples/evm/rlp/encode/encode.go": "6c91c68f05e09da9b3db7479e65f48bb5455696a9ef76c32b54a8c5068be5567",
-        "examples/evm/rlp/encode/encode_test.go": "cbf337e5e242e9d629f3527c28c0079b91cd0a1c30453b57e755153728b10d5f"
+        "evm/what-is-recursive-length-prefix-rlp/projects/rlp/go.mod": "b21abf1ee0a1c3a1c77186fa45f6e10e4d93201ba9857916827045c870626098",
+        "evm/what-is-recursive-length-prefix-rlp/projects/rlp/decode/decode.go": "2e51236fd0180c01ce7ba38364933e4d704b0344608a9aea85e19d2c01c5a993",
+        "evm/what-is-recursive-length-prefix-rlp/projects/rlp/decode/decode_test.go": "9ae48f9269c61641eaebaf0b6e1bfc241ebd4912877a7f86fb819e273fe38df8",
+        "evm/what-is-recursive-length-prefix-rlp/projects/rlp/encode/encode.go": "6c91c68f05e09da9b3db7479e65f48bb5455696a9ef76c32b54a8c5068be5567",
+        "evm/what-is-recursive-length-prefix-rlp/projects/rlp/encode/encode_test.go": "cbf337e5e242e9d629f3527c28c0079b91cd0a1c30453b57e755153728b10d5f"
       },
       "output": "ok  \trlpencoding/decode\t(cached)\nok  \trlpencoding/encode\t(cached)\n"
     },
     {
-      "project": "examples/evm/transaction-types",
+      "project": "evm/evm-message-signtypeddata-eip-712/projects/transaction-types",
       "status": "build-checked",
       "command": "go test -run ^$ ./...",
       "sourceHashes": {
-        "examples/evm/transaction-types/go.mod": "2dbb769b9e675a7b2e7437347c16f1bd926bbc5e1f84cc4a272cc99a836009e0",
-        "examples/evm/transaction-types/go.sum": "2f1eb0745b3384c46ff8b4e439fc0b4ddaa07a2657df10d3e41c642e31963007",
-        "examples/evm/transaction-types/account/account.go": "cf5e5e1b6e45be5925f1d6e3deffcdede35134888382500997d9e51c53899e49",
-        "examples/evm/transaction-types/eip1559/eip1559.go": "4131774273e3d8faf708805997c895fb08a561e133c0821abeebf8e90b324707",
-        "examples/evm/transaction-types/eip2930/eip2930.go": "e6e91357023a2a6a8b8a0b9ec5bb6ee8b61df5fdebb597cb35796ead23a8fe09",
-        "examples/evm/transaction-types/eip4844/eip4844.go": "8324d7e533c42a5c6d0a0a1a43ab72674471d4a3e5ff195a505da89722a7adb3",
-        "examples/evm/transaction-types/eip712/eip712.go": "5e73fb946ecf9d4fb9208f048e225ac6facfa72891bfddba49fb61767a9b9f16",
-        "examples/evm/transaction-types/eip712/verifier.sol": "d9196830d00b23029d0af4b38a570b4d9aeed72f7e63fb4d932302805ebca6e1",
-        "examples/evm/transaction-types/eip7702/eip7702_batch.go": "b8abdff7a9af3bfe2e70cf3fb8a9cc670a720adae647f92304d500d0fb582230",
-        "examples/evm/transaction-types/eip7702/invoked.sol": "1c5b072dc54111dcd349f049a66402bc54704936507b54af5de5761d0f220185",
-        "examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol": "e95782736794b8ee19929a4c4782a6340ce19da2150368b3611f0fe2f26e1b9b",
-        "examples/evm/transaction-types/legacy-tx/legacy.go": "c84cbd77d6a935f9b28d20f505f3270f994dde6094d3d2878dfc713d385c24b3",
-        "examples/evm/transaction-types/personalsign/personalsign.go": "ed83d3679228b230da80e8f200f08b745de151ea33c23263d3714ccb936bd172",
-        "examples/evm/transaction-types/eip4844/trusted_setup.txt": "e695ba9905a832de98dc3567febe326b760382bfd77a9a6880ca51b602a7d7ff"
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/go.mod": "2dbb769b9e675a7b2e7437347c16f1bd926bbc5e1f84cc4a272cc99a836009e0",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/go.sum": "2f1eb0745b3384c46ff8b4e439fc0b4ddaa07a2657df10d3e41c642e31963007",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/account/account.go": "cf5e5e1b6e45be5925f1d6e3deffcdede35134888382500997d9e51c53899e49",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip1559/eip1559.go": "4131774273e3d8faf708805997c895fb08a561e133c0821abeebf8e90b324707",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip2930/eip2930.go": "e6e91357023a2a6a8b8a0b9ec5bb6ee8b61df5fdebb597cb35796ead23a8fe09",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip4844/eip4844.go": "8324d7e533c42a5c6d0a0a1a43ab72674471d4a3e5ff195a505da89722a7adb3",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip712/eip712.go": "5e73fb946ecf9d4fb9208f048e225ac6facfa72891bfddba49fb61767a9b9f16",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip712/verifier.sol": "d9196830d00b23029d0af4b38a570b4d9aeed72f7e63fb4d932302805ebca6e1",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip7702/eip7702_batch.go": "b8abdff7a9af3bfe2e70cf3fb8a9cc670a720adae647f92304d500d0fb582230",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip7702/invoked.sol": "1c5b072dc54111dcd349f049a66402bc54704936507b54af5de5761d0f220185",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip7702/multi_delegation_invoker.sol": "e95782736794b8ee19929a4c4782a6340ce19da2150368b3611f0fe2f26e1b9b",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/legacy-tx/legacy.go": "c84cbd77d6a935f9b28d20f505f3270f994dde6094d3d2878dfc713d385c24b3",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/personalsign/personalsign.go": "ed83d3679228b230da80e8f200f08b745de151ea33c23263d3714ccb936bd172",
+        "evm/evm-message-signtypeddata-eip-712/projects/transaction-types/eip4844/trusted_setup.txt": "e695ba9905a832de98dc3567febe326b760382bfd77a9a6880ca51b602a7d7ff"
       },
       "output": "?   \ttransactiontypes/account\t[no test files]\n?   \ttransactiontypes/eip1559\t[no test files]\n?   \ttransactiontypes/eip2930\t[no test files]\n?   \ttransactiontypes/eip4844\t[no test files]\n?   \ttransactiontypes/eip712\t[no test files]\n?   \ttransactiontypes/eip7702\t[no test files]\n?   \ttransactiontypes/legacy-tx\t[no test files]\n?   \ttransactiontypes/personalsign\t[no test files]\n"
     },
     {
-      "project": "examples/evm/streaming",
+      "project": "evm/streaming-on-chain-activity-in-real/projects/streaming",
       "status": "build-checked",
-      "command": "go build -o /workspace/scratch/affe29344bfe/blog-solutions-audit/examples/evm/streaming/.local/program .",
+      "command": "go build -o /workspace/scratch/affe29344bfe/blog-solutions-topology/evm/streaming-on-chain-activity-in-real/projects/streaming/.local/program .",
       "sourceHashes": {
-        "examples/evm/streaming/main.go": "15a34fce635956d62853917b914fe9b8133ac5b90a30da4881932d70b1ff4baf"
+        "evm/streaming-on-chain-activity-in-real/projects/streaming/main.go": "15a34fce635956d62853917b914fe9b8133ac5b90a30da4881932d70b1ff4baf"
       },
       "output": ""
     },
     {
-      "project": "examples/evm/multicall",
+      "project": "evm/batching-calls-efficiently-with-multicall/projects/multicall",
       "status": "build-checked",
-      "command": "go build -o /workspace/scratch/affe29344bfe/blog-solutions-audit/examples/evm/multicall/.local/program .",
+      "command": "go build -o /workspace/scratch/affe29344bfe/blog-solutions-topology/evm/batching-calls-efficiently-with-multicall/projects/multicall/.local/program .",
       "sourceHashes": {
-        "examples/evm/multicall/main.go": "34dfa5502470123699157e6167c8354f9282df9beee4efef9fb379fc31968e6e"
+        "evm/batching-calls-efficiently-with-multicall/projects/multicall/main.go": "34dfa5502470123699157e6167c8354f9282df9beee4efef9fb379fc31968e6e"
       },
       "output": ""
     }

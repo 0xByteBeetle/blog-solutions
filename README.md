@@ -6,8 +6,8 @@ Start with the [article index](ARTICLES.md). Each article has its published code
 
 The repository is undergoing a source-preserving repair. All 58 cataloged posts and 573 displayed code/output blocks are preserved. This does **not** mean all 58 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
-Current chain guides: [EVM](examples/evm/README.md), [Solana](examples/solana/README.md),
-and [Hyperliquid](examples/hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
+Current chain guides: [EVM](evm/README.md), [Solana](solana/README.md),
+and [Hyperliquid](hyperliquid/README.md). All five Hyperliquid posts now have exact live native blocks captured on October 30,
 with offline/mock companions. All 37 EVM and 16 Solana pages were also checked live on October 30: their
 494 native blocks match saved text exactly. [Dated evidence](verification/live-source-freshness-2026-10-30.json)
 proves source text at that capture time, not technical correctness or execution.
@@ -16,10 +16,23 @@ See the current chain guides above for fresh results and remaining gates. The
 [September baseline](verification/REMAINING.md) is retained as historical evidence,
 including the separately corrected Solana ALT and transfer-hook tests.
 
-- `articles/`: source snapshots and per-article maps.
-- `examples/`: recovered author programs and projects. Their origins and any formatting/setup changes are recorded in `catalog/source-files.json`.
-- `verification/`: actual build/runtime results, kept separate from source recovery.
-- `evm/` and `solana/`: older supplementary labs. They are not authoritative implementations of the posts.
+## Layout
+
+```text
+evm/<article-slug>/
+  README.md           # concise source map and scoped verification
+  SETUP.md            # local reproduction instructions
+  published.md        # exact code/command/output snippets, not blog prose
+  projects/<variant>/ # original/published code with its manifests and tests
+  supplementary/      # optional older labs, explicitly not author implementations
+  additional-examples/# optional supplemental runnable gap companions
+solana/<article-slug>/
+hyperliquid/<article-slug>/
+```
+
+Dependencies are installed within each article. Copying one article directory retains its code, setup, manifests and tests; no sibling article source is required. Shared root scripts only orchestrate these local projects. Author-repository variants stay byte-identical; supplemental runnable configuration and harnesses are labeled separately. Sui drafts are not included in this published-article catalog.
+
+`catalog/project-paths.json` gives canonical representative paths for repository-wide tests; `catalog/topology-migration.json` records all copies of formerly shared projects. Original historical verification reports retain their original paths and dates; they are not relabeled as a new runtime run. Source restoration remains separate from build and execution verification.
 
 ## Check and run
 
@@ -27,6 +40,8 @@ Verify that published blocks and recovered files have not drifted:
 
 ```sh
 node scripts/check-catalog.mjs
+node scripts/check-topology.mjs
+node --test scripts/topology.test.mjs
 node scripts/check-evm-alignment.mjs
 node scripts/check-solana-alignment.mjs
 node scripts/check-hyperliquid-alignment.mjs
@@ -46,7 +61,7 @@ Library versions are reproduction setup, not asserted to be the versions used wh
 Run the original RLP implementation and its original tests:
 
 ```sh
-cd examples/evm/rlp
+cd evm/what-is-recursive-length-prefix-rlp/projects/rlp
 go test ./...
 ```
 
@@ -59,7 +74,7 @@ node scripts/verify-restored-evm.mjs
 Run recovered Anchor projects with a temporary wallet, program IDs, and local validator:
 
 ```sh
-npm ci --prefix solana/anchor
+npm ci --prefix solana/solana-deep-dive-unpacking-borsh/supplementary/anchor
 node scripts/run-original-anchor.mjs zero-copy-original
 node scripts/run-original-anchor.mjs borsh-proposal
 node scripts/run-original-anchor.mjs anchor-accounts

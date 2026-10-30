@@ -1,0 +1,2 @@
+# Alice enforces memos on her own Token Account
+spl-token enable-required-transfer-memos <ALICE_TOKEN_ACCOUNT_ADDRESS>

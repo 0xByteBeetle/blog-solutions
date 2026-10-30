@@ -19,14 +19,14 @@ if(fs.existsSync(root+'/verification'))for(const file of fs.readdirSync(root+'/v
  }
 }
 for(const article of articles.filter(a=>!chain||a.chain===chain)){
- const directory=root+'/articles/'+article.chain+'/'+article.slug;
+ const directory=root+'/'+article.directory;
  const link=(p,label)=>'['+label+']('+path.relative(directory,root+'/'+p)+')';
  const projectPaths=article.coverage.filter(c=>!c.path.endsWith('/published.md'));
  const links=projectPaths.map(c=>'- '+link(c.path,c.path)+(c.command?'\n\n  Run: `'+c.command+'`':'')).join('\n');
  const relevant=checks.filter(c=>projectPaths.some(p=>p.path===c.project));
  const results=relevant.map(c=>'- '+link(c.file,c.project+': '+(c.current?c.status:'stale result, rerun required'))+' ('+c.date.slice(0,10)+')'+(c.command?'\n\n  Checked with: `'+c.command+'`':'')).join('\n');
  const blocks=article.sourceBlocks.map(b=>{
-  const primary=b.implementations.map(p=>link(p,'published source')).join(', ')||'Preserved in the published block; runnable mapping pending';
+  const primary=b.implementations.map(p=>link(p,'published source')).join(', ')||(['output','pseudocode','configuration','command','json','abi','text'].includes(b.kind)?'Reference/command/output preserved; no standalone program implied':'Preserved excerpt; runnable implementation scope remains to be reviewed');
   const originals=(b.originalRepositoryFiles||[]).map(p=>link(p,'original repo variant')).join(', ');
   return '| ['+b.index+'](published.md#block-'+b.index+') | '+b.kind+' | '+primary+(originals?'; '+originals:'')+' |';
  }).join('\n');
@@ -34,6 +34,8 @@ for(const article of articles.filter(a=>!chain||a.chain===chain)){
   '# '+article.title,
   '[Read the article]('+article.url+') · [Published examples](published.md)',
   article.verification.note,
+  ...(article.companionScope?['## Companion scope',article.companionScope.reason+' No standalone author program is required; optional supplementary labs are not original implementations.']:[]),
+  '[Article-local setup and requirements](SETUP.md)',
   'Article status: **'+article.verification.status+'**.',
   ...(article.corrections?.length?['## Authorized corrections',article.corrections.map(c=>'- '+link(c.path,c.path)+'\n\n  '+c.description+'\n\n  Run: `'+c.command+'`').join('\n\n')]:[]),
   ...(links?['## Recovered source',links]:[]),
@@ -45,5 +47,5 @@ for(const article of articles.filter(a=>!chain||a.chain===chain)){
  ];
  fs.writeFileSync(directory+'/README.md',sections.join('\n\n')+'\n');
 }
-fs.writeFileSync(root+'/ARTICLES.md','# Article examples\n\nSource preservation, build checks, and runtime tests are separate. An article is not marked complete merely because a related lab passes.\n\n'+[...new Set(articles.map(a=>a.chain))].sort().map(chain=>'## '+(chain==='evm'?'EVM':chain==='solana'?'Solana':chain)+'\n\n'+articles.filter(a=>a.chain===chain).map(a=>'- ['+a.title+'](articles/'+a.chain+'/'+a.slug+'/README.md) · '+a.verification.status).join('\n')).join('\n\n')+'\n');
+fs.writeFileSync(root+'/ARTICLES.md','# Article examples\n\nSource preservation, build checks, and runtime tests are separate. An article is not marked complete merely because a related lab passes.\n\n'+[...new Set(articles.map(a=>a.chain))].sort().map(chain=>'## '+(chain==='evm'?'EVM':chain==='solana'?'Solana':chain)+'\n\n'+articles.filter(a=>a.chain===chain).map(a=>'- ['+a.title+']('+a.directory+'/README.md) · '+a.verification.status).join('\n')).join('\n\n')+'\n');
 console.log('Rendered '+articles.filter(a=>!chain||a.chain===chain).length+' explicit article maps with current-source check results.');

@@ -1,0 +1,107 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+  "exactPublishedBlocks": [
+    {
+      "path": "published/block-01.txt",
+      "sha256": "33bc8b8813fb1890f24fabeae5d3e979ff5e2db8e3de5fed3698c7947d0fccee",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 1,
+        "sha256": "33bc8b8813fb1890f24fabeae5d3e979ff5e2db8e3de5fed3698c7947d0fccee"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-02.txt",
+      "sha256": "f5c97cf79675a5d5b05bac2f8105a62ff9f757eb63aa6cbd4d659ea9f06e2c4b",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 2,
+        "sha256": "f5c97cf79675a5d5b05bac2f8105a62ff9f757eb63aa6cbd4d659ea9f06e2c4b"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-03.txt",
+      "sha256": "2e41a05afb5e1ff4003fd3d2088568317cbfc56fe9db5fd7dbb2dc512d86dddb",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 3,
+        "sha256": "2e41a05afb5e1ff4003fd3d2088568317cbfc56fe9db5fd7dbb2dc512d86dddb"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-04.txt",
+      "sha256": "d2e5e6c5f621baec5409b239f060825d67317994a2d26d730b9530f7765d6927",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 4,
+        "sha256": "d2e5e6c5f621baec5409b239f060825d67317994a2d26d730b9530f7765d6927"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-05.txt",
+      "sha256": "9d6ef3b48e8903af1ad3917a9241cc71e8a4dba881bc4a47e230b81c5e6b581e",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 5,
+        "sha256": "9d6ef3b48e8903af1ad3917a9241cc71e8a4dba881bc4a47e230b81c5e6b581e"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-06.txt",
+      "sha256": "750b7b3f51617984e4b66ebf99a17742ad5de3788176bdd7218194748cace708",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 6,
+        "sha256": "750b7b3f51617984e4b66ebf99a17742ad5de3788176bdd7218194748cace708"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-07.txt",
+      "sha256": "48daf39dd5ea4fbff85d6fd0195ae9b234ea50b7b9f508e6f23f52257bebe689",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 7,
+        "sha256": "48daf39dd5ea4fbff85d6fd0195ae9b234ea50b7b9f508e6f23f52257bebe689"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-08.txt",
+      "sha256": "9e6f050b437c3092cafcdf006f5d3e05ae72774b8c4478b10bde0a34cf95ed2e",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 8,
+        "sha256": "9e6f050b437c3092cafcdf006f5d3e05ae72774b8c4478b10bde0a34cf95ed2e"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-09.txt",
+      "sha256": "51351964350a906fc92edb64e4842d81d83ad1dc0a8c8343fd7a7c6feef67679",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 9,
+        "sha256": "51351964350a906fc92edb64e4842d81d83ad1dc0a8c8343fd7a7c6feef67679"
+      },
+      "changes": []
+    },
+    {
+      "path": "published/block-10.txt",
+      "sha256": "157ac6a551a829b8016d99134f05644e495c3aa60fab510994048e44461fbf11",
+      "source": {
+        "url": "https://andreyobruchkov1996.substack.com/p/engineering-native-yield-a-deep-dive",
+        "block": 10,
+        "sha256": "157ac6a551a829b8016d99134f05644e495c3aa60fab510994048e44461fbf11"
+      },
+      "changes": []
+    }
+  ],
+  "supplementalFiles": "Everything outside published/ is supplemental setup/tests, not author-source.",
+  "reusedSource": "blog-solutions-audit/solana/token-2022/run-local.sh; scenarios/helpers adapted for isolated per-article use."
+}

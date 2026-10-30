@@ -1,0 +1,9 @@
+contract MyContract {
+    function publicCaller() public {
+        internalFunction(); // Internal call
+    }
+
+    function internalFunction() internal {
+        // logic here
+    }
+}

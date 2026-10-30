@@ -1,0 +1,114 @@
+[
+  {
+    "path": "projects/diamond/src/LibDiamond.sol",
+    "sha256": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 5,
+      "sha256": "f659d71b26e5c0b96ec172d6544ae7a1a917b7eb197dd28ac6e04a769ebe3c14"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/interfaces/IDiamondCut.sol",
+    "sha256": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 6,
+      "sha256": "d2e491f480f3fb763947f0feb4c284678fc996d500c130fb158f14b701b87cc0"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/interfaces/IDiamondLoupe.sol",
+    "sha256": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 7,
+      "sha256": "fcc2aa478bf26c6a9bffab73350b020e7463272a8369706eb0e32cf27460c4c3"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/Diamond.sol",
+    "sha256": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 8,
+      "sha256": "cd1a77ea271824c5ebcc7927bac22d5636e49ccbe9b7a5d4199536514658b408"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/facets/DiamondCutFacet.sol",
+    "sha256": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 9,
+      "sha256": "ce049d927b5e4124f86588063af091430b538f44c1a8d2e2a09f23c4952c7898"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/facets/DiamondLoupeFacet.sol",
+    "sha256": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 10,
+      "sha256": "f1259f7afa7858ef25113f792c669dd6550cb6fc6ece2348dd5d05791725c3cf"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/facets/OwnershipFacet.sol",
+    "sha256": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 11,
+      "sha256": "0bf1ad3911fcf89f15c45a477ddd0b81055ea19d06ff2604a6490808bb1e7dde"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/facets/ExampleFacet.sol",
+    "sha256": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 12,
+      "sha256": "ddc4071d293eb0dc329c64a35c8c376777a44d04bc95432a266b0ab65b513b16"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/src/facets/newFacet.sol",
+    "sha256": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 17,
+      "sha256": "37c24b440c101968201029c4d61c4a993774c567f2eab4b8d30629d659d14656"
+    },
+    "changes": []
+  },
+  {
+    "path": "projects/diamond/script/DeployDiamond.sol",
+    "sha256": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 13,
+      "sha256": "962c0a377b5665871a2714bdd9212c10dfcaeadd0b5ccad4cb5017406034ef97"
+    },
+    "changes": []
+  },
+  {
+    "path": "additional-examples/src/Block25.sol",
+    "sha256": "869ac8ed1e11f7e49989a2768972fa0a162b02ba8b8a0d6381b281617f380313",
+    "source": {
+      "url": "https://andreyobruchkov1996.substack.com/p/diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
+      "block": 25,
+      "sha256": "8d5c367a80432972d822fe3e61a0b4c422a585527b4005f38c5595538e46ceed"
+    },
+    "changes": [
+      "Only supplemental compiler pragma/comment and trailing newline; exact snippet substring retained."
+    ]
+  }
+]
