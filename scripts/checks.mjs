@@ -590,5 +590,103 @@ export const checks = [
       "tests",
       "-v"
     ]
+  },
+  {
+    "cwd": "evm/deployments-and-deterministic-addresses",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/abi-encoding-deep-dive-how-solidity",
+    "command": [
+      "python3",
+      "abi_words.py"
+    ]
+  },
+  {
+    "cwd": "evm/catching-eth-native-transfers-without",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-events-the-evms-built",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "solana/understanding-solana-account-model",
+    "command": [
+      "npm",
+      "test"
+    ]
+  },
+  {
+    "cwd": "solana/understanding-solana-part4-instructions",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "solana/understanding-solana-part-5-transaction",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "solana/spl-token-program-architecture-a",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "solana/solana-token-2022-transfer-hooks",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
   }
 ];
