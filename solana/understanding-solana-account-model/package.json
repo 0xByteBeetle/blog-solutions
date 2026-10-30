@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "example": "node pda.mjs",
+    "test": "node --test pda.test.mjs"
+  },
+  "dependencies": {
+    "@solana/web3.js": "1.98.4"
+  },
+  "overrides": {
+    "rpc-websockets": "9.0.4"
+  }
+}

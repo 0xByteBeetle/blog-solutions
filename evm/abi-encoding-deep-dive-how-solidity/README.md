@@ -1,21 +1,25 @@
-# ABI encoding: a struct with a dynamic string
+# ABI encoding: a dynamic struct, word by word
 
-Companion to [ABI Encoding Deep Dive](https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity).
+[Article](https://andreyobruchkov1996.substack.com/p/abi-encoding-deep-dive-how-solidity)
 
-`src/Storage.sol` is unchanged author source (published block 1). The configuration and tests are supplemental. No npm packages, forge-std, wallet, or RPC is needed.
+`src/Storage.sol` is the unchanged article contract. The runner and tests reproduce its `123456789, "bob"` example with literal, independently written ABI words.
 
-Requires Foundry and Solidity 0.8.12. From this directory:
+From this folder, with Python 3 and Foundry 1.4.4 (solc 0.8.12):
 
 ```sh
+forge build
+python3 abi_words.py
 forge test -vv
 ```
 
-Foundry downloads the pinned compiler on first use if absent. With the compiler already cached, `forge test --offline -vv` requires no network.
+The runner prints the selector, each word, full 164-byte calldata and 160-byte return data. It compares manual calldata with Cast and executes the word-level contract test in Foundry's local EVM. No RPC or wallet is needed.
 
-Four tests cover the empty initial value, tuple calldata and return encoding/decoding, long/empty strings and uint256 boundaries, and rejection of missing tuple calldata. They execute locally in Foundry's EVM. They do not validate every explanatory/calldata block in the article.
+| Word | Value | Meaning |
+| --- | --- | --- |
+| 0 | `0x20` | Offset from arguments start to the dynamic tuple |
+| 1 | `0x075bcd15` | 123456789 |
+| 2 | `0x40` | Offset from tuple start to string tail |
+| 3 | `3` | UTF-8 byte length |
+| 4 | `0x626f62` plus padding | bob |
 
-Verified: Foundry 1.4.4, solc 0.8.12; all four tests passed.
-
-## Foundry project
-
-The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.
+The canonical selector is **`0xddd356b3`**, matching the article's final calldata. Its earlier `0xddd456b3` prose value is a typo. The actual `retrieve()` result contains one dynamic tuple, including the outer `0x20` offset. Decode raw bytes as `abi.decode(data, (Storage.my_storage_struct))`; decoding them as two top-level outputs `(uint256, string)` is different and fails for this example. The tests check that distinction, long/empty strings, uint256 boundaries and truncated calldata.

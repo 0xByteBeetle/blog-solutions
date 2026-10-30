@@ -1,0 +1,189 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "output": "0x",
+    "trace": [
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0101010101010101010101010101010101010101",
+          "value": "0xde0b6b3a7640001",
+          "callType": "call",
+          "to": "0x0202020202020202020202020202020202020202",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [],
+        "subtraces": 7
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0x11",
+          "callType": "call",
+          "to": "0x0303030303030303030303030303030303030303",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "traceAddress": [
+          0
+        ],
+        "subtraces": 1,
+        "error": "execution reverted"
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0303030303030303030303030303030303030303",
+          "value": "0x17",
+          "callType": "call",
+          "to": "0x0404040404040404040404040404040404040404",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          0,
+          0
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0xde0b6b3a7640001",
+          "callType": "delegatecall",
+          "to": "0x0606060606060606060606060606060606060606",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          1
+        ],
+        "subtraces": 1
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0x2",
+          "callType": "call",
+          "to": "0x0404040404040404040404040404040404040404",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          1,
+          0
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "create",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0x3",
+          "init": "0x00"
+        },
+        "result": {
+          "address": "0x0505050505050505050505050505050505050505",
+          "code": "0x00",
+          "gasUsed": "0x0"
+        },
+        "traceAddress": [
+          2
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "suicide",
+        "action": {
+          "address": "0x0505050505050505050505050505050505050505",
+          "refundAddress": "0x0404040404040404040404040404040404040404",
+          "balance": "0x4"
+        },
+        "traceAddress": [
+          3
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0x0",
+          "callType": "staticcall",
+          "to": "0x0303030303030303030303030303030303030303",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          4
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0xde0b6b3a7640001",
+          "callType": "callcode",
+          "to": "0x0606060606060606060606060606060606060606",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          5
+        ],
+        "subtraces": 0
+      },
+      {
+        "type": "call",
+        "action": {
+          "from": "0x0202020202020202020202020202020202020202",
+          "value": "0x00",
+          "callType": "call",
+          "to": "0x0303030303030303030303030303030303030303",
+          "gas": "0x10000",
+          "input": "0x"
+        },
+        "result": {
+          "gasUsed": "0x0",
+          "output": "0x"
+        },
+        "traceAddress": [
+          6
+        ],
+        "subtraces": 0
+      }
+    ],
+    "stateDiff": null,
+    "vmTrace": null
+  }
+}
