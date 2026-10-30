@@ -39,3 +39,15 @@ Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.12.
 ```
 
 The Solidity 0.4.25 calldata tests retain its legacy behavior: selector-only input to `set(uint256)` is accepted and the missing word is read as zero. The compiler pin is intentional.
+
+## Read the ABI words
+
+```sh
+cd storage
+python3 abi_words.py
+forge test --match-test testArticleWordsAndReturnData -vv
+```
+
+This supplemental worked input, `42` / `"Alice"`, uses the preserved 0.8.12 Storage ABI. The five literal words are: outer tuple offset `0x20`, number `0x2a`, string offset `0x40` relative to the tuple, byte length `5`, and UTF-8 `416c696365` padded to 32 bytes. `store((uint256,string))` has selector `0xddd356b3`; append the 160-byte body to obtain 164-byte calldata. The script compares these manually written words with Cast and an actual local contract call.
+
+`retrieve()` returns a single dynamic struct: its return body includes the outer tuple offset and has no function selector. Decode it as that struct, not as two top-level outputs. The tests also show that a different selector cannot invoke `store`. This documents verified ABI behavior without changing the published contract or claiming that every prose example was corrected.

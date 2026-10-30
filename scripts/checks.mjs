@@ -445,8 +445,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -687,6 +685,44 @@ export const checks = [
       "-s",
       "tests",
       "-v"
+    ]
+  },
+  {
+    "cwd": "evm/ethereum-dev-hacks-catching-hidden-transfers-real-time-events-and-multicalls-bef7435b9397",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/evm-developer-tools-explained-foundry",
+    "command": [
+      "python3",
+      "deploy_local.py"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-contract-deployments-proxies-and-create2-part-1-696b0b11f8a5/storage-validation",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/what-every-blockchain-developer-should-know-about-evm-internals-part-2-eab0f4fae3de/storage",
+    "command": [
+      "python3",
+      "abi_words.py"
     ]
   }
 ];
