@@ -29,6 +29,8 @@ jobs:
       - run: node --test scripts/source-integrity.test.mjs
       - run: node scripts/check-evm-alignment.mjs
       - run: node scripts/check-solana-alignment.mjs
+      - run: node scripts/check-hyperliquid-alignment.mjs
+      - run: node --test scripts/hyperliquid-alignment.test.mjs
       - run: node --test scripts/solana-alignment.test.mjs
       - run: node --test scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
       - run: node scripts/verify-restored-builds.mjs
@@ -37,6 +39,18 @@ jobs:
       - run: go test -count=1 ./...
         working-directory: examples/evm/corrections/rlp
       - run: forge test --root examples/evm/corrections/solidity
+      - run: forge test --root examples/hyperliquid/precompiles-corewriter
+      - run: cargo test --manifest-path examples/hyperliquid/account-shapes/Cargo.toml
+      - run: python3 -m unittest discover -s examples/hyperliquid/account-shapes/tests -v
+      - run: python3 -m unittest discover -s examples/hyperliquid/hip3-published/tests -v
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          python3 -m venv examples/hyperliquid/signing-nonces/.venv
+          examples/hyperliquid/signing-nonces/.venv/bin/python -m pip install -r examples/hyperliquid/signing-nonces/requirements-verified.txt
+          examples/hyperliquid/signing-nonces/.venv/bin/python -m pip check
+          examples/hyperliquid/signing-nonces/.venv/bin/python -m unittest discover -s examples/hyperliquid/signing-nonces/tests -v
 
   evm:
     name: Supplementary EVM labs (not article coverage)

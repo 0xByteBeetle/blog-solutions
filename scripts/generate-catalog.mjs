@@ -3,7 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 const root=path.resolve(import.meta.dirname,'..');
+const option=process.argv[2];
+if(process.argv.length>3||(option&&!/^--chain=[a-z]+$/.test(option)))throw new Error('Usage: node scripts/generate-catalog.mjs [--chain=name]');
+const chain=option?.slice('--chain='.length);
 const articles=JSON.parse(fs.readFileSync(root+'/catalog/articles.json'));
+if(chain&&!articles.some(a=>a.chain===chain))throw new Error('Unknown article chain: '+chain);
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(root+'/'+p)).digest('hex');
 const checks=[];
 if(fs.existsSync(root+'/verification'))for(const file of fs.readdirSync(root+'/verification').filter(f=>f.endsWith('.json'))){
@@ -14,7 +18,7 @@ if(fs.existsSync(root+'/verification'))for(const file of fs.readdirSync(root+'/v
   checks.push({...check,current,file:'verification/'+file,date:report.date});
  }
 }
-for(const article of articles){
+for(const article of articles.filter(a=>!chain||a.chain===chain)){
  const directory=root+'/articles/'+article.chain+'/'+article.slug;
  const link=(p,label)=>'['+label+']('+path.relative(directory,root+'/'+p)+')';
  const projectPaths=article.coverage.filter(c=>!c.path.endsWith('/published.md'));
@@ -42,4 +46,4 @@ for(const article of articles){
  fs.writeFileSync(directory+'/README.md',sections.join('\n\n')+'\n');
 }
 fs.writeFileSync(root+'/ARTICLES.md','# Article examples\n\nSource preservation, build checks, and runtime tests are separate. An article is not marked complete merely because a related lab passes.\n\n'+[...new Set(articles.map(a=>a.chain))].sort().map(chain=>'## '+(chain==='evm'?'EVM':chain==='solana'?'Solana':chain)+'\n\n'+articles.filter(a=>a.chain===chain).map(a=>'- ['+a.title+'](articles/'+a.chain+'/'+a.slug+'/README.md) · '+a.verification.status).join('\n')).join('\n\n')+'\n');
-console.log('Rendered '+articles.length+' explicit article maps with current-source check results.');
+console.log('Rendered '+articles.filter(a=>!chain||a.chain===chain).length+' explicit article maps with current-source check results.');

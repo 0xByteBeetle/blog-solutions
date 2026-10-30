@@ -1,0 +1,72 @@
+{
+  "article": "https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-4-hip",
+  "capturedAtUtc": "2026-10-30T15:07:52.121Z",
+  "mappings": [
+    {
+      "block": 2,
+      "path": "examples/hyperliquid/hip3-published/published/block-02.ts",
+      "sha256": "20f30a2578780bbe3d51c660af5600c782507fb02f30320e38859ddf4c03ad0e",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 3,
+      "path": "examples/hyperliquid/hip3-published/published/block-03.ts",
+      "sha256": "1e6c3ef48ae7367eb24f57c39d2b9af4de6410c0c83605da744d7e9bee5b64f4",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 4,
+      "path": "examples/hyperliquid/hip3-published/published/block-04.py",
+      "sha256": "2d5492016e023c2dfc19a8de08034c45389e0ca2861f49900973332f8cd57006",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 6,
+      "path": "examples/hyperliquid/hip3-published/published/block-06.py",
+      "sha256": "9511b58726241c1f5dcdacf505454a58dcab8a1200dfa1dc6d4f98dfa510bb93",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 7,
+      "path": "examples/hyperliquid/hip3-published/published/block-07.py",
+      "sha256": "4f64c26bc65de1a79886be7a365d030598c1afaad3596072d24cd8c3a3ec418c",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 8,
+      "path": "examples/hyperliquid/hip3-published/published/block-08.py",
+      "sha256": "e73aedd6d8255fe9c7bc93dcf82e3b3911bb618cc27eb267998c593ef2215042",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 9,
+      "path": "examples/hyperliquid/hip3-published/published/block-09.py",
+      "sha256": "98dc690e6e98b6096ebfdce23fd219664b449e9b083f8fa338d14447270ff6ee",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 10,
+      "path": "examples/hyperliquid/hip3-published/published/block-10.py",
+      "sha256": "4a629e732752ef9a85117a3069be5ef6a9b95749f5e427317ec6a4368698c9b6",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 11,
+      "path": "examples/hyperliquid/hip3-published/published/block-11.py",
+      "sha256": "d5c24d932e999831dab09e29a1f7ab557222ca07dbc92ef69b0be26ce98d5011",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 19,
+      "path": "examples/hyperliquid/hip3-published/published/block-19.ts",
+      "sha256": "75959ce34f59bb2f9d3138a4b391034a4b4aed25aa73502428bad17613bbb7c2",
+      "adaptation": "none; exact native pre.textContent"
+    },
+    {
+      "block": 20,
+      "path": "examples/hyperliquid/hip3-published/published/block-20.py",
+      "sha256": "2153ccfe4fa30c895899c013772531216eecdfb9d92e0b6783320485e5df7a86",
+      "adaptation": "none; exact native pre.textContent"
+    }
+  ]
+}
