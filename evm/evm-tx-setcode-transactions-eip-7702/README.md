@@ -37,3 +37,15 @@ Delegation tests use synthetic designation bytes to exercise routing, event call
 `MultiDelegationInvoker` reads the `0xef0100 || address` designation and calls the extracted module directly with `someModule.call(...)`. Consequently the module sees **the invoker contract as `msg.sender`**, and emits from the module address. This is not execution through the designated EOA; protocol delegation would execute the target code in the authority account's context. `testDesignationRoutesToModuleAndRecordsInvokerAsSender` checks this distinction explicitly.
 
 Under [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702), the designation is persistent account code until a later authorization replaces or clears it; it is not temporary for one transaction. These tests install synthetic bytes with `vm.etch`. They validate the printed invoker's parsing/call behavior, not SetCode transaction authorization, signature validation, or protocol delegation.
+
+## Execute the offline fixture
+
+```sh
+cd transaction-types
+go run ./offline
+go test ./...
+```
+
+Signs two EIP-7702 authorizations with public fixture keys 1 and 2 and serializes a type-0x04 SetCode envelope. The outer sender’s authorization uses outer nonce + 1; the other authority uses its own nonce 0. Tests independently form 0x05 || RLP(chain_id,address,nonce), recover authorities across signed/unsigned-64-bit boundaries, reject nonce 2^64−1, and check the outer envelope/sender/chain. This minimal cryptography example omits invoker calldata and does **not execute protocol delegation**. The preserved historical helper narrows nonce to int64; its additional test records that limitation while this route uses geth’s unsigned SDK helper.
+
+This supplemental route uses only deterministic, publicly known **NEVER-FUND** fixture keys in memory (integer 1, and integer 2 where needed). It does not call `account.GetAccount`, read/write key files, connect to RPC or broadcast. Original programs and dependency pins remain unchanged. [Primary EIP specification](https://eips.ethereum.org/EIPS/eip-7702).

@@ -37,3 +37,15 @@ Go 1.23.10 or compatible. Dependencies are pinned by go.mod/go.sum.
 **Do not run the transaction/signing entrypoints as tests.** They contain historical network addresses; the original account helper creates key files and prints private keys. The command above compiles only. Use a separately reviewed disposable local setup before execution; never use a funded/personal wallet. Keep the `transaction-types` directory name because the original helper uses it to resolve paths.
 
 The permit tests cover typed-data fields and the verifying-contract domain. The original view helper accepts a correctly signed expired payload and does not consume nonces; those limitations are asserted explicitly.
+
+## Execute the offline fixture
+
+```sh
+cd transaction-types
+go run ./offline
+go test ./...
+```
+
+Signs the article’s MyDApp/Permit structure with fixed chain 80002, verifier, value, nonce 0 and deadline 2000000000. Tests independently form domain/struct ABI words and the 0x1901 digest, then change domain fields, spender, nonce and deadline. This is cryptographic binding, not an expiry, nonce-consumption or replay-protection implementation; the preserved verifier’s limits still apply.
+
+This supplemental route uses only deterministic, publicly known **NEVER-FUND** fixture keys in memory (integer 1, and integer 2 where needed). It does not call `account.GetAccount`, read/write key files, connect to RPC or broadcast. Original programs and dependency pins remain unchanged. [Primary EIP specification](https://eips.ethereum.org/EIPS/eip-712).
