@@ -18,8 +18,10 @@ is accepted. The linked Part4 original repository is independently pinned at
 
 ## Actual verification
 
-- Part1/2: 3 Python fixture checks pass. Three Rust integration tests are prepared
-  but **not run in cloud**; Mac host execution and generated Cargo.lock are next.
+- Part1/2: 3 Python fixture checks and 3 Rust integration tests pass. The Rust
+  tests ran on the publishing Mac with Rust/Cargo1.92.0, using cached dependencies
+  offline; the generated Cargo.lock is retained. The earlier cloud fixture-only
+  result remains historical.
 - Part3: Foundry1.4.4 / solc0.8.30 build and 10 mock-VM tests pass. Tests validate
   ABI/header/body encoding and original local behavior, not actual precompile
   availability, HyperCore account semantics or asynchronous CoreWriter acceptance.
@@ -36,6 +38,15 @@ is accepted. The linked Part4 original repository is independently pinned at
 See each companion's README and verification JSON for exact commands and hashes.
 No public-chain reads, transaction submissions, new wallets or funds were needed.
 No article is automatically elevated to fully verified because an offline test passes.
+
+The publishing Mac also passed all 17 Node regression tests, the catalog/source
+checks (58 articles, 573 blocks, 143 recovered files), all 29 literal Hyperliquid
+links, 10 Foundry mock tests, and Python suites with 3/8/10/5 tests. The SDK suite
+used an isolated Python3.12.1 venv with every version from
+`requirements-verified.txt`, including SDK0.24.0; `pip check` passed. Its child
+interpreters reject network connection/DNS events. No original source, fixture
+whitespace, or published EOF was repaired. See
+[Mac verification](hyperliquid-mac-checks-2026-10-30.json) for actual outputs and limits.
 
 ## Preserved limits
 

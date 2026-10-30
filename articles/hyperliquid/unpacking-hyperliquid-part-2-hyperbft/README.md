@@ -14,7 +14,11 @@ Article status: **source-restored**.
 
 ## Recorded checks
 
-- [examples/hyperliquid/account-shapes: fixture-tested; Rust host not run](../../../verification/hyperliquid-companions.json) (2026-10-30)
+- [examples/hyperliquid/account-shapes: 3 Rust host tests and 3 Python fixture tests passed on Mac](../../../verification/hyperliquid-mac-checks-2026-10-30.json) (2026-10-30)
+
+  Rust checked with: `cargo test --offline --manifest-path examples/hyperliquid/account-shapes/Cargo.toml`. Generated Cargo.lock retained.
+
+- [Earlier cloud fixture-only checkpoint](../../../verification/hyperliquid-companions.json) (2026-10-30)
 
   Checked with: `python3 -m unittest discover -s examples/hyperliquid/account-shapes/tests -v`
 
