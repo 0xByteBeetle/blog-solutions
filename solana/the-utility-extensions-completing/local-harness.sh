@@ -26,8 +26,8 @@ preflight() {
   validator_version="$(solana-test-validator --version)"
   if [[ "$version" =~ ^spl-token-cli[[:space:]]5\.5\.0([[:space:]]|$) ]]; then
     [[ "$solana_version" =~ ^solana-cli[[:space:]]3\.1\.9([[:space:]]|$) && "$validator_version" =~ ^solana-test-validator[[:space:]]3\.1\.9([[:space:]]|$) ]] || fail "CLI5.5.0 requires the reviewed Agave3.1.9 pair; got $solana_version / $validator_version"
-  elif [[ ! "$version" =~ ^spl-token-cli[[:space:]]5\.6\.1([[:space:]]|$) ]]; then
-    fail "Unsupported CLI version: $version; reviewed options are CLI5.5.0/Agave3.1.9 or the documented CLI5.6.1 reference"
+  else
+    fail "Unsupported CLI version: $version; required pair is CLI5.5.0/Agave3.1.9"
   fi
   python3 --version
   printf '%s\n' "$solana_version" "$validator_version" "$version"
