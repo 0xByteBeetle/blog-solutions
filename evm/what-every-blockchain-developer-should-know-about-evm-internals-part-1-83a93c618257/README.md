@@ -4,13 +4,21 @@
 
 The article code is preserved; build configuration and focused tests are supplemental. Run commands from this folder.
 
+## Run the Solidity examples
+
+From this article folder, run `make build` and `make test`. Each nested project keeps its own compiler pin and focused tests:
+
+- `bytecode/`: [foundry.toml](bytecode/foundry.toml), [src/](bytecode/src/), [test/](bytecode/test/).
+- `workshop/`: [foundry.toml](workshop/foundry.toml), [src/](workshop/src/), [test/](workshop/test/).
+
+These tests need only the installed Foundry toolchain.
+
 ### bytecode
 
 Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.30.
 
 ```sh
-cd bytecode
-forge build
+(cd bytecode && forge build && forge test)
 ```
 
 ### workshop
@@ -18,6 +26,5 @@ forge build
 Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.30.
 
 ```sh
-cd workshop
-forge test
+(cd workshop && forge test)
 ```

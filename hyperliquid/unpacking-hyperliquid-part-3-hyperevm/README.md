@@ -13,3 +13,7 @@ forge test -vv
 Ten supplemental local tests cover ABI call shapes, mock decoding/failures, price-scaling boundaries, and recorded CoreWriter action encoding. No RPC, wallet or deployment is needed. Mocked precompile results and the recording writer are not native HyperCore execution or confirmation of action acceptance.
 
 The original helper reverts for szDecimals > 6; raw order helpers do not enforce market policy. These teaching-scope behaviors are preserved.
+
+## Foundry project
+
+The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.

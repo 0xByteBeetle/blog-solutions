@@ -9,6 +9,8 @@ Runnable examples for [Andrey Obruchkov’s writing](https://andreyobruchkov1996
 
 Each article folder contains its code, required configuration, focused tests and a README with setup commands. Start there; installing every chain’s toolchain is not necessary to run one example.
 
+Solidity examples keep `foundry.toml`, `src/` and `test/` in the article folder or a named subproject. In an article with nested projects, `make build` and `make test` run all of its Solidity examples; its README also lists commands for each subproject.
+
 ## Run repository checks
 
 With the toolchains listed in the article READMEs installed:

@@ -9,5 +9,5 @@ function run(command, args, cwd = root) {
   if (result.status !== 0) throw new Error(command + " failed (" + (result.signal || result.status) + "): " + result.stderr);
   return result.stdout.trim();
 }
-run("npm", ["ci", "--ignore-scripts"]);
+run("npm", ["ci", "--ignore-scripts"], path.join(root, "permit-verifier"));
 console.log("Installed locked OpenZeppelin dependency without lifecycle scripts");

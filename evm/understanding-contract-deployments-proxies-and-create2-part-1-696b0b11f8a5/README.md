@@ -4,13 +4,21 @@
 
 The article code is preserved; build configuration and focused tests are supplemental. Run commands from this folder.
 
+## Run the Solidity examples
+
+From this article folder, run `make build` and `make test`. Each nested project keeps its own compiler pin and focused tests:
+
+- `storage-validation/`: [foundry.toml](storage-validation/foundry.toml), [src/](storage-validation/src/), [test/](storage-validation/test/).
+- `transparent-proxy/`: [foundry.toml](transparent-proxy/foundry.toml), [src/](transparent-proxy/src/), [test/](transparent-proxy/test/).
+
+These tests need only the installed Foundry toolchain.
+
 ### storage-validation
 
 Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.30.
 
 ```sh
-cd storage-validation
-forge test
+(cd storage-validation && forge test)
 ```
 
 ### transparent-proxy
@@ -18,6 +26,5 @@ forge test
 Tested toolchain: Foundry 1.4.4; compiler pinned to 0.8.12.
 
 ```sh
-cd transparent-proxy
-forge build
+(cd transparent-proxy && forge build && forge test)
 ```

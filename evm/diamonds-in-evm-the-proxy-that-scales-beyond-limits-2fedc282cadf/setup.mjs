@@ -10,7 +10,7 @@ function run(command, args, cwd = root) {
   return result.stdout.trim();
 }
 import fs from "node:fs";
-const library = path.join(root, ".local/forge-std");
+const library = path.join(root, "diamond/.local/forge-std");
 const expected = "620536fa5277db4e3fd46772d5cbc1ea0696fb43";
 if (!fs.existsSync(library)) {
   fs.mkdirSync(path.dirname(library), { recursive: true });
