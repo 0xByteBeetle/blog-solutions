@@ -11,7 +11,9 @@ and [Hyperliquid](examples/hyperliquid/README.md). All five Hyperliquid posts no
 with offline/mock companions. EVM/Solana saved-block live freshness is being checked
 separately; a hash-preserving snapshot is not by itself current live-source proof.
 
-See [remaining review and source gaps](verification/REMAINING.md) for the current boundary, including the recovered Solana Part 6 project's setup gaps and the transfer-hook test issue.
+See the current chain guides above for fresh results and remaining gates. The
+[September baseline](verification/REMAINING.md) is retained as historical evidence,
+including the separately corrected Solana ALT and transfer-hook tests.
 
 - `articles/`: source snapshots and per-article maps.
 - `examples/`: recovered author programs and projects. Their origins and any formatting/setup changes are recorded in `catalog/source-files.json`.
