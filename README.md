@@ -6,6 +6,11 @@ Start with the [article index](ARTICLES.md). Each article has its published code
 
 The repository is undergoing a source-preserving repair. All 53 cataloged posts and 494 displayed code/output blocks are preserved. This does **not** mean all 53 articles are runnable or verified yet. Previously, topic-level labs were incorrectly presented as complete coverage of the articles.
 
+Current chain guides: [EVM](examples/evm/README.md), [Solana](examples/solana/README.md),
+and [Hyperliquid](examples/hyperliquid/README.md). The October 29 published inventory
+contains five newer Hyperliquid posts beyond the 53 preserved snapshots; their exact
+article-block coverage remains pending, not silently included in that count.
+
 See [remaining review and source gaps](verification/REMAINING.md) for the current boundary, including the recovered Solana Part 6 project's setup gaps and the transfer-hook test issue.
 
 - `articles/`: source snapshots and per-article maps.
@@ -21,7 +26,7 @@ Verify that published blocks and recovered files have not drifted:
 node scripts/check-catalog.mjs
 node scripts/check-evm-alignment.mjs
 node scripts/check-solana-alignment.mjs
-node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
+node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/solana-alignment.test.mjs scripts/toolchain.test.mjs
 ```
 
 Install pinned reproduction libraries before running the Solidity checks. Node.js 22+, Go, Rust, and Foundry must already be installed:
