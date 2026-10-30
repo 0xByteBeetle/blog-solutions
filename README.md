@@ -20,7 +20,7 @@ Verify that published blocks and recovered files have not drifted:
 ```sh
 node scripts/check-catalog.mjs
 node scripts/check-evm-alignment.mjs
-node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs
+node --test scripts/source-integrity.test.mjs scripts/evm-alignment.test.mjs scripts/toolchain.test.mjs
 ```
 
 Install pinned reproduction libraries before running the Solidity checks. Node.js 22+, Go, Rust, and Foundry must already be installed:

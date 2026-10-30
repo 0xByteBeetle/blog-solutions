@@ -5,6 +5,8 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawn, spawnSync} from 'node:child_process';
+import {requireToolchain} from './check-toolchain.mjs';
+requireToolchain(['forge', 'anvil', 'cast']);
 const root=path.resolve(import.meta.dirname,'..');
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'blog-evm-run-'));
 const port=Number(process.env.BLOG_TEST_PORT||18549);

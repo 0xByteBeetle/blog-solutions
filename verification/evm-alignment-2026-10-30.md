@@ -85,3 +85,9 @@ The existing [review findings](REVIEW-FINDINGS.md) still record the ABI selector
 2. Review unmapped **program** and **program-with-omitted-imports/pragma** blocks first. Supply clearly labeled setup only; request author source or a semantic decision when the missing code cannot be established.
 3. Run the recovered EVM projects with a real Go/Foundry toolchain and disposable local Anvil, with exact source/harness hashes. Build-only checks of transaction programs must stay separate from execution.
 4. Preserve intentional failures and original variants. Do not replace article snippets with passing topic-level labs or mark an entire article complete because one mapped contract runs.
+
+## Reproduction runner health
+
+The build and local-EVM runners now check tool identity before creating temporary state or replacing reports. A command merely named `go` is not enough: `go version` must identify the Go compiler. Missing Foundry/Go/Rust tools are setup blockers, not failed author examples.
+
+Three preflight regression tests passed. Both runners were also invoked in this tool-limited environment and rejected the unavailable toolchain before running examples. SHA-256 checks confirmed that `restored-builds.json` and `restored-evm.json` remained unchanged. These were preflight checks, not fresh EVM build/runtime results.

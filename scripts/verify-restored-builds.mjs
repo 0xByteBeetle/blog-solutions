@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
+import {requireToolchain} from './check-toolchain.mjs';
+requireToolchain(['forge', 'go', 'cargo']);
 const root=path.resolve(import.meta.dirname,'..');
 const sources=JSON.parse(fs.readFileSync(root+'/catalog/source-files.json'));
 fs.mkdirSync(root+'/.local/go-cache',{recursive:true});
