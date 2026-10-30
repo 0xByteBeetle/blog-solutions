@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-30T16:32:04.400Z",
+  "date": "2026-10-30T17:25:28.266Z",
   "scope": "Supplemental offline/loopback EVM tests and Solana static checks; no Solana runtime or public-network claim",
   "results": [
     {
@@ -14,7 +14,7 @@
         "-v"
       ],
       "exitCode": 0,
-      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.088s\n\nOK\n"
+      "output": "test_missing_capability_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_missing_capability_rejected_before_actions) ... ok\ntest_reviewed_installed_pair_accepts_complete_capabilities_without_actions (test_cli_compatibility.CliCompatibilityTests.test_reviewed_installed_pair_accepts_complete_capabilities_without_actions) ... ok\ntest_unreviewed_agave_pair_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unreviewed_agave_pair_rejected_before_actions) ... ok\ntest_unsupported_version_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unsupported_version_rejected_before_actions) ... ok\ntest_matching_program_rejection_is_accepted (test_expected_failures.ExpectedFailureTests.test_matching_program_rejection_is_accepted) ... ok\ntest_rpc_error_is_not_expected_program_rejection (test_expected_failures.ExpectedFailureTests.test_rpc_error_is_not_expected_program_rejection) ... ok\ntest_success_is_not_a_rejection (test_expected_failures.ExpectedFailureTests.test_success_is_not_a_rejection) ... ok\ntest_wrong_program_error_is_rejected (test_expected_failures.ExpectedFailureTests.test_wrong_program_error_is_rejected) ... ok\ntest_external_fixture_directory_rejected_before_key_read (test_memo_fixture.MemoFixtureGuards.test_external_fixture_directory_rejected_before_key_read) ... ok\ntest_public_rpc_rejected_before_fixture_or_key_read (test_memo_fixture.MemoFixtureGuards.test_public_rpc_rejected_before_fixture_or_key_read) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 6.028s\n\nOK\n"
     },
     {
       "article": "native-zk-on-solana-the-architecture",
@@ -28,7 +28,7 @@
         "-v"
       ],
       "exitCode": 0,
-      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.083s\n\nOK\n"
+      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.080s\n\nOK\n"
     },
     {
       "article": "engineering-native-yield-a-deep-dive",
@@ -42,18 +42,18 @@
         "-v"
       ],
       "exitCode": 0,
-      "output": "test_equal_or_increasing_values (test_interest.InterestCheckerTests.test_equal_or_increasing_values) ... ok\ntest_invalid_rpc_principal_and_ui_are_rejected (test_interest.InterestCheckerTests.test_invalid_rpc_principal_and_ui_are_rejected) ... ok\ntest_regression_rejected (test_interest.InterestCheckerTests.test_regression_rejected) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.085s\n\nOK\n"
+      "output": "test_missing_capability_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_missing_capability_rejected_before_actions) ... ok\ntest_reviewed_installed_pair_accepts_complete_capabilities_without_actions (test_cli_compatibility.CliCompatibilityTests.test_reviewed_installed_pair_accepts_complete_capabilities_without_actions) ... ok\ntest_unreviewed_agave_pair_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unreviewed_agave_pair_rejected_before_actions) ... ok\ntest_unsupported_version_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unsupported_version_rejected_before_actions) ... ok\ntest_equal_or_increasing_values (test_interest.InterestCheckerTests.test_equal_or_increasing_values) ... ok\ntest_invalid_rpc_principal_and_ui_are_rejected (test_interest.InterestCheckerTests.test_invalid_rpc_principal_and_ui_are_rejected) ... ok\ntest_regression_rejected (test_interest.InterestCheckerTests.test_regression_rejected) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 5.360s\n\nOK\n"
     },
     {
       "article": "transfer-hooks-on-solana-anchor-031",
       "command": [
-        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/Users/andreyobruchkov/.nvm/versions/node/v22.6.0/bin/node",
         "--test",
         "tests/check-annotations.test.mjs",
         "tests/staging.test.mjs"
       ],
       "exitCode": 0,
-      "output": "✔ CHECK variant adds only the two documented comments, preserving every other byte (1.964555ms)\n✔ CHECK variant is explicit and separately recorded, never the default source (0.528353ms)\n✔ published and normalized source inputs retain their recorded hashes (2.506105ms)\n✔ dependencies and manifests are article-local (12.01156ms)\n✔ runtime refuses missing action acknowledgement before tools or key generation (130.497292ms)\n✔ runtime rejects public provider or external wallet before tools or key generation (192.061174ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 494.126432\n"
+      "output": "TAP version 13\n# Subtest: CHECK variant adds only the two documented comments, preserving every other byte\nok 1 - CHECK variant adds only the two documented comments, preserving every other byte\n  ---\n  duration_ms: 1.775583\n  ...\n# Subtest: CHECK variant is explicit and separately recorded, never the default source\nok 2 - CHECK variant is explicit and separately recorded, never the default source\n  ---\n  duration_ms: 0.309292\n  ...\n# Subtest: published and normalized source inputs retain their recorded hashes\nok 3 - published and normalized source inputs retain their recorded hashes\n  ---\n  duration_ms: 1.664125\n  ...\n# Subtest: dependencies and manifests are article-local\nok 4 - dependencies and manifests are article-local\n  ---\n  duration_ms: 1.798334\n  ...\n# Subtest: runtime refuses missing action acknowledgement before tools or key generation\nok 5 - runtime refuses missing action acknowledgement before tools or key generation\n  ---\n  duration_ms: 46.539584\n  ...\n# Subtest: runtime rejects public provider or external wallet before tools or key generation\nok 6 - runtime rejects public provider or external wallet before tools or key generation\n  ---\n  duration_ms: 95.167125\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 208.004166\n"
     },
     {
       "article": "from-convention-to-explicit-state",
@@ -67,17 +67,17 @@
         "-v"
       ],
       "exitCode": 0,
-      "output": "test_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.090s\n\nOK\n"
+      "output": "test_missing_capability_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_missing_capability_rejected_before_actions) ... ok\ntest_reviewed_installed_pair_accepts_complete_capabilities_without_actions (test_cli_compatibility.CliCompatibilityTests.test_reviewed_installed_pair_accepts_complete_capabilities_without_actions) ... ok\ntest_unreviewed_agave_pair_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unreviewed_agave_pair_rejected_before_actions) ... ok\ntest_unsupported_version_rejected_before_actions (test_cli_compatibility.CliCompatibilityTests.test_unsupported_version_rejected_before_actions) ... ok\ntest_bad_ports_rejected_before_tools (test_static.StagedWorkshopTests.test_bad_ports_rejected_before_tools) ... ok\ntest_exact_source_hashes (test_static.StagedWorkshopTests.test_exact_source_hashes) ... ok\ntest_external_overrides_rejected_before_tools (test_static.StagedWorkshopTests.test_external_overrides_rejected_before_tools) ... ok\ntest_local_only_configuration_is_explicit (test_static.StagedWorkshopTests.test_local_only_configuration_is_explicit) ... ok\ntest_shell_syntax_only (test_static.StagedWorkshopTests.test_shell_syntax_only) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 5.270s\n\nOK\n"
     },
     {
       "article": "understanding-solana-part-6-transactions",
       "command": [
-        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/Users/andreyobruchkov/.nvm/versions/node/v22.6.0/bin/node",
         "--test",
         "tests/staging.test.mjs"
       ],
       "exitCode": 0,
-      "output": "✔ published and normalized source inputs retain their recorded hashes (2.144868ms)\n✔ dependencies and manifests are article-local (6.118177ms)\n✔ runtime refuses missing action acknowledgement before tools or key generation (119.31801ms)\n✔ runtime rejects public provider or external wallet before tools or key generation (215.935365ms)\nℹ tests 4\nℹ suites 0\nℹ pass 4\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 482.526453\n"
+      "output": "TAP version 13\n# Subtest: published and normalized source inputs retain their recorded hashes\nok 1 - published and normalized source inputs retain their recorded hashes\n  ---\n  duration_ms: 1.510417\n  ...\n# Subtest: dependencies and manifests are article-local\nok 2 - dependencies and manifests are article-local\n  ---\n  duration_ms: 2.115833\n  ...\n# Subtest: runtime refuses missing action acknowledgement before tools or key generation\nok 3 - runtime refuses missing action acknowledgement before tools or key generation\n  ---\n  duration_ms: 47.420542\n  ...\n# Subtest: runtime rejects public provider or external wallet before tools or key generation\nok 4 - runtime rejects public provider or external wallet before tools or key generation\n  ---\n  duration_ms: 93.042917\n  ...\n1..4\n# tests 4\n# suites 0\n# pass 4\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 206.406625\n"
     },
     {
       "article": "eth_call-vs-debug_tracecall-how-to",
@@ -95,7 +95,7 @@
         "test"
       ],
       "exitCode": 0,
-      "output": "No files changed, compilation skipped\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.02ms (2.16ms CPU time)\n\nRan 1 test suite in 4.25ms (1.02ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
+      "output": "No files changed, compilation skipped\n2026-10-30T17:25:26.979047Z  WARN traces::etherscan: etherscan config not found\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 3.70ms (8.09ms CPU time)\n\nRan 1 test suite in 167.71ms (3.70ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
     },
     {
       "article": "introduction-to-the-ethereum-virtual",
@@ -104,7 +104,7 @@
         "test"
       ],
       "exitCode": 0,
-      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 839.51µs (496.61µs CPU time)\n\nRan 1 test suite in 3.71ms (839.51µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+      "output": "No files changed, compilation skipped\n2026-10-30T17:25:27.225944Z  WARN traces::etherscan: etherscan config not found\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 274.29µs (240.71µs CPU time)\n\nRan 1 test suite in 163.45ms (274.29µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
     },
     {
       "article": "diamonds-in-evm-the-proxy-that-scales-beyond-limits-2fedc282cadf",
@@ -113,7 +113,7 @@
         "test"
       ],
       "exitCode": 0,
-      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testIndependentContractStorageAndOverwrite() (gas: 332789)\n[PASS] testWritesExactNamespacedSlotNotSlotZero() (gas: 170058)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 547.95µs (468.49µs CPU time)\n\nRan 1 test suite in 3.03ms (547.95µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+      "output": "No files changed, compilation skipped\n2026-10-30T17:25:27.466623Z  WARN traces::etherscan: etherscan config not found\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testIndependentContractStorageAndOverwrite() (gas: 332789)\n[PASS] testWritesExactNamespacedSlotNotSlotZero() (gas: 170058)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 493.29µs (441.88µs CPU time)\n\nRan 1 test suite in 168.58ms (493.29µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
     },
     {
       "article": "ethereum-node-types-explained-and-why-they-can-make-or-break-your-debugging-fc8d89b724cc",
@@ -131,7 +131,7 @@
         "test"
       ],
       "exitCode": 0,
-      "output": "No files changed, compilation skipped\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.25ms (2.39ms CPU time)\n\nRan 1 test suite in 2.37ms (1.25ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
+      "output": "No files changed, compilation skipped\n2026-10-30T17:25:27.858485Z  WARN traces::etherscan: etherscan config not found\n\nRan 6 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testExternalCallReceivesEncodedArgumentsAndContractSender() (gas: 501014)\n[PASS] testFallbackHandlesEmptyAndUnknownCallsWithEther() (gas: 62029)\n[PASS] testInternalFunctionHasNoExternalSelector() (gas: 56340)\n[PASS] testOriginalCallerDoesNotCheckFalseReturn() (gas: 480035)\n[PASS] testReceiveAcceptsEtherAndEmitsExactFields() (gas: 96851)\n[PASS] testReceiveWithoutFallbackRejectsUnknownSelector() (gas: 80681)\nSuite result: ok. 6 passed; 0 failed; 0 skipped; finished in 415.25µs (1.09ms CPU time)\n\nRan 1 test suite in 167.20ms (415.25µs CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)\n"
     },
     {
       "article": "what-every-blockchain-developer-should-know-about-evm-internals-part-1-83a93c618257",
@@ -140,7 +140,7 @@
         "test"
       ],
       "exitCode": 0,
-      "output": "No files changed, compilation skipped\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 957.61µs (468.46µs CPU time)\n\nRan 1 test suite in 2.31ms (957.61µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
+      "output": "No files changed, compilation skipped\n2026-10-30T17:25:28.103867Z  WARN traces::etherscan: etherscan config not found\n\nRan 2 tests for test/Behavior.t.sol:BehaviorTest\n[PASS] testEmptyAndLongStringCrossesStorageWordBoundary() (gas: 348979)\n[PASS] testStoresCalldataAndReplacesPriorName() (gas: 362173)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 252.42µs (216.00µs CPU time)\n\nRan 1 test suite in 160.25ms (252.42µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)\n"
     }
   ]
 }

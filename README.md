@@ -16,6 +16,8 @@ See the current chain guides above for fresh results and remaining gates. The
 [September baseline](verification/REMAINING.md) is retained as historical evidence,
 including the separately corrected Solana ALT and transfer-hook tests.
 
+[Mac validation after migration](verification/mac-topology-validation-2026-10-30.md) records fresh article-path builds, 27 passing Anchor integration checks, three passing nonconfidential Token-2022 CLI scenarios, and the preserved source failures. Confidential proof execution remains blocked.
+
 ## Layout
 
 ```text
@@ -74,10 +76,22 @@ node scripts/verify-restored-evm.mjs
 Run recovered Anchor projects with a temporary wallet, program IDs, and local validator:
 
 ```sh
-npm ci --prefix solana/solana-deep-dive-unpacking-borsh/supplementary/anchor
-node scripts/run-original-anchor.mjs zero-copy-original
-node scripts/run-original-anchor.mjs borsh-proposal
-node scripts/run-original-anchor.mjs anchor-accounts
+# Run one article at a time; see its SETUP.md for installed toolchain prerequisites.
+(
+  cd solana/architecting-high-performance-solana
+  npm ci --ignore-scripts
+  node scripts/run-original-anchor.mjs zero-copy-original
+)
+(
+  cd solana/solana-deep-dive-unpacking-borsh
+  npm ci --ignore-scripts
+  node scripts/run-original-anchor.mjs borsh-proposal
+)
+(
+  cd solana/understanding-solana-part-3-anchor
+  npm ci --ignore-scripts
+  node scripts/run-original-anchor.mjs anchor-accounts
+)
 ```
 
 The runner changes only the temporary environment, not the committed program or test bodies. The local Zero-Copy project's original crate name is `borsh_deep_dive`; it is deliberately preserved and documented rather than silently renamed.
@@ -86,7 +100,7 @@ Do not run network scripts or copy commands blindly. Published examples may cont
 
 ## Source rule
 
-This is a code companion, not a mirror of the blog. Keep full article prose on Substack/Medium. The `articles/*/published.md` files preserve only displayed code, commands and relevant output with provenance; they are not full article copies. Per-article READMEs describe setup, source mapping and verification limits. Temporary full-text research belongs outside the tracked repository.
+This is a code companion, not a mirror of the blog. Keep full article prose on Substack/Medium. The `<chain>/<article-slug>/published.md` files preserve only displayed code, commands and relevant output with provenance; they are not full article copies. Per-article READMEs describe setup, source mapping and verification limits. Temporary full-text research belongs outside the tracked repository.
 
 
 The author's published code and confirmed original files are authoritative. Do not replace them with equivalent-looking implementations, rename APIs, alter memory layouts, or invent missing helpers. Keep required environment repairs explicit. An unresolved dependency or missing helper must remain marked unresolved until its source or an approved change is available.

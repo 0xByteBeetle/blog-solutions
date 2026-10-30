@@ -1,0 +1,8 @@
+{
+  "name": "@0xbytebeetle/utility-token2022-runtime",
+  "private": true,
+  "dependencies": {
+    "@solana/web3.js": "1.98.4",
+    "@solana/spl-token": "0.4.14"
+  }
+}

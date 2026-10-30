@@ -95,3 +95,9 @@ key, validator, wallet read, transaction, SDK network call or dependency install
 validator regressions, and exact published client execution. Cloud lacks this runtime;
 parent's Mac must run the staged companion after path migration is coordinated.
 Old original-variant runtime results cannot be promoted to this exact-source route.
+
+## Mac runtime result after migration (2026-10-30)
+
+Both recovered and printed workspaces passed build/client type checks. Each cold-ALT mode reproduced 0 passing / 2 failing invalid-index checks; each prepared-ALT mode passed two checks and each explicitly corrected ALT client passed six checks. The corrected variant is separate from the printed/original client.
+
+The supplemental evidence path was corrected to hash `scripts/run-local.mjs`. The initial failure and strict-build rerun remain recorded. [Full local evidence](../../../verification/mac-topology-validation-2026-10-30.md) keeps printed, original and corrected routes distinct.

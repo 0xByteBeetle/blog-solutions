@@ -6,11 +6,28 @@
     "solana-keygen",
     "solana-test-validator",
     "spl-token",
-    "curl"
+    "curl",
+    "node"
   ],
   "referenceCli": "spl-token-cli 5.6.1 (official current reference; not locally verified)",
   "referenceAgave": "4.2.1 (documented bundle pairing; not installed or runtime verified here)",
-  "versionPolicy": "preflight requires CLI5.6.1 and named flags; records all versions. Other pairs require explicit reviewed setup change, never automatic install.",
+  "versionPolicy": "CLI5.5.0 is accepted only with reviewed Solana/validator3.1.9; CLI5.6.1 retains the documented reference path. All used flags must exist before key generation or validator startup. Unsupported versions or missing flags fail closed; no bypass or automatic install.",
   "network": "127.0.0.1 only, no clone-feature-set or public RPC",
-  "runtimeStatus": "NOT RUN: cloud lacks Solana CLI/validator; static checks only"
+  "runtimeStatus": "NOT RUN: cloud lacks Solana CLI/validator; static checks only",
+  "reviewedInstalledPair": {
+    "splTokenCli": "5.5.0",
+    "solanaCli": "3.1.9",
+    "validator": "3.1.9",
+    "evidence": "tests/fixtures/cli-help-5.5.0.json",
+    "scope": "Read-only syntax/capability confirmation; runtime results recorded separately."
+  },
+  "memoProgramFixture": {
+    "node": "22.6.0 validated with --experimental-require-module",
+    "dependencies": "runtime-deps/package.json and package-lock.json",
+    "versions": {
+      "@solana/web3.js": "1.98.4",
+      "@solana/spl-token": "0.4.14"
+    },
+    "scope": "Own freshly generated local payer/alice files only; direct no-memo program rejection and unchanged balances below CLI precheck."
+  }
 }

@@ -23,3 +23,9 @@ See [additional-examples/README.md](additional-examples/README.md) for an articl
 ## Node.js 22.6 interoperability prerequisite
 
 The verified Mac runtime used Node.js 22.6 with `NODE_OPTIONS=--experimental-require-module` to let the CommonJS Web3 dependency load its ESM UUID dependency. On that version, export `NODE_OPTIONS=--experimental-require-module` before running the article-local Anchor harness. This is the recorded environment prerequisite, not a change to author code or a new launcher implementation. Other Node versions require their own compatibility check.
+
+## Mac validation after path migration (2026-10-30)
+
+The recovered original regression passed two checks. The exact printed program failed Anchor IDL lint for missing CHECK comments; its separately selected two-comment variant passed two checks, including initialization through the adapted printed client. CHECK comments add no runtime account validation.
+
+See [fresh verification](../../verification/mac-topology-validation-2026-10-30.md) for exact commands, source hashes and local runtime limits. These runs used Node22.6.0 with the documented interoperability flag, Anchor0.31.1, Agave3.1.9 and cached SBF tools. They used sequential disposable local fixtures; no public-network execution is claimed.

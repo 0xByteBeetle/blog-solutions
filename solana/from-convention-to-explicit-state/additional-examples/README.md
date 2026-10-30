@@ -17,10 +17,14 @@ RPC/config references point to a private loopback fixture. Originals remain unch
 
 ## Requirements and safe execution
 
-Read `requirements.json`. This stages the documented CLI5.6.1 / Agave4.2.1 reference
-pair, not a claim those tools are installed or tested here. Preflight checks the exact
-CLI version and needed flags; a different supported pair needs a reviewed config
-change after recording its version/capabilities. No automatic install or silent fallback.
+Read `requirements.json`. The published/reference CLI5.6.1 / Agave4.2.1 versions
+remain recorded. Supplemental preflight also accepts the reviewed installed pair
+CLI5.5.0 with Solana CLI/validator3.1.9 after checking the used flags. Full captured
+5.5.0 help is retained in `tests/fixtures/cli-help-5.5.0.json`; repository-wide raw
+version/help results are in `verification/mac-topology-cli-capabilities-2026-10-30.json`.
+Unsupported versions, an unreviewed Agave pair, or missing capabilities fail before
+keys, RPC or validator startup. No bypass flag, automatic install or public fallback.
+Passing help/preflight checks alone does not establish runtime behavior.
 
 ```sh
 python3 -m unittest discover -s tests -v  # static/fixture tests only
@@ -56,3 +60,9 @@ Do not claim pointer storage makes the target a valid canonical metadata account
 
 Never run `published/*.txt` as shell scripts: they include placeholders, historical
 accounts, omitted setup, outputs and deliberate failures.
+
+## Mac runtime result (2026-10-30)
+
+Embedded metadata initialization/custom-field update passed. The distinct external address was retained in the metadata pointer; no external metadata account or reverse link was created.
+
+These are observed disposable-local results with CLI5.5.0/Agave3.1.9, not a public-network claim. [Full commands, logs and cleanup](../../../verification/mac-topology-validation-2026-10-30.md) are recorded separately from the earlier cloud static-only results.

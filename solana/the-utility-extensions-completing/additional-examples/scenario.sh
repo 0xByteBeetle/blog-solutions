@@ -17,7 +17,7 @@ token22 create-account "$NONTRANSFER_MINT" --owner "$BOB_PUB" --fee-payer "$PAYE
 NONTRANSFER_ALICE="$(ata22 "$NONTRANSFER_MINT" "$ALICE_PUB")"
 NONTRANSFER_BOB="$(ata22 "$NONTRANSFER_MINT" "$BOB_PUB")"
 token22 mint "$NONTRANSFER_MINT" 50 "$NONTRANSFER_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER" >/dev/null
-expect_failure "non-transferable token transfer" token22 transfer "$NONTRANSFER_MINT" 10 "$NONTRANSFER_BOB" --from "$NONTRANSFER_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
+expect_failure "non-transferable token transfer" "Transfer is disabled for this mint" token22 transfer "$NONTRANSFER_MINT" 10 "$NONTRANSFER_BOB" --from "$NONTRANSFER_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
 assert_eq "$(token22 balance --address "$NONTRANSFER_ALICE")" "50" "non-transferable source balance"
 assert_eq "$(token22 balance --address "$NONTRANSFER_BOB")" "0" "non-transferable destination balance"
 
@@ -27,7 +27,8 @@ FROZEN_MINT="$(solana-keygen pubkey "$FROZEN_KEYPAIR")"
 token22 create-token --decimals 0 --default-account-state frozen --enable-freeze "$FROZEN_KEYPAIR" >/dev/null
 token22 create-account "$FROZEN_MINT" --owner "$ALICE_PUB" --fee-payer "$PAYER" >/dev/null
 FROZEN_ALICE="$(ata22 "$FROZEN_MINT" "$ALICE_PUB")"
-expect_failure "minting into a frozen account" token22 mint "$FROZEN_MINT" 100 "$FROZEN_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER"
+expect_failure "minting into a frozen account" "Account is frozen" token22 mint "$FROZEN_MINT" 100 "$FROZEN_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER"
+assert_eq "$(token22 balance --address "$FROZEN_ALICE")" "0" "rejected frozen mint preserves balance"
 token22 thaw "$FROZEN_ALICE" --freeze-authority "$PAYER" --fee-payer "$PAYER" >/dev/null
 token22 mint "$FROZEN_MINT" 100 "$FROZEN_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER" >/dev/null
 assert_eq "$(token22 balance --address "$FROZEN_ALICE")" "100" "balance after explicit thaw"
@@ -41,7 +42,12 @@ MEMO_ALICE="$(ata22 "$MEMO_MINT" "$ALICE_PUB")"
 MEMO_BOB="$(ata22 "$MEMO_MINT" "$BOB_PUB")"
 token22 mint "$MEMO_MINT" 100 "$MEMO_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER" >/dev/null
 token22 enable-required-transfer-memos "$MEMO_BOB" --owner "$BOB" --fee-payer "$PAYER" >/dev/null
-expect_failure "incoming transfer without required memo" token22 transfer "$MEMO_MINT" 50 "$MEMO_BOB" --from "$MEMO_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
+expect_cli_memo_precheck token22 transfer "$MEMO_MINT" 50 "$MEMO_BOB" --from "$MEMO_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
+assert_eq "$(token22 balance --address "$MEMO_ALICE")" "100" "rejected memo-less transfer preserves source"
+assert_eq "$(token22 balance --address "$MEMO_BOB")" "0" "rejected memo-less transfer preserves destination"
+# Construct the local checked transfer directly to test the program beneath the CLI precheck.
+node --experimental-require-module "$ROOT/assert-memo-program-rejection.mjs" "$LOCAL" "$MEMO_MINT" "$MEMO_ALICE" "$MEMO_BOB" "$RPC" > "$LOCAL/memo-program-rejection.json"
+cat "$LOCAL/memo-program-rejection.json"
 token22 transfer "$MEMO_MINT" 50 "$MEMO_BOB" --from "$MEMO_ALICE" --owner "$ALICE" --fee-payer "$PAYER" --with-memo "Invoice payment for Q3 RPC node hosting" >/dev/null
 assert_eq "$(token22 balance --address "$MEMO_BOB")" "50" "memo-gated destination balance"
 
@@ -57,6 +63,6 @@ COMBINED_BOB="$(ata22 "$COMBINED_MINT" "$BOB_PUB")"
 token22 mint "$COMBINED_MINT" 100 "$COMBINED_ALICE" --mint-authority "$PAYER" --fee-payer "$PAYER" >/dev/null
 token22 burn "$COMBINED_ALICE" 50 --owner "$PAYER" --fee-payer "$PAYER" >/dev/null
 assert_eq "$(token22 balance --address "$COMBINED_ALICE")" "50" "combined mint delegate burn"
-expect_failure "combined mint holder transfer" token22 transfer "$COMBINED_MINT" 10 "$COMBINED_BOB" --from "$COMBINED_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
+expect_failure "combined mint holder transfer" "Transfer is disabled for this mint" token22 transfer "$COMBINED_MINT" 10 "$COMBINED_BOB" --from "$COMBINED_ALICE" --owner "$ALICE" --fee-payer "$PAYER"
 assert_eq "$(token22 balance --address "$COMBINED_ALICE")" "50" "combined mint rejected transfer preserves source"
 assert_eq "$(token22 balance --address "$COMBINED_BOB")" "0" "combined mint rejected transfer preserves destination"

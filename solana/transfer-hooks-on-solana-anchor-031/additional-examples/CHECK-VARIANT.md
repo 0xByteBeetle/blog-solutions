@@ -1,4 +1,4 @@
-# Explicit CHECK-documentation variant — not runtime-verified
+# Explicit CHECK-documentation variant
 
 The exact printed transfer-hook block7 has two `AccountInfo` initialization fields
 without CHECK documentation: `extra_metas_account` and `mint`. The healthy recovered
@@ -34,3 +34,7 @@ failure in this workspace. Whether this resolves a lint gate on the installed
 Anchor0.31.1 toolchain still requires the Mac build. CHECK documentation is not
 runtime account validation or a new security guarantee; these accounts retain the
 same program constraints as the printed example.
+
+## Mac result (2026-10-30)
+
+The strict printed build reproduced the missing-CHECK Anchor IDL lint failure. With `--check-annotations`, SBF/IDL generation and both local integration checks passed, including the adapted printed initialization client. The earlier NOT RUN wording above records the cloud preparation stage. [Dated Mac evidence](../../../verification/mac-topology-validation-2026-10-30.md) records the actual run; comments do not add runtime account constraints.

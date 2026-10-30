@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-06T12:36:57.660Z",
+  "note": "Build checks do not execute transaction scripts or validate network behavior.",
+  "results": [
+    {
+      "project": "examples/evm/storage-validation",
+      "status": "unit-tested",
+      "command": "forge test",
+      "sourceHashes": {
+        "examples/evm/storage-validation/src/Storage.sol": "7d17102e9a67740c3dfc118d41d98bfe96bd94bb46f958e8632aea4dd0aec636",
+        "examples/evm/storage-validation/test/Storage.t.sol": "7f32fceecd8e6a16b598bef82147e49dea4e696476948421bf3a89044e97e81e",
+        "examples/evm/storage-validation/test/Tracing.t.sol": "b2ec00bcd144319271bf6fa5dbb5155593fcfb63993146bc43a63b946b1f66ee",
+        "examples/evm/storage-validation/script/DebugStore.sol": "cb1f9c38bd9c6de8457d572a6e07250ea8ef917ddf6f37c70f19092154207c93"
+      },
+      "output": "No files changed, compilation skipped\n2026-09-06T12:36:56.453898Z  WARN traces::etherscan: etherscan config not found\n\nRan 1 test for test/Tracing.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\nSuite result: ok. 1 passed; 0 failed; 0 skipped; finished in 213.54µs (36.00µs CPU time)\n\nRan 2 tests for test/Storage.t.sol:StorageTest\n[PASS] testStoreStruct() (gas: 52080)\n[PASS] testStoreStructReverts() (gas: 9674)\nSuite result: ok. 2 passed; 0 failed; 0 skipped; finished in 293.08µs (81.25µs CPU time)\n\nRan 2 test suites in 160.50ms (506.62µs CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)\n"
+    },
+    {
+      "project": "examples/evm/permit-verifier",
+      "status": "build-checked",
+      "command": "forge build",
+      "sourceHashes": {
+        "examples/evm/permit-verifier/src/PermitVerifier.sol": "39fbc12fc890ffefac2ef2e34eb693a6f0356965a15ab2b2cb71190a12d8faca"
+      },
+      "output": "No files changed, compilation skipped\n"
+    },
+    {
+      "project": "examples/evm/delegation",
+      "status": "build-checked",
+      "command": "forge build",
+      "sourceHashes": {
+        "examples/evm/delegation/src/Invoked.sol": "7fcd21497429b6d1cb6bdc97f18a2a19c85bea046fccd69563a3aa6f94ecd2b0",
+        "examples/evm/delegation/src/MultiDelegationInvoker.sol": "cc387592a72717ce50e35c3675132740896c826272919c5063a24b876c0e15ca"
+      },
+      "output": "No files changed, compilation skipped\n"
+    },
+    {
+      "project": "examples/evm/calldata",
+      "status": "build-checked",
+      "command": "forge build",
+      "sourceHashes": {
+        "examples/evm/calldata/src/Example.sol": "75885b961d6ae3a0ab851125355f978e906cfce6215b469cd16c86cfe2a2f3c9"
+      },
+      "output": "No files changed, compilation skipped\n"
+    },
+    {
+      "project": "examples/evm/bytecode",
+      "status": "build-checked",
+      "command": "forge build",
+      "sourceHashes": {
+        "examples/evm/bytecode/src/MiniExample.sol": "d70c72eb0fcb14f4d73d031107cea4b709daeba2f9ddb7b328ad686b30c603d7"
+      },
+      "output": "No files changed, compilation skipped\n"
+    },
+    {
+      "project": "examples/evm/diamond",
+      "status": "build-checked",
+      "command": "forge build",
+      "sourceHashes": {
+        "examples/evm/diamond/src/LibDiamond.sol": "855a4787b72fbc78e40479a79eb2fadd7d5364ada008220343f741fde9025731",
+        "examples/evm/diamond/src/interfaces/IDiamondCut.sol": "0344e447b397e83a1d40fb8dd81cbf5b9acab74079f54b2300fd542a4341a531",
+        "examples/evm/diamond/src/interfaces/IDiamondLoupe.sol": "3721b13201501fc149e6dcdc663197ea845a3f6447b51335dec861b4f822191c",
+        "examples/evm/diamond/src/Diamond.sol": "ca9eebfb7cc95a0378d48e3a1105dbcdd55d2cb7561cc417b8aef7be7471bc3e",
+        "examples/evm/diamond/src/facets/DiamondCutFacet.sol": "71823ac0b63f506ea0cb2d83d5d3bababa9ab37f7cff38989bcdb817b7fb1b9f",
+        "examples/evm/diamond/src/facets/DiamondLoupeFacet.sol": "157fa961cb180f0959eacedf6885c3fd86ab495d61c7469ca54c23f81675a4af",
+        "examples/evm/diamond/src/facets/OwnershipFacet.sol": "f6c508c6f742e9602d79f5fc025c1ae2f2d74dbd72e0f66e1504294ac7b8c5e3",
+        "examples/evm/diamond/src/facets/ExampleFacet.sol": "15acdf287c8d4b7c23809e67717cebd37a5fea6701767c4b17da05acba916429",
+        "examples/evm/diamond/src/facets/newFacet.sol": "dde36eb2edcc7e9f112e2bff6441067e8e8950fb4338f5ffa70037a35c313b16",
+        "examples/evm/diamond/script/DeployDiamond.sol": "b4ea56baa8633266983f93466e2b84799ada83435755a2b3c5eb401b30f1b14e"
+      },
+      "output": "No files changed, compilation skipped\n"
+    },
+    {
+      "project": "examples/evm/rlp",
+      "status": "unit-tested",
+      "command": "go test ./...",
+      "sourceHashes": {
+        "examples/evm/rlp/go.mod": "b21abf1ee0a1c3a1c77186fa45f6e10e4d93201ba9857916827045c870626098",
+        "examples/evm/rlp/decode/decode.go": "2e51236fd0180c01ce7ba38364933e4d704b0344608a9aea85e19d2c01c5a993",
+        "examples/evm/rlp/decode/decode_test.go": "9ae48f9269c61641eaebaf0b6e1bfc241ebd4912877a7f86fb819e273fe38df8",
+        "examples/evm/rlp/encode/encode.go": "6c91c68f05e09da9b3db7479e65f48bb5455696a9ef76c32b54a8c5068be5567",
+        "examples/evm/rlp/encode/encode_test.go": "cbf337e5e242e9d629f3527c28c0079b91cd0a1c30453b57e755153728b10d5f"
+      },
+      "output": "ok  \trlpencoding/decode\t(cached)\nok  \trlpencoding/encode\t(cached)\n"
+    },
+    {
+      "project": "examples/evm/transaction-types",
+      "status": "build-checked",
+      "command": "go test -run ^$ ./...",
+      "sourceHashes": {
+        "examples/evm/transaction-types/go.mod": "2dbb769b9e675a7b2e7437347c16f1bd926bbc5e1f84cc4a272cc99a836009e0",
+        "examples/evm/transaction-types/go.sum": "2f1eb0745b3384c46ff8b4e439fc0b4ddaa07a2657df10d3e41c642e31963007",
+        "examples/evm/transaction-types/account/account.go": "cf5e5e1b6e45be5925f1d6e3deffcdede35134888382500997d9e51c53899e49",
+        "examples/evm/transaction-types/eip1559/eip1559.go": "4131774273e3d8faf708805997c895fb08a561e133c0821abeebf8e90b324707",
+        "examples/evm/transaction-types/eip2930/eip2930.go": "e6e91357023a2a6a8b8a0b9ec5bb6ee8b61df5fdebb597cb35796ead23a8fe09",
+        "examples/evm/transaction-types/eip4844/eip4844.go": "8324d7e533c42a5c6d0a0a1a43ab72674471d4a3e5ff195a505da89722a7adb3",
+        "examples/evm/transaction-types/eip712/eip712.go": "5e73fb946ecf9d4fb9208f048e225ac6facfa72891bfddba49fb61767a9b9f16",
+        "examples/evm/transaction-types/eip712/verifier.sol": "d9196830d00b23029d0af4b38a570b4d9aeed72f7e63fb4d932302805ebca6e1",
+        "examples/evm/transaction-types/eip7702/eip7702_batch.go": "b8abdff7a9af3bfe2e70cf3fb8a9cc670a720adae647f92304d500d0fb582230",
+        "examples/evm/transaction-types/eip7702/invoked.sol": "1c5b072dc54111dcd349f049a66402bc54704936507b54af5de5761d0f220185",
+        "examples/evm/transaction-types/eip7702/multi_delegation_invoker.sol": "e95782736794b8ee19929a4c4782a6340ce19da2150368b3611f0fe2f26e1b9b",
+        "examples/evm/transaction-types/legacy-tx/legacy.go": "c84cbd77d6a935f9b28d20f505f3270f994dde6094d3d2878dfc713d385c24b3",
+        "examples/evm/transaction-types/personalsign/personalsign.go": "ed83d3679228b230da80e8f200f08b745de151ea33c23263d3714ccb936bd172",
+        "examples/evm/transaction-types/eip4844/trusted_setup.txt": "e695ba9905a832de98dc3567febe326b760382bfd77a9a6880ca51b602a7d7ff"
+      },
+      "output": "?   \ttransactiontypes/account\t[no test files]\n?   \ttransactiontypes/eip1559\t[no test files]\n?   \ttransactiontypes/eip2930\t[no test files]\n?   \ttransactiontypes/eip4844\t[no test files]\n?   \ttransactiontypes/eip712\t[no test files]\n?   \ttransactiontypes/eip7702\t[no test files]\n?   \ttransactiontypes/legacy-tx\t[no test files]\n?   \ttransactiontypes/personalsign\t[no test files]\n"
+    },
+    {
+      "project": "examples/evm/streaming",
+      "status": "build-checked",
+      "command": "go build -o /Users/andreyobruchkov/clones/blog-solutions/examples/evm/streaming/.local/program .",
+      "sourceHashes": {
+        "examples/evm/streaming/main.go": "15a34fce635956d62853917b914fe9b8133ac5b90a30da4881932d70b1ff4baf"
+      },
+      "output": ""
+    },
+    {
+      "project": "examples/evm/multicall",
+      "status": "build-checked",
+      "command": "go build -o /Users/andreyobruchkov/clones/blog-solutions/examples/evm/multicall/.local/program .",
+      "sourceHashes": {
+        "examples/evm/multicall/main.go": "34dfa5502470123699157e6167c8354f9282df9beee4efef9fb379fc31968e6e"
+      },
+      "output": ""
+    },
+    {
+      "project": "examples/solana/zero-copy-layout",
+      "status": "unit-tested",
+      "command": "cargo test --locked -- --nocapture",
+      "sourceHashes": {
+        "examples/solana/zero-copy-layout/src/lib.rs": "1fed75363c2246d996cc1539e052d52a835aebe8ab8a13b63439ee4aa63c0782"
+      },
+      "output": "\nrunning 1 test\n\n--- Memory Analysis ---\nTotal Size: 24 bytes\nAlignment:  8 bytes\n-----------------------\nByte Map (Hex):\nRow 0: [01, 00, 00, 00, 00, 00, 00, 00]\nRow 1: [64, 00, 00, 00, 00, 00, 00, 00]\nRow 2: [01, 00, 00, 00, 00, 00, 00, 00]\n-----------------------\n\ntest tests::test_memory_layout ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nwarning: unused import: `anchor_lang::prelude::*`\n --> src/lib.rs:1:5\n  |\n1 | use anchor_lang::prelude::*;\n  |     ^^^^^^^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nwarning: unused imports: `align_of` and `size_of`\n --> src/lib.rs:3:16\n  |\n3 | use std::mem::{size_of, align_of};\n  |                ^^^^^^^  ^^^^^^^^\n\nwarning: `published-zero-copy-layout` (lib) generated 2 warnings (run `cargo fix --lib -p published-zero-copy-layout` to apply 2 suggestions)\nwarning: `published-zero-copy-layout` (lib test) generated 1 warning (1 duplicate)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n     Running unittests src/lib.rs (target/debug/deps/published_zero_copy_layout-a4aa87b0f0e47714)\n   Doc-tests published_zero_copy_layout\n"
+    }
+  ]
+}

@@ -101,3 +101,9 @@ Old original-variant runtime results cannot be promoted to this exact-source rou
 ## Supplemental CHECK annotations
 
 [Comment-only validation variant](CHECK-VARIANT.md) preserves the exact printed source separately. Select `--check-annotations` explicitly; only static equality checks have passed, not an Anchor lint/build/runtime claim.
+
+## Mac runtime result after migration (2026-10-30)
+
+The recovered original regression passed two checks. The exact printed program failed Anchor IDL lint for missing CHECK comments; its separately selected two-comment variant passed two checks, including initialization through the adapted printed client. CHECK comments add no runtime account validation.
+
+The supplemental evidence path was corrected to hash `scripts/run-local.mjs`. The initial failure and strict-build rerun remain recorded. [Full local evidence](../../../verification/mac-topology-validation-2026-10-30.md) keeps printed, original and corrected routes distinct.

@@ -17,10 +17,14 @@ RPC/config references point to a private loopback fixture. Originals remain unch
 
 ## Requirements and safe execution
 
-Read `requirements.json`. This stages the documented CLI5.6.1 / Agave4.2.1 reference
-pair, not a claim those tools are installed or tested here. Preflight checks the exact
-CLI version and needed flags; a different supported pair needs a reviewed config
-change after recording its version/capabilities. No automatic install or silent fallback.
+Read `requirements.json`. The published/reference CLI5.6.1 / Agave4.2.1 versions
+remain recorded. Supplemental preflight also accepts the reviewed installed pair
+CLI5.5.0 with Solana CLI/validator3.1.9 after checking the used flags. Full captured
+5.5.0 help is retained in `tests/fixtures/cli-help-5.5.0.json`; repository-wide raw
+version/help results are in `verification/mac-topology-cli-capabilities-2026-10-30.json`.
+Unsupported versions, an unreviewed Agave pair, or missing capabilities fail before
+keys, RPC or validator startup. No bypass flag, automatic install or public fallback.
+Passing help/preflight checks alone does not establish runtime behavior.
 
 ```sh
 python3 -m unittest discover -s tests -v  # static/fixture tests only
@@ -56,3 +60,31 @@ Combined extension support and exact CLI/program rejection logs must be verified
 
 Never run `published/*.txt` as shell scripts: they include placeholders, historical
 accounts, omitted setup, outputs and deliberate failures.
+
+## Memo CLI and program checks
+
+CLI5.5.0 rejects a memo-less transfer before sending a transaction. That exact CLI
+precheck is recorded separately. The supplemental `assert-memo-program-rejection.mjs`
+constructs a local Token-2022 checked transfer without a memo, requires the actual
+program's NoMemo simulation rejection, and checks both token balances remain100/0.
+It accepts only loopback RPC and this article's fresh `.local/run-*` fixture directory;
+it reads only that run's generated payer/alice files. A transfer with a memo must then
+succeed. RPC/signing failures are not accepted as program-rejection evidence.
+
+Prepare the fixture's own pinned libraries before explicit local execution, using an
+installed compatible Node version (validated22.6.0; no toolchain auto-install):
+
+```sh
+npm ci --prefix runtime-deps --ignore-scripts
+```
+
+The wrapper supplies `--experimental-require-module` for the installed CommonJS/ESM
+Web3 interoperability. Published commands and source are unchanged. This direct
+fixture is supplemental protocol verification, not a claim the CLI sent its rejected
+memo-less request.
+
+## Mac runtime result (2026-10-30)
+
+Permanent delegate burn, nontransferable rejection, frozen mint rejection/thaw, CLI memo precheck, direct Token-2022 NoMemo program rejection with unchanged100/0 balances, memo-bearing transfer, and combined permanent-delegate/nontransferable mint behavior passed. The first attempt stopped at the CLI memo precheck and is retained; the supplemental direct-instruction fixture closes the program-level check.
+
+These are observed disposable-local results with CLI5.5.0/Agave3.1.9, not a public-network claim. [Full commands, logs and cleanup](../../../verification/mac-topology-validation-2026-10-30.md) are recorded separately from the earlier cloud static-only results.

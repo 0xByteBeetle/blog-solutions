@@ -97,10 +97,10 @@ const changes=altReady
  ? 'Authorized client-alt-ready.ts variant: poll confirmed ALT contents until all required addresses exist and response.context.slot exceeds lastExtendedSlot; use confirmed preflight and minContextSlot for the consuming transaction, and retain the RPC default rebroadcast policy instead of a three-retry cap. Original client.ts and Rust program preserved. Test-only creator uses a finalized recent slot; fixtures use disposable local mints/wallets. No pre-population unless --prepared-alt is explicitly selected.'
  : regression
  ? name==='transfer-hook-original'
-   ? 'Original program and original test preserved. A separate regression replaces the catch-all negative assertion with assert.rejects matching the hook error, then asserts unchanged rejected-transfer balances and exact successful-transfer balances. Temporary local program ID/provider/wallet only.'
+   ? 'Printed workspace Rust program selected, with only a disposable program ID substituted. The temporary printed initialization client is exported, pointed to loopback, supplied generated program/mint IDs, and guarded against automatic historical demo execution. A separate regression asserts the ExtraAccountMetaList PDA owner, TransferVolumeExceeded rejection, unchanged rejected-transfer balances, and exact successful-transfer balances. Original repository variants and published snapshots remain untouched.'
    : 'Original program and client functions preserved. A temporary client copy guards its automatic historical demo entrypoint. A temporary ALT creator changes recentSlot commitment from confirmed to finalized after a reproduced startup failure. Separate tests wait for a rooted startup slot, create local mints and balances, and supply the actual created ALT. No personal wallets or historical addresses used.'
  : buildOnly
-   ? 'Only temporary program IDs and provider/ports/wallet changed. Original program and two client scripts build/type-checked; stale scaffold test not executed.'
+   ? 'Printed workspace Rust program and published initialization client build/type-checked with disposable local program ID/provider/wallet; published snapshots and original repository variant remain untouched.'
    : 'Only temporary program IDs, provider/ports/wallet, and test launcher changed; original instructions, account layout, and test body preserved. TypeScript tests run transpile-only, not a type-check claim.';
 try{
  run('solana-keygen',['new','--no-bip39-passphrase','--silent','--outfile',wallet]);
@@ -130,7 +130,7 @@ try{
 }finally{
  fs.mkdirSync(`${root}/verification`,{recursive:true});
  const evidenceName=`${name}${regression?'-regression':''}${preparedAlt?'-prepared-alt':''}${altReady?'-alt-ready':''}${checkAnnotations?'-check-annotations':''}`;
- const harnessFiles=['scripts/run-original-anchor.mjs',...(regression?[`scripts/regressions/${name==='transfer-hook-original'?'transfer-hook.ts':'wallet-balances.cjs'}`]:[])];
+ const harnessFiles=['scripts/run-local.mjs',...(regression?[`scripts/regressions/${name==='transfer-hook-original'?'transfer-hook.ts':'wallet-balances.cjs'}`]:[])];
  const harnessHashes=Object.fromEntries(harnessFiles.map(p=>[p,crypto.createHash('sha256').update(fs.readFileSync(root+'/'+p)).digest('hex')]));
  fs.writeFileSync(`${root}/verification/${evidenceName}.json`,JSON.stringify({date:new Date().toISOString(),project:root,status:result,sourceHashes,harnessHashes,command:`node scripts/run-local.mjs --execute-local${buildOnly?' --build-only':regression?' --regression':''}${preparedAlt?' --prepared-alt':''}${altReady?' --alt-ready':''}${checkAnnotations?' --check-annotations':''}`,changes:(checkAnnotations?'Explicit supplemental CHECK documentation variant: only two existing-original CHECK comments added to printed InitializeExtraAccountMetaList fields; no runtime/account-constraint changes. ':'')+changes+(regression&&name==='wallet-token-balances-original'?' Generated IDL is copied under the crate-name alias in the temporary build directory for Anchor log streaming.':'')+(preparedAlt?' Fixture pre-extends the ALT and finalizes it before calling the client; this verifies existing-ALT use, not cold extension.':''),execution,anchorVersion:spawnSync('anchor',['--version'],{encoding:'utf8'}).stdout.trim()},null,2)+'\n');
  fs.rmSync(dir,{recursive:true,force:true});
