@@ -18,3 +18,16 @@ node scripts/run-local.mjs zero-copy-original --execute-local
 Add `--build-only` to either local runner to compile without a validator. Layout tests check size, alignment, field offsets and bytes; local Anchor tests check account initialization. They do not establish production-safe authority constraints.
 
 Anchor configuration is supplemental local-only setup: the checked-in wallet path deliberately does not exist. The runner creates and disposes its own keys and overrides the temporary config; no default/personal wallet is read.
+
+## Supplemental two-step allocation above 10 KiB
+
+Both preserved programs allocate only **32 bytes** with `init`; they demonstrate the small layout, not the article’s large-account allocation pattern. `large-account/` is a labeled supplemental variant with a 16,448-byte account and the same pinned Anchor 0.31.1 toolchain:
+
+```sh
+(cd large-account && cargo test --locked)
+node scripts/run-local.mjs large-account --execute-local
+```
+
+The client first sends a separate System Program `createAccount` transaction with explicit space, rent and program owner. It verifies the buffer is owned by the program, all-zero and larger than 10,240 bytes. A second transaction invokes the `zero`-constrained initializer and `load_init`; later updates use `load_mut`. The runtime tests verify exact size, owner, discriminator-backed state, volume updates and unchanged payload, then reject reinitialization, wrong sizes (10,240; 16,440; 16,456), wrong owner and an unauthorized updater. Host tests verify size/alignment/offsets. This avoids using an inner `init` allocation above its 10,240-byte CPI increase limit; [Anchor’s zero-copy documentation](https://www.anchor-lang.com/docs/features/zero-copy) describes the two-step pattern.
+
+The supplemental variant records an authority and returns a checked overflow error; those are explicit fixture guards, not edits to the original programs or a claim that their access control is production-safe. The existing local runner supplies disposable keys/IDs and an owned loopback validator, then removes its temporary workspace. No public-chain execution is needed.

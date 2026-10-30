@@ -1,0 +1,7 @@
+[toolchain]
+anchor_version = "0.31.1"
+[programs.localnet]
+large_zero_copy = "Bo8J1of9EuuGw3DvSgTdV7Fug65oD7cERLsf5rzF6PG4"
+[provider]
+cluster = "localnet"
+wallet = ".local/use-runner-wallet-not-created.json"

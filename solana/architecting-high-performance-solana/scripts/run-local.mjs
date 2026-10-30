@@ -6,7 +6,7 @@ import {spawnSync} from 'node:child_process';
 import {createServer} from 'node:net';
 import {requireToolchain} from './check-toolchain.mjs';
 const root=path.resolve(import.meta.dirname,'..');
-const projects={"zero-copy": {"directory": "published", "program": "zero_copy_deep_dive"}, "zero-copy-original": {"directory": "original", "program": "borsh_deep_dive"}};
+const projects={"large-account": {"directory": "large-account", "program": "large_zero_copy"}, "zero-copy": {"directory": "published", "program": "zero_copy_deep_dive"}, "zero-copy-original": {"directory": "original", "program": "borsh_deep_dive"}};
 const [name,...flags]=process.argv.slice(2);
 if(!Object.hasOwn(projects,name))throw new Error('Choose an article project: '+Object.keys(projects).join(', '));
 if(!flags.includes('--execute-local'))throw new Error('Refusing execution: --execute-local authorizes disposable local keys and build/test only');

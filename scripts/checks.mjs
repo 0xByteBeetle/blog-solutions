@@ -710,5 +710,20 @@ export const checks = [
       "python3",
       "abi_words.py"
     ]
+  },
+  {
+    "cwd": "solana/where-token-metadata-lives-on-solana",
+    "command": [
+      "npm",
+      "test"
+    ]
+  },
+  {
+    "cwd": "solana/architecting-high-performance-solana/large-account",
+    "command": [
+      "cargo",
+      "test",
+      "--locked"
+    ]
   }
 ];
