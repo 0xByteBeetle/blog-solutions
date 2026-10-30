@@ -2,7 +2,8 @@
 
 `metadata.ts` and `read.ts` are exact copies of blocks 4 and 5 from the preserved
 [article snapshot](../../../articles/solana/where-token-metadata-lives-on-solana/published.md).
-The snapshot was captured September 6, 2026; live article freshness remains unverified.
+The snapshot was captured September 6, 2026; exact live block text was verified
+on October 30 in `verification/live-source-freshness-2026-10-30.json`.
 No imports, API calls, historical addresses, or error-handling logic were changed.
 Hashes and block provenance are in `catalog/source-files.json`.
 

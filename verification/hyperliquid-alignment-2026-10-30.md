@@ -10,7 +10,9 @@ Surrounding source context distinguishes code, intentional negatives, outputs,
 commands, abbreviated responses and diagrams. Screenshots are not fabricated.
 
 The catalog now has 58 articles / 573 blocks (37 EVM + 16 Solana + 5 Hyperliquid).
-The first 53 snapshots remain unchanged pending their separate live-freshness audit.
+The first 53 snapshots remain unchanged. Their separate live browser audit
+verified all 494 blocks exactly on October 30; see
+`live-source-freshness-2026-10-30.json`.
 29 Hyperliquid links are exact literal substrings, including supplemental wrappers
 around exact Solidity source and exact output fixtures. No broad whitespace matcher
 is accepted. The linked Part4 original repository is independently pinned at

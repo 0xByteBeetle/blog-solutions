@@ -54,7 +54,7 @@ if(altReady){
 let result='failed';
 const testCommand=regression?(name==='transfer-hook-original'?`${deps}/.bin/ts-mocha -p ./tsconfig.json -t 120000 regression/*.ts`:`${deps}/.bin/mocha -t 120000 regression/*.cjs`):`${deps}/.bin/ts-mocha -p ./tsconfig.json -t 120000 tests/**/*.ts`;
 const changes=altReady
- ? 'Authorized client-alt-ready.ts variant: poll confirmed ALT contents until all required addresses exist and response.context.slot exceeds lastExtendedSlot; use confirmed preflight and minContextSlot for the consuming transaction. Original client.ts and Rust program preserved. Test-only creator uses a finalized recent slot; fixtures use disposable local mints/wallets. No pre-population unless --prepared-alt is explicitly selected.'
+ ? 'Authorized client-alt-ready.ts variant: poll confirmed ALT contents until all required addresses exist and response.context.slot exceeds lastExtendedSlot; use confirmed preflight and minContextSlot for the consuming transaction, and retain the RPC default rebroadcast policy instead of a three-retry cap. Original client.ts and Rust program preserved. Test-only creator uses a finalized recent slot; fixtures use disposable local mints/wallets. No pre-population unless --prepared-alt is explicitly selected.'
  : regression
  ? name==='transfer-hook-original'
    ? 'Original program and original test preserved. A separate regression replaces the catch-all negative assertion with assert.rejects matching the hook error, then asserts unchanged rejected-transfer balances and exact successful-transfer balances. Temporary local program ID/provider/wallet only.'

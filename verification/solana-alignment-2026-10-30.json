@@ -1,6 +1,6 @@
 {
   "date": "2026-10-30",
-  "scope": "16 cataloged Solana article snapshots; no live freshness or runtime verification.",
+  "scope": "All 16 Solana article snapshots; exact live block text subsequently verified at the dated browser capture. Runtime stages remain separately recorded.",
   "warning": "Broad normalization removes whitespace including literals; diagnostic only, not semantic equality. Archived export is lossy and historical; positive corroboration does not prove exact block boundaries; negative result does not prove author discrepancy.",
   "articles": [
     {
@@ -1385,5 +1385,6 @@
       "blocks": []
     }
   ],
-  "reviewedMatcher": "scripts/check-solana-alignment.mjs: exact substring after individually scoped, manually inspected formatting changes or documented Borsh program-ID substitution. Not a generic Rust/TS parser; no broad whitespace removal."
+  "reviewedMatcher": "scripts/check-solana-alignment.mjs: exact substring after individually scoped, manually inspected formatting changes or documented Borsh program-ID substitution. Not a generic Rust/TS parser; no broad whitespace removal.",
+  "liveSourceEvidence": "verification/live-source-freshness-2026-10-30.json"
 }

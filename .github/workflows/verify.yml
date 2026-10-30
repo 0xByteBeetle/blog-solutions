@@ -29,6 +29,8 @@ jobs:
       - run: node --test scripts/source-integrity.test.mjs
       - run: node scripts/check-evm-alignment.mjs
       - run: node scripts/check-solana-alignment.mjs
+      - run: node scripts/check-live-source-freshness.mjs
+      - run: node --test scripts/live-source-freshness.test.mjs
       - run: node scripts/check-hyperliquid-alignment.mjs
       - run: node --test scripts/hyperliquid-alignment.test.mjs
       - run: node --test scripts/solana-alignment.test.mjs
