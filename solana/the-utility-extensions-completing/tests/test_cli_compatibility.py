@@ -56,6 +56,13 @@ class CliCompatibilityTests(unittest.TestCase):
         self.assertNotEqual(p.returncode,0)
         self.assertIn('reviewed Agave3.1.9 pair',p.stderr)
 
+    def test_unreviewed_561_rejected_even_with_reviewed_agave(self):
+        for agave in ('3.1.9', '3.2.0'):
+            with self.subTest(agave=agave):
+                p=self.run_preflight(mode='--execute-local', TEST_SPL_VERSION='5.6.1', TEST_AGAVE_VERSION=agave)
+                self.assertNotEqual(p.returncode,0)
+                self.assertIn('Unsupported CLI version',p.stderr)
+
     def test_missing_capability_rejected_before_actions(self):
         for flag in ('--metadata-address','--enable-permanent-delegate','--interest-rate','--with-compute-unit-limit'):
             with self.subTest(flag=flag):
