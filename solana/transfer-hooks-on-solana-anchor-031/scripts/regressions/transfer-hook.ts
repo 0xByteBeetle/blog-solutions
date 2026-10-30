@@ -14,6 +14,7 @@ import {
   transferCheckedWithTransferHook,
 } from "@solana/spl-token";
 import assert from "node:assert/strict";
+import { main as initializePublishedClient } from "../scripts/published-client-local";
 
 describe("transfer-hook-project", () => {
   const provider = anchor.AnchorProvider.env();
@@ -22,6 +23,7 @@ describe("transfer-hook-project", () => {
   const program = anchor.workspace.TransferHookProject as Program<TransferHookProject>;
 
   const connection = provider.connection;
+  assert.match(connection.rpcEndpoint, /^http:\/\/127\.0\.0\.1:19899\/?$/);
   const mint = anchor.web3.Keypair.generate();
   const decimals = 9;
 
@@ -64,13 +66,14 @@ describe("transfer-hook-project", () => {
       program.programId
     );
 
-    await program.methods
-      .initializeExtraAccountMetaList()
-      .accounts({
-        mint: mint.publicKey,
-        extraMetasAccount: extraMetasPDA,
-      })
-      .rpc();
+    // Exercise the printed initialization client with disposable local inputs.
+    process.env.BLOG_PROGRAM_ID = program.programId.toBase58();
+    process.env.BLOG_MINT_ID = mint.publicKey.toBase58();
+    await initializePublishedClient();
+    // Published client catches/logs errors, so its return alone cannot prove success.
+    const initialized = await connection.getAccountInfo(extraMetasPDA);
+    assert.ok(initialized, "published client must create its metadata-list PDA");
+    assert.ok(initialized.owner.equals(program.programId), "PDA must be owned by hook program");
   });
 
   it("Test Transfer Hook Logic", async () => {
@@ -100,7 +103,7 @@ describe("transfer-hook-project", () => {
         undefined,
         TOKEN_2022_PROGRAM_ID
       );
-    }, (error: any) => /AmountTooBig|custom program error: 0x1770/.test(String(error) + "\n" + (error.logs || []).join("\n")));
+    }, (error: any) => /TransferVolumeExceeded|custom program error: 0x1770/.test(String(error) + "\n" + (error.logs || []).join("\n")));
     assert.equal((await getAccount(connection, sourceATA, undefined, TOKEN_2022_PROGRAM_ID)).amount, mintAmount);
     assert.equal((await getAccount(connection, destinationATA, undefined, TOKEN_2022_PROGRAM_ID)).amount, 0n);
     console.log("Verified oversized transfer rejected with the hook error; both balances unchanged.");

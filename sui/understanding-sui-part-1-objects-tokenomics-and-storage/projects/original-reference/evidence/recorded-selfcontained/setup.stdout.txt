@@ -1,8 +1,0 @@
-Platform: macos-arm64
-Verified archive SHA-256: 861f8833c5c7008c86aca50e925043baa8e04332dcbd846cc6c31ea0eee16be9
-sui 1.82.3-bf4073918ed3
-Installed CLI: .tools/bin/sui
-Keyless configuration: .local/sui-config
-Move cache: .local/move-cache
-Signing keys: 0
-Created directories: move/sources, move/tests, move/negative/copy_object/sources, client, evidence

@@ -1,49 +1,15 @@
-# Unpacking Hyperliquid Part 3: HyperEVM Precompiles, CoreWriter, and the Solidity Bridge to HyperCore
+# Part 3: precompiles and CoreWriter
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/unpacking-hyperliquid-part-3-hyperevm)
 
-Live native blocks preserved. Offline tests, SDK checks, public-network execution and article completion remain separate.
+The source files preserve the printed contract/library bodies. Compiler headers, the interface import in HyperCoreLimitOrder, and a library wrapper around PriceScale are supplemental. WrongOracle is intentionally incorrect and retained for comparison.
 
-[Article-local setup and requirements](SETUP.md)
+Requires Foundry and Solidity 0.8.30 (pinned, Cancun EVM); no external Solidity packages. From this directory:
 
-Article status: **source-restored**.
+```sh
+forge test -vv
+```
 
-## Recovered source
+Ten supplemental local tests cover ABI call shapes, mock decoding/failures, price-scaling boundaries, and recorded CoreWriter action encoding. No RPC, wallet or deployment is needed. Mocked precompile results and the recording writer are not native HyperCore execution or confirmation of action acceptance.
 
-- [hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter](projects/precompiles-corewriter)
-
-  Run: `forge test --root hyperliquid/unpacking-hyperliquid-part-3-hyperevm/projects/precompiles-corewriter`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | address-map | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | source | [published source](projects/precompiles-corewriter/src/WrongOracle.sol) |
-| [3](published.md#block-3) | source | [published source](projects/precompiles-corewriter/src/HyperCoreRead.sol) |
-| [4](published.md#block-4) | command | Reference/command/output preserved; no standalone program implied |
-| [5](published.md#block-5) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [6](published.md#block-6) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [7](published.md#block-7) | command | Reference/command/output preserved; no standalone program implied |
-| [8](published.md#block-8) | source | [published source](projects/precompiles-corewriter/src/Bbo.sol) |
-| [9](published.md#block-9) | command | Reference/command/output preserved; no standalone program implied |
-| [10](published.md#block-10) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [11](published.md#block-11) | numeric-decoding | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [12](published.md#block-12) | numeric-decoding | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [13](published.md#block-13) | source | [published source](projects/precompiles-corewriter/src/HyperCoreBbo.sol) |
-| [14](published.md#block-14) | source | [published source](projects/precompiles-corewriter/src/SpotBalance.sol) |
-| [15](published.md#block-15) | source | [published source](projects/precompiles-corewriter/src/HyperCoreBalances.sol) |
-| [16](published.md#block-16) | source | [published source](projects/precompiles-corewriter/src/Position.sol) |
-| [17](published.md#block-17) | notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [18](published.md#block-18) | source | [published source](projects/precompiles-corewriter/src/AccountMarginSummary.sol) |
-| [19](published.md#block-19) | source | [published source](projects/precompiles-corewriter/src/UsdClassTransfer.sol) |
-| [20](published.md#block-20) | byte-layout | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [21](published.md#block-21) | byte-layout | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [22](published.md#block-22) | source | [published source](projects/precompiles-corewriter/src/UsdClassTransfer.sol) |
-| [23](published.md#block-23) | type-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [24](published.md#block-24) | source | [published source](projects/precompiles-corewriter/src/HyperCoreLimitOrder.sol) |
-| [25](published.md#block-25) | execution-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [26](published.md#block-26) | execution-notation | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [27](published.md#block-27) | source | [published source](projects/precompiles-corewriter/src/PriceScale.sol) |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
+The original helper reverts for szDecimals > 6; raw order helpers do not enforce market policy. These teaching-scope behaviors are preserved.

@@ -1,1 +1,0 @@
-spl-token transfer <MINT_ACCOUNT> 50 <BOB_TOKEN_ACCOUNT> --confidential

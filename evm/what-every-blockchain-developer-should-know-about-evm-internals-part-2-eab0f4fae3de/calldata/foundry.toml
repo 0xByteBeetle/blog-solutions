@@ -1,0 +1,6 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+libs = []
+solc_version = "0.4.25"

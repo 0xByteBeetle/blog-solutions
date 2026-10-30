@@ -1,1 +1,0 @@
-Topology passed: 58 self-contained article source trees; required mapped files stay inside each article. Runtime dependencies still require local setup.

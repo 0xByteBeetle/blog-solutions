@@ -1,34 +1,12 @@
-# Where Token Metadata Lives on Solana: From Convention to Explicit Data
+# Token metadata clients
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/where-token-metadata-lives-on-solana)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+The two TypeScript files are the article's metadata creation and read examples. They contain historical endpoints/addresses and wallet-dependent operations; type-checking does not execute them.
 
-[Article-local setup and requirements](SETUP.md)
+```sh
+npm ci --ignore-scripts
+npm run check
+```
 
-Article status: **source-restored**.
-
-## Recovered source
-
-- [solana/where-token-metadata-lives-on-solana/projects/metadata-published](projects/metadata-published)
-
-  Run: `npm ci --ignore-scripts && npm run check`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | command | Reference/command/output preserved; no standalone program implied |
-| [2](published.md#block-2) | command | Reference/command/output preserved; no standalone program implied |
-| [3](published.md#block-3) | command | Reference/command/output preserved; no standalone program implied |
-| [4](published.md#block-4) | client-program | [published source](projects/metadata-published/metadata.ts) |
-| [5](published.md#block-5) | client-program | [published source](projects/metadata-published/read.ts) |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/where-token-metadata-lives-on-solana/supplementary/metadata](supplementary/metadata)
-- [solana/where-token-metadata-lives-on-solana/supplementary/token-2022/run-local.sh](supplementary/token-2022/run-local.sh)
+Requires Node and the pinned TypeScript/Metaplex dependencies in package-lock.json. Review credentials, addresses and network before separately authorizing any creation transaction. No key or wallet is included.

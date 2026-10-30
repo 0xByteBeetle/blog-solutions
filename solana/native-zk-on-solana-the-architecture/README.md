@@ -1,38 +1,16 @@
-# Native ZK on Solana: The Architecture of Confidential Transfers
+# Confidential Token-2022 transfers
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/native-zk-on-solana-the-architecture)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+**Blocked by default:** with spl-token 5.5.0/Agave 3.1.9, setup/create/configure/mint passed, then phase 06 deposit simulation failed with `InvalidInstructionData` in Token-2022 Deposit. Apply/transfer/withdraw/destination checks did not run. The last observed public balance was 100; there was no post-failure balance query. This is a specific failed attempt, not proof the feature is universally unsupported.
 
-[Article-local setup and requirements](SETUP.md)
+The historical script preflight requires `spl-token` **5.6.1** and rejects the installed **5.5.0** CLI with exit 1. Python 3, Bash, curl and Solana tools are also required. Passing the version and flag checks does not establish runtime compatibility.
 
-Article status: **source-restored**.
+```sh
+python3 -m unittest discover -s tests -v
+bash run.sh --preflight
+```
 
-## Recovered source
+These scripts are supplemental runnable setup for this article, not a second generic workshop. Preflight checks flags/versions only. Execution creates disposable local keys/accounts and a fresh loopback validator; no default wallet, external RPC or public-network fallback is used. Choose an unused port with `WORKSHOP_RPC_PORT`; keys/logs remain under ignored `.local/`.
 
-- [solana/native-zk-on-solana-the-architecture/additional-examples](additional-examples)
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | command | Reference/command/output preserved; no standalone program implied |
-| [2](published.md#block-2) | commands | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [3](published.md#block-3) | command | Reference/command/output preserved; no standalone program implied |
-| [4](published.md#block-4) | inspection-command | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [5](published.md#block-5) | command | Reference/command/output preserved; no standalone program implied |
-| [6](published.md#block-6) | inspection-command | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [7](published.md#block-7) | command | Reference/command/output preserved; no standalone program implied |
-| [8](published.md#block-8) | commands | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [9](published.md#block-9) | command | Reference/command/output preserved; no standalone program implied |
-| [10](published.md#block-10) | command | Reference/command/output preserved; no standalone program implied |
-| [11](published.md#block-11) | command | Reference/command/output preserved; no standalone program implied |
-| [12](published.md#block-12) | command | Reference/command/output preserved; no standalone program implied |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/native-zk-on-solana-the-architecture/supplementary/token-2022/run-confidential-devnet.sh](supplementary/token-2022/run-confidential-devnet.sh)
+After a passing preflight, `--execute-local` still exits 3 before starting a validator. Do not source `scenario.sh` directly. Enabling it requires a proof-enabled compatible local runtime and successful deposit/apply/transfer/withdraw validation, not just changing the version gate.

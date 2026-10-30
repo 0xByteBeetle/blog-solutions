@@ -1,6 +1,0 @@
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_ownership
-Running Move unit tests
-[ PASS    ] sui_ownership::party_counter::repeated_updates_change_value
-Test result: OK. Total tests: 1; passed: 1; failed: 0

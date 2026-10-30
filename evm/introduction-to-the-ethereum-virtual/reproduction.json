@@ -1,8 +1,0 @@
-{
-  "article": "https://andreyobruchkov1996.substack.com/p/introduction-to-the-ethereum-virtual",
-  "requiredFiles": [
-    "additional-examples/foundry.toml",
-    "supplementary/foundry/foundry.toml"
-  ],
-  "note": "Existing project manifests/setup required for article-local reproduction. Presence is not build/runtime verification; conceptual articles may have none."
-}

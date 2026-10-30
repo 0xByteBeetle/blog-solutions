@@ -1,1 +1,0 @@
-spl-token apply-pending-balance <MINT_ADDRESS>

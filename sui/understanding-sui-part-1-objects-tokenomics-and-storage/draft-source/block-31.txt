@@ -1,1 +1,0 @@
-python3 client/02_decode_coin.py

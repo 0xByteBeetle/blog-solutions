@@ -1,16 +1,9 @@
-.PHONY: setup verify verify-evm verify-solana verify-local
-
+.PHONY: setup verify verify-evm verify-solana
 setup:
-	./scripts/setup.sh
-
+	node scripts/setup-deps.mjs
 verify:
-	./scripts/verify.sh
-
+	bash scripts/verify.sh
 verify-evm:
-	./scripts/verify-evm.sh
-
+	node scripts/verify-minimal.mjs --chain=evm
 verify-solana:
-	./scripts/verify-solana.sh
-
-verify-local:
-	./scripts/verify-local-chains.sh
+	node scripts/verify-minimal.mjs --chain=solana

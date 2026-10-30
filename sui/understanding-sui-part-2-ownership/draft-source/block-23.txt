@@ -1,1 +1,0 @@
-sui client publish move --sender "$ALICE" --gas-budget 100000000 --json > evidence/publish.json

@@ -1,1 +1,0 @@
-spl-token display <TOKEN_ACCOUNT_ACCRESS>

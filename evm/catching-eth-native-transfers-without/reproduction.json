@@ -1,9 +1,0 @@
-{
-  "article": "https://andreyobruchkov1996.substack.com/p/catching-eth-native-transfers-without",
-  "requiredFiles": [
-    "supplementary/foundry/foundry.toml",
-    "supplementary/go/go.mod",
-    "supplementary/go/go.sum"
-  ],
-  "note": "Existing project manifests/setup required for article-local reproduction. Presence is not build/runtime verification; conceptual articles may have none."
-}

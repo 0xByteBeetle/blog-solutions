@@ -1,38 +1,21 @@
-# Batching Calls Efficiently with Multicall and RPC batch
+# Multicall: three ERC20 reads in one eth_call
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/batching-calls-efficiently-with-multicall) · [Published examples](published.md)
+Companion to [Batching Calls Efficiently with Multicall and RPC batch](https://andreyobruchkov1996.substack.com/p/batching-calls-efficiently-with-multicall).
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+`main.go` is unchanged article code. The existing article-local `go.mod` and `go.sum` retain go-ethereum 1.16.1 and its locked dependencies. Tests are supplemental.
 
-[Article-local setup and requirements](SETUP.md)
+Requires Go 1.23.10 or newer. From this directory:
 
-Article status: **source-restored**.
+```sh
+go test -v ./...
+go vet ./...
+go build .
+```
 
-## Recovered source
+Dependencies may be downloaded on first use; with them cached, prefix commands with `GOPROXY=off` for offline resolution. Tests use an owned loopback HTTP mock, not a blockchain, wallet, or public RPC.
 
-- [evm/batching-calls-efficiently-with-multicall/projects/multicall](projects/multicall)
+The tests run the unchanged main against deterministic ABI responses, check one eth_call containing balanceOf/symbol/decimals for the intended addresses, and exercise both success and failed-symbol responses. A separate test rejects truncated ABI return data. Failed symbol prints an empty symbol as in the original code; this is preserved, not silently repaired.
 
-## Recorded checks
+**Do not run `go run .` as an offline test.** The original main defaults to a public Polygon Amoy RPC and historical token/address fixtures. That path is read-only eth_call, but endpoint availability and live contract contents were not verified. No public-network execution was performed.
 
-- [evm/batching-calls-efficiently-with-multicall/projects/multicall: build-checked](../../verification/restored-evm-builds.json) (2026-10-30)
-
-  Checked with: `go build -o /workspace/scratch/affe29344bfe/blog-solutions-topology/evm/batching-calls-efficiently-with-multicall/projects/multicall/.local/program .`
-
-These results apply to the listed projects, not every block in the article. Build-only checks do not submit transactions.
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | program | [published source](projects/multicall/main.go) |
-| [2](published.md#block-2) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [evm/batching-calls-efficiently-with-multicall/supplementary/foundry/src/Observability.sol](supplementary/foundry/src/Observability.sol)
-- [evm/batching-calls-efficiently-with-multicall/supplementary/go/observability](supplementary/go/observability)
-- [evm/batching-calls-efficiently-with-multicall/supplementary/go/rpcbatch](supplementary/go/rpcbatch)
+Verified with Go 1.24.13: tests, vet and build.

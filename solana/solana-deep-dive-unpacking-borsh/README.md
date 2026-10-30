@@ -1,42 +1,20 @@
-# Solana Deep Dive: Unpacking Borsh Serialization Under the Hood
+# Borsh account serialization
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/solana-deep-dive-unpacking-borsh)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
+Requires Node 22+, Anchor **0.31.1**, Agave/Solana **3.1.9**, Rust/Cargo and SBF build tools. On the recorded Node 22.6 environment, set `NODE_OPTIONS=--experimental-require-module` for the Web3/UUID dependency. Install pinned JS dependencies with `npm ci --ignore-scripts`.
 
-[Article-local setup and requirements](SETUP.md)
+Use the local runner, not the historical Anchor provider/wallet settings. `--execute-local` creates disposable keys; even build-only is not credential-free. Runtime tests use a fresh loopback validator on 19899 (with 19901–20000 free), reject public-provider/external-wallet overrides and never use your normal wallet. Source files are copied to a temporary workspace; local program IDs/config are substituted there only.
 
-Article status: **source-restored**.
+`profile/` demonstrates the fixed-size age/balance account; `proposal/` demonstrates dynamic fields and allocation. Both are article-related examples, not interchangeable variants.
 
-## Recovered source
+```sh
+npm test
+node scripts/run-local.mjs borsh-profile --execute-local
+node scripts/run-local.mjs borsh-proposal --execute-local
+(cd proposal && cargo test --locked -p borsh_deep_dive --test allocation)
+```
 
-- [solana/solana-deep-dive-unpacking-borsh/projects/borsh-proposal](projects/borsh-proposal)
-- [solana/solana-deep-dive-unpacking-borsh/projects/borsh-profile](projects/borsh-profile)
+Add `--build-only` to compile without a validator. The sample Proposal payload is 52 bytes, plus its 8-byte discriminator; dynamic inputs require their own sizing. Host allocation tests do not replace local-chain tests.
 
-  Run: `node scripts/run-original-anchor.mjs borsh-profile`
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | struct-fragment | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | program | [published source](projects/borsh-profile/programs/borsh_deep_dive/src/lib.rs) |
-| [3](published.md#block-3) | integration-test | [published source](projects/borsh-profile/tests/published.ts) |
-| [4](published.md#block-4) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [5](published.md#block-5) | published-hash | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [6](published.md#block-6) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [7](published.md#block-7) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [8](published.md#block-8) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [9](published.md#block-9) | struct-fragment | [published source](projects/borsh-proposal/programs/borsh_deep_dive/src/lib.rs) |
-| [10](published.md#block-10) | test-data-fragment | [published source](projects/borsh-proposal/tests/borsh_deep_dive.ts) |
-| [11](published.md#block-11) | published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [12](published.md#block-12) | upstream-pseudocode | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [13](published.md#block-13) | upstream-pseudocode | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/solana-deep-dive-unpacking-borsh/supplementary/anchor/programs/borsh_lab](supplementary/anchor/programs/borsh_lab)
+Anchor configuration is supplemental local-only setup: the checked-in wallet path deliberately does not exist. The runner creates and disposes its own keys and overrides the temporary config; no default/personal wallet is read.

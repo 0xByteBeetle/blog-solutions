@@ -1,7 +1,0 @@
-public value(notebook#0#0: &Notebook): u64 {
-B0:
-	0: MoveLoc[0](notebook#0#0: &Notebook)
-	1: ImmBorrowField[0](Notebook.value: u64)
-	2: ReadRef
-	3: Ret
-}

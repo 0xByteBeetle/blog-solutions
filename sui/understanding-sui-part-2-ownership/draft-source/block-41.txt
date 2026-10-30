@@ -1,5 +1,0 @@
-sui client transfer --to "$BOB" --object-id "$CAPABILITY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/cap-transfer.json
-python3 client/receipt.py evidence/cap-transfer.json
-
-sui client call --package "$PACKAGE" --module owned --function set_value --args "$NOTEBOOK" "$CAPABILITY" 11 --sender "$BOB" --gas-budget 50000000 --json > evidence/owned-bob-update.json
-python3 client/receipt.py evidence/owned-bob-update.json

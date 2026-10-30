@@ -1,4 +1,0 @@
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_ownership
-Total number of linter warnings suppressed: 4 (unique lints: 1)

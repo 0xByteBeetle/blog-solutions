@@ -1,32 +1,5 @@
-# Solana Token-2022 Transfer Hooks and the Fee-on-Transfer Extension
+# Token-2022 CLI walkthrough
 
-[Read the article](https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks) · [Published examples](published.md)
+[Article](https://andreyobruchkov1996.substack.com/p/solana-token-2022-transfer-hooks)
 
-Published blocks preserved. Execution coverage is incomplete; supplementary lab results are not article verification.
-
-[Article-local setup and requirements](SETUP.md)
-
-Article status: **source-restored**.
-
-## Example map
-
-| Block | Type | Source |
-| --- | --- | --- |
-| [1](published.md#block-1) | configuration-command | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [2](published.md#block-2) | commands | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [3](published.md#block-3) | inspection-command | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [4](published.md#block-4) | configuration-command | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [5](published.md#block-5) | commands-and-published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [6](published.md#block-6) | commands-and-published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [7](published.md#block-7) | commands-and-published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [8](published.md#block-8) | commands | Preserved excerpt; runnable implementation scope remains to be reviewed |
-| [9](published.md#block-9) | commands-and-published-output | Preserved excerpt; runnable implementation scope remains to be reviewed |
-
-“Original repo variant” links preserve the author’s repository files byte-for-byte. They may differ from the printed excerpt; the published block remains the exact reference.
-
-## Supplementary labs
-
-These older topic-level labs are not substitutes for the published code.
-
-- [solana/solana-token-2022-transfer-hooks/supplementary/token-2022/run-local.sh](supplementary/token-2022/run-local.sh)
-- [solana/solana-token-2022-transfer-hooks/supplementary/anchor/programs/transfer_hook](supplementary/anchor/programs/transfer_hook)
+This article is a CLI walkthrough with public-network commands, placeholders and outputs. There is no independent program to build here. A generic Anchor/token lab would not reproduce those commands. Consult the article and review each network/key operation before running it; no standalone runtime verification is claimed.

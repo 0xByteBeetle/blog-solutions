@@ -1,13 +1,29 @@
-# Sui draft 222510085: code companion
+# Sui: Ownership
 
-**Unpublished draft — not part of the 58 published-article catalog.**
+Code for [the unpublished draft](https://andreyobruchkov1996.substack.com/publish/post/222510085). Current draft source is preserved; Python tests and keyless run helpers are supplemental.
 
-- `draft-source/`: all native code/command/output blocks, exact hashes and source URL. No full article prose. Commands are source evidence, not a script to execute blindly.
-- `projects/current-draft/`: exact current source plus explicitly supplemental setup and tests.
-- `projects/original-reference/`: selected original code and essential historical evidence, preserved byte-for-byte from commit `432209b5b8e592631e3931b5e9ed5a9b38aef3bb`. Older implementations are reference variants, not proof of current-draft behavior. Import-scope guidance is supplemental; redundant archives/screenshots are excluded.
+## Run locally
 
-Both projects are inside this article folder; no sibling article is required. The original branch remains untouched. Historical evidence is labeled by its original provenance and has not been relabeled as fresh execution.
+Use Python 3.10+ (tested with 3.12) and an existing Sui **1.83.0** CLI. Run from this directory:
 
-Python checks are offline unless a read-only network client is explicitly selected. No wallet, faucet, publish, transfer or transaction commands are run by the supplemental offline checks. Move build/test checks require the documented existing CLI and separate fresh verification; historical passes do not prove this checkpoint.
+```sh
+python3 -m unittest discover -s tests -v
+python3 run_move_tests.py --sui /absolute/path/to/sui
+```
 
-Read the project's setup before running commands. Sui Testnet transaction examples retained as source/history are **not** part of an automatic/default test route.
+The Python tests use synthetic fixtures, not a network. The Move runner uses an isolated empty keystore; it never generates a key or submits a transaction. Initial framework dependency resolution may need network access. The checked-in lock pins the framework.
+
+The Move suite checks seven named tests: capability binding/rejection, registry updates/admin rejection, wrapping identity, freezing and counter updates. Local value tests do not prove network ownership admission or consensus ordering. Twelve Python tests cover receipt selection, mocked object reads and runner guards.
+
+## Read an object (optional network access)
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 client/read_object.py OBJECT_ID observation
+```
+
+The reader defaults to Sui Testnet and saves `evidence/observation.json`. `SUI_GRPC_ENDPOINT` can select another endpoint. Historical IDs may no longer be available. To inspect an existing CLI transaction receipt locally, use `python3 client/receipt.py receipt.json` (or append `package` / an object-type suffix and index). This does not submit a transaction.
+
+Run Python without `-O` or `PYTHONOPTIMIZE`: the original clients use assertions for consistency checks. Generated evidence, caches and build output are ignored.

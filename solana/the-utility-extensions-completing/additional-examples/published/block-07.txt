@@ -1,2 +1,0 @@
-# Create a compliance-gated Mint
-spl-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb create-token --default-account-state frozen --enable-freeze

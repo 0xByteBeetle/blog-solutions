@@ -1,6 +1,0 @@
-
-# Create the base token account
-spl-token create-account <YOUR_MINT_ADDRESS>
-
-# Allocate the cryptographic extension and generate the ElGamal keypair
-spl-token configure-confidential-transfer-account <YOUR_MINT_ADDRESS>

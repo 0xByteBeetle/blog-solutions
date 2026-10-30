@@ -1,0 +1,7 @@
+node_modules/
+target/
+.anchor/
+.local/
+verification/
+__pycache__/
+*.pyc

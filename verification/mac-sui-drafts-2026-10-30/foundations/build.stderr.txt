@@ -1,4 +1,0 @@
-Downloading from https://github.com/MystenLabs/sui.git
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING sui_foundations
