@@ -413,8 +413,6 @@ export const checks = [
     "command": [
       "go",
       "test",
-      "-run",
-      "^$",
       "./..."
     ]
   },
@@ -724,6 +722,75 @@ export const checks = [
       "cargo",
       "test",
       "--locked"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768",
+    "command": [
+      "python3",
+      "permit_local.py"
+    ]
+  },
+  {
+    "cwd": "evm/gas-matters-how-to-reduce-transaction-costs-in-your-solidity-code-0c0303d61a4f",
+    "command": [
+      "python3",
+      "measure_local.py"
+    ]
+  },
+  {
+    "cwd": "evm/what-every-blockchain-developer-should-know-about-evm-internals-part-3-b6813d964592",
+    "command": [
+      "python3",
+      "trace_local.py"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-access-list-transactions-eip",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-dynamic-fee-transactions-eip",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ]
+  },
+  {
+    "cwd": "hyperliquid/unpacking-hyperliquid-part-3-hyperevm",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
     ]
   }
 ];

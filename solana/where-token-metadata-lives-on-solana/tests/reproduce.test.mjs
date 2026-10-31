@@ -4,7 +4,7 @@ import http from 'node:http';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { keypairIdentity, publicKey, sol } from '@metaplex-foundation/umi';
 import { getCreateMetadataAccountV3InstructionDataSerializer, getMetadataAccountDataSerializer, findMetadataPda } from '@metaplex-foundation/mpl-token-metadata';
-import { PROGRAM, DATA, buildMetadata, readMetadata, plan, localUrl, requireMetadataProgram, executeLocal } from '../reproduce.mjs';
+import { PROGRAM, DATA, buildMetadata, readMetadata, plan, localUrl, requireMetadataProgram, executeLocal, validateTokenState } from '../reproduce.mjs';
 function fixture() { const umi = createUmi('http://127.0.0.1:18999'); const payer = umi.eddsa.createKeypairFromSeed(Uint8Array.from({ length: 32 }, () => 1)); const mint = umi.eddsa.createKeypairFromSeed(Uint8Array.from({ length: 32 }, () => 2)).publicKey; umi.use(keypairIdentity(payer)); return { umi, payer, mint }; }
 function rawAccount(umi, payer, mint) { return { exists: true, publicKey: findMetadataPda(umi, { mint })[0], owner: PROGRAM, lamports: sol(1), executable: false, data: getMetadataAccountDataSerializer().serialize({ updateAuthority: payer.publicKey, mint, ...DATA, primarySaleHappened: false, isMutable: true, editionNonce: null, tokenStandard: null, collectionDetails: null, programmableConfig: null }) }; }
 test('builder encodes the preserved V3 fields, payer/authority and derived metadata PDA without RPC', () => {
@@ -56,4 +56,17 @@ test('missing local Metaplex program stops execution before nonexistent key file
     finally {
         await new Promise(r => server.close(r));
     }
+});
+
+test('article mint has nine decimals and exactly 1000 whole tokens in raw units', () => {
+    const { payer, mint } = fixture();
+    const supply = { value: { amount: '1000000000000', decimals: 9 } };
+    const accounts = { value: [{ account: { data: { parsed: { info: { owner: payer.publicKey, mint, tokenAmount: { amount: '1000000000000', decimals: 9 } } } } } }] };
+    assert.equal(validateTokenState(supply, accounts, payer.publicKey, mint), 1000000000000n);
+    assert.throws(() => validateTokenState({ value: { amount: '1000000000', decimals: 6 } }, accounts, payer.publicKey, mint), /supply\/decimals/);
+    const wrong = structuredClone(accounts); wrong.value[0].account.data.parsed.info.tokenAmount.decimals = 6;
+    assert.throws(() => validateTokenState(supply, wrong, payer.publicKey, mint), /account mismatch/);
+    const missing = { value: [] };
+    assert.throws(() => validateTokenState(supply, missing, payer.publicKey, mint), /balance mismatch/);
+    assert.match(plan('http://127.0.0.1:18999', payer.publicKey, mint).steps[1], /nine-decimal/);
 });

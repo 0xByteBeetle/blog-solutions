@@ -45,7 +45,7 @@ if version.returncode or not match or match.group(1) != config["sui_version"]:
     raise SystemExit("Expected Sui " + config["sui_version"] + ". See evidence/local/version.*.txt")
 
 package = root
-build = run("build", ["move", "build"], package)
+build = run("build", ["move", "build", "--disassemble"], package)
 if build.returncode:
     raise SystemExit("Valid package did not build. See evidence/local/build.*.txt")
 artifacts = list((package / "build").glob("*/bytecode_modules/notebook.mv"))
@@ -58,6 +58,13 @@ artifact_record = {
     "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest(),
 }
 print("Compiled artifact:", artifact_record["path"], artifact_record["bytes"], "bytes", flush=True)
+disassembly = package / "build" / "sui_foundations" / "disassembly" / "notebook.mvb"
+text = disassembly.read_text()
+getter = re.search(r"public value\([^}]+^}", text, re.MULTILINE)
+if not getter or not all(op in getter.group() for op in ["MoveLoc", "ImmBorrowField", "ReadRef", "Ret"]):
+    raise SystemExit("Expected notebook.value getter operations in generated disassembly")
+print(getter.group(), flush=True)
+
 
 tests = run("test", ["move", "test"], package)
 test_text = tests.stdout + tests.stderr
