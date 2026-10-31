@@ -57,3 +57,11 @@ func TestDomainAndNonceBindDigest(t *testing.T) {
 		}
 	}
 }
+
+func TestLocalAdapterRejectsExternalOrAmbiguousRPC(t *testing.T) {
+	for _, url := range []string{"https://polygon-amoy.drpc.org", "http://localhost:8545", "http://127.0.0.1:8545/?redirect=x", "http://user:pass@127.0.0.1:8545"} {
+		if _, e := localRPC(url, "eth_chainId", nil); e == nil {
+			t.Fatal("accepted target", url)
+		}
+	}
+}

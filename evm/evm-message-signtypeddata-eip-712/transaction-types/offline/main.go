@@ -2,6 +2,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	ethmath "github.com/ethereum/go-ethereum/common/math"
@@ -30,6 +31,16 @@ func digest(data apitypes.TypedData) []byte {
 }
 func word(n *big.Int) []byte { return common.LeftPadBytes(n.Bytes(), 32) }
 func main() {
+	url := flag.String("rpc-url", "", "explicit owned loopback Anvil URL")
+	verifier := flag.String("verifier", "", "fresh local PermitVerifier address")
+	flag.Parse()
+	if *url != "" || *verifier != "" {
+		if e := verifyLocal(*url, *verifier); e != nil {
+			panic(e)
+		}
+		return
+	}
+
 	key, e := crypto.HexToECDSA(fmt.Sprintf("%064x", 1))
 	if e != nil {
 		panic(e)

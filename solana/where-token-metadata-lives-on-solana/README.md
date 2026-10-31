@@ -23,16 +23,77 @@ npm test
 node reproduce.mjs --rpc-url http://127.0.0.1:8899 --payer PAYER_PUBLIC_KEY --mint NEW_MINT_PUBLIC_KEY
 ```
 
-The execution route requires installed SPL CLI 5.5.0 / Solana 3.1.9 and **an already provisioned loopback validator with the executable Metaplex Token Metadata program**. An ordinary fresh validator lacks that program. The runner checks this first and stops before key reads or token creation; it does not clone/install programs or use a public-network fallback.
+The execution route requires installed **SPL CLI 5.5.0 / Solana and solana-test-validator 3.1.9**. An ordinary fresh validator lacks Metaplex. The runner checks for an executable program first and stops before key reads or token creation; provisioning is a separate opt-in step.
 
-For a separately provisioned disposable local fixture, create two new keypairs in your own temporary directory, fund only its payer from your local faucet, and explicitly pass both absolute file paths:
+### Provision a disposable local validator (opt-in, not executed here)
+
+Use the official program ID declared in [Metaplex's source](https://github.com/metaplex-foundation/mpl-token-metadata/blob/024a6f45a443389815cbfa8855fc1796bc89e4b3/programs/token-metadata/program/src/lib.rs). The recipe exports the program deployed at that ID from the canonical Solana **Devnet RPC** using read-only `program show`/`program dump`, then loads those bytes only into a fresh local ledger. It requires existing Solana CLI tools and `shasum`/`cmp`, not a new installer or an unknown binary-download URL.
+
+The on-chain deployment is **live and upgradeable, not a version-pinned release artifact**. The source link establishes the program identity, not a reproducible-build match for its deployed bytes. Inspect and keep the two `program show` outputs (cluster, ProgramData address, last deployment slot and authority) with the exported SHA-256. Matching before/after outputs guard against an observed upgrade during export. The first recorded hash is an observation, not an independent trust anchor; approve that source/observation yourself and reuse only the reviewed hash. No binary hash or successful provisioning run is claimed here.
+
+From this article directory, after restoring the npm dependencies above:
 
 ```sh
-# Opt-in: sends transactions only to the specified loopback validator.
-node reproduce.mjs --execute-local --rpc-url http://127.0.0.1:8899 \
-  --payer-keypair /ABSOLUTE/DISPOSABLE/payer.json \
-  --mint-keypair /ABSOLUTE/DISPOSABLE/new-mint.json
+# All configs, binary bytes, ledger and disposable keys stay outside Git.
+LAB_DIR=$(mktemp -d "${TMPDIR:-/tmp}/metaplex-local.XXXXXX")
+METADATA_PROGRAM=metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s
+SOURCE_RPC=https://api.devnet.solana.com
+LOCAL_RPC=http://127.0.0.1:8899
+CONFIG="$LAB_DIR/cli.yml"
+solana --version
+solana-test-validator --version
+spl-token --version
+# This config names a nonexistent signer: the following public reads need none.
+solana --config "$CONFIG" config set --url "$SOURCE_RPC" --keypair "$LAB_DIR/no-signer.json"
+solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-before.json"
+solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program dump "$METADATA_PROGRAM" "$LAB_DIR/token-metadata.so"
+solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-after.json"
+cmp "$LAB_DIR/program-before.json" "$LAB_DIR/program-after.json" || exit 1
+shasum -a 256 "$LAB_DIR/token-metadata.so" > "$LAB_DIR/token-metadata.sha256"
+cat "$LAB_DIR/program-after.json" "$LAB_DIR/token-metadata.sha256"
 ```
+
+**Stop and review that provenance/hash before loading.** An unavailable RPC/program, changed deployment or untrusted export is a failure; do not substitute another download. For later reuse, retain the reviewed checksum file and check it against the same binary before loading. A different path needs the same reviewed hash, not a newly accepted value.
+
+The following reader steps explicitly create disposable local keypairs. They do not use a personal/default wallet. Use unused RPC/WebSocket/faucet ports **8899/8900/9900** (or consistently replace them). The payer receives only local genesis SOL through `--mint`, so no public faucet is needed:
+
+```sh
+shasum -a 256 -c "$LAB_DIR/token-metadata.sha256" || exit 1
+solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/payer.json"
+solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/new-mint.json"
+PAYER_PUBLIC_KEY=$(solana-keygen pubkey "$LAB_DIR/payer.json")
+NEW_MINT_PUBLIC_KEY=$(solana-keygen pubkey "$LAB_DIR/new-mint.json")
+solana --config "$CONFIG" config set --url "$LOCAL_RPC" --keypair "$LAB_DIR/payer.json"
+solana-test-validator --config "$CONFIG" --bind-address 127.0.0.1 \
+  --rpc-port 8899 --faucet-port 9900 --ledger "$LAB_DIR/ledger" \
+  --mint "$PAYER_PUBLIC_KEY" --bpf-program "$METADATA_PROGRAM" "$LAB_DIR/token-metadata.so" \
+  > "$LAB_DIR/validator.log" 2>&1 &
+VALIDATOR_PID=$!
+```
+
+Wait for the owned validator to become ready; the bounded loop below checks readiness. Inspect its log and require `cluster-version` to report 3.1.9. Stop if the process exits or a port is occupied. The ledger path must be new: genesis program-loading flags are ignored for an existing ledger. `--bpf-program` disables upgrades in this local fixture; it does not deploy or modify the public program.
+
+```sh
+ATTEMPT=0
+until solana --config "$CONFIG" --url "$LOCAL_RPC" cluster-version; do
+  kill -0 "$VALIDATOR_PID" || exit 1
+  ATTEMPT=$((ATTEMPT + 1))
+  [ "$ATTEMPT" -lt 60 ] || exit 1
+  sleep 1
+done
+kill -0 "$VALIDATOR_PID"
+# Verify the expected program is executable through the existing fail-closed guard.
+node --input-type=module -e 'import {requireMetadataProgram} from "./reproduce.mjs"; await requireMetadataProgram(process.argv[1]); console.log("Executable metadata program found");' "$LOCAL_RPC"
+node reproduce.mjs --rpc-url "$LOCAL_RPC" --payer "$PAYER_PUBLIC_KEY" --mint "$NEW_MINT_PUBLIC_KEY"
+# Opt-in: mint and metadata transactions go only to this explicit loopback node.
+node reproduce.mjs --execute-local --rpc-url "$LOCAL_RPC" \
+  --payer-keypair "$LAB_DIR/payer.json" --mint-keypair "$LAB_DIR/new-mint.json"
+# After inspection, stop only the validator started above:
+kill "$VALIDATOR_PID"
+wait "$VALIDATOR_PID" || true
+```
+
+The final runner output must show raw supply and owner balance `1000000000000`, alongside the verified metadata fields. Keep the exported artifact/provenance only if you need the reviewed local fixture again; otherwise remove your disposable lab directory after stopping its node. The commands and flags were checked against the installed 3.1.9 CLI help and [read-only CLI source](https://github.com/anza-xyz/agave/blob/v3.1.9/cli/src/program.rs), but **the export/load and end-to-end flow have not been executed here**. The runner still performs no automatic provisioning or public-network fallback.
 
 It creates a legacy SPL mint with nine decimals, creates the payer’s associated token account, mints 1000 tokens, submits `CreateMetadataAccountV3` with `Example Token / EXMPL / https://example.com/metadata.json`, then verifies metadata owner/PDA/mint/fields/update authority, raw supply `1000000000000`, and the owner’s token balance. Each CLI call uses an explicit temporary config and loopback URL. No default wallet path is used; the caller owns the disposable keys/validator and removes them afterward. Temporary config files are deleted by the runner. Steps are separate transactions, so a later failure can leave earlier local fixture accounts created.
 
