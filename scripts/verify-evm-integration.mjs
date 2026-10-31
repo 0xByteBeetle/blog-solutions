@@ -18,6 +18,20 @@ function run(cmd,args,cwd=root){const r=spawnSync(cmd,args,{cwd,encoding:'utf8',
 const log=fs.openSync(path.join(temp,'anvil.log'),'w');
 const node=spawn('anvil',['--host','127.0.0.1','--port',String(port),'--silent'],{stdio:['ignore',log,log]});
 let nodeError;node.on('error',e=>nodeError=e);
+const nodeClosed=new Promise(resolve=>node.once('close',resolve));
+let cleanupPromise, interrupted=false;
+function cleanup(){
+ return cleanupPromise??=(async()=>{
+  if(node.exitCode===null&&node.signalCode===null)node.kill('SIGTERM');
+  const timer=setTimeout(()=>node.kill('SIGKILL'),5000);
+  await nodeClosed;clearTimeout(timer);
+  fs.closeSync(log);fs.rmSync(temp,{recursive:true,force:true});
+ })();
+}
+const onSignal=code=>()=>{if(interrupted)return;interrupted=true;void cleanup().then(()=>process.exit(code),()=>process.exit(code));};
+const onInt=onSignal(130),onTerm=onSignal(143);
+process.on('SIGINT',onInt);process.on('SIGTERM',onTerm);
+
 try{
  let ready=false;
  for(let i=0;i<60;i++){
@@ -78,8 +92,8 @@ try{
  send(diamond,'decrement()');assert.equal(call(diamond,'getCounter()(uint256)'),'0');
  pass('diamond',['published selector routing','counter increment','new decrement facet uses shared state']);
 }finally{
- node.kill('SIGTERM');fs.closeSync(log);
+ await cleanup();
  fs.mkdirSync(`${root}/.local/check-results`,{recursive:true});
  fs.writeFileSync(`${root}/.local/check-results/minimal-evm-integration.json`,JSON.stringify({date:new Date().toISOString(),environment:'Disposable loopback-only Anvil; unlocked generated local accounts; no public-network transactions',command:'node scripts/verify-evm-integration.mjs',versions:{forge:run('forge',['--version']),anvil:run('anvil',['--version'])},results},null,2)+'\n');
- fs.rmSync(temp,{recursive:true,force:true});
+ process.off('SIGINT',onInt);process.off('SIGTERM',onTerm);
 }

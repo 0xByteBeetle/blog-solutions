@@ -60,11 +60,11 @@ Fund both disposable addresses through the [official Testnet faucet](https://fau
 ```sh
 sui client faucet --address "$ALICE" --url https://faucet.testnet.sui.io
 sui client faucet --address "$BOB" --url https://faucet.testnet.sui.io
-sui client gas --address "$ALICE"
-sui client gas --address "$BOB"
+sui client balance "$ALICE"
+sui client balance "$BOB"
 ```
 
-Allow at least 1 Testnet SUI each and inspect current balances. For the final two inflight requests Alice needs **two distinct sufficiently funded gas coin objects**; the same owned gas coin cannot safely be used by both. This is a gas-input concern separate from the party counter.
+Allow at least 1 Testnet SUI each and inspect current balances. The pinned faucet credits **address balance**, which does not create Coin<SUI> object IDs. With no explicit `--gas` and no gas-coin use in these Move calls, [CLI 1.83.0 asks the fullnode to select address-balance gas when it covers the budget](https://github.com/MystenLabs/sui/blob/testnet-v1.83.0/crates/sui/src/client_commands.rs#L3634-L3642). The final party calls use this route; no coin materialization or split is required.
 
 For native gRPC object reads, create/activate a virtual environment and install this article's `requirements.txt`. Keep that environment and `SUI_CONFIG_DIR` selected throughout the lab. Receipt files below are your own ignored local output, not historical evidence bundled into Git:
 
@@ -158,16 +158,15 @@ sui client call --package "$PACKAGE" --module party_counter --function create --
 PARTY=$(python3 client/receipt.py evidence/party-create.json '::party_counter::Counter')
 # Expected nonzero owner-admission failure before execution; no committed receipt:
 sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$BOB" --gas-budget 50000000 --json
-sui client gas --address "$ALICE"
+sui client balance "$ALICE"
 ```
 
-Set `GAS_A` and `GAS_B` to **different** current Alice gas coin IDs from that output, each covering the budget. Do not use historical IDs. Then submit both updates before waiting:
+Require Alice’s address balance to cover **both** 50,000,000 MIST budgets. Submit both updates without `--gas`; the fullnode selects address-balance payment for these calls, which never use a gas coin. Then wait for and inspect both receipts:
 
 ```sh
-test -n "$GAS_A" && test -n "$GAS_B" && test "$GAS_A" != "$GAS_B" || exit 1
-sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas "$GAS_A" --gas-budget 50000000 --json > evidence/party-a.json &
+sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/party-a.json &
 PID_A=$!
-sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas "$GAS_B" --gas-budget 50000000 --json > evidence/party-b.json &
+sui client call --package "$PACKAGE" --module party_counter --function increment --args "$PARTY" --sender "$ALICE" --gas-budget 50000000 --json > evidence/party-b.json &
 PID_B=$!
 wait "$PID_A"
 wait "$PID_B"
@@ -176,6 +175,6 @@ python3 client/receipt.py evidence/party-b.json
 python3 client/read_object.py "$PARTY" party
 ```
 
-Require **both successful receipts**, CONSENSUS_ADDRESS ownership by Alice and final value **2**. The two shell processes demonstrate inflight submission, not parallel execution of conflicting writes or a performance benchmark. Owner start version and current object version serve different purposes; versions need not equal the draft's historical numbers. Explicitly selecting separate gas coins is a supplemental reproducibility guard, not a change to the Move program.
+Require **both successful receipts**, CONSENSUS_ADDRESS ownership by Alice and final value **2**. The two shell processes demonstrate inflight submission, not parallel execution of conflicting writes or a performance benchmark. Owner start version and current object version serve different purposes; versions need not equal the draft's historical numbers. Address-balance gas selection avoids requiring nonexistent coin IDs; it does not change the Move program or imply parallel execution of conflicting counter writes.
 
 When finished, unset `SUI_CONFIG_DIR` and remove the disposable lab directory only if you no longer need its Testnet signing keys. Keep keys/recovery phrases out of Git; deleting them relinquishes control of these disposable objects. Network procedures above are documented but **not executed by the agent**; local tests establish value behavior and parser guards, not Testnet admission/finality.

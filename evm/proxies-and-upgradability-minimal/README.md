@@ -16,3 +16,5 @@ forge test
 ## Foundry project
 
 The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.
+
+The supplemental event test ignores Solidity return values, decodes `CloneCreated` topics/data to discover both clone addresses, then checks independent state 100 → 101 / 100.
