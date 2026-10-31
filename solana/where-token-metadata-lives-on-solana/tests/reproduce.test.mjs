@@ -70,3 +70,24 @@ test('article mint has nine decimals and exactly 1000 whole tokens in raw units'
     assert.throws(() => validateTokenState(supply, missing, payer.publicKey, mint), /balance mismatch/);
     assert.match(plan('http://127.0.0.1:18999', payer.publicKey, mint).steps[1], /nine-decimal/);
 });
+
+test('metadata readback requests the confirmed bank when finalized state lags', async () => {
+    const { umi, payer, mint } = fixture();
+    const raw = rawAccount(umi, payer, mint);
+    const methods = [];
+    const server = http.createServer(async (req, res) => {
+        let text = ''; for await (const part of req) text += part;
+        const body = JSON.parse(text); methods.push(body.method);
+        assert.equal(body.method, 'getAccountInfo');
+        assert.equal(body.params[0], raw.publicKey);
+        assert.equal(body.params[1].commitment, 'confirmed');
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ jsonrpc: '2.0', id: body.id, result: { context: { slot: 5 }, value: { owner: PROGRAM, data: [Buffer.from(raw.data).toString('base64'), 'base64'], executable: false, lamports: 1000000, rentEpoch: 0 } } }));
+    });
+    await new Promise(r => server.listen(0, '127.0.0.1', r));
+    try {
+        const client = createUmi('http://127.0.0.1:' + server.address().port);
+        assert.equal((await readMetadata(client, mint)).name, DATA.name);
+        assert.deepEqual(methods, ['getAccountInfo']);
+    } finally { await new Promise(r => server.close(r)); }
+});

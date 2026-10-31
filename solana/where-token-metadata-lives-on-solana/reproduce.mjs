@@ -7,6 +7,7 @@ import { parseArgs } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { publicKey, keypairIdentity, signerIdentity, createNoopSigner } from '@metaplex-foundation/umi';
+import { base58 } from '@metaplex-foundation/umi/serializers';
 import { createMetadataAccountV3, findMetadataPda, deserializeMetadata, Key } from '@metaplex-foundation/mpl-token-metadata';
 export const PROGRAM = publicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
 export const DATA = { name: 'Example Token', symbol: 'EXMPL', uri: 'https://example.com/metadata.json', sellerFeeBasisPoints: 0, creators: null, collection: null, uses: null };
@@ -27,7 +28,7 @@ export async function requireMetadataProgram(url) { const account = await rpc(ur
 export async function readMetadata(umi, mint) {
     mint = publicKey(mint);
     const [address] = findMetadataPda(umi, { mint });
-    const raw = await umi.rpc.getAccount(address);
+    const raw = await umi.rpc.getAccount(address, { commitment: 'confirmed' });
     if (!raw.exists)
         throw Error('Metadata account absent');
     if (raw.owner !== PROGRAM || raw.data[0] !== Key.MetadataV1)
@@ -61,7 +62,7 @@ export async function executeLocal(url, payerFile, mintFile) {
     await requireMetadataProgram(url); // Before key reads, config creation or signed commands.
     if (!/^spl-token-cli 5\.5\.0(?:\s|$)/.test(command('spl-token', ['--version'])) || !/^solana-cli 3\.1\.9(?:\s|$)/.test(command('solana', ['--version'])))
         throw Error('Requires reviewed SPL 5.5.0 / Solana 3.1.9');
-    const umi = createUmi(url);
+    const umi = createUmi(url, { commitment: 'confirmed' });
     const payer = readKey(umi, payerFile), mint = readKey(umi, mintFile);
     umi.use(keypairIdentity(payer));
     const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'metadata-config-'));
@@ -72,14 +73,16 @@ export async function executeLocal(url, payerFile, mintFile) {
         token('create-token', '--decimals', '9', mintFile); // New mint, payer is mint authority.
         token('create-account', mint.publicKey); // Payer's associated token account.
         token('mint', mint.publicKey, '1000'); // 1,000 tokens = 1,000,000,000,000 base units.
-        await buildMetadata(umi, mint.publicKey).sendAndConfirm(umi);
+        const { signature, result } = await buildMetadata(umi, mint.publicKey).sendAndConfirm(umi);
+        if (result.value.err !== null)
+            throw Error('Metadata transaction failed: ' + JSON.stringify(result.value.err));
         const metadata = await readMetadata(umi, mint.publicKey);
         if (metadata.updateAuthority !== payer.publicKey)
             throw Error('Update authority mismatch');
-        const supply = await rpc(url, 'getTokenSupply', [mint.publicKey]);
-        const accounts = await rpc(url, 'getTokenAccountsByOwner', [payer.publicKey, { mint: mint.publicKey }, { encoding: 'jsonParsed' }]);
+        const supply = await rpc(url, 'getTokenSupply', [mint.publicKey, { commitment: 'confirmed' }]);
+        const accounts = await rpc(url, 'getTokenAccountsByOwner', [payer.publicKey, { mint: mint.publicKey }, { encoding: 'jsonParsed', commitment: 'confirmed' }]);
         const amount = validateTokenState(supply, accounts, payer.publicKey, mint.publicKey);
-        console.log(JSON.stringify({ mint: mint.publicKey, metadata: metadata.publicKey, name: metadata.name, supply: supply.value.amount, ownerRawBalance: String(amount) }, null, 2));
+        console.log(JSON.stringify({ mint: mint.publicKey, metadata: metadata.publicKey, metadataSignature: base58.deserialize(signature)[0], updateAuthority: metadata.updateAuthority, name: metadata.name.replace(/\0+$/, ''), symbol: metadata.symbol.replace(/\0+$/, ''), uri: metadata.uri.replace(/\0+$/, ''), decimals: supply.value.decimals, supply: supply.value.amount, ownerRawBalance: String(amount) }, null, 2));
     }
     finally {
         fs.rmSync(temporary, { recursive: true, force: true });
