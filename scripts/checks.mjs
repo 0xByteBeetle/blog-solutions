@@ -792,5 +792,21 @@ export const checks = [
       "tests",
       "-v"
     ]
+  },
+  {
+    "cwd": "evm/evm-message-signtypeddata-eip-712",
+    "command": [
+      "python3",
+      "permit_local.py"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-setcode-transactions-eip-7702/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
   }
 ];
