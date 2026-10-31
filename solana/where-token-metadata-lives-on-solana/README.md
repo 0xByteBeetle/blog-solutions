@@ -78,7 +78,22 @@ The following reader steps explicitly create disposable local keypairs. They do 
 
 **Check listener exposure before starting:** Agave 3.1.9 [hardcodes RPC and WebSocket listeners to all interfaces](https://github.com/anza-xyz/agave/blob/v3.1.9/test-validator/src/lib.rs#L1100), even with `--bind-address 127.0.0.1`; its test faucet also listens on all interfaces. That flag does not make these services loopback-only. All client requests below explicitly use the owned loopback URL, but the host/network must be appropriate for disposable development services. If these listeners are unacceptable on your network, use existing isolation before startup. This recipe does not change your firewall or install an isolation tool.
 
+The startup and run block is a subshell, so its traps do not change your interactive shell. The guarded cleanup stops only its still-running owned child and waits for it on success, error, Ctrl-C or TERM, preserving the original exit status. The readiness loop is bounded. Inspect the log and require `cluster-version` to report 3.1.9; stop on occupied ports. The ledger path must be new because genesis loading flags are ignored for an existing ledger. `--bpf-program` disables upgrades in this local fixture, not on the public program.
+
 ```sh
+(
+set -eu
+cleanup_validator() {
+  result=$?
+  trap - EXIT INT TERM
+  for child in $(jobs -pr); do
+    if [ "$child" = "$VALIDATOR_PID" ]; then
+      kill "$child" 2>/dev/null || true
+    fi
+  done
+  wait "$VALIDATOR_PID" 2>/dev/null || true
+  exit "$result"
+}
 shasum -a 256 -c "$LAB_DIR/token-metadata.sha256" || exit 1
 solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/payer.json"
 solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/new-mint.json"
@@ -90,11 +105,9 @@ solana-test-validator --config "$CONFIG" --bind-address 127.0.0.1 \
   --mint "$PAYER_PUBLIC_KEY" --bpf-program "$METADATA_PROGRAM" "$LAB_DIR/token-metadata.so" \
   > "$LAB_DIR/validator.log" 2>&1 &
 VALIDATOR_PID=$!
-```
-
-Wait for the owned validator to become ready; the bounded loop below checks readiness. Inspect its log and require `cluster-version` to report 3.1.9. Stop if the process exits or a port is occupied. The ledger path must be new: genesis program-loading flags are ignored for an existing ledger. `--bpf-program` disables upgrades in this local fixture; it does not deploy or modify the public program.
-
-```sh
+trap cleanup_validator EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 ATTEMPT=0
 until solana --config "$CONFIG" --url "$LOCAL_RPC" cluster-version; do
   kill -0 "$VALIDATOR_PID" || exit 1
@@ -109,9 +122,7 @@ node reproduce.mjs --rpc-url "$LOCAL_RPC" --payer "$PAYER_PUBLIC_KEY" --mint "$N
 # Opt-in: mint and metadata transactions go only to this explicit loopback node.
 node reproduce.mjs --execute-local --rpc-url "$LOCAL_RPC" \
   --payer-keypair "$LAB_DIR/payer.json" --mint-keypair "$LAB_DIR/new-mint.json"
-# After inspection, stop only the validator started above:
-kill "$VALIDATOR_PID"
-wait "$VALIDATOR_PID" || true
+)
 ```
 
 The final runner output must show raw supply and owner balance `1000000000000`, alongside the verified metadata fields. Keep the exported artifact/provenance only if you need the reviewed local fixture again; otherwise remove your disposable lab directory after stopping its node. The commands and flags match the installed 3.1.9 CLI help and [read-only CLI source](https://github.com/anza-xyz/agave/blob/v3.1.9/cli/src/program.rs). The runner performs no automatic provisioning or public-network fallback.
