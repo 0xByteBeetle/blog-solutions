@@ -13,7 +13,7 @@ cd transaction-types
 go test -run '^$' ./...
 ```
 
-**Do not run the transaction/signing entrypoints as tests.** They contain historical network addresses; the original account helper creates key files and prints private keys. The command above compiles only. Use a separately reviewed disposable local setup before execution; never use a funded/personal wallet. Keep the `transaction-types` directory name because the original helper uses it to resolve paths.
+**Do not run the transaction/signing entrypoints as tests.** They contain historical network addresses; the original account helper creates key files and prints private keys. The command above compiles only. Use the explicit supplemental local route below for execution; never use a funded/personal wallet. Keep the `transaction-types` directory name because the original helper uses it to resolve paths.
 
 ## Execute the offline fixture
 
@@ -41,3 +41,17 @@ python3 discover.py  --rpc-url "$RPC_URL" --chain-id 80002 \
 ```
 
 Set `RPC_URL` to the node/network you intend to inspect and check the expected chain ID. The script checks `eth_chainId`, then sends the article's `eth_createAccessList` parameters (`pending`, gas `0x50000`, gasPrice `0x6fee2d00`). Addresses/calldata are explicit inputs; the gas fields preserve the historical example and may now be unsuitable for that node. A provider may not support this method or may return an execution error if the sender lacks tokens/gas or the call reverts. Errors stop the script; no historical list is substituted. A discovered list reflects that call and state, and does not guarantee a gas saving or future execution success. No wallet, signature or broadcast is used. The curl example transfers 1 token in calldata; the preserved Go program uses a different amount, so do not assume their lists describe identical state transitions.
+
+## Query, send and inspect an owned-local receipt
+
+This supplemental adapter requires installed Anvil/Foundry **1.4.4**, the pinned Go dependencies and cached Solidity **0.8.30**. It accepts no RPC URL or wallet argument. Run from this article:
+
+```sh
+cd transaction-types
+go run ./local                 # plan only
+go run ./local --execute-local
+```
+
+It starts and awaits cleanup of its own loopback Cancun Anvil (chain 31337), checks its chain/fork/client before any mutation, and uses only public **NEVER-FUND** integer fixture keys 1/2 and Anvil account 0. Success, errors and handled SIGINT/SIGTERM terminate and await only the owned child. No default wallet, original account helper or public endpoint is used. Local acceptance is separate from offline signing/KZG checks and does not establish public-chain consensus or mempool acceptance.
+
+The access route uses the article’s exact `transfer(address,uint256)` input: recipient `0x8056361b1c1361436D61D187d761233b42d1c20e`, amount **10^17 raw units**. `local-token/` is a labeled minimal prerequisite replacing the historical token address with a freshly deployed address; it is not a production token. Runtime bytecode, both balance deltas and indexed `Transfer` receipt fields are checked. Type 1 discovers a fresh `eth_createAccessList`, estimates with that list and verifies the mined list is present. Each send uses a fresh pending nonce.

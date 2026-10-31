@@ -16,3 +16,5 @@ forge test
 ## Foundry project
 
 The runnable project is here: [foundry.toml](foundry.toml), [src/](src/) and [test/](test/). Run `forge build` and `forge test` from this article folder. No repository-root setup is required.
+
+The supplemental tests also read raw EIP-1967 admin/implementation words with `vm.load` before and after upgrade, checking the unchanged admin and preserved user state.

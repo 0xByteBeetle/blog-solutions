@@ -1,10 +1,11 @@
-"""Article-local SPL CLI workflow on an owned disposable loopback validator."""
+"""Article-local SPL CLI workflow on an owned disposable local validator; clients use loopback."""
 import argparse
 import json
 import os
 from pathlib import Path
 import socket
 import subprocess
+import signal
 import tempfile
 import time
 import urllib.request
@@ -17,7 +18,7 @@ def configuration(port, environment):
         raise ValueError("Port must be an integer between 1024 and 64000")
     for name in ["SOLANA_URL", "SOLANA_RPC_URL", "ANCHOR_PROVIDER_URL", "WORKSHOP_RPC_URL"]:
         if environment.get(name):
-            raise ValueError("URL overrides are forbidden; this runner owns a loopback validator")
+            raise ValueError("URL overrides are forbidden; this runner owns a local validator with loopback client URLs")
     return f"http://127.0.0.1:{port}"
 
 
@@ -125,7 +126,16 @@ def scenario(port):
     print("Cleaned owned validator, wallets, config and ledger", flush=True)
 
 
+def exit_on_signal(number, _frame):
+    # Unwind the existing owned-child/temp-directory finally blocks once.
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    signal.signal(signal.SIGTERM, signal.SIG_IGN)
+    raise SystemExit(128 + number)
+
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, exit_on_signal)
+    signal.signal(signal.SIGTERM, exit_on_signal)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Check installed tool versions/flags without creating keys")
     parser.add_argument("--rpc-port", type=int, default=30200)

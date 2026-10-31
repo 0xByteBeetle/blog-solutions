@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import socket
 import subprocess
+import signal
 import time
 import urllib.request
 
@@ -42,5 +43,14 @@ def run():
         except subprocess.TimeoutExpired: node.kill(); node.wait(timeout=10)
         node.stderr.close()
 
+def exit_on_signal(number, _frame):
+    # Unwind the existing owned-child/temp-directory finally blocks once.
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    signal.signal(signal.SIGTERM, signal.SIG_IGN)
+    raise SystemExit(128 + number)
+
+
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, exit_on_signal)
+    signal.signal(signal.SIGTERM, exit_on_signal)
     run()

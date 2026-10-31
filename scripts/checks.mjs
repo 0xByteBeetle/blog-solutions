@@ -808,5 +808,75 @@ export const checks = [
       "./local",
       "--execute-local"
     ]
+  },
+  {
+    "cwd": "evm/evm-tx-understanding-legacy-ethereum/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-access-list-transactions-eip/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-dynamic-fee-transactions-eip/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/evm-tx-blob-transactions-eip-4844/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-1-54130865e71e/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./localblob",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "evm/understanding-ethereum-transactions-and-messages-from-state-changes-to-off-chain-messages-part-2-e8ef96b82768/transaction-types",
+    "command": [
+      "go",
+      "run",
+      "./local7702",
+      "--execute-local"
+    ]
+  },
+  {
+    "cwd": "scripts",
+    "command": [
+      "python3",
+      "test_owned_services.py"
+    ]
   }
 ];

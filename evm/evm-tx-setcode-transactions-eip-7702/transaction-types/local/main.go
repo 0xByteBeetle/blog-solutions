@@ -13,8 +13,10 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"os/signal"
 	"path/filepath"
 	"strings"
+	"syscall"
 	"time"
 
 	"github.com/ethereum/go-ethereum"
@@ -29,15 +31,15 @@ import (
 
 const deployKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 
-func command(dir string, args ...string) (string, error) {
-	c := exec.Command(args[0], args[1:]...)
+func command(ctx context.Context, dir string, args ...string) (string, error) {
+	c := exec.CommandContext(ctx, args[0], args[1:]...)
 	c.Dir = dir
 	c.Stderr = os.Stderr
 	out, e := c.Output()
 	return strings.TrimSpace(string(out)), e
 }
 func deploy(ctx context.Context, client *ethclient.Client, dir, url, name string) (common.Address, error) {
-	out, e := command(dir, "forge", "create", "src/"+name+".sol:"+name, "--broadcast", "--json", "--rpc-url", url, "--private-key", deployKey)
+	out, e := command(ctx, dir, "forge", "create", "src/"+name+".sol:"+name, "--broadcast", "--json", "--rpc-url", url, "--private-key", deployKey)
 	if e != nil {
 		return common.Address{}, fmt.Errorf("local deploy %s: %w", name, e)
 	}
@@ -51,7 +53,7 @@ func deploy(ctx context.Context, client *ethclient.Client, dir, url, name string
 		return common.Address{}, fmt.Errorf("deployment omitted address")
 	}
 	address := common.HexToAddress(result.DeployedTo)
-	expected, e := command(dir, "forge", "inspect", "src/"+name+".sol:"+name, "deployedBytecode")
+	expected, e := command(ctx, dir, "forge", "inspect", "src/"+name+".sol:"+name, "deployedBytecode")
 	if e != nil {
 		return address, e
 	}
@@ -85,8 +87,10 @@ func triggerData(authorities []common.Address) ([]byte, error) {
 	}
 	return data, nil
 }
-func run() error {
-	version, e := command(".", "anvil", "--version")
+func run(parent context.Context) error {
+	ctx, cancel := context.WithTimeout(parent, 90*time.Second)
+	defer cancel()
+	version, e := command(ctx, ".", "anvil", "--version")
 	if e != nil {
 		return e
 	}
@@ -114,9 +118,17 @@ func run() error {
 	if e = node.Start(); e != nil {
 		return e
 	}
-	defer func() { node.Process.Kill(); node.Wait() }()
-	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
-	defer cancel()
+	defer func() {
+		_ = node.Process.Signal(syscall.SIGTERM)
+		done := make(chan error, 1)
+		go func() { done <- node.Wait() }()
+		select {
+		case <-done:
+		case <-time.After(5 * time.Second):
+			_ = node.Process.Kill()
+			<-done
+		}
+	}()
 	client, e := ethclient.DialContext(ctx, url)
 	if e != nil {
 		return e
@@ -124,6 +136,9 @@ func run() error {
 	defer client.Close()
 	var chain *big.Int
 	for i := 0; i < 100; i++ {
+		if err := ctx.Err(); err != nil {
+			return err
+		}
 		chain, e = client.ChainID(ctx)
 		if e == nil {
 			break
@@ -164,8 +179,9 @@ func run() error {
 	key1, _ := crypto.HexToECDSA(fmt.Sprintf("%064x", 1))
 	key2, _ := crypto.HexToECDSA(fmt.Sprintf("%064x", 2))
 	authorities := []common.Address{crypto.PubkeyToAddress(key1.PublicKey), crypto.PubkeyToAddress(key2.PublicKey)}
-	for _, a := range authorities {
-		nonce, e := client.NonceAt(ctx, a, nil)
+	nonces := make([]uint64, 2)
+	for i, a := range authorities {
+		nonce, e := client.PendingNonceAt(ctx, a)
 		if e != nil {
 			return e
 		}
@@ -173,6 +189,7 @@ func run() error {
 		if e != nil {
 			return e
 		}
+		nonces[i] = nonce
 		if nonce != 0 || len(code) != 0 {
 			return fmt.Errorf("authority fixture is not fresh")
 		}
@@ -185,11 +202,11 @@ func run() error {
 	if e != nil {
 		return e
 	}
-	first, e := types.SignSetCode(key1, types.SetCodeAuthorization{ChainID: *uint256.NewInt(31337), Address: module, Nonce: 0})
+	first, e := types.SignSetCode(key1, types.SetCodeAuthorization{ChainID: *uint256.NewInt(31337), Address: module, Nonce: nonces[0]})
 	if e != nil {
 		return e
 	}
-	second, e := types.SignSetCode(key2, types.SetCodeAuthorization{ChainID: *uint256.NewInt(31337), Address: module, Nonce: 1})
+	second, e := types.SignSetCode(key2, types.SetCodeAuthorization{ChainID: *uint256.NewInt(31337), Address: module, Nonce: nonces[1] + 1})
 	if e != nil {
 		return e
 	}
@@ -207,7 +224,7 @@ func run() error {
 	if e != nil {
 		return e
 	}
-	tx := types.NewTx(&types.SetCodeTx{ChainID: uint256.NewInt(31337), Nonce: 0, GasTipCap: uint256.MustFromBig(tip), GasFeeCap: uint256.MustFromBig(new(big.Int).Add(price, tip)), Gas: 120000, To: invoker, Data: data, AuthList: []types.SetCodeAuthorization{first, second}})
+	tx := types.NewTx(&types.SetCodeTx{ChainID: uint256.NewInt(31337), Nonce: nonces[1], GasTipCap: uint256.MustFromBig(tip), GasFeeCap: uint256.MustFromBig(new(big.Int).Add(price, tip)), Gas: 120000, To: invoker, Data: data, AuthList: []types.SetCodeAuthorization{first, second}})
 	signed, e := types.SignTx(tx, types.LatestSignerForChainID(chain), key2)
 	if e != nil {
 		return e
@@ -240,7 +257,7 @@ func run() error {
 		return fmt.Errorf("mined SetCode input mismatch")
 	}
 	for i, a := range observed.SetCodeAuthorizations() {
-		if a.Nonce != uint64(i) || a.Address != module || a.ChainID.Uint64() != 31337 {
+		if a.Nonce != []uint64{nonces[0], nonces[1] + 1}[i] || a.Address != module || a.ChainID.Uint64() != 31337 {
 			return fmt.Errorf("mined authorization mismatch")
 		}
 	}
@@ -254,7 +271,7 @@ func run() error {
 		if e != nil {
 			return e
 		}
-		expectedNonce := uint64(i + 1) // other authority 0→1; outer sender 0→1 then auth 1→2.
+		expectedNonce := nonces[i] + uint64(i+1) // other authority 0→1; outer sender 0→1 then auth 1→2.
 		if !bytes.Equal(code, designation) || nonce != expectedNonce {
 			return fmt.Errorf("native designation/nonce mismatch for %s", a)
 		}
@@ -282,7 +299,7 @@ func run() error {
 			return fmt.Errorf("designation did not persist after another block")
 		}
 	}
-	output := map[string]any{"hardfork": info.HardFork, "chainId": 31337, "transaction": signed.Hash(), "type": receipt.Type, "gasUsed": receipt.GasUsed, "calldataBytes": len(data), "authorizationNonces": []int{0, 1}, "finalAccountNonces": []int{1, 2}, "module": module, "invoker": invoker, "pingedCaller": invoker, "eventCount": len(receipt.Logs), "designationPersistsAfterNextBlock": true}
+	output := map[string]any{"hardfork": info.HardFork, "chainId": 31337, "transaction": signed.Hash(), "type": receipt.Type, "gasUsed": receipt.GasUsed, "calldataBytes": len(data), "authorizationNonces": []uint64{nonces[0], nonces[1] + 1}, "finalAccountNonces": []int{1, 2}, "module": module, "invoker": invoker, "pingedCaller": invoker, "eventCount": len(receipt.Logs), "designationPersistsAfterNextBlock": true}
 	out, _ := json.MarshalIndent(output, "", "  ")
 	fmt.Println(string(out))
 	return nil
@@ -298,8 +315,33 @@ func main() {
 		fmt.Println("Plan only: owned Prague Anvil → deploy printed module/invoker → triggerPings calldata → two native authorizations → local type-4 send/receipt → code, nonces and event assertions. Use --execute-local to run; public NEVER-FUND fixtures only.")
 		return
 	}
-	if e := run(); e != nil {
-		fmt.Fprintln(os.Stderr, e)
-		os.Exit(1)
+	os.Exit(executeWithSignals())
+}
+
+func executeWithSignals() int {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals, os.Interrupt, syscall.SIGTERM)
+	defer signal.Stop(signals)
+	interrupted := make(chan int, 1)
+	go func() {
+		select {
+		case s := <-signals:
+			interrupted <- 128 + int(s.(syscall.Signal))
+			cancel()
+		case <-ctx.Done():
+		}
+	}()
+	err := run(ctx)
+	select {
+	case code := <-interrupted:
+		return code
+	default:
 	}
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		return 1
+	}
+	return 0
 }

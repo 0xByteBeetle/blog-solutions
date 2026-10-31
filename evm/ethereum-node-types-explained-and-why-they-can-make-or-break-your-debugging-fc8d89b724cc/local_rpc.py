@@ -6,6 +6,7 @@ import json
 import shutil
 import socket
 import subprocess
+import signal
 import time
 import urllib.request
 
@@ -75,7 +76,16 @@ def run(anvil="anvil", port=0):
             process.kill(); process.wait()
 
 
+def exit_on_signal(number, _frame):
+    # Unwind the existing owned-child/temp-directory finally blocks once.
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+    signal.signal(signal.SIGTERM, signal.SIG_IGN)
+    raise SystemExit(128 + number)
+
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, exit_on_signal)
+    signal.signal(signal.SIGTERM, exit_on_signal)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--anvil", default="anvil", help="Explicit local executable path")
     parser.add_argument("--port", type=int, default=0, help="Loopback-only port; 0 chooses a free port")
