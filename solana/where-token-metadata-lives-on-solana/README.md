@@ -76,9 +76,24 @@ cat "$LAB_DIR/program-after.json" "$LAB_DIR/token-metadata.sha256"
 
 The following reader steps explicitly create disposable local keypairs. They do not use a personal/default wallet. Use unused RPC/WebSocket/faucet ports **8899/8900/9900** (or consistently replace them). The payer receives only local genesis SOL through `--mint`, so no public faucet is needed:
 
-**Check network isolation before starting:** Agave 3.1.9 [hardcodes RPC and WebSocket listeners to all interfaces](https://github.com/anza-xyz/agave/blob/v3.1.9/test-validator/src/lib.rs#L1100), even with `--bind-address 127.0.0.1`; its test faucet also listens on all interfaces. That flag does not make these services loopback-only. Use an already isolated test environment with ingress restricted to your local client; otherwise stop before the startup block. This recipe does not change your firewall or install an isolation tool.
+**Check listener exposure before starting:** Agave 3.1.9 [hardcodes RPC and WebSocket listeners to all interfaces](https://github.com/anza-xyz/agave/blob/v3.1.9/test-validator/src/lib.rs#L1100), even with `--bind-address 127.0.0.1`; its test faucet also listens on all interfaces. That flag does not make these services loopback-only. All client requests below explicitly use the owned loopback URL, but the host/network must be appropriate for disposable development services. If these listeners are unacceptable on your network, use existing isolation before startup. This recipe does not change your firewall or install an isolation tool.
+
+The startup and run block is a subshell, so its traps do not change your interactive shell. The guarded cleanup stops only its still-running owned child and waits for it on success, error, Ctrl-C or TERM, preserving the original exit status. The readiness loop is bounded. Inspect the log and require `cluster-version` to report 3.1.9; stop on occupied ports. The ledger path must be new because genesis loading flags are ignored for an existing ledger. `--bpf-program` disables upgrades in this local fixture, not on the public program.
 
 ```sh
+(
+set -eu
+cleanup_validator() {
+  result=$?
+  trap - EXIT INT TERM
+  for child in $(jobs -pr); do
+    if [ "$child" = "$VALIDATOR_PID" ]; then
+      kill "$child" 2>/dev/null || true
+    fi
+  done
+  wait "$VALIDATOR_PID" 2>/dev/null || true
+  exit "$result"
+}
 shasum -a 256 -c "$LAB_DIR/token-metadata.sha256" || exit 1
 solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/payer.json"
 solana-keygen new --no-bip39-passphrase --silent --outfile "$LAB_DIR/new-mint.json"
@@ -90,11 +105,9 @@ solana-test-validator --config "$CONFIG" --bind-address 127.0.0.1 \
   --mint "$PAYER_PUBLIC_KEY" --bpf-program "$METADATA_PROGRAM" "$LAB_DIR/token-metadata.so" \
   > "$LAB_DIR/validator.log" 2>&1 &
 VALIDATOR_PID=$!
-```
-
-Wait for the owned validator to become ready; the bounded loop below checks readiness. Inspect its log and require `cluster-version` to report 3.1.9. Stop if the process exits or a port is occupied. The ledger path must be new: genesis program-loading flags are ignored for an existing ledger. `--bpf-program` disables upgrades in this local fixture; it does not deploy or modify the public program.
-
-```sh
+trap cleanup_validator EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 ATTEMPT=0
 until solana --config "$CONFIG" --url "$LOCAL_RPC" cluster-version; do
   kill -0 "$VALIDATOR_PID" || exit 1
@@ -109,13 +122,13 @@ node reproduce.mjs --rpc-url "$LOCAL_RPC" --payer "$PAYER_PUBLIC_KEY" --mint "$N
 # Opt-in: mint and metadata transactions go only to this explicit loopback node.
 node reproduce.mjs --execute-local --rpc-url "$LOCAL_RPC" \
   --payer-keypair "$LAB_DIR/payer.json" --mint-keypair "$LAB_DIR/new-mint.json"
-# After inspection, stop only the validator started above:
-kill "$VALIDATOR_PID"
-wait "$VALIDATOR_PID" || true
+)
 ```
 
 The final runner output must show raw supply and owner balance `1000000000000`, alongside the verified metadata fields. Keep the exported artifact/provenance only if you need the reviewed local fixture again; otherwise remove your disposable lab directory after stopping its node. The commands and flags match the installed 3.1.9 CLI help and [read-only CLI source](https://github.com/anza-xyz/agave/blob/v3.1.9/cli/src/program.rs). The runner performs no automatic provisioning or public-network fallback.
 
 It creates a legacy SPL mint with nine decimals, creates the payer’s associated token account, mints 1000 tokens, submits `CreateMetadataAccountV3` with `Example Token / EXMPL / https://example.com/metadata.json`, then verifies metadata owner/PDA/mint/fields/update authority, raw supply `1000000000000`, and the owner’s token balance. Each CLI call uses an explicit temporary config and loopback URL. No default wallet path is used; the caller owns the disposable keys/validator and removes them afterward. Temporary config files are deleted by the runner. Steps are separate transactions, so a later failure can leave earlier local fixture accounts created.
 
-**Verified here:** offline instruction fields/PDA, serialized metadata decoding, malformed/mismatched account rejection, missing-program rejection before key reads/actions, and the keyless Devnet export command above. On 2026-10-31 the canonical export was loaded into a disposable Agave 3.1.9 ledger; exporting that local program again produced the same SHA-256. The owned validator was stopped before minting because its RPC/WebSocket listeners were not confined to loopback. **Not claimed:** an actual Metaplex creation transaction or end-to-end metadata readback. Temporary keys, ledger and exported executable were removed. No public faucet/transaction or personal wallet was used; the URI's off-chain JSON content is not fetched or validated.
+The supplemental route consistently uses **confirmed** commitment for Umi submission and metadata/token readback, matching the SPL CLI's confirmed writes. On a fresh validator the finalized bank can still be at slot 0 after the mint is confirmed; mixing these views caused a metadata simulation failure. The runner checks the confirmed transaction result and prints its signature, metadata address, decoded fields, authority, decimals and balances.
+
+**Verified on 2026-10-31:** the keyless canonical Devnet export and local re-export had matching SHA-256; a fresh article-only copy with Agave 3.1.9, SPL 5.5.0 and Node 22.6.0 completed mint → associated token account → 1000 tokens → metadata creation → readback. The successful local metadata receipt and independently decoded account bytes matched the fields above; supply and owner balance were both `1000000000000`, with nine decimals and the disposable payer as update authority. Six offline tests also cover encoding/decoding, rejection guards and confirmed-bank RPC readback. This is a local test of a live exported program, not an immutable-release or public-network deployment claim. Owned processes, temporary keys, ledger and executable bytes were removed. No public faucet/transaction or personal wallet was used; the URI's off-chain JSON content is not fetched or validated.
