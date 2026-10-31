@@ -25,15 +25,16 @@ node reproduce.mjs --rpc-url http://127.0.0.1:8899 --payer PAYER_PUBLIC_KEY --mi
 
 The execution route requires installed **SPL CLI 5.5.0 / Solana and solana-test-validator 3.1.9**. An ordinary fresh validator lacks Metaplex. The runner checks for an executable program first and stops before key reads or token creation; provisioning is a separate opt-in step.
 
-### Provision a disposable local validator (opt-in, not executed here)
+### Provision a disposable local validator (opt-in)
 
 Use the official program ID declared in [Metaplex's source](https://github.com/metaplex-foundation/mpl-token-metadata/blob/024a6f45a443389815cbfa8855fc1796bc89e4b3/programs/token-metadata/program/src/lib.rs). The recipe exports the program deployed at that ID from the canonical Solana **Devnet RPC** using read-only `program show`/`program dump`, then loads those bytes only into a fresh local ledger. It requires existing Solana CLI tools and `shasum`/`cmp`, not a new installer or an unknown binary-download URL.
 
-The on-chain deployment is **live and upgradeable, not a version-pinned release artifact**. The source link establishes the program identity, not a reproducible-build match for its deployed bytes. Inspect and keep the two `program show` outputs (cluster, ProgramData address, last deployment slot and authority) with the exported SHA-256. Matching before/after outputs guard against an observed upgrade during export. The first recorded hash is an observation, not an independent trust anchor; approve that source/observation yourself and reuse only the reviewed hash. No binary hash or successful provisioning run is claimed here.
+The on-chain deployment is **live and upgradeable, not a version-pinned release artifact**. The source link establishes the program identity, not a reproducible-build match for its deployed bytes. Inspect and keep the two `program show` outputs (cluster, ProgramData address, last deployment slot and authority) with the exported SHA-256. Matching before/after outputs guard against an observed upgrade during export. The first recorded hash is an observation, not an independent trust anchor; review that source/observation and reuse only the reviewed hash.
 
-From this article directory, after restoring the npm dependencies above:
+From this article directory, after restoring the npm dependencies above, use one Bash session. Fail-fast mode and the explicit checks below stop before loading if any read/export fails or produces empty/invalid results:
 
 ```sh
+set -eu
 # All configs, binary bytes, ledger and disposable keys stay outside Git.
 LAB_DIR=$(mktemp -d "${TMPDIR:-/tmp}/metaplex-local.XXXXXX")
 METADATA_PROGRAM=metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s
@@ -43,12 +44,30 @@ CONFIG="$LAB_DIR/cli.yml"
 solana --version
 solana-test-validator --version
 spl-token --version
-# This config names a nonexistent signer: the following public reads need none.
+# This config names a nonexistent signer. Explicit public --buffer-authority
+# avoids Agave 3.1.9's default-signer resolution, even for a concrete program lookup.
 solana --config "$CONFIG" config set --url "$SOURCE_RPC" --keypair "$LAB_DIR/no-signer.json"
-solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-before.json"
+solana --config "$CONFIG" --url "$SOURCE_RPC" genesis-hash > "$LAB_DIR/source-genesis.txt"
+test "$(cat "$LAB_DIR/source-genesis.txt")" = EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG
+solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --buffer-authority "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-before.json"
+test -s "$LAB_DIR/program-before.json"
 solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program dump "$METADATA_PROGRAM" "$LAB_DIR/token-metadata.so"
-solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-after.json"
+test -s "$LAB_DIR/token-metadata.so"
+solana --config "$CONFIG" --url "$SOURCE_RPC" --commitment finalized program show "$METADATA_PROGRAM" --buffer-authority "$METADATA_PROGRAM" --output json > "$LAB_DIR/program-after.json"
+test -s "$LAB_DIR/program-after.json"
 cmp "$LAB_DIR/program-before.json" "$LAB_DIR/program-after.json" || exit 1
+node --input-type=module - "$LAB_DIR/program-before.json" "$LAB_DIR/token-metadata.so" "$METADATA_PROGRAM" <<'JS'
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const [provenance, binary, program] = process.argv.slice(2);
+const p = JSON.parse(fs.readFileSync(provenance, 'utf8'));
+const bytes = fs.readFileSync(binary);
+assert.equal(p.programId, program);
+assert.equal(p.owner, 'BPFLoaderUpgradeab1e11111111111111111111111');
+assert.ok(p.programdataAddress && Number.isInteger(p.lastDeploySlot));
+assert.ok(p.dataLen > 0 && p.dataLen === bytes.length);
+assert.deepEqual([...bytes.subarray(0, 4)], [127, 69, 76, 70]); // ELF header
+JS
 shasum -a 256 "$LAB_DIR/token-metadata.so" > "$LAB_DIR/token-metadata.sha256"
 cat "$LAB_DIR/program-after.json" "$LAB_DIR/token-metadata.sha256"
 ```
@@ -56,6 +75,8 @@ cat "$LAB_DIR/program-after.json" "$LAB_DIR/token-metadata.sha256"
 **Stop and review that provenance/hash before loading.** An unavailable RPC/program, changed deployment or untrusted export is a failure; do not substitute another download. For later reuse, retain the reviewed checksum file and check it against the same binary before loading. A different path needs the same reviewed hash, not a newly accepted value.
 
 The following reader steps explicitly create disposable local keypairs. They do not use a personal/default wallet. Use unused RPC/WebSocket/faucet ports **8899/8900/9900** (or consistently replace them). The payer receives only local genesis SOL through `--mint`, so no public faucet is needed:
+
+**Check network isolation before starting:** Agave 3.1.9 [hardcodes RPC and WebSocket listeners to all interfaces](https://github.com/anza-xyz/agave/blob/v3.1.9/test-validator/src/lib.rs#L1100), even with `--bind-address 127.0.0.1`; its test faucet also listens on all interfaces. That flag does not make these services loopback-only. Use an already isolated test environment with ingress restricted to your local client; otherwise stop before the startup block. This recipe does not change your firewall or install an isolation tool.
 
 ```sh
 shasum -a 256 -c "$LAB_DIR/token-metadata.sha256" || exit 1
@@ -93,8 +114,8 @@ kill "$VALIDATOR_PID"
 wait "$VALIDATOR_PID" || true
 ```
 
-The final runner output must show raw supply and owner balance `1000000000000`, alongside the verified metadata fields. Keep the exported artifact/provenance only if you need the reviewed local fixture again; otherwise remove your disposable lab directory after stopping its node. The commands and flags were checked against the installed 3.1.9 CLI help and [read-only CLI source](https://github.com/anza-xyz/agave/blob/v3.1.9/cli/src/program.rs), but **the export/load and end-to-end flow have not been executed here**. The runner still performs no automatic provisioning or public-network fallback.
+The final runner output must show raw supply and owner balance `1000000000000`, alongside the verified metadata fields. Keep the exported artifact/provenance only if you need the reviewed local fixture again; otherwise remove your disposable lab directory after stopping its node. The commands and flags match the installed 3.1.9 CLI help and [read-only CLI source](https://github.com/anza-xyz/agave/blob/v3.1.9/cli/src/program.rs). The runner performs no automatic provisioning or public-network fallback.
 
 It creates a legacy SPL mint with nine decimals, creates the payer’s associated token account, mints 1000 tokens, submits `CreateMetadataAccountV3` with `Example Token / EXMPL / https://example.com/metadata.json`, then verifies metadata owner/PDA/mint/fields/update authority, raw supply `1000000000000`, and the owner’s token balance. Each CLI call uses an explicit temporary config and loopback URL. No default wallet path is used; the caller owns the disposable keys/validator and removes them afterward. Temporary config files are deleted by the runner. Steps are separate transactions, so a later failure can leave earlier local fixture accounts created.
 
-**Verified here:** offline instruction fields/PDA, serialized metadata decoding, malformed/mismatched account rejection, and a missing-program local RPC mock that proves failure before key reads/actions. **Not claimed:** an actual Metaplex creation transaction or end-to-end chain readback. No Metaplex program was cloned/deployed, no public faucet/transaction was used, and the URI’s off-chain JSON content is not fetched or validated.
+**Verified here:** offline instruction fields/PDA, serialized metadata decoding, malformed/mismatched account rejection, missing-program rejection before key reads/actions, and the keyless Devnet export command above. On 2026-10-31 the canonical export was loaded into a disposable Agave 3.1.9 ledger; exporting that local program again produced the same SHA-256. The owned validator was stopped before minting because its RPC/WebSocket listeners were not confined to loopback. **Not claimed:** an actual Metaplex creation transaction or end-to-end metadata readback. Temporary keys, ledger and exported executable were removed. No public faucet/transaction or personal wallet was used; the URI's off-chain JSON content is not fetched or validated.
