@@ -1,0 +1,21 @@
+{
+  "history": {
+    "oldestBlock": "0x100",
+    "baseFeePerGas": [
+      "0x3b9aca00",
+      "0x3b9aca00",
+      "0x3b9aca00",
+      "0x3b9aca00",
+      "0x3b9aca00",
+      "0x3b9aca00"
+    ],
+    "gasUsedRatio": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "tip": "0x77359400"
+}

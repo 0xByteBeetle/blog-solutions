@@ -1,0 +1,10 @@
+{
+  "note": "Historical literal results and metadata excerpt printed in the article; not a fresh RPC snapshot.",
+  "assetIndex": 3,
+  "asset": {
+    "name": "BTC",
+    "szDecimals": 5
+  },
+  "oracleResult": "0x000000000000000000000000000000000000000000000000000000000009a255",
+  "bboResult": "0x000000000000000000000000000000000000000000000000000000000009a33a000000000000000000000000000000000000000000000000000000000009a42a"
+}
